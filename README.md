@@ -7,6 +7,7 @@
 ## Training
 
 * Hackerrank: https://www.hackerrank.com/
+* Kattis: https://open.kattis.com/
 * USACO: http://train.usaco.org/usacogate
 
 ## Books
