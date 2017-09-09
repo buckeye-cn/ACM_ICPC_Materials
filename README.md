@@ -8,6 +8,8 @@
 
 * Hackerrank: https://www.hackerrank.com/
 * Kattis: https://open.kattis.com/
+    * 2016 North America Qualifier Contest: https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest
+    * 2016 East Central NA Reginal Contest: https://ecna16.kattis.com/problems
 * USACO: http://train.usaco.org/usacogate
 
 ## Books
