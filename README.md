@@ -2,8 +2,11 @@
 
 ## Official Materials
 
+* Official Website: https://icpc.baylor.edu/
+
 ## Training
 
+* Hackerrank: https://www.hackerrank.com/
 * USACO: http://train.usaco.org/usacogate
 
 ## Books
