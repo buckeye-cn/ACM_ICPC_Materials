@@ -18,3 +18,40 @@
 * S. Dasgupta, C. H. Papadimitriou, U. V. Vazirani. Algorithms, 2006
 * T. Cormen, C. Leiserson, R. Rivest, and C. Stein. Introduction to Algorithms, Third edition, 2009
 * R. Sedgewick, K. Wayne. Algorithms, Fourth edition, 2011
+
+## Algorithm List
+
+For reference.
+
+### Basic Algorithms
+
+* Divide and Conquer 分治法, Greedy 贪心法
+* Sorting: Bubble, Quick
+* Searcing: DFS (stack), BFS (queue)
+* Dynamic Programming, Caching
+
+### Data Structures
+
+* Heap 堆, 并查集
+* 线段树, 树状数组
+* BST: Splay 伸展树, Treap, Skip List
+* Linear Space: Hashing, Bitmap
+
+### Math and Geometry
+
+* Algebra: GCD/LCM, 快速幂, 负进位制, 大数/高精度
+* 数论: Euler's Function, 素性测试, 筛法, 中国剩余定理
+* Geometric: Collision Detection, 线段合并, 凸包, ...
+
+### Graph Algorithms
+
+* Shortest Patch: Dijkstra, 负环, Floyd, A*
+* 生成树: Prim, Kruskal
+* 连通性问题
+* 网络流, 二分图匹配
+
+### String Algorithms
+
+* BM/KMP
+* Automata: AC
+* Suffix Array
