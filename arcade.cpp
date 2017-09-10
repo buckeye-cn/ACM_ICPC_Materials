@@ -1,3 +1,5 @@
+// https://open.kattis.com/problems/arcade
+
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
@@ -34,8 +36,7 @@ int main() {
 
     locate[1][1] = 1;
 
-    // for (int i = 0; i < 5; ++i) {
-    for (int i = 1; i <= 1000 * (n + 1); ++i) {
+    for (int i = 1; i <= 10000; ++i) {
     // for (int i = 1; i <= 5000 * (n + 1) * (n + 1); ++i) {
         for (int x = 1; x <= n; ++x) {
             for (int y = 1; y <= x; ++y) {
