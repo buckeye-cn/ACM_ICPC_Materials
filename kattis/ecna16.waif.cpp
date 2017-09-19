@@ -22,19 +22,19 @@ int child_order[128];
 bool used[128];
 int cat_limit[128];
 int filled;
-int best;
+int best[128];
 
 double complexity;
 double c;
 
 void search(int d) {
-    if (rand() > c * RAND_MAX) return;
-    if (d > n) {
-        if (best < filled) best = filled;
-    } else {
+    if (best[d] < filled) best[d] = filled;
+
+    if (d <= n && filled + n - d + 1 > best[n + 1] && filled > best[d] - 3) {
         int child = child_order[d];
 
-        for (int i = 1; i <= child_sum[child]; ++i) {
+        if (rand() < c * RAND_MAX)
+        for (int i = child_sum[child]; i >= 1; --i) {
             int toy = child_want[child][i];
             int cat = toy_cat[toy];
 
@@ -92,10 +92,10 @@ int main() {
         }
     }
 
-    c = exp((150 - complexity) / n);
+    c = exp((18 - complexity) / n);
     search(1);
 
-    cout << best << endl;
+    cout << best[n + 1] << endl;
 
     return 0;
 }
