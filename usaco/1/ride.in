@@ -1,0 +1,2 @@
+COMETQ
+HVNGAT
