@@ -17,16 +17,16 @@ int countA, countB, countAB;
 #define SCAN1(func) \
     for (int i = 1; i <= row; ++i) { \
         for (int j = 1; j <= column; ++j) { \
-            char &self = graph[i][j]; \
-            char &left = graph[i - 1][j]; \
-            char &right = graph[i + 1][j]; \
-            char &top = graph[i][j - 1]; \
-            char &bottom = graph[i][j + 1]; \
-            char &lt = graph[i - 1][j - 1]; \
-            char &lb = graph[i - 1][j + 1]; \
-            char &rt = graph[i + 1][j - 1]; \
-            char &rb = graph[i + 1][j + 1]; \
-            bool end = j == column; \
+            char &self = graph[i][j]; (void) self; \
+            char &left = graph[i - 1][j]; (void) left; \
+            char &right = graph[i + 1][j]; (void) right; \
+            char &top = graph[i][j - 1]; (void) top; \
+            char &bottom = graph[i][j + 1]; (void) bottom; \
+            char &lt = graph[i - 1][j - 1]; (void) lt; \
+            char &lb = graph[i - 1][j + 1]; (void) lb; \
+            char &rt = graph[i + 1][j - 1]; (void) rt; \
+            char &rb = graph[i + 1][j + 1]; (void) rb; \
+            bool end = j == column; (void) end; \
             func \
         } \
     }

@@ -27,10 +27,10 @@ int main() {
         int curr = 0;
 
         for (int j = i; j < s.size(); ++j) {
-            if (nodes[curr][s[j]]) {
-                curr = nodes[curr][s[j]];
+            if (nodes[curr][int(s[j])]) {
+                curr = nodes[curr][int(s[j])];
             } else {
-                curr = nodes[curr][s[j]] = node_tot;
+                curr = nodes[curr][int(s[j])] = node_tot;
                 node_tot += 1;
             }
 
