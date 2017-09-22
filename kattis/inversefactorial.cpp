@@ -10,8 +10,8 @@
 
 using namespace std;
 
-long comp_limit = 10000000000;
-int comp_len = 10;
+long comp_limit = 1e7;
+int comp_len = 7;
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -28,10 +28,10 @@ int main() {
 
     double curr = 1;
 
-    for (long i = 1; i < 240000; ++i) {
+    for (long i = 1; true; ++i) {
         curr *= i;
         while (curr >= comp_limit) {
-            curr /= 10;
+            curr *= 0.1;
         }
 
         if (floor(curr) == target) {
