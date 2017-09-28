@@ -100,7 +100,7 @@ int main() {
 	bool arr = arrive(des, vistied);
 
 	if (arr) {
-		for (unsigned long i = 0; i < vistied.size(); i++) {
+		for (unsigned int i = 0; i < vistied.size(); i++) {
 			cout << stations[vistied[i]];
 			if (i < vistied.size() - 1)
 				cout << " ";

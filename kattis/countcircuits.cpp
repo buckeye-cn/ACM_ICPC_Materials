@@ -3,14 +3,14 @@
 
 using namespace std;
 
-long sum[1024][1024] = {}; // max 10^10
+long sum[801][801] = {}; // max 10^10
 
-inline long* get_sum(int i, int j) {
-	return &sum[i + 400][j + 400];
+inline long& get_sum(int i, int j) {
+	return sum[i + 400][j + 400];
 }
 
 int main() {
-	*get_sum(0, 0) = 1;
+	get_sum(0, 0) = 1;
 
 	int N;
 	cin >> N;
@@ -40,20 +40,20 @@ int main() {
 			int d_j = o_j + v_j;
 			update.push_back(d_i);
 			update.push_back(d_j);
-			update.push_back(*get_sum(o_i, o_j));
+			update.push_back(get_sum(o_i, o_j));
 		}
 
-		for (int i = 0; i < update.size(); i += 3) {
+		for (unsigned int i = 0; i < update.size(); i += 3) {
 			long d_i = update[i];
 			long d_j = update[i+1];
 			long del = update[i+2];
-			auto sum_d = get_sum(d_i, d_j);
-			if (*sum_d == 0) {
+			long& sum_d = get_sum(d_i, d_j);
+			if (sum_d == 0) {
 				nodes.push_back(d_i);
 				nodes.push_back(d_j);
 			}
-			*sum_d += del;
+			sum_d += del;
 		}
 	}
-	cout << *get_sum(sum_i, sum_j) - 1 << endl;
+	cout << get_sum(sum_i, sum_j) - 1 << endl;
 }
