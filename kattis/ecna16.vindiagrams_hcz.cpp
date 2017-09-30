@@ -86,13 +86,13 @@ bool try_explain(char a, char b, char ab) {
                 cross += 1;
             } else if (has_a ^ has_ab) {
                 if (self == 'B') {
-                    self = '&';
+                    ok = false;
                 } else {
                     self = 'A';
                 }
             } else if (has_b ^ has_ab) {
                 if (self == 'A') {
-                    self = '&';
+                    ok = false;
                 } else {
                     self = 'B';
                 }
