@@ -96,38 +96,12 @@ bool try_explain(char a, char b, char ab) {
                 } else {
                     self = 'B';
                 }
-            } else if (has_ab) {
-                self = '!';
             } else {
-                self = '?';
+                ok = false;
             }
         }
     )
     ok &= cross == 2;
-
-    char isA = 0;
-    char isB = 0;
-    SCAN1(
-        if (self == '!' || self == '?') {
-            if (left == 'A' || right == 'A' || top == 'A' || bottom == 'A') {
-                ok &= isA == self || !isA;
-                isA = self;
-            }
-            if (left == 'B' || right == 'B' || top == 'B' || bottom == 'B') {
-                ok &= isB == self || !isB;
-                isB = self;
-            }
-        }
-    )
-
-    SCAN1(
-        if (self == isA) {
-            self = 'A';
-        }
-        if (self == isB) {
-            self = 'B';
-        }
-    )
 
     SCAN1(
         if (self == 'A' || self == 'B') {
