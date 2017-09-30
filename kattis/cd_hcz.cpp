@@ -15,7 +15,7 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
-    for (int nn = 0; nn < 7; ++nn) {
+    for (int nn = 0; true; ++nn) {
         int n, m;
         cin >> n >> m;
 
