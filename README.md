@@ -19,6 +19,17 @@
 * T. Cormen, C. Leiserson, R. Rivest, and C. Stein. Introduction to Algorithms, Third edition, 2009
 * R. Sedgewick, K. Wayne. Algorithms, Fourth edition, 2011
 
+## Offline References
+
+* C/C++: 
+  * [cppreference.com](http://en.cppreference.com/w/Cppreference:Archives)
+* Java:
+  * [Java SE 8 Doc](http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html)
+  * index.html -> Java SE API right bottom corner
+* Python:
+  * [Python 3 Doc](https://docs.python.org/3/download.html)
+
+
 ## Algorithm List
 
 For reference.
