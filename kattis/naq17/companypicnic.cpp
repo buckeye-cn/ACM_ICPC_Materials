@@ -1,4 +1,4 @@
-// https://naq17.kattis.com/problems/companypicnic
+// https://open.kattis.com/problems/companypicnic
 
 #include <cstdlib>
 #include <cstdint>
