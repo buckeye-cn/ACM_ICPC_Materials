@@ -61,8 +61,8 @@ struct EdmondsKarp {
             if (!amount[to]) break;
 
             for (int i = to; i != from; i = edges[route[i]].from){
-                edges[route[i]].flow += amount[i];
-                edges[route[i] ^ 1].flow -= amount[i];
+                edges[route[i]].flow += amount[to];
+                edges[route[i] ^ 1].flow -= amount[to];
             }
 
             flow += amount[to];
