@@ -1,5 +1,5 @@
 // code template for competitions
-// g++ --std=c++11 -Wall -g -O0 ???.cpp && time ./a.out
+// g++ --std=c++11 -Wall -g -O0 ???.cpp && time ./a.out < in
 
 #include <cstdlib>
 #include <cstdint>
@@ -17,6 +17,9 @@
 #include <map>
 #include <random>
 #include <iostream>
+
+#define sqr(x) ((x) * (x))
+#define shl(x) (__int128(1) << (x))
 
 using namespace std;
 
