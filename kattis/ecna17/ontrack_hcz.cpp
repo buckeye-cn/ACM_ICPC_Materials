@@ -17,16 +17,18 @@ int n, m;
 vector<int> conn[25000];
 vector<int> group[25000];
 
-int count(int i, int from) {
-    int result = 1;
+void count(int from, int from_j) {
+    if (group[from][from_j] >= 0) return;
 
+    group[from][from_j] = 1;
+
+    int i = conn[from][from_j];
     for (int j = 0; j < conn[i].size(); ++j) {
         if (conn[i][j] != from) {
-            result += count(conn[i][j], i);
+            count(i, j);
+            group[from][from_j] += group[i][j];
         }
     }
-
-    return result;
 }
 
 int main() {
@@ -42,8 +44,8 @@ int main() {
 
         conn[x].push_back(y);
         conn[y].push_back(x);
-        group[x].push_back(0);
-        group[y].push_back(0);
+        group[x].push_back(-1);
+        group[y].push_back(-1);
 
         if (m < x + 1) m = x + 1;
         if (m < y + 1) m = y + 1;
@@ -56,7 +58,7 @@ int main() {
         int result = 0;
 
         for (int j = 0; j < conn[i].size(); ++j) {
-            group[i][j] = count(conn[i][j], i);
+            count(i, j);
             result += c2(group[i][j]);
         }
 
