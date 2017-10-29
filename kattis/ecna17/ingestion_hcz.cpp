@@ -12,7 +12,7 @@
 using namespace std;
 
 int n;
-int init;
+int pow_list[200];
 int lim[200];
 int dp[200][200][3];
 
@@ -21,14 +21,18 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
-    cin >> n >> init;
+    cin >> n >> pow_list[0];
+
+    for (int i = 0; i < n; ++i) {
+        pow_list[i + 1] = int(pow_list[i] * 2. / 3);
+    }
 
     for (int i = 0; i < n; ++i) {
         cin >> lim[i];
     }
 
     for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
+        for (int j = 0; j <= n; ++j) {
             dp[i][j][0] = -(1 << 30);
             dp[i][j][1] = -(1 << 30);
             dp[i][j][2] = -(1 << 30);
@@ -38,11 +42,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j <= n; ++j) {
-            int w1 = init;
-            for (int t = 0; t < j; ++t) {
-                w1 = int(w1 * 2. / 3);
-            }
-            w1 = min(w1, lim[i]);
+            int w1 = min(pow_list[j], lim[i]);
 
             if (dp[i + 1][j + 1][0] < dp[i][j][0] + w1) {
                 dp[i + 1][j + 1][0] = dp[i][j][0] + w1;
@@ -51,11 +51,7 @@ int main() {
                 dp[i + 1][j][1] = dp[i][j][0];
             }
 
-            int w2 = init;
-            for (int t = 0; t < j - 1; ++t) {
-                w2 = int(w2 * 2. / 3);
-            }
-            w2 = min(w2, lim[i]);
+            int w2 = min(pow_list[j - 1], lim[i]);
 
             if (dp[i + 1][j][0] < dp[i][j][1] + w2) {
                 dp[i + 1][j][0] = dp[i][j][1] + w2;
@@ -64,8 +60,7 @@ int main() {
                 dp[i + 1][j][2] = dp[i][j][1];
             }
 
-            int w3 = init;
-            w3 = min(w3, lim[i]);
+            int w3 = min(pow_list[0], lim[i]);
 
             if (dp[i + 1][1][0] < dp[i][j][2] + w3) {
                 dp[i + 1][1][0] = dp[i][j][2] + w3;
