@@ -51,7 +51,7 @@ int main() {
                 dp[i + 1][j][1] = dp[i][j][0];
             }
 
-            int w2 = min(pow_list[j - 1], lim[i]);
+            int w2 = min(pow_list[max(j - 1, 0)], lim[i]);
 
             if (dp[i + 1][j][0] < dp[i][j][1] + w2) {
                 dp[i + 1][j][0] = dp[i][j][1] + w2;
