@@ -6,11 +6,17 @@
 
 ## Training
 
+### Online Judge
+
 * Hackerrank: https://www.hackerrank.com/
 * Kattis: https://open.kattis.com/
     * 2016 North America Qualifier Contest: https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest
     * 2016 East Central NA Reginal Contest: https://ecna16.kattis.com/problems
+* POJ: http://poj.org/
 * USACO: http://train.usaco.org/usacogate
+
+### Training Roadmap
+* POJ题目分类推荐: http://blog.csdn.net/a1dark/article/details/11714009
 
 ## Books
 
