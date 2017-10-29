@@ -9,12 +9,12 @@
 ### Online Judge
 
 * Kattis: https://open.kattis.com/
-    * 2017 North America Qualifier Contest: [Contest](https://naq17.kattis.com/problems) [Open Section](https://open.kattis.com/problem-sources/2017%20ICPC%20North%20American%20Qualifier%20Contest) [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2017/)
-    * 2016 North America Qualifier Contest: [Contest](https://naq16.kattis.com/problems) [Open Section](https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest) [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/)
-    * 2015 North America Qualifier Contest: [Contest](https://naq15.kattis.com/problems) [Open Section](https://open.kattis.com/problem-sources/2015%20ICPC%20North%20American%20Qualifier%20Contest) [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2015/)
-    * 2017 East Central NA Reginal Contest: [Contest](https://ecna17.kattis.com/problems) [Answer](http://acm-ecna.ysu.edu/PastResults/2017/problemset.html)
-    * 2016 East Central NA Reginal Contest: [Contest](https://ecna16.kattis.com/problems) [Answer](http://acm-ecna.ysu.edu/PastResults/2016/problemset.html)
-    * 2015 East Central NA Reginal Contest: [Contest](https://ecna15.kattis.com/problems) [Answer](http://acm-ecna.ysu.edu/PastResults/2015/problemset.html)
+    * 2017 North America Qualifier Contest: [Contest](https://naq17.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2017%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2017/)
+    * 2016 North America Qualifier Contest: [Contest](https://naq16.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/)
+    * 2015 North America Qualifier Contest: [Contest](https://naq15.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2015%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2015/)
+    * 2017 East Central NA Reginal Contest: [Contest](https://ecna17.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2017/problemset.html)
+    * 2016 East Central NA Reginal Contest: [Contest](https://ecna16.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2016/problemset.html)
+    * 2015 East Central NA Reginal Contest: [Contest](https://ecna15.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2015/problemset.html)
 * Hackerrank: https://www.hackerrank.com/
 * POJ: http://poj.org/
 * USACO: http://train.usaco.org/usacogate
