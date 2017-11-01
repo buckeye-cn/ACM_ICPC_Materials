@@ -1,5 +1,4 @@
 // https://open.kattis.com/problems/towers
-// not AC yet
 
 #include <cstdlib>
 #include <cmath>
@@ -74,12 +73,11 @@ int main() {
             if (inf[j] < inf[x]) {
                 x = j;
             } else if (inf[j] == inf[x]) {
-                if (first[j] - first[x] < first[x] * -0.00000000000001l) {
+                if (first[j] - first[x] < (first[x] + first[j]) * -0.00000000000001l) {
                     x = j;
-                } else if (first[j] - first[x] < first[x] * 0.00000000000001l) {
+                } else if (first[j] - first[x] < (first[x] + first[j]) * 0.00000000000001l) {
                     // comparison
-                    // for (int k = inf[x] - 1; k >= 0; --k) {
-                    for (int k = inf[x] - 3; k >= 0; --k) {
+                    for (int k = inf[x] - 2; k >= 0; --k) {
                         if (a[j][k] < a[x][k]) {
                             x = j;
 
