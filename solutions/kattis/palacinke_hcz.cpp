@@ -90,8 +90,13 @@ int main() {
                 for (int j = 0; j < 2 * n + 1; ++j) {
                     for (int k = 0; k < 2 * n + 1; ++k) {
                         dp_mat[depth & 1][i][k] += dp_mat[(depth & 1) ^ 1][i][j] * dp_mat[(depth & 1) ^ 1][j][k];
-                        dp_mat[depth & 1][i][k] %= MOD;
                     }
+                }
+            }
+
+            for (int i = 0; i < 2 * n + 1; ++i) {
+                for (int j = 0; j < 2 * n + 1; ++j) {
+                    dp_mat[depth & 1][i][j] %= MOD;
                 }
             }
 
@@ -99,8 +104,11 @@ int main() {
                 for (int i = 0; i < 2 * n + 1; ++i) {
                     for (int j = 0; j < 2 * n + 1; ++j) {
                         dp[depth & 1][j] += dp_mat[depth & 1][i][j] * dp[(depth & 1) ^ 1][i];
-                        dp[depth & 1][j] %= MOD;
                     }
+                }
+
+                for (int i = 0; i < 2 * n + 1; ++i) {
+                    dp[depth & 1][i] %= MOD;
                 }
             } else {
                 for (int i = 0; i < 2 * n + 1; ++i) {
