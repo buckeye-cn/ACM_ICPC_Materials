@@ -1,4 +1,4 @@
-// https://open.kattis.com/problems/removalgame
+// https://ecna16.kattis.com/problems/ecna16.removalgame
 
 #include <cstdlib>
 #include <cstdint>
@@ -10,20 +10,19 @@
 
 using namespace std;
 
-int gcd[1024][1024];
+int gcd[1001][1001];
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.precision(10);
 
-    for (int i = 1; i < 1024; ++i) {
-        int max = 1023 / i;
+    for (int i = 1; i <= 1000; ++i) {
+        int max = 1000 / i;
 
         for (int j = 1; j <= max; ++j) {
             for (int k = 1; k <= max; ++k) {
-                if (gcd[i * j][i * k] < i)
-                    gcd[i * j][i * k] = i;
+                gcd[i * j][i * k] = i;
             }
         }
     }
@@ -48,7 +47,7 @@ int main() {
         }
 
         for (int len = 2; len <= tot; ++len) {
-            for (int i = 0; i < 2 * tot - len; ++i) {
+            for (int i = 0; i < tot; ++i) {
                 int val_best = 1 << 30;
 
                 for (int j = i + 1; j < i + len; ++j) {
@@ -61,6 +60,9 @@ int main() {
 
                 best[i][i + len] = val_best;
                 // cout << len << ' ' << i << ' ' << val_best << endl;
+            }
+            for (int i = 0; i < tot - len; ++i) {
+                best[i + tot][i + tot + len] = best[i][i + len];
             }
         }
 
