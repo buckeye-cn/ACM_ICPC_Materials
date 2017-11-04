@@ -1,4 +1,4 @@
-// https://open.kattis.com/problems/ecna16.vindiagrams
+// https://open.kattis.com/problems/vindiagrams
 
 #include <cstdlib>
 #include <cstdint>
@@ -31,9 +31,28 @@ int countA, countB, countAB;
         } \
     }
 
-#define SCAN128(func) \
-    for (int iter = 0; iter < 128; ++iter) { \
+#define RSCAN1(func) \
+    for (int i = row; i >= 1; --i) { \
+        for (int j = column; j >= 1; --j) { \
+            char &self = graph[i][j]; (void) self; \
+            char &left = graph[i - 1][j]; (void) left; \
+            char &right = graph[i + 1][j]; (void) right; \
+            char &top = graph[i][j - 1]; (void) top; \
+            char &bottom = graph[i][j + 1]; (void) bottom; \
+            char &lt = graph[i - 1][j - 1]; (void) lt; \
+            char &lb = graph[i - 1][j + 1]; (void) lb; \
+            char &rt = graph[i + 1][j - 1]; (void) rt; \
+            char &rb = graph[i + 1][j + 1]; (void) rb; \
+            bool end = j == column; (void) end; \
+            func \
+        } \
+    }
+
+#define SCANITER(func) \
+    for (bool updated = true; updated; ) { \
+        updated = false; \
         SCAN1(func) \
+        RSCAN1(func) \
     }
 
 // #define EXITSCAN \
@@ -42,10 +61,11 @@ int countA, countB, countAB;
 //     break;
 
 void find_outside() {
-    SCAN128(
+    SCANITER(
         if (self == '.') {
             if (left == ' ' || right == ' ' || top == ' ' || bottom == ' ') {
                 self = ' ';
+                updated = true;
             }
         }
     )
@@ -53,11 +73,12 @@ void find_outside() {
 
 void find_zone(char k) {
     bool get = false;
-    SCAN128(
+    SCANITER(
         if (self == '.') {
             if (!get || left == k || right == k || top == k || bottom == k) {
                 get = true;
                 self = k;
+                updated = true;
             }
         }
     )

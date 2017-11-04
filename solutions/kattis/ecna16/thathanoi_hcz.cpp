@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.thathanoi
+// https://open.kattis.com/problems/thathanoi
 
 #include <cstdlib>
 #include <cstdint>

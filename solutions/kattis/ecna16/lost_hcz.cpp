@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.lost
+// https://open.kattis.com/problems/lost
 
 #include <cstdlib>
 #include <cstdint>

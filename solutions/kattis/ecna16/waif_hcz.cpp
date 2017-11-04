@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.waif
+// https://open.kattis.com/problems/waif
 
 #include <cstdlib>
 #include <cstdint>

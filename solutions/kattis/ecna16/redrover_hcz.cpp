@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.redrover
+// https://open.kattis.com/problems/redrover
 
 #include <cstdlib>
 #include <cstdint>

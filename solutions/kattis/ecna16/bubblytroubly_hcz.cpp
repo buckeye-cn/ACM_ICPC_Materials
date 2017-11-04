@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.bubblytroubly
+// https://open.kattis.com/problems/bubblytroubly
 
 #include <cstdlib>
 #include <cstdint>

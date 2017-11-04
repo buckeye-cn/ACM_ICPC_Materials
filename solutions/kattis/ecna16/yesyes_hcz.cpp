@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.yesyes
+// https://open.kattis.com/problems/yesyes
 
 #include <cstdlib>
 #include <cstdint>
@@ -50,7 +50,7 @@ int main() {
     memset(b, -1, sizeof(b));
     memset(w, -1, sizeof(w));
 
-    for (int iter = 0; iter < 100; ++iter) {
+    for (int iter = 0; iter < 20; ++iter) {
         for (int i = 0; i < 2; ++i) {
             for (int j = 1; j <= n[i]; ++j) {
                 __int128 line_b[128][128];

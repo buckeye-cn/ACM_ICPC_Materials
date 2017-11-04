@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.keytocrypto
+// https://open.kattis.com/problems/keytocrypto
 
 #include <cstdlib>
 #include <cstdint>

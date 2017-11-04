@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.foosball
+// https://open.kattis.com/problems/foosball
 
 #include <cstdlib>
 #include <cstdint>
