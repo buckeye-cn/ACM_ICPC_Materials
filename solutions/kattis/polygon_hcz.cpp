@@ -10,16 +10,14 @@
 
 using namespace std;
 
-#define sign(x) ((x) > 0 ? 1 : (x) < 0 ? -1 : 0)
-
 long n;
 long x[50000];
 long y[50000];
 long sx[50000];
 long sy[50000];
 
-#define SCALE 160
-#define SLOT 1000
+#define SCALE 200
+#define SLOT 200
 long pxmap_tot[32000 / SCALE][32000 / SCALE];
 long pxmap[32000 / SCALE][32000 / SCALE][SLOT];
 
