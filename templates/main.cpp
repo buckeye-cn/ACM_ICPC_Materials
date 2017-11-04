@@ -1,22 +1,24 @@
 // code template for competitions
-// g++ --std=c++11 -Wall -g -O0 ???.cpp && time ./a.out < in
+// g++ -std=c++11 -Wall -g -O2 ???.cpp && time ./a.out < in
 
-#include <cstdlib>
+#include <algorithm>
+#include <cmath>
 #include <cstdint>
 #include <cstdio>
-#include <cmath>
+#include <cstdlib>
 #include <cstring>
 #include <functional>
-#include <algorithm>
-#include <tuple>
-#include <string>
-#include <vector>
-#include <stack>
-#include <queue>
-#include <set>
-#include <map>
-#include <random>
 #include <iostream>
+#include <map>
+#include <queue>
+#include <random>
+#include <set>
+#include <stack>
+#include <string>
+#include <tuple>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
 
 #define sqr(x) ((x) * (x))
 #define shl(x) (__int128(1) << (x))
