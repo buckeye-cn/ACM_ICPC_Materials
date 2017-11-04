@@ -3,26 +3,22 @@
 
 using namespace std;
 
-inline float factorial(uint16_t x) {
-    switch (x) {
-        case 0 : return 1;
-        case 1 : return 1;
-        case 2 : return 2;
-        case 3 : return 6;
-        case 4 : return 24;
-        case 5 : return 120;
-        case 6 : return 720;
-        case 7 : return 5040;
-        case 8 : return 40320;
-        case 9 : return 362880;
-        case 10: return 3628800;
-        case 11: return 39916800;
-        default: return 0;
-    }
-}
+const float factorial[11] = {
+    1.f,
+    1.f,
+    2.f,
+    6.f,
+    24.f,
+    120.f,
+    720.f,
+    5040.f,
+    40320.f,
+    362880.f,
+    3628800.f,
+};
 
 inline float choose(uint16_t n, uint16_t k) {
-    return factorial(n) / factorial(k) / factorial(n-k);
+    return factorial[n] / factorial[k] / factorial[n-k];
 }
 
 int main() {
@@ -44,7 +40,7 @@ int main() {
             cout << "no\n";
         } else {
             float p = 0.f;
-            for (uint8_t i = x; i <= y; i++) {
+            for (uint16_t i = x; i <= y; i++) {
                 p += choose(y, i) * pow(p_win, i) * pow(1.f-p_win, y-i);
             }
             if (p * w > 1.f) {
