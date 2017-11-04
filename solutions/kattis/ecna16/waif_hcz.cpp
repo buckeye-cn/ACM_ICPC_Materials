@@ -76,6 +76,7 @@ EdmondsKarp ek;
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     cout.precision(10);
 
     cin >> n >> m >> p;

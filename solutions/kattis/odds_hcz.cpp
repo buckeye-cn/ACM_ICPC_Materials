@@ -1,7 +1,11 @@
 // https://open.kattis.com/problems/odds
 
 #include <cstdlib>
+#include <cstdint>
+#include <cstdio>
 #include <cmath>
+#include <cstring>
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -26,6 +30,7 @@ int gcd(int a, int b) {
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     cout.precision(10);
 
     for (int s1 = 1; s1 <= 6; ++s1) {

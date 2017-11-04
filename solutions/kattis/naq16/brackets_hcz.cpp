@@ -1,9 +1,12 @@
 // https://open.kattis.com/problems/brackets
 
 #include <cstdlib>
+#include <cstdint>
+#include <cstdio>
 #include <cmath>
-#include <iostream>
+#include <cstring>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -13,6 +16,7 @@ int maxv[6000][6000];
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     cout.precision(10);
 
     string s;

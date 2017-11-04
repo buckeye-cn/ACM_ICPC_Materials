@@ -1,7 +1,11 @@
 // https://open.kattis.com/problems/arcade
 
 #include <cstdlib>
+#include <cstdint>
+#include <cstdio>
 #include <cmath>
+#include <cstring>
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -18,6 +22,7 @@ double totfall;
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     cout.precision(10);
 
     cin >> n;

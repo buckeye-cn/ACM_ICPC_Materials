@@ -18,6 +18,7 @@ int pos_table[2][6] = {{0, 1, 1, 2, 2, 0}, {0, 2, 2, 1, 1, 0}};
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     cout.precision(10);
 
     for (int i = 0; i < 3; ++i) {

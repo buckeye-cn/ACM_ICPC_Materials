@@ -62,6 +62,7 @@ void iter(int index, long curr_s, long a, int set_a, long b, int set_b, long bc,
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     cout.precision(10);
 
     cin >> s;

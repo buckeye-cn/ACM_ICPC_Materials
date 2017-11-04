@@ -1,7 +1,11 @@
 // https://open.kattis.com/problems/hack
 
 #include <cstdlib>
+#include <cstdint>
+#include <cstdio>
 #include <cmath>
+#include <cstring>
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -41,6 +45,7 @@ void write_num(int x, int size) {
 
 int main() {
     ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
     cout.precision(10);
 
     for (int i = 3; i <= 6; ++i) {
