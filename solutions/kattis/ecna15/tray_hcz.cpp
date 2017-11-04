@@ -1,4 +1,4 @@
-// https://ecna15.kattis.com/problems/tray
+// https://open.kattis.com/problems/tray
 
 #include <cstdlib>
 #include <cstdint>
