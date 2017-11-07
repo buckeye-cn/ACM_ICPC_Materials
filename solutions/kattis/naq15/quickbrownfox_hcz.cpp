@@ -16,8 +16,8 @@ int main() {
     cout.precision(10);
 
     int n;
-    char lf;
-    cin >> n >> lf;
+    cin >> n;
+    cin.get();
 
     for (int i = 0; i < n; ++i) {
         string s;
