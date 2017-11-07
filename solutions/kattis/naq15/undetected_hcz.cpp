@@ -14,7 +14,6 @@
 using namespace std;
 
 int n;
-
 int m[201][301];
 
 int main() {
