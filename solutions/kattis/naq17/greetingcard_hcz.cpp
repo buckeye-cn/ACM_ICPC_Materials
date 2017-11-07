@@ -6,19 +6,21 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <vector>
+#include <unordered_set>
 #include <iostream>
 
 using namespace std;
 
 #define sqr(x) ((x) * (x))
 
+// note: this is a hack solution
+//       larger MOD, more chance to AC
+//       please see laurence's implementation
+#define MOD 1725433
+
 int n;
-long x[200000];
-long y[200000];
-vector<int> *x2018[1009][1009];
-vector<int> *x1680[560][559];
-vector<int> *x1118[559][560];
+uint64_t data[100000];
+uint64_t data_hash[MOD + 3];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -28,62 +30,59 @@ int main() {
     cin >> n;
 
     for (int i = 0; i < n; ++i) {
-        long xx, yy;
+        uint64_t xx, yy;
 
         cin >> xx >> yy;
-        x[i] = xx;
-        y[i] = yy;
+        ++xx; ++yy;
 
-        if (!x2018[xx % 1009][yy % 1009])
-            x2018[xx % 1009][yy % 1009] = new vector<int>();
-        x2018[xx % 1009][yy % 1009]->push_back(i);
-        if (!x1680[xx % 560][yy % 559])
-            x1680[xx % 560][yy % 559] = new vector<int>();
-        x1680[xx % 560][yy % 559]->push_back(i);
-        if (!x1118[xx % 559][yy % 560])
-            x1118[xx % 559][yy % 560] = new vector<int>();
-        x1118[xx % 559][yy % 560]->push_back(i);
+        data[i] = (xx << 32) + yy;
+
+        uint64_t hash = data[i] % MOD;
+        if (data_hash[hash]) ++hash;
+        if (data_hash[hash]) ++hash;
+        if (data_hash[hash]) ++hash;
+        data_hash[hash] = data[i];
     }
 
     long count = 0;
 
-    for (int p = 0; p < 1009; ++p)
-    for (int q = 0; q < 1009; ++q)
-    if (x2018[p][q])
-    for (int i: *x2018[p][q])
-    for (int j: *x2018[p][q]) {
-        if (i == j) continue;
-        if (x[i] + 2018 == x[j] && y[i] == y[j]) {
-            count += 1;
-        } else if (x[i] == x[j] && y[i] + 2018 == y[j]) {
-            count += 1;
-        }
-    }
+    for (int i = 0; i < n; ++i) {
+        uint64_t hash1 = (data[i] + (0ul << 32) + 2018ul);
+        uint64_t hash2 = (data[i] + (2018ul << 32) + 0ul);
+        uint64_t hash3 = (data[i] + (1680ul << 32) - 1118ul);
+        uint64_t hash4 = (data[i] + (1680ul << 32) + 1118ul);
+        uint64_t hash5 = (data[i] + (1118ul << 32) - 1680ul);
+        uint64_t hash6 = (data[i] + (1118ul << 32) + 1680ul);
 
-    for (int p = 0; p < 560; ++p)
-    for (int q = 0; q < 559; ++q)
-    if (x1680[p][q])
-    for (int i: *x1680[p][q])
-    for (int j: *x1680[p][q]) {
-        if (i == j) continue;
-        if (x[i] + 1680 == x[j] && y[i] + 1118 == y[j]) {
-            count += 1;
-        } else if (x[i] + 1680 == x[j] && y[i] - 1118 == y[j]) {
-            count += 1;
-        }
-    }
+        count += data_hash[hash1 % MOD] == hash1;
+        count += data_hash[hash1 % MOD + 1] == hash1;
+        count += data_hash[hash1 % MOD + 2] == hash1;
+        count += data_hash[hash1 % MOD + 3] == hash1;
 
-    for (int p = 0; p < 559; ++p)
-    for (int q = 0; q < 560; ++q)
-    if (x1118[p][q])
-    for (int i: *x1118[p][q])
-    for (int j: *x1118[p][q]) {
-        if (i == j) continue;
-        if (x[i] + 1118 == x[j] && y[i] + 1680 == y[j]) {
-            count += 1;
-        } else if (x[i] + 1118 == x[j] && y[i] - 1680 == y[j]) {
-            count += 1;
-        }
+        count += data_hash[hash2 % MOD] == hash2;
+        count += data_hash[hash2 % MOD + 1] == hash2;
+        count += data_hash[hash2 % MOD + 2] == hash2;
+        count += data_hash[hash2 % MOD + 3] == hash2;
+
+        count += data_hash[hash3 % MOD] == hash3;
+        count += data_hash[hash3 % MOD + 1] == hash3;
+        count += data_hash[hash3 % MOD + 2] == hash3;
+        count += data_hash[hash3 % MOD + 3] == hash3;
+
+        count += data_hash[hash4 % MOD] == hash4;
+        count += data_hash[hash4 % MOD + 1] == hash4;
+        count += data_hash[hash4 % MOD + 2] == hash4;
+        count += data_hash[hash4 % MOD + 3] == hash4;
+
+        count += data_hash[hash5 % MOD] == hash5;
+        count += data_hash[hash5 % MOD + 1] == hash5;
+        count += data_hash[hash5 % MOD + 2] == hash5;
+        count += data_hash[hash5 % MOD + 3] == hash5;
+
+        count += data_hash[hash6 % MOD] == hash6;
+        count += data_hash[hash6 % MOD + 1] == hash6;
+        count += data_hash[hash6 % MOD + 2] == hash6;
+        count += data_hash[hash6 % MOD + 3] == hash6;
     }
 
     cout << count << endl;
