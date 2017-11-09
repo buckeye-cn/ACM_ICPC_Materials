@@ -6,8 +6,7 @@
 
 using namespace std;
 
-constexpr uint32_t inf_c = ~0;
-constexpr uint32_t layer_m = 1l << 24;
+constexpr uint32_t LAYER_M = 1l << 24;
 
 unordered_multimap<uint32_t, uint32_t> roads = {};
 unordered_multimap<uint32_t, uint32_t> flights = {};
@@ -22,21 +21,33 @@ inline void new_todo(uint64_t city, uint64_t cost_n) {
 }
 
 inline void update_todo(uint64_t city, uint64_t cost_o, uint64_t cost_n) {
-    auto td_o = todo.find((cost_o << 32) + city);
-    if (td_o != todo.end()) {
-        todo.erase(td_o);
-        todo.insert((cost_n << 32) + city);
-    } else if (visited.count(city) == 0) {
-        new_todo(city, cost_n);
-    }
+    todo.erase((cost_o << 32) + city);
+    new_todo(city, cost_n);
 };
 
-inline void pop_todo(uint32_t& city, uint32_t& cost_n) {
+inline void pop_todo(uint32_t& c, uint32_t& c_cost) {
     auto td_p = todo.begin();
     uint64_t td = *td_p;
     todo.erase(td_p);
-    cost_n = td >> 32;
-    city = td & 0xffffffff;
+    c_cost = td >> 32;
+    c      = td & 0xffffffff;
+    visited.insert(c);
+}
+
+inline void update(uint32_t city, uint32_t cost_alt) {
+    if (visited.count(city) == 0) {
+        if (cost.count(city) > 0) {
+            uint32_t cost_o = cost[city];
+            uint32_t cost_n = min(cost_o, cost_alt);
+            if (cost_o != cost_n) {
+                cost[city] = cost_n;
+                update_todo(city, cost_o, cost_n);
+            }
+        } else {
+            cost[city] = cost_alt;
+            new_todo(city, cost_alt);
+        }
+    }
 }
 
 int main() {
@@ -52,10 +63,6 @@ int main() {
     cost.reserve(N);
     visited.reserve(N);
 
-    new_todo(S, 0);
-
-    cost.insert(make_pair(S, 0));
-
     for (unsigned i = 0; i < M; i++) {
         unsigned c1, c2, c;
         cin >> c1 >> c2 >> c;
@@ -69,12 +76,14 @@ int main() {
         flights.insert(make_pair(c1, c2));
     }
 
+    update(S, 0);
+
     while (todo.size() > 0) {
         uint32_t c_l, c_cost;
         pop_todo(c_l, c_cost);
-        visited.insert(c_l);
-        uint32_t c = c_l & ~layer_m;
-        uint32_t l = c_l & layer_m;
+
+        uint32_t c = c_l & ~LAYER_M;
+        uint32_t l = c_l & LAYER_M;
 
         if (c == T) {
             cout << c_cost << "\n";
@@ -83,22 +92,13 @@ int main() {
 
         auto road_range = roads.equal_range(c);
         for (auto it = road_range.first; it != road_range.second; it++) {
-            uint32_t adj = it->second >> 16 | l;
-            uint32_t road_c = it->second & 0xffff;
-            uint32_t adj_c_o = (cost.count(adj) > 0) ? cost[adj] : inf_c;
-            uint32_t adj_c_n = min(adj_c_o, c_cost + road_c);
-            cost[adj] = adj_c_n;
-            update_todo(adj, adj_c_o, adj_c_n);
+            update(it->second >> 16 | l, c_cost + (it->second & 0xffff));
         }
 
         if (l == 0) {
             auto flight_range = flights.equal_range(c);
             for (auto it = flight_range.first; it != flight_range.second; it++) {
-                uint32_t c1 = it->second | layer_m;
-                uint32_t c1_c_o = (cost.count(c1) > 0) ? cost[c1] : inf_c;
-                uint32_t c1_c_n = min(c1_c_o, c_cost);
-                cost[c1] = c1_c_n;
-                update_todo(c1, c1_c_o, c1_c_n);
+                update(it->second | LAYER_M, c_cost);
             }
         }
     }
