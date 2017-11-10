@@ -66,21 +66,6 @@ int main() {
         }
     }
 
-    //{ // debug conn
-    //    cout << "  ";
-    //    for (int i = 0; i < n_i; i++) {
-    //        cout << stations[i] << " ";
-    //    }
-    //    cout << endl;
-    //    for (int i = 0; i < n_i; i++) {
-    //        cout << stations[i] << " ";
-    //        for (int j = 0; j < n_i; j++) {
-    //            cout << conn[i][j] << " ";
-    //        }
-    //        cout << endl;
-    //    }
-    //}
-
     int ori;
     {
         string _ori;
