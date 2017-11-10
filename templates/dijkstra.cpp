@@ -1,7 +1,7 @@
 template <long N>
 struct Dijkstra {
     struct Edge {
-        long from, to, len;
+        long to, len;
     };
 
     vector<Edge> edges;
@@ -9,7 +9,7 @@ struct Dijkstra {
 
     void add(long from, long to, long len) {
         if (len >= 0) {
-            edges.push_back({from, to, len});
+            edges.push_back({to, len});
             outs[from].push_back(edges.size() - 1);
         }
     }
