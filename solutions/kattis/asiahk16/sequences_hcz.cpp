@@ -8,9 +8,9 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
 #define MOD 1000000007l
+
+using namespace std;
 
 int main() {
     ios_base::sync_with_stdio(false);

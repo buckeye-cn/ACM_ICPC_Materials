@@ -8,8 +8,6 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
 #define ADD -1
 #define MUL -2
 #define ANY -3
@@ -18,6 +16,8 @@ using namespace std;
 #define OP_SUB -12
 #define OP_MUL -13
 #define OP_DIV -14
+
+using namespace std;
 
 int a, b, c, d;
 int best = 1 << 30;

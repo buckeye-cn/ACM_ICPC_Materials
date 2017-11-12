@@ -9,6 +9,8 @@
 #include <vector>
 #include <iostream>
 
+#define cube(x) (__int128(x) * __int128(x) * __int128(x))
+
 using namespace std;
 
 long size;
@@ -17,8 +19,6 @@ long x[120];
 long y[120];
 long b[120];
 vector<pair<pair<long, long>, pair<long, long>>> rect;
-
-#define cube(x) (__int128(x) * __int128(x) * __int128(x))
 
 int main() {
     ios_base::sync_with_stdio(false);

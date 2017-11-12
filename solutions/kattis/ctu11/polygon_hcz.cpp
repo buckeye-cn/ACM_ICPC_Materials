@@ -8,6 +8,9 @@
 #include <string>
 #include <iostream>
 
+#define SCALE 200
+#define SLOT 200
+
 using namespace std;
 
 long n;
@@ -16,8 +19,6 @@ long y[50000];
 long sx[50000];
 long sy[50000];
 
-#define SCALE 200
-#define SLOT 200
 long pxmap_tot[32000 / SCALE][32000 / SCALE];
 long pxmap[32000 / SCALE][32000 / SCALE][SLOT];
 

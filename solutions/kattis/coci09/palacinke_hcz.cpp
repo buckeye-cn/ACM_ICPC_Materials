@@ -8,9 +8,9 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
 #define MOD 5557
+
+using namespace std;
 
 int n, m, t;
 int item[30][30];

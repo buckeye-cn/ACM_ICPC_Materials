@@ -11,8 +11,6 @@
 #include <emmintrin.h>
 #include <ctime>
 
-using namespace std;
-
 #define MSIZE (4 * 4 * 16)
 #define PVAL 1000000007ul
 #define ACCESS(a, b, s) \
@@ -20,6 +18,8 @@ using namespace std;
 #define REQUIRE(cond) \
     if (!(cond)) continue
 #define MOD(x) ((x) %= PVAL)
+
+using namespace std;
 
 uint64_t s_seq[16]  = {0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 2, 9};
 uint64_t s_rseq[16] = {1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 0, 0, 0, 9};

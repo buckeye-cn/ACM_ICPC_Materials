@@ -9,14 +9,14 @@
 #include <unordered_set>
 #include <iostream>
 
-using namespace std;
-
 #define sqr(x) ((x) * (x))
 
 // note: this is a hack solution
 //       larger MOD, more chance to AC
 //       please see laurence's implementation
 #define MOD 1725433
+
+using namespace std;
 
 int n;
 uint64_t data[100000];

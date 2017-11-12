@@ -8,9 +8,9 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
 #define sqr(x) ((x) * (x))
+
+using namespace std;
 
 int n, t;
 
