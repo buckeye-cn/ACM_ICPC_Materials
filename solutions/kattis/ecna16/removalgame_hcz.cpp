@@ -1,4 +1,4 @@
-// https://ecna16.kattis.com/problems/ecna16.removalgame
+// https://open.kattis.com/problems/removalgame
 
 #include <cstdlib>
 #include <cstdint>
