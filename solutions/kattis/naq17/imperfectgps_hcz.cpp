@@ -59,7 +59,6 @@ int main() {
         gps_s += sqrt(sqr(xg - x0) + sqr(yg - y0));
     }
 
-    // cerr << s << ' ' << gps_s << endl;
     cout << 100 * abs(gps_s - s) / s << endl;
 
     return 0;

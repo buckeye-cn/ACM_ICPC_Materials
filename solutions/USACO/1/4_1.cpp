@@ -32,7 +32,6 @@ int main() {
     int mx2 = 2 * m * m;
     int ok2 = false;
     for (int step = 1; step <= mx1; ++step) {
-        if ((step & 0xf) == 0) cerr << step << endl;
         int maxv = step * (n - 1);
         // can skip some values (just like BM algorithm)
         for (int init = 0; init + maxv <= mx2; ++init) {
