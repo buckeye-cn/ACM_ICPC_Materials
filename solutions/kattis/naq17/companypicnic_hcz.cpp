@@ -15,15 +15,15 @@ int n;
 
 int ceo;
 string name[1200];
-float speed[1200];
+double speed[1200];
 string supervisor[1200];
 map<string, int> name_to_index;
 
 int edge_tot[1200];
 int edge[1200][1200];
 
-pair<int, float> best_unused[1200];
-pair<int, float> best_used[1200];
+pair<int, double> best_unused[1200];
+pair<int, double> best_used[1200];
 
 void dfs(int node) {
     for (int i = 0; i < edge_tot[node]; ++i) {
@@ -39,7 +39,7 @@ void dfs(int node) {
     for (int i = 0; i < edge_tot[node]; ++i) {
         int j = edge[node][i];
 
-        pair<int, float> new_value = best_unused[node];
+        pair<int, double> new_value = best_unused[node];
 
         new_value.first += best_unused[j].first;
         new_value.first -= best_used[j].first;

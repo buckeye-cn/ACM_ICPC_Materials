@@ -27,14 +27,16 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         int m;
-        double r;
-        cin >> m >> r;
-        r = r * 0.5 + 1e-6;
+        double l, r;
+        cin >> m >> l;
+        r = l * 0.5 + 1e-6;
 
         double x[m];
         double y[m];
+        double d[m];
         for (int j = 0; j < m; ++j) {
             cin >> x[j] >> y[j];
+            d[j] = sqrdist(x[j], y[j]);
         }
 
         int best = 0;
@@ -56,17 +58,25 @@ int main() {
             );
 
             for (int b = a + 1; b < m; ++b) {
+                if (abs(x[a] - x[b]) > l) continue;
+                if (abs(y[a] - y[b]) > l) continue;
+
                 test(
                     0.5 * (x[a] + x[b]),
                     0.5 * (y[a] + y[b])
                 );
 
                 for (int c = b + 1; c < m; ++c) {
-                    double bb = cross(x[a], x[b], x[c], y[a], y[b], y[c]);
+                    if (abs(x[a] - x[c]) > l) continue;
+                    if (abs(y[a] - y[c]) > l) continue;
+                    if (abs(x[b] - x[c]) > l) continue;
+                    if (abs(y[b] - y[c]) > l) continue;
+
+                    double bb = 0.5 / cross(x[a], x[b], x[c], y[a], y[b], y[c]);
 
                     test(
-                        0.5 * cross(sqrdist(x[a], y[a]), sqrdist(x[b], y[b]), sqrdist(x[c], y[c]), y[a], y[b], y[c]) / bb,
-                        0.5 * cross(x[a], x[b], x[c], sqrdist(x[a], y[a]), sqrdist(x[b], y[b]), sqrdist(x[c], y[c])) / bb
+                        cross(d[a], d[b], d[c], y[a], y[b], y[c]) * bb,
+                        cross(x[a], x[b], x[c], d[a], d[b], d[c]) * bb
                     );
                 }
             }

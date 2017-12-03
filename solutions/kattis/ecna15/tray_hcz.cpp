@@ -23,7 +23,7 @@ int main() {
     cin >> m >> n;
 
     for (int i = 0; i < n; ++i) {
-        float x, y;
+        double x, y;
         cin >> x >> y;
 
         used[(int) x] |= 1 << (int) y;

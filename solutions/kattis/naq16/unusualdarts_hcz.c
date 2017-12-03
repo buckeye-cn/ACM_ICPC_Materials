@@ -11,8 +11,8 @@ int main() {
     scanf("%d\n", &n);
 
     for (int i = 0; i < n; ++i) {
-        float x[7];
-        float y[7];
+        double x[7];
+        double y[7];
 
         for (int i = 0; i < 7; ++i) {
             char buf[16];
@@ -29,15 +29,15 @@ int main() {
         int win = (buf[0] - '0') * 100000
             + (buf[2] - '0') * 10000 + (buf[3] - '0') * 1000 + (buf[4] - '0') * 100 + (buf[5] - '0') * 10 + (buf[6] - '0');
 
-        float s_lo = powf((win - 1) * 0.00001, 1. / 3);
-        float s_hi = powf((win + 1) * 0.00001, 1. / 3);
+        double s_lo = powf((win - 1) * 0.00001, 1. / 3);
+        double s_hi = powf((win + 1) * 0.00001, 1. / 3);
 
-        float s2[7][7];
+        double s2[7][7];
         bool s3[7][7][7];
 
         for (int i = 0; i < 6; ++i) {
             for (int j = i + 1; j < 7; ++j) {
-                float s = x[i] * y[j] - y[i] * x[j];
+                double s = x[i] * y[j] - y[i] * x[j];
                 s2[i][j] = s;
                 s2[j][i] = -s;
             }
@@ -45,7 +45,7 @@ int main() {
         for (int i = 0; i < 5; ++i) {
             for (int j = i + 1; j < 6; ++j) {
                 for (int k = j + 1; k < 7; ++k) {
-                    float s = s2[i][j] + s2[j][k] + s2[k][i];
+                    double s = s2[i][j] + s2[j][k] + s2[k][i];
                     bool b = s > 0;
                     s3[i][j][k] = s3[j][k][i] = s3[k][i][j] = b;
                     s3[k][j][i] = s3[j][i][k] = s3[i][k][j] = !b;
@@ -58,7 +58,7 @@ int main() {
         #define ITER(from, to) \
             int MAP_##to = MAP_##from | 1 << to; \
             if (MAP_##from == MAP_##to) continue; \
-            float S_##to = S_##from + s2[from][to];
+            double S_##to = S_##from + s2[from][to];
 
         #define ISEC(a, b, c, d) \
             ( \
@@ -96,7 +96,7 @@ int main() {
 
                                     (void) MAP_o;
 
-                                    float s = fabsf(S_o + s2[o][i]);
+                                    double s = fabsf(S_o + s2[o][i]);
 
                                     if (s < s_lo) continue;
                                     if (s > s_hi) continue;

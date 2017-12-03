@@ -55,29 +55,34 @@ int main() {
         int last = 0;
 
         while (a < cut_tot[i & 1] && b < k) {
-            if (cut[i & 1][a] > range[b]) {
+            long *list = cut[(i & 1) ^ 1];
+            int &tot = cut_tot[(i & 1) ^ 1];
+            long aa = cut[i & 1][a];
+            long bb = range[b];
+
+            if (aa > bb) {
                 ++b;
 
                 // cout << (a & 1) << (b & 1) << ' ';
                 if ((a & b & 1) != last) {
-                    cut[(i & 1) ^ 1][cut_tot[(i & 1) ^ 1]++] = range[b - 1];
-                    last = a & b & 1;
+                    list[tot++] = bb;
+                    last ^= 1;
                 }
             } else {
                 ++a;
 
                 // cout << (a & 1) << (b & 1) << ' ';
                 if ((a & b & 1) != last) {
-                    cut[(i & 1) ^ 1][cut_tot[(i & 1) ^ 1]++] = cut[i & 1][a - 1];
-                    last = a & b & 1;
+                    list[tot++] = aa;
+                    last ^= 1;
                 }
             }
         }
         // cout << endl;
 
-        for (int j = 0; j < cut_tot[(i & 1) ^ 1]; ++j) {
-            // cout << cut[(i & 1) ^ 1][j] << ' ';
-        }
+        // for (int j = 0; j < cut_tot[(i & 1) ^ 1]; ++j) {
+        //     cout << cut[(i & 1) ^ 1][j] << ' ';
+        // }
         // cout << endl;
     }
 

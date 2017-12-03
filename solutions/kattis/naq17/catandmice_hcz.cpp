@@ -15,6 +15,7 @@ int x[16];
 int y[16];
 int t[16];
 double dist[16][16];
+double cost[16][16];
 double ret;
 
 double dp[65536][16];
@@ -28,6 +29,7 @@ bool tryspeed(double speed) {
             dp[i][j] = 1e30;
         }
     }
+
     for (int j = 0; j < n; ++j) {
         double tt = sqrt(x[j] * x[j] + y[j] * y[j]) * r_speed;
 
@@ -38,6 +40,13 @@ bool tryspeed(double speed) {
 
     for (int iter = 1; iter < n; ++iter) {
         r_speed *= r_ret;
+
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cost[i][j] = dist[i][j] * r_speed;
+            }
+        }
+
         for (int i = 0; i < 1 << n; ++i) {
             bool ok = true;
             int ki = i;
@@ -56,7 +65,7 @@ bool tryspeed(double speed) {
                     if (j == k) continue;
                     if (i & (1 << k)) continue;
 
-                    double tt = dp[i][j] + dist[j][k] * r_speed;
+                    double tt = dp[i][j] + cost[j][k];
 
                     if (tt < t[k]) {
                         dp[i | (1 << k)][k] = min(dp[i | (1 << k)][k], tt);
@@ -100,10 +109,11 @@ int main() {
 
     // cout << tryspeed(10);
 
-    double speed_min = 0.00001;
+    double speed_min = 0.001;
     double speed_max = 1000000;
-    while (speed_max - speed_min > 0.00001) {
+    while (speed_max - speed_min > 0.001 || speed_max - speed_min > 0.001 * speed_min) {
         double speed = (speed_max + speed_min) / 2;
+
         if (tryspeed(speed)) {
             speed_max = speed;
         } else {
