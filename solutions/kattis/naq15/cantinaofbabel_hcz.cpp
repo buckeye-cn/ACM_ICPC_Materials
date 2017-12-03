@@ -7,7 +7,7 @@
 #include <cstring>
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <iostream>
 
 using namespace std;
@@ -92,7 +92,7 @@ int n;
 int lang_tot;
 string lang_name[120];
 int lang_speaker[120];
-map<string, int> lang;
+unordered_map<string, int> lang;
 
 long scc[120];
 int scc_n[120];

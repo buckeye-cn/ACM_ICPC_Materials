@@ -6,13 +6,13 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <iostream>
 
 using namespace std;
 
-map<string, map<string, bool>> conn;
-map<string, string> path;
+unordered_map<string, unordered_map<string, bool>> conn;
+unordered_map<string, string> path;
 
 int main() {
     ios_base::sync_with_stdio(false);

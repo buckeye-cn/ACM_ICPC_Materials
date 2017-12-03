@@ -6,7 +6,7 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <iostream>
 
 using namespace std;
@@ -17,7 +17,7 @@ int ceo;
 string name[1200];
 double speed[1200];
 string supervisor[1200];
-map<string, int> name_to_index;
+unordered_map<string, int> name_to_index;
 
 int edge_tot[1200];
 int edge[1200][1200];

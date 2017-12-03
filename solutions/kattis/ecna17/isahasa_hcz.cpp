@@ -6,18 +6,18 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <iostream>
 
 using namespace std;
 
 int n, m;
-map<string, int> strpos;
-string a[12000];
-string r[12000];
-string b[12000];
-bool isa[600][600];
-bool hasa[600][600];
+unordered_map<string, int> strpos;
+string a[10000];
+string r[10000];
+string b[10000];
+bool isa[500][500];
+bool hasa[500][500];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -30,10 +30,10 @@ int main() {
         cin >> a[i] >> r[i] >> b[i];
 
         if (strpos.find(a[i]) == strpos.end()) {
-            strpos[a[i]] = strpos.size();
+            strpos[a[i]] = strpos.size() - 1;
         }
         if (strpos.find(b[i]) == strpos.end()) {
-            strpos[b[i]] = strpos.size();
+            strpos[b[i]] = strpos.size() - 1;
         }
     }
 
@@ -45,13 +45,15 @@ int main() {
         }
     }
 
-    for (int i = 0; i < 600; ++i) {
+    int tot = strpos.size();
+
+    for (int i = 0; i < tot; ++i) {
         isa[i][i] = true;
     }
 
-    for (int i = 0; i < 600; ++i) {
-        for (int j = 0; j < 600; ++j) {
-            for (int k = 0; k < 600; ++k) {
+    for (int i = 0; i < tot; ++i) {
+        for (int j = 0; j < tot; ++j) {
+            for (int k = 0; k < tot; ++k) {
                 if (isa[j][i] && isa[i][k]) isa[j][k] = true;
                 if (isa[j][i] && hasa[i][k]) hasa[j][k] = true;
                 if (hasa[j][i] && isa[i][k]) hasa[j][k] = true;
