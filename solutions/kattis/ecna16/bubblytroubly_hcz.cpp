@@ -9,9 +9,9 @@
 #include <functional>
 #include <iostream>
 
-using namespace std;
+const double PI = acos(-1);
 
-double pi = acos(-1);
+using namespace std;
 
 int n, top;
 
@@ -42,8 +42,8 @@ void delta(
 
     if (d_sqr <= (r1 - r2) * (r1 - r2)) {
         if (r1 < r2) {
-            lo = -pi;
-            hi = pi;
+            lo = -PI;
+            hi = PI;
         } else {
             lo = 0;
             hi = 0;
@@ -97,7 +97,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         int range_tot = 1;
-        double ranges[1000][2] = {{-pi, pi}};
+        double ranges[1000][2] = {{-PI, PI}};
 
         auto cut_range = [&](double lo, double hi) {
             double cut = 0;
@@ -141,10 +141,10 @@ int main() {
                 if (lo < hi) {
                     cut = cut_range(lo, hi);
                 } else if (lo > hi) {
-                    cut = cut_range(-pi, hi) + cut_range(lo, pi);
+                    cut = cut_range(-PI, hi) + cut_range(lo, PI);
                 }
 
-                flow[i][j] = cut / (2 * pi);
+                flow[i][j] = cut / (2 * PI);
             }
         }
     }

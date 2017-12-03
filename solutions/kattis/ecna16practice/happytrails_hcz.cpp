@@ -8,6 +8,8 @@
 #include <string>
 #include <iostream>
 
+const double PI = acos(-1);
+
 using namespace std;
 
 int main() {
@@ -24,7 +26,7 @@ int main() {
         int a, l;
         cin >> a >> l;
 
-        h += l * sin(a * acos(0) / 90);
+        h += l * sin(a * PI / 180);
     }
 
     printf("%.2f\n", h);

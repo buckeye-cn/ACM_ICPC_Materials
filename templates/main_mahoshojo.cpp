@@ -23,7 +23,7 @@
 #define sqr(x) ((x) * (x))
 #define shl(x) (__int128(1) << (x))
 
-const double PI = 2 * acos(0);
+const double PI = acos(-1);
 const double EE = exp(1);
 
 using namespace std;
