@@ -12,7 +12,7 @@ LANG: C++11
 using namespace std;
 
 bool leap(int yr) {
-    return (yr % 4 == 0) && (yr % 100 != 0) || (yr % 400 == 0);
+    return ((yr % 4 == 0) && (yr % 100 != 0)) || (yr % 400 == 0);
 }
 
 int main() {

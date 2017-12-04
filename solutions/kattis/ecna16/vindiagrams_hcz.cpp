@@ -55,11 +55,6 @@ int countA, countB, countAB;
         RSCAN1(func) \
     }
 
-// #define EXITSCAN \
-//     i = 128; \
-//     j = 128; \
-//     break;
-
 void find_outside() {
     SCANITER(
         if (self == '.') {

@@ -27,8 +27,8 @@ int main() {
         if (s1[i] == s2[i]) {
             r += 1;
         } else {
-            slot1[(int) s1[i]] += 1;
-            slot2[(int) s2[i]] += 1;
+            slot1[int(s1[i])] += 1;
+            slot2[int(s2[i])] += 1;
         }
     }
 

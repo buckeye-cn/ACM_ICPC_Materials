@@ -26,7 +26,7 @@ int main() {
         double x, y;
         cin >> x >> y;
 
-        used[(int) x] |= 1 << (int) y;
+        used[int(x)] |= 1 << int(y);
     }
 
     count[0][0] = 1;

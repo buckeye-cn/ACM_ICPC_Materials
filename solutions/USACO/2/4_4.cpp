@@ -64,8 +64,8 @@ int main() {
     int xd = 100000000;
 
     for (int i = 0; i < 256; ++i) {
-        if (cow[i] && xd > dist[i]['Z']) {
-            xd = dist[i]['Z'];
+        if (cow[i] && xd > dist[i][int('Z')]) {
+            xd = dist[i][int('Z')];
             xa = i;
         }
     }
