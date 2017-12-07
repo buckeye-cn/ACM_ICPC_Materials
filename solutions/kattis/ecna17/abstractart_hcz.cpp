@@ -162,7 +162,7 @@ void put_polygon(polygon &&poly) {
         put_intersect_polygon(poly, polys[i]);
 
         // already covered
-        if (polys.back().s == -poly.s) {
+        if (abs(polys.back().s + poly.s) < DELTA) {
             polys.resize(len);
             return;
         }
