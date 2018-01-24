@@ -1,14 +1,17 @@
-# ACM ICPC Materials
+ACM ICPC Materials
+===
 
 This repository contains ACM-ICPC preparation materials used by our ICPC training group, including answers to Kattis problems and code templates.
 
-## Official Websites
+Official Websites
+---
 
 * North America Qualification Contest: http://cs.baylor.edu/~hamerly/icpc/
 * East Central North America Regional: http://acm-ecna.ysu.edu/
 * World Final: https://icpc.baylor.edu/
 
-## Practicing
+Practicing Materials
+---
 
 ### Online Judges
 
@@ -28,7 +31,8 @@ This repository contains ACM-ICPC preparation materials used by our ICPC trainin
 
 * POJ Training Roadmap (in Chinese): http://blog.csdn.net/a1dark/article/details/11714009
 
-## Reading
+Reading Materials
+---
 
 ### Books
 
@@ -47,7 +51,8 @@ This repository contains ACM-ICPC preparation materials used by our ICPC trainin
 * Python:
     * [Python 3 Doc](https://docs.python.org/3/download.html)
 
-## Algorithms
+Algorithms
+---
 
 For reference.
 
