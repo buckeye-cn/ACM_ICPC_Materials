@@ -1,12 +1,16 @@
-# ACM ICPC
+# ACM ICPC Materials
 
-## Official Materials
+This repository contains ACM-ICPC preparation materials used by our ICPC training group, including answers to Kattis problems and code templates.
 
-* Official Website: https://icpc.baylor.edu/
+## Official Websites
 
-## Training
+* North America Qualification Contest: http://cs.baylor.edu/~hamerly/icpc/
+* East Central North America Regional: http://acm-ecna.ysu.edu/
+* World Final: https://icpc.baylor.edu/
 
-### Online Judge
+## Practicing
+
+### Online Judges
 
 * Kattis: https://open.kattis.com/
     * 2017 North America Qualifier Contest: [Contest](https://naq17.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2017%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2017/)
@@ -15,63 +19,69 @@
     * 2017 East Central NA Reginal Contest: [Contest](https://ecna17.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2017/problemset.html)
     * 2016 East Central NA Reginal Contest: [Contest](https://ecna16.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2016/problemset.html)
     * 2015 East Central NA Reginal Contest: [Contest](https://ecna15.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2015/problemset.html)
+* USACO: http://train.usaco.org/usacogate
+* CodeForces: http://codeforces.com/
 * Hackerrank: https://www.hackerrank.com/
 * POJ: http://poj.org/
-* USACO: http://train.usaco.org/usacogate
 
-### Training Roadmap
-* POJ题目分类推荐: http://blog.csdn.net/a1dark/article/details/11714009
+### Roadmaps
 
-## Books
+* POJ Training Roadmap (in Chinese): http://blog.csdn.net/a1dark/article/details/11714009
+
+## Reading
+
+### Books
 
 * M.H. Alsuwaiyel. Algorithms: design techniques and analysis, World Scientific Pub. Co. Inc. 1999.
 * S. Dasgupta, C. H. Papadimitriou, U. V. Vazirani. Algorithms, 2006
 * T. Cormen, C. Leiserson, R. Rivest, and C. Stein. Introduction to Algorithms, Third edition, 2009
 * R. Sedgewick, K. Wayne. Algorithms, Fourth edition, 2011
 
-## Offline References
+### Offline References
 
 * C/C++: 
-  * [cppreference.com](http://en.cppreference.com/w/Cppreference:Archives)
+    * [cppreference.com](http://en.cppreference.com/w/Cppreference:Archives)
 * Java:
-  * [Java SE 8 Doc](http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html)
-  * index.html -> Java SE API right bottom corner
+    * [Java SE 8 Doc](http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html)
+    * index.html -> Java SE API right bottom corner
 * Python:
-  * [Python 3 Doc](https://docs.python.org/3/download.html)
+    * [Python 3 Doc](https://docs.python.org/3/download.html)
 
-## Algorithm List
+## Algorithms
 
 For reference.
 
 ### Basic Algorithms
 
-* Divide and Conquer 分治法, Greedy 贪心法
-* Sorting: Bubble, Quick
-* Searcing: DFS (stack), BFS (queue)
-* Dynamic Programming, Caching
+* Divide and Conquer, Greedy
+* Bubble Sort, Quick Sort
+* DFS (Stack-based), BFS (Queue-based)
+* Dynamic Programming / Search with Memorization
 
 ### Data Structures
 
-* Heap 堆, 并查集
-* 线段树, 树状数组
-* BST: Splay 伸展树, Treap, Skip List
-* Linear Space: Hashing, Bitmap
+* Heap, Union Find
+* Segment Tree, Binary Indexed Tree
+* Splay, Treap, Skip List
+* Hashing, Binary Operations on Bitmap
 
 ### Math and Geometry
 
-* Algebra: GCD/LCM, 快速幂, 负进位制, 大数/高精度
-* 数论: Euler's Function, 素性测试, 筛法, 中国剩余定理
-* Geometric: Collision Detection, 线段合并, 凸包, ...
+* Fast Matrix Power / FMP-based DP, Large Number / High Precision
+* GCD / LCM, Negative Carry System
+* Euler's Function, Prime Test, Eratosthenes, Chinese remainder theorem
+* Collision Detection, Intersection Test, Measure, Convex Hull, ...
 
 ### Graph Algorithms
 
-* Shortest Patch: Dijkstra, 负环, Floyd, A*
-* 生成树: Prim, Kruskal
-* 连通性问题
-* 网络流, 二分图匹配
+* Dijkstra, SPFA, Floyd, A*
+* Prim, Kruskal
+* Strongly Connected Component
+* Maximum Flow, Minimum Cost Flow
+* Bipartite Graph
 
 ### String Algorithms
 
-* BM/KMP
-* Automata: AC
+* BM / KMP
+* AC Automata
 * Suffix Array
