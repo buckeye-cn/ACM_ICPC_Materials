@@ -15,6 +15,7 @@ struct Dijkstra {
     }
 
     long dist[N];
+    long route[N];
 
     long solve(long from, long to) {
         auto comp = [&](long x, long y) {
@@ -43,12 +44,11 @@ struct Dijkstra {
             for (long j = 0; j < outs[i].size(); ++j) {
                 Edge &e = edges[outs[i][j]];
 
-                long alt = dist[i] + e.len;
-
-                if (dist[e.to] > alt) {
+                if (dist[e.to] > dist[i] + e.len) {
                     if (q.find(e.to) != q.end()) {
                         q.erase(e.to);
-                        dist[e.to] = alt;
+                        dist[e.to] = dist[i] + e.len;
+                        route[e.to] = i;
                         q.insert(e.to);
                     }
                 }

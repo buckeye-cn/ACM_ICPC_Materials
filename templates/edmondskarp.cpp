@@ -29,7 +29,7 @@ struct EdmondsKarp {
 
             q.push(from);
 
-            amount[from] = 1 << 30;
+            amount[from] = 1l << 60;
             while (!q.empty() && !amount[to]){
                 long i = q.front();
                 q.pop();
