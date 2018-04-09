@@ -17,7 +17,7 @@ long n, m, f, s, t;
 template <long N>
 struct Dijkstra {
     struct Edge {
-        long from, to, len;
+        long to, len;
     };
 
     vector<Edge> edges;
@@ -25,12 +25,13 @@ struct Dijkstra {
 
     void add(long from, long to, long len) {
         if (len >= 0) {
-            edges.push_back({from, to, len});
+            edges.push_back({to, len});
             outs[from].push_back(edges.size() - 1);
         }
     }
 
     long dist[N];
+    long route[N];
 
     long solve(long from, long to) {
         auto comp = [&](long x, long y) {
@@ -52,20 +53,18 @@ struct Dijkstra {
             long i = *q.begin();
             q.erase(i);
 
-            // if (i == to)
-            if (i == to || i == to + n) {
+            if (i == to) {
                 return dist[i];
             }
 
             for (long j = 0; j < outs[i].size(); ++j) {
                 Edge &e = edges[outs[i][j]];
 
-                long alt = dist[i] + e.len;
-
-                if (dist[e.to] > alt) {
+                if (dist[e.to] > dist[i] + e.len) {
                     if (q.find(e.to) != q.end()) {
                         q.erase(e.to);
-                        dist[e.to] = alt;
+                        dist[e.to] = dist[i] + e.len;
+                        route[e.to] = i;
                         q.insert(e.to);
                     }
                 }
@@ -102,7 +101,9 @@ int main() {
         dijk.add(a, b + n, 0);
     }
 
-    cout << dijk.solve(s, t) << endl;
+    dijk.add(t, t + n, 0);
+
+    cout << dijk.solve(s, t + n) << endl;
 
     return 0;
 }

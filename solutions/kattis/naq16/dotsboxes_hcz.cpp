@@ -17,16 +17,16 @@ bool ud[100][100];
 bool lr[100][100];
 int slot[100][100];
 
-template <int N>
+template <long N>
 struct EdmondsKarp {
     struct Edge {
-        int from, to, cap, flow;
+        long from, to, cap, flow;
     };
 
     vector<Edge> edges;
-    vector<int> outs[N];
+    vector<long> outs[N];
 
-    void add(int from, int to, int cap){
+    void add(long from, long to, long cap){
         if (cap > 0) {
             edges.push_back(Edge {from, to, cap, 0});
             outs[from].push_back(edges.size() - 1);
@@ -35,24 +35,25 @@ struct EdmondsKarp {
         }
     }
 
-    int solve(int from, int to){
-        int flow = 0;
+    long amount[N];
+    long route[N];
+
+    long solve(long from, long to){
+        long flow = 0;
 
         while (true) {
-            int amount[N];
-            int route[N];
-            queue<int> q;
+            queue<long> q;
 
             memset(amount, 0, sizeof(amount));
 
             q.push(from);
 
-            amount[from] = 1 << 30;
+            amount[from] = 1l << 60;
             while (!q.empty() && !amount[to]){
-                int i = q.front();
+                long i = q.front();
                 q.pop();
 
-                for (int j = 0; j < outs[i].size(); ++j){
+                for (long j = 0; j < outs[i].size(); ++j){
                     Edge &e = edges[outs[i][j]];
 
                     if (!amount[e.to] && e.cap > e.flow){
@@ -65,7 +66,7 @@ struct EdmondsKarp {
             }
             if (!amount[to]) break;
 
-            for (int i = to; i != from; i = edges[route[i]].from){
+            for (long i = to; i != from; i = edges[route[i]].from){
                 edges[route[i]].flow += amount[to];
                 edges[route[i] ^ 1].flow -= amount[to];
             }
