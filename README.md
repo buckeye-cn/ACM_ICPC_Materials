@@ -43,7 +43,7 @@ Reading Materials
 
 ### Offline References
 
-* C/C++: 
+* C/C++:
     * [cppreference.com](http://en.cppreference.com/w/Cppreference:Archives)
 * Java:
     * [Java SE 8 Doc](http://www.oracle.com/technetwork/java/javase/documentation/jdk8-doc-downloads-2133158.html)
@@ -58,35 +58,36 @@ For reference.
 
 ### Basic Algorithms
 
-* Divide and Conquer, Greedy
-* Bubble Sort, Quick Sort
+* Divide and Conquer, Greedy, Simulating
+* Sorting (Bubble Sort, Quick Sort)
 * DFS (Stack-based), BFS (Queue-based)
-* Dynamic Programming / Search with Memorization
+* Dynamic Programming, Searching with Memorization
 
 ### Data Structures
 
-* Heap, Union Find
+* Priority Queue (Binary Heap, Fibonacci Heap)
+* Balanced Container (Skip List, Splay, Treap)
+* Union Find
 * Segment Tree, Binary Indexed Tree
-* Splay, Treap, Skip List
-* Hashing, Binary Operations on Bitmap
+* Hashing, Bitmap
 
 ### Math and Geometry
 
-* Fast Matrix Power / FMP-based DP, Large Number / High Precision
+* Fast Matrix Power
+* Large Number / High Precision
 * GCD / LCM, Negative Carry System
 * Euler's Function, Prime Test, Eratosthenes, Chinese remainder theorem
 * Collision Detection, Intersection Test, Measure, Convex Hull, ...
 
 ### Graph Algorithms
 
-* Dijkstra, SPFA, Floyd, A*
-* Prim, Kruskal
-* Strongly Connected Component
-* Maximum Flow, Minimum Cost Flow
-* Bipartite Graph
+* Shortest Path (Dijkstra, SPFA, Floyd, A*)
+* Minimum Spanning Tree (Prim, Kruskal)
+* Strongly Connected Component (Tarjan)
+* Maximum Flow (Edmonds-Karp, Dinic), Minimum Cost Maximum Flow, Bipartite Match
+* Topological Sort
 
 ### String Algorithms
 
-* BM / KMP
-* AC Automata
-* Suffix Array
+* String Searching (Boyer-Moore, KMP, Aho-Corasick)
+* Trie, Suffix Array
