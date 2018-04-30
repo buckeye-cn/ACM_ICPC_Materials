@@ -1,5 +1,3 @@
-// not AC
-
 #include <cstdlib>
 #include <cstdint>
 #include <cstdio>
@@ -26,35 +24,12 @@ int main() {
         int a;
         cin >> a;
 
-        cout << "500 500" << endl;
+        int min_x = 500;
+        int max_x = 500 + ceil(sqrt(a)) - 1;
+        int min_y = 500;
+        int max_y = 500 + ceil(a / ceil(sqrt(a))) - 1;
 
         while (true) {
-            int x, y;
-            cin >> x >> y;
-
-            if (x <= 0 && y <= 0) {
-                break;
-            }
-
-            grid[x][y] = true;
-
-            int min_x = 493;
-            int max_x = 507;
-            int min_y = 492;
-            int max_y = 507;
-
-            for (int i = 1; i <= 1000; ++i) {
-                for (int j = 1; j <= 1000; ++j) {
-                    if (grid[i][j]) {
-                        min_x = min(min_x, i);
-                        max_x = max(max_x, i);
-                        min_y = min(min_y, j);
-                        max_y = max(max_y, j);
-                        // cerr << i << ' ' << j << endl;
-                    }
-                }
-            }
-
             int best_blank = 0;
             int best_i = 500;
             int best_j = 500;
@@ -82,6 +57,15 @@ int main() {
             } else {
                 cout << min_x << ' ' << ((min_y + max_y) / 2) << endl;
             }
+
+            int x, y;
+            cin >> x >> y;
+
+            if (x <= 0 && y <= 0) {
+                break;
+            }
+
+            grid[x][y] = true;
         }
     }
 
