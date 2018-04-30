@@ -1,5 +1,3 @@
-// not AC
-
 #include <cstdlib>
 #include <cstdint>
 #include <cstdio>
@@ -7,8 +5,6 @@
 #include <cstring>
 #include <string>
 #include <iostream>
-
-#define sqr(x) ((x) * (x))
 
 using namespace std;
 
@@ -26,21 +22,12 @@ int main() {
         double a;
         cin >> a;
 
-        // if (a <= sqrt(2)) {
-        //     double t1 = (a + sqrt(2 - a * a)) / 4;
-        //     double t2 = sqrt(sqr(0.5) - sqr(t1));
-
-        //     cout << t1 << ' ' << t2 << ' ' << 0 << endl;
-        //     cout << -t2 << ' ' << t1 << ' ' << 0 << endl;
-        //     cout << 0 << ' ' << 0 << ' ' << 0.5 << endl;
-        // }
-
         double tt = asin(a / sqrt(3)) - asin(1 / sqrt(3));
         double unit = sqrt(2) / 4;
 
-        cout << unit * sin(tt) << ' ' << unit * cos(tt) << ' ' << unit << endl;
-        cout << -unit * sin(tt) << ' ' << unit * cos(tt) << ' ' << unit << endl;
-        cout << unit * cos(tt) << ' ' << unit * sin(tt) << ' ' << 0 << endl;
+        cout << unit << ' ' << unit * sin(tt) << ' ' << unit * cos(tt) << endl;
+        cout << -unit << ' ' << unit * sin(tt) << ' ' << unit * cos(tt) << endl;
+        cout << 0 << ' ' << 0.5 * cos(tt) << ' ' << -0.5 * sin(tt) << endl;
     }
 
     return 0;
