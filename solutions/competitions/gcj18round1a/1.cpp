@@ -1,5 +1,3 @@
-// not AC
-
 #include <cstdlib>
 #include <cstdint>
 #include <cstdio>
