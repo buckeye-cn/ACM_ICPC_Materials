@@ -15,15 +15,15 @@ struct Intr {
     bool operator<(Intr o) const noexcept { return b < o.b || (b == o.b && e < o.e); }
 };
 
-i64 data[60000];
+i64 data[40001+10001+20000001];
 
-i64* const pts = data; size_t pts_c = 0;
-void pt_insert(i64 t, i64 tp) { pts[pts_c++] = ((t << Pttp_W) | tp); };
+i64* const pts = data; i64* pts_c = pts;
+void pt_insert(i64 t, i64 tp) { *pts_c++ = ((t << Pttp_W) | tp); };
 
-Intr GG[size_t(1e7l+1)]; size_t gg_c = 0;
+Intr* const GG = (Intr*)(data+40001+10001) ; Intr* gg_c = GG;
 void gg_insert(i64 b, i64 e, i64 offset) {
-    GG[gg_c].b = b - offset; if (GG[gg_c].b < 0) GG[gg_c].b = 0;
-    GG[gg_c].e = e - offset;
+    gg_c->b = b - offset; if (gg_c->b < 0) gg_c->b = 0;
+    gg_c->e = e - offset;
     gg_c++;
 };
 
@@ -40,29 +40,25 @@ int main() {
     for (uint16_t i = 0; i < N; i++) {
         i64 m;
         cin >> m;
-        pt_insert(m, Pttp_MSR_B);
-        pt_insert(m+dt, Pttp_MSR_E);
+        pt_insert(t1+m, Pttp_MSR_B);
+        pt_insert(t1+m+dt, Pttp_MSR_E);
     }
     for (uint16_t i = 0; i < K; i++) {
         i64 b, e;
         cin >> b >> e;
-        b -= t1; b = b < 0 ? 0 : b;
-        e -= t1; e = e < 0 ? 0 : e;
-        if (e > 0) {
-            pt_insert(b, Pttp_SUN_B);
-            pt_insert(e, Pttp_SUN_E);
-        }
+        pt_insert(b, Pttp_SUN_B);
+        pt_insert(e, Pttp_SUN_E);
     }
-    sort(pts, pts+pts_c);
+    sort(pts, pts_c);
 
     uint8_t state = 0;
-    i64 *msr_b = data + (N+K+2)*2, msr_b_f = 0, msr_b_c = 0, sun_b = 0;
-    for (size_t i = 0; i < pts_c; i++) {
-        i64 tp = pts[i] & Pttp_MASK;
-        i64 ti = pts[i] >> Pttp_W;
+    i64 *msr_b_f = data+40001, *msr_b_c = msr_b_f, sun_b = 0;
+    for (i64* p = pts; p < pts_c; p++) {
+        i64 tp = *p & Pttp_MASK;
+        i64 ti = *p >> Pttp_W;
         switch (tp) {
             case Pttp_MSR_B:
-                msr_b[msr_b_c++] = ti;
+                *msr_b_c++ = ti;
                 state |= tp;
                 break;
             case Pttp_SUN_B:
@@ -71,15 +67,15 @@ int main() {
                 break;
             case Pttp_MSR_E:
                 if (state == (Pttp_MSR_B | Pttp_SUN_B))
-                    for (i64 j = msr_b_f; j < msr_b_c; j++)
-                        gg_insert(sun_b, ti, msr_b[j]);
+                    for (i64 const* p = msr_b_f; p < msr_b_c; p++)
+                        gg_insert(sun_b, ti, *p);
                 if (++msr_b_f == msr_b_c)
                     state &= ~Pttp_MSR_B;
                 break;
             case Pttp_SUN_E:
                 if (state == (Pttp_MSR_B | Pttp_SUN_B))
-                    for (i64 j = msr_b_f; j < msr_b_c; j++)
-                        gg_insert(sun_b, ti, msr_b[j]);
+                    for (i64 const* p = msr_b_f; p < msr_b_c; p++)
+                        gg_insert(sun_b, ti, *p);
                 sun_b = 0;
                 state &= ~Pttp_SUN_B;
                 break;
@@ -87,17 +83,17 @@ int main() {
                 return 1;
         }
     }
-    sort(GG, GG+gg_c);
+    sort(GG, gg_c);
 
     i64 tot = 0;
     if (gg_c) {
         Intr cur { GG[0] };
-        for (size_t i = 1; i < gg_c; i++) {
-            if (cur.e < GG[i].b) {
+        for (Intr const* p = GG+1; p < gg_c; p++) {
+            if (cur.e < p->b) {
                 tot += cur.e - cur.b;
-                cur.b = GG[i].b;
+                cur.b = p->b;
             }
-            cur.e = max(cur.e, GG[i].e);
+            cur.e = max(cur.e, p->e);
         }
         tot += cur.e - cur.b;
     }
