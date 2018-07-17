@@ -40,7 +40,7 @@ int main() {
         cin >> x[i] >> y[i];
     }
 
-    multiset<pair<int, int>> areas;
+    set<pair<int, int>> areas;
 
     for (int i = 1; i <= n - 1; ++i) {
         l_node[i] = i - 1;
@@ -52,7 +52,7 @@ int main() {
     for (int step = 0; step < n - m; ++step) {
         pair<int, int> p = *areas.begin();
 
-        cout << p.second << endl;
+        printf("%d\n", p.second);
 
         areas.erase(p);
 

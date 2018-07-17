@@ -6,12 +6,12 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <map>
+#include <set>
 #include <iostream>
 
 using namespace std;
 
-map<string, int> names;
+set<pair<string, int>> names;
 int len[1000];
 string s[1000][80];
 int dp[1000][80];
