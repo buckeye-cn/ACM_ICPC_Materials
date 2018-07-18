@@ -7,7 +7,7 @@
 int n;
 
 int main() {
-    (void) scanf("%d", &n);
+    scanf("%d", &n);
 
     return 0;
 }

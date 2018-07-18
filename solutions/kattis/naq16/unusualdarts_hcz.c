@@ -16,7 +16,7 @@ int main() {
 
         for (int i = 0; i < 7; ++i) {
             char buf[16];
-            gets(buf);
+            fgets(buf, 16, stdin);
 
             x[i] = (buf[0] - '0') * 1000 + (buf[2] - '0') * 100 + (buf[3] - '0') * 10 + (buf[4] - '0');
             y[i] = (buf[6] - '0') * 1000 + (buf[8] - '0') * 100 + (buf[9] - '0') * 10 + (buf[10] - '0');
@@ -25,12 +25,12 @@ int main() {
         }
 
         char buf[16];
-        gets(buf);
+        fgets(buf, 16, stdin);
         int win = (buf[0] - '0') * 100000
             + (buf[2] - '0') * 10000 + (buf[3] - '0') * 1000 + (buf[4] - '0') * 100 + (buf[5] - '0') * 10 + (buf[6] - '0');
 
-        double s_lo = powf((win - 1) * 0.00001, 1. / 3);
-        double s_hi = powf((win + 1) * 0.00001, 1. / 3);
+        double s_lo = pow((win - 1) * 0.00001, 1. / 3);
+        double s_hi = pow((win + 1) * 0.00001, 1. / 3);
 
         double s2[7][7];
         bool s3[7][7][7];
@@ -96,7 +96,7 @@ int main() {
 
                                     (void) MAP_o;
 
-                                    double s = fabsf(S_o + s2[o][i]);
+                                    double s = fabs(S_o + s2[o][i]);
 
                                     if (s < s_lo) continue;
                                     if (s > s_hi) continue;

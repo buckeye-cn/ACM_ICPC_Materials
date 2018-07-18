@@ -19,7 +19,7 @@ int cache[1024][1024][2][32];
 struct Comp {
     bool operator() (int x, int y) const {
         if (tot[x] > tot[y]) {
-            size_t diff = tot[x] - tot[y];
+            uint32_t diff = tot[x] - tot[y];
 
             if (cache[x][y][false][(diff >> 5) & 31] & 1 << (diff & 31)) {
                 return false;
@@ -28,7 +28,7 @@ struct Comp {
                 return true;
             }
         } else {
-            size_t diff = tot[y] - tot[x];
+            uint32_t diff = tot[y] - tot[x];
 
             if (cache[y][x][false][(diff >> 5) & 31] & 1 << (diff & 31)) {
                 return true;
@@ -67,11 +67,11 @@ struct Comp {
 
         if (i < 0 || j < 0) {
             if (tot[x] > tot[y]) {
-                size_t diff = tot[x] - tot[y];
+                uint32_t diff = tot[x] - tot[y];
 
                 cache[x][y][result][(diff >> 5) & 31] |= 1 << (diff & 31);
             } else {
-                size_t diff = tot[y] - tot[x];
+                uint32_t diff = tot[y] - tot[x];
 
                 cache[y][x][!result][(diff >> 5) & 31] |= 1 << (diff & 31);
             }
