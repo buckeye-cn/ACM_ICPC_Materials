@@ -6,17 +6,23 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <algorithm>
+#include <set>
 #include <iostream>
 
 using namespace std;
 
 int n, k;
 long t1, t2;
-long offset[20000];
-long range[30000];
-int cut_tot[2];
-long cut[2][30000000];
+long offset[10000];
+long b[10000];
+long e[10000];
+int step[10000];
+
+struct Comp {
+    bool operator() (int x, int y) const {
+        return b[step[x]] - offset[x] < b[step[y]] - offset[y];
+    }
+};
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -24,79 +30,60 @@ int main() {
     cout.precision(10);
 
     cin >> n >> k >> t1 >> t2;
-    k = k * 2 + 2;
 
     for (int i = 0; i < n; ++i) {
         cin >> offset[i];
     }
 
-    range[0] = 0;
-    for (int i = 1; i < k - 1; ++i) {
-        cin >> range[i];
+    for (int i = 0; i < k; ++i) {
+        cin >> b[i] >> e[i];
     }
-    range[k - 1] = 1l << 62;
 
-    cut_tot[0] = 2;
-    cut[0][0] = t1;
-    cut[0][1] = t2;
+    multiset<int, Comp> heads;
 
     for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < cut_tot[i & 1]; ++j) {
-            cut[i & 1][j] += offset[i];
-            if (i > 0) {
-                cut[i & 1][j] -= offset[i - 1];
-            }
-        }
-
-        cut_tot[(i & 1) ^ 1] = 0;
-
-        int a = 0;
-        int b = 0;
-        int last = 0;
-
-        while (a < cut_tot[i & 1] && b < k) {
-            long *list = cut[(i & 1) ^ 1];
-            int &tot = cut_tot[(i & 1) ^ 1];
-            long aa = cut[i & 1][a];
-            long bb = range[b];
-
-            if (aa > bb) {
-                ++b;
-
-                // cout << (a & 1) << (b & 1) << ' ';
-                if ((a & b & 1) != last) {
-                    list[tot++] = bb;
-                    last ^= 1;
-                }
-            } else {
-                ++a;
-
-                // cout << (a & 1) << (b & 1) << ' ';
-                if ((a & b & 1) != last) {
-                    list[tot++] = aa;
-                    last ^= 1;
-                }
-            }
-        }
-        // cout << endl;
-
-        // for (int j = 0; j < cut_tot[(i & 1) ^ 1]; ++j) {
-        //     cout << cut[(i & 1) ^ 1][j] << ' ';
-        // }
-        // cout << endl;
+        heads.insert(i);
     }
 
-    long tot = 0;
+    long result = 0;
+    long limit = t1;
 
-    for (int i = 0; i < cut_tot[n & 1]; ++i) {
-        if (i & 1) {
-            tot += cut[n & 1][i];
+    while (!heads.empty()) {
+        int i = *heads.begin();
+        int j = *heads.rbegin();
+        heads.erase(heads.begin());
+
+        if (b[step[i]] - offset[i] >= t2) break;
+
+        if (step[j] == step[i] && b[step[j]] - offset[j] < e[step[i]] - offset[i]) {
+            // optimization for special cases
+
+            result += max(b[step[i]] - offset[i] - limit, 0l);
+            limit = max(limit, e[step[j]] - offset[j]);
+            for (int l = 0; l < n; ++l) {
+                step[l] += 1;
+            }
+
+            if (step[i] >= k) {
+                break;
+            }
         } else {
-            tot -= cut[n & 1][i];
+            result += max(b[step[i]] - offset[i] - limit, 0l);
+            limit = max(limit, e[step[i]] - offset[i]);
+
+            while (e[step[i]] - offset[i] <= limit && step[i] < k) {
+                step[i] += 1;
+            }
+        }
+
+        if (step[i] < k) {
+            heads.insert(i);
         }
     }
 
-    cout << tot / double(t2 - t1) << endl;
+    result += max(t2 - limit, 0l);
+
+    cout << result / double(t2 - t1) << endl;
 
     return 0;
 }
