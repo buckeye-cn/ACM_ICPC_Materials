@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <unordered_set>
 #include <iostream>
 
 #define sqr(x) ((x) * (x))
