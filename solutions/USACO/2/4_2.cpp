@@ -89,11 +89,11 @@ int main() {
         }
         // for (int i = 0; i < h; ++i) {
         //     for (int j = 0; j < w; ++j) {
-        //         cout << dist[i][j] << '\t';
+        //         cerr << dist[i][j] << '\t';
         //     }
-        //     cout << endl;
+        //     cerr << endl;
         // }
-        // cout << endl;
+        // cerr << endl;
     }
 
     int max = 0;

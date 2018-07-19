@@ -80,10 +80,10 @@ void iter_operator(int score, int aa, int bb, int cc, int dd, int ee, int ff, in
         data2[i3] = j3;
 
         // for (int i = 0; i < 7; ++i) {
-        //     cout << data2[i] << ' ';
+        //     cerr << data2[i] << ' ';
         // }
-        // cout << endl;
-        // cout << calc(data2) << endl;
+        // cerr << endl;
+        // cerr << calc(data2) << endl;
 
         if (calc(data2) == 24) {
             if (best > score) best = score;

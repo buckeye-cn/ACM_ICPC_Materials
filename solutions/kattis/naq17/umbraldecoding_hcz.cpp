@@ -42,7 +42,7 @@ int main() {
         long right = item.second.first;
         long bottom = item.second.second;
 
-        // cout << left << ' ' << top << ' ' << right << ' ' << bottom << endl;
+        // cerr << left << ' ' << top << ' ' << right << ' ' << bottom << endl;
 
         rect.pop_back();
 

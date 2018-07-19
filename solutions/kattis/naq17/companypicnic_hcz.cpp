@@ -58,7 +58,7 @@ void dfs(int node) {
         }
     }
 
-    // cout << name[node] << ' ' << best_unused[node].second << ' ' << best_used[node].second << endl;
+    // cerr << name[node] << ' ' << best_unused[node].second << ' ' << best_used[node].second << endl;
 }
 
 int main() {

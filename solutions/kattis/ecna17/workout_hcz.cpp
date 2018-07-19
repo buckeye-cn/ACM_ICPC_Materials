@@ -42,7 +42,7 @@ int main() {
     int j = 0;
     while (true) {
         auto run = [&](int delta, bool block_j) {
-            // cout << t << ' ' << delta << ' ' << block_j << endl;
+            // cerr << t << ' ' << delta << ' ' << block_j << endl;
             for (int i = 0; i < 10; ++i) {
                 progress[i] += delta;
                 if (block_j && i == j && progress[i] > other_r[i]) {

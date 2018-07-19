@@ -121,10 +121,10 @@ int main() {
                 ek.add(9998, 100 * i + j, slot[i][j]);
             }
 
-            // cout << slot[i][j] << ' ';
+            // cerr << slot[i][j] << ' ';
         }
 
-        // cout << endl;
+        // cerr << endl;
     }
 
     for (int i = 1; i <= n; ++i) {

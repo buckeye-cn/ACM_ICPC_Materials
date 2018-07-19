@@ -47,7 +47,7 @@ int main() {
 
     // for (int i = 0; i < s.size(); ++i) {
     //     for (int j = i; j <= s.size(); ++j) {
-    //         cout << i << ':' << j << ' ' << delta[i][j] << ' ' << minv[i][j] << ' ' << maxv[i][j] << endl;
+    //         cerr << i << ':' << j << ' ' << delta[i][j] << ' ' << minv[i][j] << ' ' << maxv[i][j] << endl;
     //     }
     // }
 

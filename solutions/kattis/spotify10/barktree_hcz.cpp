@@ -159,7 +159,7 @@ int main() {
                 x = mid_x;
                 y = mid_y;
 
-                // cout << "pop " << x << ' ' << y << endl;
+                // cerr << "pop " << x << ' ' << y << endl;
             } else {
                 k_angle[k] += rotation;
 
@@ -173,14 +173,14 @@ int main() {
                     x = mid_x;
                     y = mid_y;
 
-                    // cout << "push " << x << ' ' << y << ' ' << best << endl;
+                    // cerr << "push " << x << ' ' << y << ' ' << best << endl;
                 } else {
                     max_len = max(max_len, k_len[k] + sqrt(sqr(nx[i] - kx[k]) + sqr(ny[i] - ky[k])));
 
                     x = nx[i];
                     y = ny[i];
 
-                    // cout << "reach " << x << ' ' << y << endl;
+                    // cerr << "reach " << x << ' ' << y << endl;
 
                     break;
                 }

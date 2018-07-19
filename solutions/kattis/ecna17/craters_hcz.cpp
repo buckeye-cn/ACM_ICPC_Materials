@@ -81,10 +81,10 @@ int main() {
                 next_ty = ty;
             }
 
-            // cout << i << ':' << c << '\t' << dx << ',' << dy << ',' << dr << '\t' << tx << ',' << ty << '\n';
+            // cerr << i << ':' << c << '\t' << dx << ',' << dy << ',' << dr << '\t' << tx << ',' << ty << '\n';
         }
 
-        // cout << now << ',' << next << endl;
+        // cerr << now << ',' << next << endl;
 
         if (second == -1) {
             if (next == -1) {

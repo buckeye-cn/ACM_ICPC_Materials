@@ -18,7 +18,7 @@ bool possible_c[100];
 int xa, xb, xc;
 
 void exec(int a, int b, int c) {
-    // cout << a << ' ' << b << ' ' << c << endl;
+    // cerr << a << ' ' << b << ' ' << c << endl;
     // if (a > xa || b > xb || c > xc) return;
     if (possible_abc[a][b][c]) return;
     possible_abc[a][b][c] = true;

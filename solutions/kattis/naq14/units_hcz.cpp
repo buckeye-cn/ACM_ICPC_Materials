@@ -99,7 +99,7 @@ int main() {
             i_dict[tot] = i;
             k_dict[tot] = k;
 
-            // cout << unit[i] << ' ' << tot << ' ' << k << endl;
+            // cerr << unit[i] << ' ' << tot << ' ' << k << endl;
         }
 
         for (int i = 0; i < n; ++i) {

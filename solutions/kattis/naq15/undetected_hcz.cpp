@@ -67,9 +67,9 @@ int main() {
         // if (i == 0) {
         //     for (int yy = 0; yy <= 300; ++yy) {
         //         for (int xx = 0; xx <= 200; ++xx) {
-        //             cout << (m[xx][yy] == i + 1);
+        //             cerr << (m[xx][yy] == i + 1);
         //         }
-        //         cout << endl;
+        //         cerr << endl;
         //     }
         // }
 

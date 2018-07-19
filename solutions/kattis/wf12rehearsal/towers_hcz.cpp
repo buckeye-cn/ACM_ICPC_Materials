@@ -64,7 +64,7 @@ int main() {
     }
 
     // for (int i = 0; i < n; ++i) {
-    //     cout << inf[i] << ' ' << first[i] << endl;
+    //     cerr << inf[i] << ' ' << first[i] << endl;
     // }
 
     cout << "Case 1:" << endl;

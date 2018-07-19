@@ -59,9 +59,9 @@ int main() {
 
     // for (int x = 1; x <= n; ++x) {
     //     for (int y = 1; y <= x; ++y) {
-    //         cout << fall[x][y] << ' ';
+    //         cerr << fall[x][y] << ' ';
     //     }
-    //     cout << endl;
+    //     cerr << endl;
     // }
 
     for (int x = 1; x <= n; ++x) {
@@ -71,7 +71,6 @@ int main() {
         }
     }
 
-    // cout << totfall << endl;
     cout << result / totfall << endl;
 
     return 0;

@@ -73,7 +73,7 @@ int main() {
             max = last_r + last;
         }
 
-        // cout << s[i] << last_b << ':' << last_r << ':' << last_w << ' ' << last << endl;
+        // cerr << s[i] << last_b << ':' << last_r << ':' << last_w << ' ' << last << endl;
         if (max > n) {
             max = n;
         }

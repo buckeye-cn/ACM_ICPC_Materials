@@ -9,7 +9,6 @@
 #include <iostream>
 
 #include <emmintrin.h>
-#include <ctime>
 
 #define MSIZE (4 * 4 * 16)
 #define PVAL 1000000007ul
@@ -38,8 +37,6 @@ int main() {
     cin >> player[0] >> player[1] >> player[2] >> player[3] >> n;
 
     n -= 1;
-
-    // cout << clock() << endl;
 
     for (uint64_t a = 0; a < 4; ++a)
     for (uint64_t b = 0; b < 4; ++b)
@@ -145,8 +142,6 @@ int main() {
 
     uint64_t level;
 
-    // cout << clock() << endl;
-
     for (level = 1; (1ul << level) <= n; ++level) {
         for (uint64_t i = 0; i < MSIZE; ++i) {
             uint64_t buf[MSIZE];
@@ -208,8 +203,6 @@ int main() {
             }
         }
     }
-
-    // cout << clock() << endl;
 
     for (level = 1; (1ul << (level - 1)) <= n; ++level) {
         if (n & (1ul << (level - 1))) {
@@ -277,10 +270,8 @@ int main() {
         }
     }
 
-    // cout << clock() << endl;
-
     // for (uint64_t i = 0; i < level; ++i) {
-    //     cout << i << endl;
+    //     cerr << i << endl;
 
     //     for (uint64_t a = 0; a < 4; ++a)
     //     for (uint64_t b = 0; b < 4; ++b)
@@ -292,7 +283,7 @@ int main() {
     //         uint64_t count = cases[i]ACCESS(a, b, s);
 
     //         if (count) {
-    //             cout << a << ' ' << b << ' ' << seq << ' ' << rseq << ' ' << r << " = "
+    //             cerr << a << ' ' << b << ' ' << seq << ' ' << rseq << ' ' << r << " = "
     //                  << count << endl;
     //         }
     //     }

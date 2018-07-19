@@ -65,7 +65,7 @@ int main() {
                 for (int k = 0; k <= n[i ^ 1] + 1; ++k) {
                     for (int state = 0; state < state_tot[i][j]; ++state) {
                         if (ok[k][state]) {
-                            // cout << k << ' ' << state << endl;
+                            // cerr << k << ' ' << state << endl;
                             if (state_map[i][j] & (shift_base << state)) {
                                 if (w[i ^ 1][k] & (shift_base << j)) {
                                     line_b[k + 1][state] |= line_b[k][state];
@@ -87,13 +87,13 @@ int main() {
                 }
 
                 // for (int k = 0; k <= n[i ^ 1] + 1; ++k) {
-                //     cout << ((line_b[n[i ^ 1] + 2][state_tot[i][j]] & shift_base << k) > 0);
+                //     cerr << ((line_b[n[i ^ 1] + 2][state_tot[i][j]] & shift_base << k) > 0);
                 // }
-                // cout << endl;
+                // cerr << endl;
                 // for (int k = 0; k <= n[i ^ 1] + 1; ++k) {
-                //     cout << ((line_w[n[i ^ 1] + 2][state_tot[i][j]] & shift_base << k) > 0);
+                //     cerr << ((line_w[n[i ^ 1] + 2][state_tot[i][j]] & shift_base << k) > 0);
                 // }
-                // cout << endl << endl;
+                // cerr << endl << endl;
 
                 b[i][j] = line_b[n[i ^ 1] + 2][state_tot[i][j]];
                 w[i][j] = line_w[n[i ^ 1] + 2][state_tot[i][j]];

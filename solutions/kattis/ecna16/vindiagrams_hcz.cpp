@@ -151,8 +151,8 @@ bool try_explain(char a, char b, char ab) {
     }
 
     // SCAN1(
-    //     cout << self;
-    //     if (end) cout << endl;
+    //     cerr << self;
+    //     if (end) cerr << endl;
     // )
 
     SCAN1(
@@ -188,8 +188,8 @@ int main() {
     try_explain('.', '_', ',');
 
     // SCAN1(
-    //     cout << self;
-    //     if (end) cout << endl;
+    //     cerr << self;
+    //     if (end) cerr << endl;
     // )
 
     return 0;

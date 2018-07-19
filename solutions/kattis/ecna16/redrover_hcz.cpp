@@ -50,10 +50,10 @@ int main() {
     }
 
     // for (int i = 0; i < 50; ++i) {
-    //     cout << i << ':' << 'n' << nodes[i]['N'] << 'e' << nodes[i]['E'] << 'w' << nodes[i]['W'] << 's' << nodes[i]['S'] << endl;
+    //     cerr << i << ':' << 'n' << nodes[i]['N'] << 'e' << nodes[i]['E'] << 'w' << nodes[i]['W'] << 's' << nodes[i]['S'] << endl;
 
-    //     for (int k = 0; occur[i][k]; ++k) cout << ' ' << occur[i][k];
-    //     cout << endl;
+    //     for (int k = 0; occur[i][k]; ++k) cerr << ' ' << occur[i][k];
+    //     cerr << endl;
     // }
 
     cout << best << endl;

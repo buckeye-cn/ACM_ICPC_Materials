@@ -63,7 +63,7 @@ int main() {
 
             // for (int j = 0; j < size; ++j) {
             //     for (int q = 0; q < 1 << qlen; ++q) {
-            //         cout << i << ": " << j << ' ' << q << " is " << dp[j][q] << endl;
+            //         cerr << i << ": " << j << ' ' << q << " is " << dp[j][q] << endl;
             //     }
             // }
 

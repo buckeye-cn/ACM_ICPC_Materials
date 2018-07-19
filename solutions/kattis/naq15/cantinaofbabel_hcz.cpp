@@ -134,7 +134,7 @@ int main() {
     tarjan.solve(scc);
 
     for (int i = 0; i < lang_tot; ++i) {
-        // cout << scc[i] << ' ' << lang_name[i] << ' ' << lang_speaker[i] << endl;
+        // cerr << scc[i] << ' ' << lang_name[i] << ' ' << lang_speaker[i] << endl;
         scc_n[scc[i]] += lang_speaker[i];
     }
 

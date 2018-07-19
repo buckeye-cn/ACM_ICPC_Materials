@@ -151,8 +151,6 @@ int main() {
     }
 
     cout << addresult + subresult << endl;
-    // cout << addresult << endl;
-    // cout << subresult << endl;
 
     return 0;
 }

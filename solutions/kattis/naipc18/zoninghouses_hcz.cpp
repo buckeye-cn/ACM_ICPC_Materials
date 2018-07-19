@@ -111,20 +111,20 @@ int main() {
 
         for (int i = split; i >= 0; --i) {
             if (lm - (1 << i) >= l) {
-                // cout << 'l' << lm - (1 << i) << '-' << lm << endl;
+                // cerr << 'l' << lm - (1 << i) << '-' << lm << endl;
                 merge(dd, d[i][(lm >> i) - 1], dd);
                 lm -= 1 << i;
             }
 
             if (rm + (1 << i) <= r) {
-                // cout << 'r' << rm << '-' << rm + (1 << i) << endl;
+                // cerr << 'r' << rm << '-' << rm + (1 << i) << endl;
                 merge(dd, d[i][rm >> i], dd);
                 rm += 1 << i;
             }
         }
 
-        // cout << dd[0] << ' ' << dd[1] << ' ' << dd[2] << ' ' << dd[3] << endl;
-        // cout << dd[4] << ' ' << dd[5] << ' ' << dd[6] << ' ' << dd[7] << endl;
+        // cerr << dd[0] << ' ' << dd[1] << ' ' << dd[2] << ' ' << dd[3] << endl;
+        // cerr << dd[4] << ' ' << dd[5] << ' ' << dd[6] << ' ' << dd[7] << endl;
 
         int best = 2000000000;
 

@@ -71,7 +71,7 @@ bool tryspeed(double speed) {
                         dp[i | (1 << k)][k] = min(dp[i | (1 << k)][k], tt);
                     }
 
-                    // cout << iter << ' ' << i << ' ' << j << ':' << k << ' ' << tt << endl;
+                    // cerr << iter << ' ' << i << ' ' << j << ':' << k << ' ' << tt << endl;
                 }
             }
         }
@@ -106,8 +106,6 @@ int main() {
             dist[i][j] = sqrt(xx * xx + yy * yy);
         }
     }
-
-    // cout << tryspeed(10);
 
     double speed_min = 0.001;
     double speed_max = 1000000;

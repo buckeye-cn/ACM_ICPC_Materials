@@ -40,7 +40,7 @@ int main() {
     int best = 0;
     vector<pair<string, string>> bests;
     for (int i = 0; i < result.size(); ++i) {
-        // cout << play[0][0] << ' ' << play[0][1] << ' ' << play[1][0] << ' ' << play[1][1] << endl;
+        // cerr << play[0][0] << ' ' << play[0][1] << ' ' << play[1][0] << ' ' << play[1][1] << endl;
 
         int g = (result[i] == 'W' ? 0 : 1);
 

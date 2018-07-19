@@ -59,7 +59,7 @@ int main() {
                 }
 
                 best[i][i + len] = val_best;
-                // cout << len << ' ' << i << ' ' << val_best << endl;
+                // cerr << len << ' ' << i << ' ' << val_best << endl;
             }
             for (int i = 0; i < tot - len; ++i) {
                 best[i + tot][i + tot + len] = best[i][i + len];

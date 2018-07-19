@@ -17,7 +17,7 @@ int set_d;
 int need = 5000;
 
 void iter(int index, long curr_s, long a, int set_a, long b, int set_b, long bc, int set_bc) {
-    // cout << index << ' ' << a << ' ' << set_a << ' ' << b << ' ' << set_b << ' ' << bc << ' ' << set_bc << endl;
+    // cerr << index << ' ' << a << ' ' << set_a << ' ' << b << ' ' << set_b << ' ' << bc << ' ' << set_bc << endl;
     if (index == s.size()) {
         if (set_b & set_d) return;
         if (set_b & set_a) return;
@@ -34,7 +34,7 @@ void iter(int index, long curr_s, long a, int set_a, long b, int set_b, long bc,
             long new_a = a * 10 + i;
 
             int new_set_a = set_a | (new_a ? 1 << i : 0);
-            // cout << i << " a:" << new_a << '-' << new_set_a << endl;
+            // cerr << i << " a:" << new_a << '-' << new_set_a << endl;
             if (new_set_a & set_d) continue;
 
             long new_b = new_s - new_a;
@@ -51,7 +51,7 @@ void iter(int index, long curr_s, long a, int set_a, long b, int set_b, long bc,
             } else {
                 new_set_bc = set_bc | (new_bc ? 1 << (10 + d - i - 1) : 0);
             }
-            // cout << i << " b:" << new_b << '-' << new_set_b << " bc:" << new_bc << '-' << new_set_bc << endl;
+            // cerr << i << " b:" << new_b << '-' << new_set_b << " bc:" << new_bc << '-' << new_set_bc << endl;
             if ((new_set_b & set_d) && (new_set_bc & set_d)) continue;
             if ((new_set_b & new_set_a) && (new_set_bc & new_set_a)) continue;
 
@@ -191,7 +191,7 @@ int main() {
             }
         }
 
-        // cout << d << endl;
+        // cerr << d << endl;
         // for (int set_a = 0; set_a < 1024; ++set_a) {
         //     if (set_a & set_d) continue;
 
@@ -200,10 +200,10 @@ int main() {
         //         if (set_b & set_a) continue;
 
         //         if (cases[1 ^ (i & 1)][set_a][set_b][1][true][true]) {
-        //             printf("last %x %x %x %d\n", set_d, set_a, set_b, cases[1 ^ (i & 1)][set_a][set_b][1][true][true]);
+        //             fprintf(stderr, "last %x %x %x %d\n", set_d, set_a, set_b, cases[1 ^ (i & 1)][set_a][set_b][1][true][true]);
         //         }
         //         if (cases[i & 1][set_a][set_b][0][true][true]) {
-        //             printf("this %x %x %x %d\n", set_d, set_a, set_b, cases[i & 1][set_a][set_b][0][true][true]);
+        //             fprintf(stderr, "this %x %x %x %d\n", set_d, set_a, set_b, cases[i & 1][set_a][set_b][0][true][true]);
         //         }
         //     }
         // }

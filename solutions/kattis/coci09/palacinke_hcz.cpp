@@ -119,7 +119,7 @@ int main() {
             result[mask] = dp[depth & 1][2 * n];
         }
 
-        // cout << mask << ' ' << result[mask] << endl;
+        // cerr << mask << ' ' << result[mask] << endl;
     }
 
     int tot = result[15] - result[14] - result[13] + result[12]

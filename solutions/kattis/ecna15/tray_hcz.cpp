@@ -51,10 +51,10 @@ int main() {
             if (((j | used[i]) & 6) == 0) count[i + 1][0] += count[i][j];
             if (((j | used[i]) & 7) == 0) count[i + 1][1] += count[i][j];
 
-            // cout << j << ' ' << (j | used[i]) << ' ' << count[i][j] << endl;
+            // cerr << j << ' ' << (j | used[i]) << ' ' << count[i][j] << endl;
         }
 
-        // cout << used[i] << endl << endl;
+        // cerr << used[i] << endl << endl;
     }
 
     cout << count[m][0] << endl;
