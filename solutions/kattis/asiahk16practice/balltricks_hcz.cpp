@@ -56,6 +56,7 @@ int main() {
 
             if (((a >> 1) & 1) == (b & 1)) {
                 // attack fails
+
                 REQUIRE(na == b);
                 count = player[nb] - uint64_t(nb == a) - uint64_t(nb == b) - uint64_t(rseq == 1 && nb == r);
                 REQUIRE(count > 0);

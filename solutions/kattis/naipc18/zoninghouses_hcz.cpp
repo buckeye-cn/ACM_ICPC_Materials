@@ -112,12 +112,14 @@ int main() {
         for (int i = split; i >= 0; --i) {
             if (lm - (1 << i) >= l) {
                 // cerr << 'l' << lm - (1 << i) << '-' << lm << endl;
+
                 merge(dd, d[i][(lm >> i) - 1], dd);
                 lm -= 1 << i;
             }
 
             if (rm + (1 << i) <= r) {
                 // cerr << 'r' << rm << '-' << rm + (1 << i) << endl;
+
                 merge(dd, d[i][rm >> i], dd);
                 rm += 1 << i;
             }

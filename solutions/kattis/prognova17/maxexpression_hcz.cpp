@@ -142,7 +142,8 @@ int main() {
         }
     }
 
-    for (int i = 63; i >= 0; --i) { // notice: includes 0
+    // notice: includes 0
+    for (int i = 63; i >= 0; --i) {
         for (; subseq[i] > 0; --subseq[i]) {
             subresult -= 1l << i;
 

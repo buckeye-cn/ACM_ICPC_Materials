@@ -43,6 +43,7 @@ int main() {
     while (true) {
         auto run = [&](int delta, bool block_j) {
             // cerr << t << ' ' << delta << ' ' << block_j << endl;
+
             for (int i = 0; i < 10; ++i) {
                 progress[i] += delta;
                 if (block_j && i == j && progress[i] > other_r[i]) {

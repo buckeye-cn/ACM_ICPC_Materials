@@ -31,9 +31,11 @@ int main() {
     long tot = 0;
 
     // 0 0
+
     tot += slot[0] * (slot[0] - 1) * (slot[0] - 2);
 
     // 0 j
+
     for (int j = -50000; j <= -1; ++j) {
         tot += 2 * slot[0] * slot[j] * (slot[j] - 1);
     }
