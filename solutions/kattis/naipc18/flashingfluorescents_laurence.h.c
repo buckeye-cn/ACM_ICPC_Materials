@@ -45,15 +45,23 @@ int main() {
 
     //printf("%d\n", TIME[1][1]);
 
-    printf("static char const* const T[17] = { \"\",\n");
+    bool leo;
+
+    printf("static char const* const T[17] = { 0,\n");
     for (u32 L = 1; L <= 16; L++) {
-        printf("\"", L);
+        leo = false;
+        printf("\"");
         for (u32 i = 0; i < 1<<L; i += 2) {
             uint8_t c = (TIME[L][i] << 4) | TIME[L][i+1];
-            if (32 <= c && c <= 126 && c != '"' && !('0' <= c && c <= '9')) {
+            if (32 <= c && c <= 126 && c != '"') {
+                if (leo && '0' <= c && c <= '9') {
+                    printf("\"\"");
+                }
                 printf("%c", c);
+                leo = false;
             } else {
                 printf("\\%o", c);
+                leo = true;
             }
         }
         printf("\",\n");
