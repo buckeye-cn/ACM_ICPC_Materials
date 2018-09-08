@@ -74,20 +74,19 @@ int main() {
         cin >> HOUSE[i].x >> HOUSE[i].y;
         init(NODES + M + i, HOUSE + i);
     }
-    for (i32 i = M+N-1 &~ 1; i; i -= 2)
+    for (i32 i = (M+N-1) & ~1; i; i -= 2)
         merge(NODES + (i>>1), NODES + i, NODES + (i|1));
 
     for (i32 i = 0; i < Q; i++) {
         i32 be, en;
         cin >> be >> en;
-        be = be-1-1; be += M;
-        en = en-1+1; en += M;
+        be--; en--;
 
+        be += M-1, en += M+1;
         Node n = NODES[++be];
-        while ((be ^ en) != 1) {
-            if (!(be & 1)) merge(&n, &n, NODES + be + 1);
-            if ( (en & 1)) merge(&n, &n, NODES + en - 1);
-            be >>= 1; en >>= 1;
+        for (; be ^ en ^ 1; be >>= 1, en >>= 1) {
+            if (~be & 1) merge(&n, &n, NODES + (be^1));
+            if ( en & 1) merge(&n, &n, NODES + (en^1));
         }
         cout << min_side(&n) << '\n';
     }
