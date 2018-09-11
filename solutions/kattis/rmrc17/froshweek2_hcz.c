@@ -9,7 +9,7 @@ int quiet[100000];
 
 int main() {
     int n, m;
-    scanf("%d %d\n", &n, &m);
+    scanf("%d%d\n", &n, &m);
 
     char buf[7];
 

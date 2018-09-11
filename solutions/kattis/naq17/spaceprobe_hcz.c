@@ -16,14 +16,14 @@ int shift;
 char slots[LIMIT];
 
 int main() {
-    scanf("%d %d %ld %ld", &n, &k, &t1, &t2);
+    scanf("%d%d%ld%ld", &n, &k, &t1, &t2);
 
     for (int i = 0; i < n; ++i) {
         scanf("%ld", &offset[i]);
     }
 
     for (int i = 0; i < k; ++i) {
-        scanf("%ld %ld", &b[i], &e[i]);
+        scanf("%ld%ld", &b[i], &e[i]);
     }
 
     l = b[0] - offset[n - 1] > t1 ? b[0] - offset[n - 1] : t1;
