@@ -12,20 +12,13 @@ using namespace std;
 
 int chance[7][7][7][7];
 
-int gcd(int a, int b) {
-    if (a > b) {
-        if (a % b == 0) {
-            return b;
-        } else {
-            return gcd(a % b, b);
-        }
-    } else {
-        if (b % a == 0) {
-            return a;
-        } else {
-            return gcd(b % a, a);
-        }
+int gcd(int y, int x) {
+    while (x) {
+        y %= x;
+        swap(y, x);
     }
+
+    return y;
 }
 
 int main() {
