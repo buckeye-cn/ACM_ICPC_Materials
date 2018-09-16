@@ -5,8 +5,7 @@
 #include <cstdio>
 #include <cmath>
 #include <cstring>
-#include <tuple>
-#include <vector>
+#include <string>
 #include <iostream>
 
 using namespace std;
