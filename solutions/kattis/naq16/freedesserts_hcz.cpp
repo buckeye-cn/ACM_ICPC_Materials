@@ -73,7 +73,7 @@ int main() {
     cin >> s;
 
     for (int i = 0; i < s.size(); ++i) {
-        set_d |= (1 << (s[i] - '0'));
+        set_d |= 1 << (s[i] - '0');
     }
 
     // digit 0
