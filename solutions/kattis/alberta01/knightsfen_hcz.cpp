@@ -6,14 +6,14 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <iostream>
 
 #define SHIFT(x, y) ((x) * 10 + (y) * 2)
 
 using namespace std;
 
-map<long, int> m;
+unordered_map<long, int> m;
 
 void dfs(int depth, long data, int sp_x, int sp_y) {
     if (sp_x < 0 || sp_x >= 5 || sp_y < 0 || sp_y >= 5) {
