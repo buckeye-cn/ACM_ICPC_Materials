@@ -21,7 +21,7 @@ int main() {
     cin >> s;
 
     if (s == "0") {
-        cout << "0" << endl;
+        cout << '0' << endl;
 
         return 0;
     }

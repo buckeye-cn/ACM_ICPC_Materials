@@ -86,7 +86,7 @@ int main() {
         // }
 
         if (step < x + 1) {
-            cout << "The minimum number of turns is " << step << "." << endl;
+            cout << "The minimum number of turns is " << step << '.' << endl;
         } else {
             cout << "The problem has no solution." << endl;
         }
