@@ -13,7 +13,8 @@ using namespace std;
 int n;
 int item[20000];
 int nline;
-int line[20000][3]; // from, to, weight
+// (from, to, weight) tuples
+int line[20000][3];
 
 int len[20000];
 int pick[20000];

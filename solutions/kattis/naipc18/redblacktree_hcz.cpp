@@ -46,11 +46,13 @@ int main() {
         result[i][0] = 1;
     }
 
-    children[0] = -1; // blocking
+    // blocking
+    children[0] = -1;
 
     for (int i = 0; i < n; ++i) {
         for (int c = i, p = parent[c]; !children[c]; c = p, p = parent[c]) {
-            children[c] = -1; // blocking
+            // blocking
+            children[c] = -1;
             result[c][red[c]] += 1;
 
             memset(buf, 0, sizeof(buf));

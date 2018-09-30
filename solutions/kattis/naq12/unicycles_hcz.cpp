@@ -6,7 +6,7 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
+#include <unordered_set>
 #include <iostream>
 
 using namespace std;
@@ -33,7 +33,7 @@ int main() {
             all |= __int128(1) << a;
         }
 
-        set<__int128> dp[m + 2];
+        unordered_set<__int128> dp[m + 2];
 
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < i; ++j) {

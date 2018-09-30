@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 #include <queue>
-#include <set>
+#include <unordered_set>
 #include <iostream>
 
 using namespace std;
@@ -76,7 +76,7 @@ struct EdmondsKarp {
 
 EdmondsKarp<500> ek;
 
-set<int> v;
+unordered_set<int> v;
 
 void collect(int from) {
     if (v.find(from) == v.end()) {

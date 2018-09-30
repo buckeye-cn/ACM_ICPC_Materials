@@ -20,7 +20,8 @@ int step[10000];
 
 struct Comp {
     bool operator() (int x, int y) const {
-        return b[step[x]] - offset[x] < b[step[y]] - offset[y];
+        return b[step[x]] - offset[x] < b[step[y]] - offset[y]
+            || (b[step[x]] - offset[x] == b[step[y]] - offset[y] && x < y);
     }
 };
 
@@ -39,7 +40,7 @@ int main() {
         cin >> b[i] >> e[i];
     }
 
-    multiset<int, Comp> heads;
+    set<int, Comp> heads;
 
     for (int i = 0; i < n; ++i) {
         heads.insert(i);
