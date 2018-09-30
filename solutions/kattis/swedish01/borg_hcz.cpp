@@ -12,14 +12,6 @@
 
 using namespace std;
 
-int x, y;
-char data[60][60];
-
-int q_x[3600][3600];
-int q_y[3600][3600];
-int q_tot[3600];
-int dist[60][60][60][60];
-
 template <long N>
 struct Prim {
     struct Edge {
@@ -86,6 +78,14 @@ struct Prim {
 };
 
 Prim<101> prim[50];
+
+int x, y;
+char data[60][60];
+
+int q_x[3600][3600];
+int q_y[3600][3600];
+int q_tot[3600];
+int dist[60][60][60][60];
 
 int main() {
     ios_base::sync_with_stdio(false);

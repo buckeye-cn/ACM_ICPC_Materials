@@ -12,9 +12,6 @@
 
 using namespace std;
 
-int n, m, p;
-bool toy_in_cat[1000];
-
 template <long N>
 struct EdmondsKarp {
     struct Edge {
@@ -77,6 +74,9 @@ struct EdmondsKarp {
 };
 
 EdmondsKarp<1000> ek;
+
+int n, m, p;
+bool toy_in_cat[1000];
 
 int main() {
     ios_base::sync_with_stdio(false);

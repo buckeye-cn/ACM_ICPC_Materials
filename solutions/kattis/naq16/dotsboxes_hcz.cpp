@@ -12,11 +12,6 @@
 
 using namespace std;
 
-int n;
-bool ud[100][100];
-bool lr[100][100];
-int slot[100][100];
-
 template <long N>
 struct EdmondsKarp {
     struct Edge {
@@ -79,6 +74,11 @@ struct EdmondsKarp {
 };
 
 EdmondsKarp<10000> ek;
+
+int n;
+bool ud[100][100];
+bool lr[100][100];
+int slot[100][100];
 
 int main() {
     ios_base::sync_with_stdio(false);

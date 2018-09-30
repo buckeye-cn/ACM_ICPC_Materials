@@ -12,8 +12,6 @@
 
 using namespace std;
 
-long n, m, f, s, t;
-
 template <long N>
 struct Dijkstra {
     struct Edge {
@@ -76,6 +74,8 @@ struct Dijkstra {
 };
 
 Dijkstra<120000> dijk;
+
+long n, m, f, s, t;
 
 int main() {
     ios_base::sync_with_stdio(false);
