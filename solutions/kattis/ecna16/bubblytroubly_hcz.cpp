@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <functional>
 #include <iostream>
 
 const double PI = acos(-1);
