@@ -46,7 +46,7 @@ int main() {
         for (int j = 1; j <= 36; ++j) {
             bool err = false;
 
-            long a[3] = {0, 0, 0};
+            long a[3] {0, 0, 0};
             for (int k = 0; k < 3; ++k) {
                 for (char c: s[k]) {
                     int digit = ctoi(c);

@@ -95,7 +95,7 @@ int main() {
         int count = 0;
 
         pair<int, int> first = stack_lo[1];
-        pair<int, int> last = {-10001, -10001};
+        pair<int, int> last {-10001, -10001};
 
         for (int i = 1; i < tot_lo; ++i) {
             if (stack_lo[i] != last) {

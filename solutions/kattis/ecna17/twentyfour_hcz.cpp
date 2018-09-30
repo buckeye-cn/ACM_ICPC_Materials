@@ -23,7 +23,7 @@ int a, b, c, d;
 int best = 1 << 30;
 
 int calc(int *data) {
-    int stack[4] = {};
+    int stack[4];
     int stack_size = 0;
 
     for (int i = 0; i < 7; ++i) {
@@ -57,7 +57,7 @@ int calc(int *data) {
 }
 
 void iter_operator(int score, int aa, int bb, int cc, int dd, int ee, int ff, int gg) {
-    int data[7] = {aa, bb, cc, dd, ee, ff, gg};
+    int data[7] {aa, bb, cc, dd, ee, ff, gg};
 
     int i1, i2, i3;
     for (i1 = 0; data[i1] > 0; ++i1);
@@ -74,7 +74,7 @@ void iter_operator(int score, int aa, int bb, int cc, int dd, int ee, int ff, in
         if (data[i3] == ADD && j3 != OP_ADD && j3 != OP_SUB) continue;
         if (data[i3] == MUL && j3 != OP_MUL && j3 != OP_DIV) continue;
 
-        int data2[7] = {aa, bb, cc, dd, ee, ff, gg};
+        int data2[7] {aa, bb, cc, dd, ee, ff, gg};
         data2[i1] = j1;
         data2[i2] = j2;
         data2[i3] = j3;

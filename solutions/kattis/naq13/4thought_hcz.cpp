@@ -10,7 +10,7 @@
 
 using namespace std;
 
-int value[] = {
+int value[] {
     4 + 4 + 4 + 4,
     4 + 4 + 4 - 4,
     4 + 4 + 4 * 4,
@@ -77,7 +77,7 @@ int value[] = {
     4 / 4 / 4 / 4,
 };
 
-string expr[] = {
+string expr[] {
     "4 + 4 + 4 + 4",
     "4 + 4 + 4 - 4",
     "4 + 4 + 4 * 4",

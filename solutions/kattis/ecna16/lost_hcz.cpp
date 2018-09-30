@@ -13,7 +13,7 @@
 using namespace std;
 
 int n, m;
-unordered_map<string, int> langs = {{"English", 0}};
+unordered_map<string, int> langs {{"English", 0}};
 long cost[128][128];
 int dist[128];
 

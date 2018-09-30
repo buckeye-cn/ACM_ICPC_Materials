@@ -96,7 +96,7 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         int range_tot = 1;
-        double ranges[1000][2] = {{-PI, PI}};
+        double ranges[1000][2] {{-PI, PI}};
 
         auto cut_range = [&](double lo, double hi) {
             double cut = 0;

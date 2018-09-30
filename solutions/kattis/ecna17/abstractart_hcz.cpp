@@ -52,8 +52,8 @@ double cross(const point &p, const point &q) {
 }
 
 point line_intersect(const line &p, const line &q) {
-    point pp = {p[1].x - p[0].x, p[1].y - p[0].y};
-    point qq = {q[1].x - q[0].x, q[1].y - q[0].y};
+    point pp {p[1].x - p[0].x, p[1].y - p[0].y};
+    point qq {q[1].x - q[0].x, q[1].y - q[0].y};
 
     double pxqy = pp.x * qq.y;
     double pyqx = pp.y * qq.x;
@@ -131,7 +131,7 @@ void put_intersect_polygon(polygon &p, polygon &q) {
     int y_max = min(p.y_max, q.y_max);
     if (x_min >= x_max || y_min >= y_max) return;
 
-    polygon poly = {
+    polygon poly {
         x_min, y_min, x_max, y_max, {}
     };
 
@@ -218,7 +218,7 @@ int main() {
 
         // polygon
 
-        polygon poly = {
+        polygon poly {
             x_min, y_min, x_max, y_max, {}
         };
 

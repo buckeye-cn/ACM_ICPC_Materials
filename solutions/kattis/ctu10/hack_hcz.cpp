@@ -10,7 +10,7 @@
 
 using namespace std;
 
-int trans2[100] = {
+int trans2[100] {
     1,  2,  3,  4,  5,  6,  7,  8,  9,  19,
     0,  21, 11, 12, 13, 14, 15, 16, 17, 18,
     10, 22, 23, 24, 25, 26, 27, 28, 29, 39,
@@ -27,7 +27,7 @@ int trans4[10000];
 int trans5[100000];
 int trans6[1000000];
 
-int *trans[7] = {nullptr, nullptr, trans2, trans3, trans4, trans5, trans6};
+int *trans[7] {nullptr, nullptr, trans2, trans3, trans4, trans5, trans6};
 
 int p10(int x) {
     int result = 1;
