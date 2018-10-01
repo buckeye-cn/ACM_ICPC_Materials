@@ -19,7 +19,7 @@ int main() {
         string s;
         cin >> s;
 
-        if (!s.size()) break;
+        if (s.empty()) break;
 
         char c = cin.get();
 

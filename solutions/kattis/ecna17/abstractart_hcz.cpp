@@ -151,7 +151,7 @@ void put_intersect_polygon(polygon &p, polygon &q) {
         }
     }
 
-    if (poly.t.size()) {
+    if (!poly.t.empty()) {
         polys.push_back(std::move(poly));
     }
 }
@@ -168,7 +168,7 @@ void put_polygon(polygon &&poly) {
         }
     }
 
-    if (poly.t.size()) {
+    if (!poly.t.empty()) {
         polys.push_back(std::move(poly));
     }
 }
