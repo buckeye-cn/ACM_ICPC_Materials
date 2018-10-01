@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <unordered_map>
 #include <iostream>
 
@@ -14,6 +13,10 @@
 #define MASK_V (1l | (1l << 7) | (1l << 14) | (1l << 21) | (1l << 28) | (1l << 35) | (1l << 42))
 
 using namespace std;
+
+int q_head;
+int q_tail;
+pair<long, int> q[2000000];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -50,21 +53,19 @@ int main() {
         shot_v.insert(vert);
     }
 
-    queue<pair<long, int>> q;
     unordered_map<long, int> cache;
 
     for (long i = 0; i <= 28; i += 7) {
         for (long j = i; j <= i + 4; j += 1) {
             pair<long, int> p {(7l | (7l << 7) | (7l << 14)) << j, 0};
 
-            q.push(p);
+            q[q_tail++] = p;
             cache.insert(p);
         }
     }
 
-    while (!q.empty()) {
-        pair<long, int> p {q.front()};
-        q.pop();
+    while (q_head != q_tail) {
+        pair<long, int> p = q[q_head++];
 
         for (long i = 0; i < 49; i += 7) {
             long line = (p.first >> i) & MASK_H;
@@ -78,7 +79,7 @@ int main() {
                 };
 
                 if (cache.find(new_p.first) == cache.end()) {
-                    q.push(new_p);
+                    q[q_tail++] = new_p;
                     cache.insert(new_p);
                 }
             }
@@ -96,7 +97,7 @@ int main() {
                 };
 
                 if (cache.find(new_p.first) == cache.end()) {
-                    q.push(new_p);
+                    q[q_tail++] = new_p;
                     cache.insert(new_p);
                 }
             }
