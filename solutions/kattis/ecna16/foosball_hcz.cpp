@@ -7,7 +7,6 @@
 #include <cstring>
 #include <string>
 #include <vector>
-#include <queue>
 #include <iostream>
 
 using namespace std;
@@ -29,10 +28,10 @@ int main() {
     cin >> result;
 
     string play[2][2] {{names[0], names[2]}, {names[1], names[3]}};
+    string wait[6];
 
-    queue<string> wait;
-    for (int i = 4; i < n; ++i) {
-        wait.push(names[i]);
+    for (int i = 0; i < n - 4; ++i) {
+        wait[i] = names[i + 4];
     }
 
     char winner = '?';
@@ -45,17 +44,17 @@ int main() {
         int g = (result[i] == 'W' ? 0 : 1);
 
         if (result[i] == winner) {
-            wait.push(play[g ^ 1][1]);
-            play[g ^ 1][1] = play[g ^ 1][0];
-            play[g ^ 1][0] = wait.front();
-            wait.pop();
+            swap(wait[i % (n - 4)], play[g ^ 1][1]);
+            swap(play[g ^ 1][1], play[g ^ 1][0]);
 
             win += 1;
         } else {
-            wait.push(play[g ^ 1][(win & 1) ^ 1]);
-            play[g ^ 1][1] = play[g ^ 1][win & 1];
-            play[g ^ 1][0] = wait.front();
-            wait.pop();
+            if (win & 1) {
+                swap(wait[i % (n - 4)], play[g ^ 1][0]);
+            } else {
+                swap(wait[i % (n - 4)], play[g ^ 1][1]);
+                swap(play[g ^ 1][1], play[g ^ 1][0]);
+            }
 
             winner = result[i];
             win = 1;

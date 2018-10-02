@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <iostream>
 
 #define sqr(x) ((x) * (x))
@@ -15,6 +14,9 @@ using namespace std;
 
 int n;
 int m[201][301];
+
+int q_head, q_tail;
+pair<int, int> q[1000000];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -29,17 +31,17 @@ int main() {
         int x, y, r;
         cin >> x >> y >> r;
 
-        queue<pair<int, int>> q;
+        q_head = 0;
+        q_tail = 0;
 
         for (int xx = 0; xx <= 200; ++xx) {
-            q.push({xx, 0});
+            q[q_tail++] = {xx, 0};
         }
 
         bool ok = false;
 
-        while (!q.empty()) {
-            pair<int, int> p = q.front();
-            q.pop();
+        while (q_head != q_tail) {
+            pair<int, int> p = q[q_head++];
 
             if (m[p.first][p.second] != i) continue;
             if (sqr(p.first - x) + sqr(p.second - y) <= sqr(r)) continue;
@@ -51,16 +53,16 @@ int main() {
             }
 
             if (p.second < 300) {
-                q.push({p.first, p.second + 1});
+                q[q_tail++] = {p.first, p.second + 1};
             }
             if (p.second > 0) {
-                q.push({p.first, p.second - 1});
+                q[q_tail++] = {p.first, p.second - 1};
             }
             if (p.first < 200) {
-                q.push({p.first + 1, p.second});
+                q[q_tail++] = {p.first + 1, p.second};
             }
             if (p.first > 0) {
-                q.push({p.first - 1, p.second});
+                q[q_tail++] = {p.first - 1, p.second};
             }
         }
 

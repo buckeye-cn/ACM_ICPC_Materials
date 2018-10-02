@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <queue>
 #include <unordered_map>
 #include <iostream>
 
@@ -16,6 +15,9 @@ int n, m;
 unordered_map<string, int> langs {{"English", 0}};
 long cost[128][128];
 int dist[128];
+
+int q_head, q_tail;
+int q[128];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -41,16 +43,15 @@ int main() {
         cost[langs[s2]][langs[s1]] = c;
     }
 
-    queue<int> q;
-    q.push(0);
-    while (!q.empty()) {
-        int i = q.front();
-        q.pop();
+    q[q_tail++] = 0;
+
+    while (q_head != q_tail) {
+        int i = q[q_head++];
 
         for (int j = 1; j <= n; ++j) {
             if (cost[i][j] && !dist[j]) {
                 dist[j] = dist[i] + 1;
-                q.push(j);
+                q[q_tail++] = j;
             }
         }
     }
