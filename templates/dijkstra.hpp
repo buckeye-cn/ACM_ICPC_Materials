@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// (u)int64, float
 template<typename D>
 struct Dijkstra {
     static constexpr D Inf = 1l << 60;
@@ -18,11 +19,14 @@ struct Dijkstra {
 
     vector<vector<Edge>> edges;
 
+    // n nodes
     Dijkstra(size_t n) : N(n) {
         edges.resize(n);
     }
 
     void add(size_t from, size_t to, D len) {
+        assert(from < N);
+        assert(to < N);
         assert(len >= 0);
         edges[from].push_back({ to, len });
     }
