@@ -9,25 +9,27 @@ template <typename D>
 struct Prim {
     static constexpr D Inf = 1l << 60;
 
-    struct Edge {
-        size_t to;
-        D len;
+    struct Edge { size_t to; D len; };
+    struct Vertex {
+        vector<Edge> outs;
+        D dist = Inf;
+        size_t prev = -1;
     };
 
     size_t N;
 
-    vector<vector<Edge>> edges;
+    vector<Vertex> vs;
 
     // n nodes
     Prim(size_t n) : N(n) {
-        edges.resize(n);
+        vs.resize(n);
     }
 
     void add(size_t from, size_t to, D len) {
         assert(from < N);
         assert(to < N);
         assert(len >= 0);
-        edges[from].push_back({to, len});
+        vs[from].outs.push_back({to, len});
     }
 
     void add_u(size_t a, size_t b, D len) {
@@ -35,22 +37,15 @@ struct Prim {
         add(b, a, len);
     }
 
-    vector<size_t> dist;
-    vector<size_t> route;
-
     D solve(size_t from) {
-        dist.resize(N);
-        route.resize(N);
+        vs[from].dist = 0;
+        vs[from].prev = from;
 
         auto comp = [&](size_t x, size_t y) {
-            return dist[x] < dist[y] || (dist[x] == dist[y] && x < y);
+            return vs[x].dist < vs[y].dist || (vs[x].dist == vs[y].dist && x < y);
         };
-
-        set<size_t, decltype(comp)> q {comp};
-
+        set<size_t, decltype(comp)> q { comp };
         for (size_t i = 0; i < N; ++i) {
-            dist[i] = i == from ? 0 : Inf;
-            route[i] = -1;
             q.insert(i);
         }
 
@@ -62,16 +57,16 @@ struct Prim {
                 q.erase(it);
             }
 
-            if (dist[i] == Inf) {
-                dist[i] = 0;
+            if (vs[i].dist == Inf) {
+                vs[i].dist = 0;
             }
 
-            for (Edge const& e : edges[i]) {
-                if (dist[e.to] > e.len) {
+            for (Edge const& e : vs[i].outs) {
+                if (vs[e.to].dist > e.len) {
                     if (q.find(e.to) != q.end()) {
                         q.erase(e.to);
-                        dist[e.to] = e.len;
-                        route[e.to] = i;
+                        vs[e.to].dist = e.len;
+                        vs[e.to].prev = i;
                         q.insert(e.to);
                     }
                 }
@@ -81,7 +76,7 @@ struct Prim {
         D result = 0;
 
         for (size_t i = 0; i < N; ++i) {
-            result += dist[i];
+            result += vs[i].dist;
         }
 
         return result;
