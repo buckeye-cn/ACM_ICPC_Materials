@@ -36,16 +36,13 @@ struct Dijkstra {
         add(b, a, len);
     }
 
-#ifdef DIJKSTRA_RECORD_ROUTE
-    tuple<D, vector<size_t>>
-#else
-    D
-#endif
-    solve(size_t from, size_t to) {
-        vector<D> dist(N);
+    vector<D> dist;
+    vector<size_t> route;
 
+    D solve(size_t from, size_t to) {
+        dist.resize(N);
 #ifdef DIJKSTRA_RECORD_ROUTE
-        vector<size_t> route(N);
+        route.resize(N);
 #endif
 
         auto comp = [&](size_t x, size_t y) {
@@ -73,9 +70,8 @@ struct Dijkstra {
 
             for (Edge const& e : edges[i]) {
                 if (dist[e.to] > dist[i] + e.len) {
-                    auto it = q.find(e.to);
-                    if (it != q.end()) {
-                        q.erase(it);
+                    if (q.find(e.to) != q.end()) {
+                        q.erase(e.to);
                         dist[e.to] = dist[i] + e.len;
 #ifdef DIJKSTRA_RECORD_ROUTE
                         route[e.to] = i;
@@ -87,10 +83,6 @@ struct Dijkstra {
         }
 
 RETURN:
-#ifdef DIJKSTRA_RECORD_ROUTE
-        return make_tuple(dist[to], route);
-#else
         return dist[to];
-#endif
     }
 };
