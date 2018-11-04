@@ -1,6 +1,5 @@
 #include <cassert>
 #include <set>
-#include <tuple>
 #include <vector>
 
 using namespace std;
@@ -72,7 +71,7 @@ struct Dijkstra {
                         q.erase(e.to);
                         vs[e.to].dist = vs[i].dist + e.len;
 #ifdef DIJKSTRA_RECORD_ROUTE
-                        route[e.to] = i;
+                        vs[e.to].prev = i;
 #endif
                         q.insert(e.to);
                     }

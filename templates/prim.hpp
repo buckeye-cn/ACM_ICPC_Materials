@@ -5,7 +5,7 @@
 using namespace std;
 
 // (u)int64, float
-template <typename D>
+template<typename D>
 struct Prim {
     static constexpr D Inf = 1l << 60;
 
@@ -29,7 +29,7 @@ struct Prim {
         assert(from < N);
         assert(to < N);
         assert(len >= 0);
-        vs[from].outs.push_back({to, len});
+        vs[from].outs.push_back({ to, len });
     }
 
     void add_u(size_t a, size_t b, D len) {
@@ -74,11 +74,8 @@ struct Prim {
         }
 
         D result = 0;
-
-        for (size_t i = 0; i < N; ++i) {
+        for (size_t i = 0; i < N; ++i)
             result += vs[i].dist;
-        }
-
         return result;
     }
 };
