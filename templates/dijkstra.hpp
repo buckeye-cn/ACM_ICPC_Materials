@@ -10,25 +10,29 @@ template<typename D>
 struct Dijkstra {
     static constexpr D Inf = 1l << 60;
 
-    struct Edge {
-        size_t to;
-        D len;
+    struct Edge { size_t to; D len; };
+    struct Vertex {
+        vector<Edge> outs;
+        D dist = Inf;
+#ifdef DIJKSTRA_RECORD_ROUTE
+        size_t prev = -1;
+#endif
     };
 
     size_t N;
 
-    vector<vector<Edge>> edges;
+    vector<Vertex> vs;
 
     // n nodes
     Dijkstra(size_t n) : N(n) {
-        edges.resize(n);
+        vs.resize(n);
     }
 
     void add(size_t from, size_t to, D len) {
         assert(from < N);
         assert(to < N);
         assert(len >= 0);
-        edges[from].push_back({ to, len });
+        vs[from].outs.push_back({ to, len });
     }
 
     void add_u(size_t a, size_t b, D len) {
@@ -36,23 +40,17 @@ struct Dijkstra {
         add(b, a, len);
     }
 
-    vector<D> dist;
-    vector<size_t> route;
-
     D solve(size_t from, size_t to) {
-        dist.resize(N);
+        vs[from].dist = 0;
 #ifdef DIJKSTRA_RECORD_ROUTE
-        route.resize(N);
+        vs[from].prev = from;
 #endif
 
         auto comp = [&](size_t x, size_t y) {
-            return dist[x] < dist[y] || (dist[x] == dist[y] && x < y);
+            return vs[x].dist < vs[y].dist || (vs[x].dist == vs[y].dist && x < y);
         };
-
         set<size_t, decltype(comp)> q { comp };
-
         for (size_t i = 0; i < N; ++i) {
-            dist[i] = i == from ? 0 : Inf;
             q.insert(i);
         }
 
@@ -68,11 +66,11 @@ struct Dijkstra {
                 goto RETURN;
             }
 
-            for (Edge const& e : edges[i]) {
-                if (dist[e.to] > dist[i] + e.len) {
+            for (Edge const& e : vs[i].outs) {
+                if (vs[e.to].dist > vs[i].dist + e.len) {
                     if (q.find(e.to) != q.end()) {
                         q.erase(e.to);
-                        dist[e.to] = dist[i] + e.len;
+                        vs[e.to].dist = vs[i].dist + e.len;
 #ifdef DIJKSTRA_RECORD_ROUTE
                         route[e.to] = i;
 #endif
@@ -83,6 +81,6 @@ struct Dijkstra {
         }
 
 RETURN:
-        return dist[to];
+        return vs[to].dist;
     }
 };
