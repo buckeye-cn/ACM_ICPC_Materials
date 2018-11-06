@@ -31,18 +31,18 @@ int main() {
         if (max_v.find(w) == max_v.end()) {
             // nothing
         } else if (max_v.find(o) == max_v.end()) {
-            max_v.insert({o, max_v.at(w) + log(r)});
+            max_v.insert({o, max_v[w] + log(r)});
         } else {
-            max_v[o] = max(max_v.at(o), max_v.at(w) + log(r));
+            max_v[o] = max(max_v[o], max_v[w] + log(r));
         }
     }
 
     if (max_v.find("blue") == max_v.end()) {
         cout << 0. << endl;
-    } else if (max_v.at("blue") > log(10)) {
+    } else if (max_v["blue"] > log(10)) {
         cout << 10. << endl;
     } else {
-        cout << exp(max_v.at("blue")) << endl;
+        cout << exp(max_v["blue"]) << endl;
     }
 
     return 0;

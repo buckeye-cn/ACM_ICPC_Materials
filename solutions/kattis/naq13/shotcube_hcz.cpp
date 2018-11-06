@@ -122,7 +122,7 @@ int main() {
         if (cache.find(v) == cache.end()) {
             cout << -1 << endl;
         } else {
-            cout << cache.at(v) << endl;
+            cout << cache[v] << endl;
         }
     }
 
