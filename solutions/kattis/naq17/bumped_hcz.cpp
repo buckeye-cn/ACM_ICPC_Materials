@@ -32,11 +32,7 @@ struct Dijkstra {
     long route[N];
 
     long solve(long from, long to) {
-        auto comp = [&](long x, long y) {
-            return dist[x] < dist[y] || (dist[x] == dist[y] && x < y);
-        };
-
-        set<long, decltype(comp)> q {comp};
+        set<pair<long, long>> q;
 
         for (long i = 0; i < N; ++i) {
             if (i == from) {
@@ -44,26 +40,26 @@ struct Dijkstra {
             } else {
                 dist[i] = 1l << 60;
             }
-            q.insert(i);
+            q.insert({dist[i], i});
         }
 
         while (!q.empty()) {
-            long i = *q.begin();
+            pair<long, long> i = *q.begin();
             q.erase(i);
 
-            if (i == to) {
-                return dist[i];
+            if (i.second == to) {
+                return i.first;
             }
 
-            for (long j = 0; j < outs[i].size(); ++j) {
-                Edge &e = edges[outs[i][j]];
+            for (long j = 0; j < outs[i.second].size(); ++j) {
+                Edge &e = edges[outs[i.second][j]];
 
-                if (dist[e.to] > dist[i] + e.len) {
-                    if (q.find(e.to) != q.end()) {
-                        q.erase(e.to);
-                        dist[e.to] = dist[i] + e.len;
-                        route[e.to] = i;
-                        q.insert(e.to);
+                if (dist[e.to] > i.first + e.len) {
+                    if (q.find({dist[e.to], e.to}) != q.end()) {
+                        q.erase({dist[e.to], e.to});
+                        dist[e.to] = i.first + e.len;
+                        route[e.to] = i.second;
+                        q.insert({dist[e.to], e.to});
                     }
                 }
             }

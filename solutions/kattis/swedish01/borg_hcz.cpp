@@ -34,34 +34,30 @@ struct Prim {
     long route[N];
 
     long solve() {
-        auto comp = [&](long x, long y) {
-            return dist[x] < dist[y] || (dist[x] == dist[y] && x < y);
-        };
-
-        set<long, decltype(comp)> q {comp};
+        set<pair<long, long>> q;
 
         for (long i = 0; i < N; ++i) {
             dist[i] = 1l << 60;
-            q.insert(i);
+            q.insert({dist[i], i});
         }
 
         while (!q.empty()) {
-            long i = *q.begin();
+            pair<long, long> i = *q.begin();
             q.erase(i);
 
-            if (dist[i] == 1l << 60) {
-                dist[i] = 0;
+            if (i.first == 1l << 60) {
+                dist[i.second] = 0;
             }
 
-            for (long j = 0; j < outs[i].size(); ++j) {
-                Edge &e = edges[outs[i][j]];
+            for (long j = 0; j < outs[i.second].size(); ++j) {
+                Edge &e = edges[outs[i.second][j]];
 
                 if (dist[e.to] > e.len) {
-                    if (q.find(e.to) != q.end()) {
-                        q.erase(e.to);
+                    if (q.find({dist[e.to], e.to}) != q.end()) {
+                        q.erase({dist[e.to], e.to});
                         dist[e.to] = e.len;
-                        route[e.to] = i;
-                        q.insert(e.to);
+                        route[e.to] = i.second;
+                        q.insert({dist[e.to], e.to});
                     }
                 }
             }
