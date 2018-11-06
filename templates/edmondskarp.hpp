@@ -19,6 +19,8 @@ struct EdmondsKarp {
     }
 
     void add(size_t from, size_t to, D cap) {
+        assert(from < N);
+        assert(to < N);
         if (cap > 0) {
             edges.emplace_back(Edge { from, to, cap });
             outs[from].push_back(edges.size() - 1);
