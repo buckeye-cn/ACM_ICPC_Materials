@@ -7,7 +7,6 @@
 #include <cstring>
 #include <string>
 #include <vector>
-#include <queue>
 #include <iostream>
 
 using namespace std;
@@ -21,7 +20,7 @@ struct EdmondsKarp {
     vector<Edge> edges;
     vector<long> outs[N];
 
-    void add(long from, long to, long cap){
+    void add(long from, long to, long cap) {
         if (cap > 0) {
             edges.push_back(Edge {from, to, cap});
             outs[from].push_back(edges.size() - 1);
@@ -32,36 +31,38 @@ struct EdmondsKarp {
 
     long amount[N];
     long route[N];
+    long visiting[N];
 
-    long solve(long from, long to){
+    long solve(long from, long to) {
         long flow = 0;
 
         while (true) {
-            queue<long> q;
-
             memset(amount, 0, sizeof(amount));
 
-            q.push(from);
+            long head = 0;
+            long tail = 0;
 
             amount[from] = 1l << 60;
-            while (!q.empty() && !amount[to]){
-                long i = q.front();
-                q.pop();
+            visiting[tail++] = from;
 
-                for (long j = 0; j < outs[i].size(); ++j){
+            while (head < tail && !amount[to]) {
+                long i = visiting[head++];
+
+                for (long j = 0; j < outs[i].size(); ++j) {
                     Edge &e = edges[outs[i][j]];
 
-                    if (!amount[e.to] && e.cap){
+                    if (!amount[e.to] && e.cap) {
                         amount[e.to] = min(amount[i], e.cap);
                         route[e.to] = outs[i][j];
 
-                        q.push(e.to);
+                        visiting[tail++] = e.to;
                     }
                 }
             }
+
             if (!amount[to]) break;
 
-            for (long i = to; i != from; i = edges[route[i]].from){
+            for (long i = to; i != from; i = edges[route[i]].from) {
                 edges[route[i]].cap -= amount[to];
                 edges[route[i] ^ 1].cap += amount[to];
             }
@@ -85,13 +86,13 @@ int main() {
 
     cin >> n >> m >> p;
 
-    for (int child = 1; child <= n; ++child){
+    for (int child = 1; child <= n; ++child) {
         ek.add(0, child, 1);
 
         int toy_tot;
         cin >> toy_tot;
 
-        for(int i = 1; i <= toy_tot; ++i){
+        for(int i = 1; i <= toy_tot; ++i) {
             int toy;
             cin >> toy;
 
@@ -99,11 +100,11 @@ int main() {
         }
     }
 
-    for (int cat = 1; cat <= p; ++cat){
+    for (int cat = 1; cat <= p; ++cat) {
         int cat_tot;
         cin >> cat_tot;
 
-        for (int i = 1; i <= cat_tot; ++i){
+        for (int i = 1; i <= cat_tot; ++i) {
             int toy;
             cin >> toy;
 
