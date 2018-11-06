@@ -29,13 +29,9 @@ struct Tarjan {
             if (!t_self[to]) {
                 dfs(scc, to);
 
-                if (t_low[from] > t_low[to]) {
-                    t_low[from] = t_low[to];
-                }
+                t_low[from] = min(t_low[from], t_low[to]);
             } else if (visiting[to]) {
-                if (t_low[from] > t_self[to]) {
-                    t_low[from] = t_self[to];
-                }
+                t_low[from] = min(t_low[from], t_self[to]);
             }
         }
 

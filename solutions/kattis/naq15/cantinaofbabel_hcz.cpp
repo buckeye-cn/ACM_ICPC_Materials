@@ -43,13 +43,9 @@ struct Tarjan {
             if (!t_self[to]) {
                 dfs(scc, to);
 
-                if (t_low[from] > t_low[to]) {
-                    t_low[from] = t_low[to];
-                }
+                t_low[from] = min(t_low[from], t_low[to]);
             } else if (visiting[to]) {
-                if (t_low[from] > t_self[to]) {
-                    t_low[from] = t_self[to];
-                }
+                t_low[from] = min(t_low[from], t_self[to]);
             }
         }
 
@@ -138,14 +134,12 @@ int main() {
         scc_n[scc[i]] += lang_speaker[i];
     }
 
-    int max_scc = 0;
+    int best = 0;
     for (int i = 0; i < 120; ++i) {
-        if (max_scc < scc_n[i]) {
-            max_scc = scc_n[i];
-        }
+        best = max(best, scc_n[i]);
     }
 
-    cout << n - max_scc << endl;
+    cout << n - best << endl;
 
     return 0;
 }
