@@ -17,7 +17,7 @@ int i_tot;
 int b_tot;
 int bus_tot;
 int group[100][100];
-int mgroup[10000];
+int uf[10000];
 
 void dfs(int i, int j) {
     if (i < 0 || i >= n || j < 0 || j >= m) return;
@@ -32,16 +32,18 @@ void dfs(int i, int j) {
     dfs(i + 1, j);
 }
 
-void merge(int a, int b) {
-    if (mgroup[a] != mgroup[b]) {
-        int m1 = mgroup[a];
-        int m2 = mgroup[b];
+int find(int i) {
+    if (uf[i] == i) return i;
 
-        for (int i = 0; i < i_tot; ++i) {
-            if (mgroup[i] == m2) {
-                mgroup[i] = m1;
-            }
-        }
+    return uf[i] = find(uf[i]);
+}
+
+void merge(int from, int to) {
+    from = find(from);
+    to = find(to);
+
+    if (from != to) {
+        uf[from] = to;
     }
 }
 
@@ -66,7 +68,7 @@ void solve() {
     }
 
     for (int i = 0; i < i_tot; ++i) {
-        mgroup[i] = i;
+        uf[i] = i;
     }
 
     for (int i = 0; i < n; ++i) {
@@ -92,7 +94,7 @@ void solve() {
     }
 
     for (int i = 0; i < i_tot; ++i) {
-        if (mgroup[i] == i) {
+        if (uf[i] == i) {
             bus_tot += 1;
         }
     }
