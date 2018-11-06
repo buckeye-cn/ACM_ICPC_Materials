@@ -1,7 +1,4 @@
-#include <cassert>
-#include <set>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 // (u)int64, float
