@@ -57,7 +57,7 @@ struct Tarjan {
         memset(visiting, 0, sizeof(visiting));
 
         now = 1;
-        now_scc = 1;
+        now_scc = 0;
 
         for (long i = 0; i < N; ++i) {
             if (!t_self[i]) {
