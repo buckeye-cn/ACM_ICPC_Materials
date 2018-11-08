@@ -22,10 +22,10 @@ struct EdmondsKarp {
         assert(from < N);
         assert(to < N);
         if (cap > 0) {
+            outs[from].emplace_back(edges.size());
             edges.emplace_back(Edge { from, to, cap });
-            outs[from].push_back(edges.size() - 1);
+            outs[to].emplace_back(edges.size());
             edges.emplace_back(Edge { to, from, 0 });
-            outs[to].push_back(edges.size() - 1);
         }
     }
 
