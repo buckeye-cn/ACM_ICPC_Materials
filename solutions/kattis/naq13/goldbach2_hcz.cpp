@@ -22,6 +22,7 @@ int main() {
 
     for (int i = 2; i < 20000; ++i) {
         if (notprime[i]) continue;
+
         for (int j = 2; i * j < 40000; ++j) {
             notprime[i * j] = true;
         }

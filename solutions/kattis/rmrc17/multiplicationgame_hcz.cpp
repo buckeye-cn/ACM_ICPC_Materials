@@ -10,11 +10,11 @@
 
 using namespace std;
 
-bool prime[65536];
+bool notprime[50000];
 
 void factor(long &value, long &p, long &pn) {
     for (; value != 1; ++p) {
-        for (; p < 65536 && !prime[p]; ++p);
+        for (; p < 50000 && notprime[p]; ++p);
         if (p * p > value) {
             p = value;
         }
@@ -34,15 +34,14 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
-    for (int i = 2; i < 65536; ++i) {
-        prime[i] = true;
-    }
+    notprime[0] = true;
+    notprime[1] = true;
 
-    for (int i = 2; i < 65536; ++i) {
-        if (!prime[i]) continue;
+    for (int i = 2; i < 25000; ++i) {
+        if (notprime[i]) continue;
 
-        for (int j = i * 2; j < 65536; j += i) {
-            prime[j] = false;
+        for (int j = 2; i * j < 50000; ++j) {
+            notprime[i * j] = true;
         }
     }
 
