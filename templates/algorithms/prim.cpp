@@ -1,3 +1,5 @@
+// Minimum Spanning Tree
+
 template <long N>
 struct Prim {
     struct Edge {
