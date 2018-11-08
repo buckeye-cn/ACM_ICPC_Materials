@@ -1,0 +1,72 @@
+set enc=utf-8
+set fenc=utf-8
+scriptencoding utf-8
+set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+
+syntax on
+
+filetype plugin on
+filetype indent on
+
+set mouse=a
+
+set nocompatible
+
+set tabstop=4
+
+set shiftwidth=4
+
+set expandtab
+
+set smarttab
+
+set autoindent
+
+set textwidth=1000
+
+set showmatch
+
+set ruler
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set number
+set relativenumber
+
+set fdm=marker
+
+set scrolloff=10
+
+set showcmd
+
+set backspace=indent,eol,start
+
+set formatoptions=q,r
+
+set nowrap
+
+set foldmethod=indent
+set foldlevelstart=10
+
+set wildmenu
+
+set omnifunc=syntaxcomplete#Complete
+
+set list listchars=tab:>-,trail:▄
+
+set t_Co=256
+set background=dark
+
+nnoremap ; :
+
+inoremap <silent> jj <ESC>
+
+nnoremap <silent> <HOME> ^
+inoremap <silent> <HOME> <ESC>^i
+vnoremap <silent> <HOME> 0w
+
+nnoremap <silent> <F9> :set nowrap<CR>
+nnoremap <silent> <F10> :set wrap<CR>
