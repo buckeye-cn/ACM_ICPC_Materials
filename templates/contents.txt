@@ -5,52 +5,54 @@
 
 [Combinatorial optimization]
 #MaxFlow.cc	Dense max-flow
-Dinic.cc	Sparse max-flow
-MinCostMaxFlow.cc	Min-cost max-flow
-PushRelabel.cc	Push-relabel max-flow	
-MinCostMatching.cc	Min-cost matching
-MaxBipartiteMatching.cc	Max bipartite matchine
-MinCut.cc	Global min-cut
-GraphCutInference.cc	Graph cut inference
+stanford/Dinic.cc	Sparse max-flow
+stanford/MinCostMaxFlow.cc	Min-cost max-flow
+stanford/PushRelabel.cc	Push-relabel max-flow	
+stanford/MinCostMatching.cc	Min-cost matching
+stanford/MaxBipartiteMatching.cc	Max bipartite matchine
+stanford/MinCut.cc	Global min-cut
+stanford/GraphCutInference.cc	Graph cut inference
 
 [Geometry]
-ConvexHull.cc	Convex hull
-Geometry.cc	Miscellaneous geometry
-Delaunay.cc	Slow Delaunay triangulation
+stanford/ConvexHull.cc	Convex hull
+stanford/Geometry.cc	Miscellaneous geometry
+stanford/Delaunay.cc	Slow Delaunay triangulation
 
 [Numerical algorithms]
-Euclid.cc	Number theory (modular, Chinese remainder, linear Diophantine)
-GaussJordan.cc	Systems of linear equations, matrix inverse, determinant
-ReducedRowEchelonForm.cc	Reduced row echelon form, matrix rank
-FFT_new.cc	Fast Fourier transform
-Simplex.cc	Simplex algorithm
+stanford/Euclid.cc	Number theory (modular, Chinese remainder, linear Diophantine)
+stanford/GaussJordan.cc	Systems of linear equations, matrix inverse, determinant
+stanford/ReducedRowEchelonForm.cc	Reduced row echelon form, matrix rank
+stanford/FFT_new.cc	Fast Fourier transform
+stanford/Simplex.cc	Simplex algorithm
 #FFT.cc	Fast Fourier transform (C++)
 
 [Graph algorithms]
 #BellmanFord.cc	Bellman-Ford shortest paths with negative edge weights (C++)
-Floyd.cc	Floyd's algorithm (C++)
-FastDijkstra.cc	Fast Dijkstra's algorithm
-Dijkstra.cc	Dijkstra's algorithm
-SCC.cc	Strongly connected components
-EulerianPath.cc	Eulerian path
+stanford/Floyd.cc	Floyd's algorithm (C++)
+stanford/FastDijkstra.cc	Fast Dijkstra's algorithm
+dijkstra.hpp	Dijkstra's algorithm
+prim.hpp	Minimum spanning trees using Prim
+kruskal.hpp	Minimum spanning trees using Kruskal
+stanford/SCC.cc	Strongly connected components
+stanford/EulerianPath.cc	Eulerian path
 #Kruskal.cc	Kruskal's algorithm
 #Prim.cc	Minimum spanning trees
 
 [Data structures]
-SuffixArray.cc	Suffix array
-BIT.cc	Binary Indexed Tree
-UnionFind.cc	Union-find set
-KDTree.cc	KD-tree
-splay.cc	Splay tree
-LCA.cc	Lowest common ancestor
+stanford/SuffixArray.cc	Suffix array
+stanford/BIT.cc	Binary Indexed Tree
+stanford/UnionFind.cc	Union-find set
+stanford/KDTree.cc	KD-tree
+stanford/splay.cc	Splay tree
+stanford/LCA.cc	Lowest common ancestor
 
 [Miscellaneous]
-LongestIncreasingSubsequence.cc	Longest increasing subsequence
-Dates.cc	Dates
-Primes.cc	Prime numbers
-IO.cc	C++ input/output
-KMP.cc	Knuth-Morris-Pratt
-LatLong.cc	Latitude/longitude
+stanford/LongestIncreasingSubsequence.cc	Longest increasing subsequence
+stanford/Dates.cc	Dates
+stanford/Primes.cc	Prime numbers
+stanford/IO.cc	C++ input/output
+stanford/KMP.cc	Knuth-Morris-Pratt
+stanford/LatLong.cc	Latitude/longitude
 vimrc.txt	Vim settings
 #TopologicalSort.cc	Topological sort (C++)
 #RandomSTL.cc	Random STL stuff
