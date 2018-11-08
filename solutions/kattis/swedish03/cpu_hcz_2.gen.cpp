@@ -12,14 +12,43 @@
 
 using namespace std;
 
+// Miller-Rabin
+bool witness(long base, long x) {
+    long u = x - 1;
+    int r = 0;
+
+    for (; !(u & 1); u >>= 1){
+        r += 1;
+    }
+
+    long v = base % x;
+
+    while (u >>= 1) {
+        base = __int128(base) * base % x;
+
+        if (u & 1) {
+            v = __int128(v) * base % x;
+        }
+    }
+
+    if (v == 1 || v == x - 1) return false;
+
+    for (int i = 1; i < r; ++i) {
+        v = __int128(v) * v % x;
+
+        if (v == x - 1) return false;
+    }
+
+    return true;
+}
+
 bool prime(long x) {
-    // if (x > 1e13) cerr << x << endl;
+    if (x == 2) return true;
 
-    if (x <= 3) return true;
-    if (x % 2 == 0) return false;
-
-    for (long i = 3; i * i <= x; i += 2) {
-        if (x % i == 0) return false;
+    for (int iter = 0; iter < 5; ++iter) {
+        if (witness(rand() % (x - 2) + 1, x)) {
+            return false;
+        }
     }
 
     return true;
