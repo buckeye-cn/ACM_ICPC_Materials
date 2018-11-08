@@ -4,10 +4,11 @@
 #   [filename within code directory][tab character \t][subsection title]
 
 [Combinatorial optimization]
-#MaxFlow.cc	Dense max-flow
-stanford/Dinic.cc	Sparse max-flow
+#stanford/MaxFlow.cc	Dense max-flow
+../algorithms/edmondskarp.hpp	Edmonds-Karp max-flow
+stanford/Dinic.cc	Dinic max-flow
 stanford/MinCostMaxFlow.cc	Min-cost max-flow
-stanford/PushRelabel.cc	Push-relabel max-flow	
+stanford/PushRelabel.cc	Push-relabel max-flow
 stanford/MinCostMatching.cc	Min-cost matching
 stanford/MaxBipartiteMatching.cc	Max bipartite matchine
 stanford/MinCut.cc	Global min-cut
@@ -16,7 +17,7 @@ stanford/GraphCutInference.cc	Graph cut inference
 [Geometry]
 stanford/ConvexHull.cc	Convex hull
 stanford/Geometry.cc	Miscellaneous geometry
-stanford/Delaunay.cc	Slow Delaunay triangulation
+#stanford/Delaunay.cc	Slow Delaunay triangulation
 
 [Numerical algorithms]
 stanford/Euclid.cc	Number theory (modular, Chinese remainder, linear Diophantine)
@@ -24,19 +25,20 @@ stanford/GaussJordan.cc	Systems of linear equations, matrix inverse, determinant
 stanford/ReducedRowEchelonForm.cc	Reduced row echelon form, matrix rank
 stanford/FFT_new.cc	Fast Fourier transform
 stanford/Simplex.cc	Simplex algorithm
-#FFT.cc	Fast Fourier transform (C++)
+#stanford/FFT.cc	Fast Fourier transform (C++)
 
 [Graph algorithms]
-#BellmanFord.cc	Bellman-Ford shortest paths with negative edge weights (C++)
+#stanford/BellmanFord.cc	Bellman-Ford shortest paths with negative edge weights (C++)
 stanford/Floyd.cc	Floyd's algorithm (C++)
 stanford/FastDijkstra.cc	Fast Dijkstra's algorithm
-dijkstra.hpp	Dijkstra's algorithm
-prim.hpp	Minimum spanning trees using Prim
-kruskal.hpp	Minimum spanning trees using Kruskal
+../algorithms/dijkstra.hpp	Dijkstra's algorithm
+../algorithms/prim.hpp	Minimum spanning trees using Prim
+../algorithms/kruskal.hpp	Minimum spanning trees using Kruskal
 stanford/SCC.cc	Strongly connected components
 stanford/EulerianPath.cc	Eulerian path
-#Kruskal.cc	Kruskal's algorithm
-#Prim.cc	Minimum spanning trees
+#stanford/Dijkstra.cc	Dijkstra's algorithm
+#stanford/Kruskal.cc	Kruskal's algorithm
+#stanford/Prim.cc	Minimum spanning trees
 
 [Data structures]
 stanford/SuffixArray.cc	Suffix array
@@ -54,9 +56,9 @@ stanford/IO.cc	C++ input/output
 stanford/KMP.cc	Knuth-Morris-Pratt
 stanford/LatLong.cc	Latitude/longitude
 vimrc.txt	Vim settings
-#TopologicalSort.cc	Topological sort (C++)
-#RandomSTL.cc	Random STL stuff
-#CSP.cc	Constraint satisfaction problems
-#FastExpo.cc	Fast exponentiation
-#LCS.cc	Longest common subsequence
-#MillerRabin.c	Miller-Rabin Primality Test (C)
+#stanford/TopologicalSort.cc	Topological sort (C++)
+#stanford/RandomSTL.cc	Random STL stuff
+#stanford/CSP.cc	Constraint satisfaction problems
+#stanford/FastExpo.cc	Fast exponentiation
+#stanford/LCS.cc	Longest common subsequence
+#stanford/MillerRabin.c	Miller-Rabin Primality Test (C)
