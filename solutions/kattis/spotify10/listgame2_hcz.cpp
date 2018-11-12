@@ -10,12 +10,12 @@
 
 using namespace std;
 
-int gen(__int128 counts, __int128 reduces, int totC, int totR, int result) {
+int gen(__int128 counts, __int128 reduces, int tot_c, int tot_r, int result) {
     // algorithm from judge's answer
 
-    // cerr << totC << ' ' << totR << ' ' << result << ':';
-    // for (int i = 0; i < totC; ++i) cerr << '\t' << long((counts >> (8 * i)) & 255);
-    // for (int i = 0; i < totR; ++i) cerr << '\t' << long((reduces >> (8 * i)) & 255);
+    // cerr << tot_c << ' ' << tot_r << ' ' << result << ':';
+    // for (int i = 0; i < tot_c; ++i) cerr << '\t' << long((counts >> (8 * i)) & 255);
+    // for (int i = 0; i < tot_r; ++i) cerr << '\t' << long((reduces >> (8 * i)) & 255);
     // cerr << endl;
 
     while (true) {
@@ -24,20 +24,20 @@ int gen(__int128 counts, __int128 reduces, int totC, int totR, int result) {
             sum += (counts >> (8 * i)) & 255;
         }
 
-        if (result >= sum / totR) {
+        if (result >= sum / tot_r) {
             return result;
         }
 
         for (int i = 0; true; ++i) {
             reduces += __int128(1) << (8 * i);
 
-            if (((reduces >> (8 * i)) & 255) < totC) {
+            if (((reduces >> (8 * i)) & 255) < tot_c) {
                 break;
             }
 
-            if (i == totR - 1) {
+            if (i == tot_r - 1) {
                 reduces = 0;
-                totR += 1;
+                tot_r += 1;
                 break;
             }
 
@@ -52,21 +52,21 @@ int gen(__int128 counts, __int128 reduces, int totC, int totR, int result) {
             }
         }
 
-        __int128 newCounts = counts;
+        __int128 new_counts = counts;
 
-        for (int i = 0; i < totR; ++i) {
+        for (int i = 0; i < tot_r; ++i) {
             int pp = (reduces >> (8 * i)) & 255;
 
-            if ((newCounts >> (8 * pp)) & 255) {
-                newCounts -= __int128(1) << (8 * pp);
+            if ((new_counts >> (8 * pp)) & 255) {
+                new_counts -= __int128(1) << (8 * pp);
             } else {
-                newCounts = -1;
+                new_counts = -1;
                 break;
             }
         }
 
-        if (newCounts != -1) {
-            result = 1 + gen(newCounts, reduces, totC, totR, max(result - 1, 0));
+        if (new_counts != -1) {
+            result = 1 + gen(new_counts, reduces, tot_c, tot_r, max(result - 1, 0));
         }
     }
 }
@@ -80,7 +80,7 @@ int main() {
     cin >> x;
 
     int tot = 0;
-    int totC = 0;
+    int tot_c = 0;
     __int128 counts = 0;
 
     for (long i = 2; i * i <= x; i += 1 + (i > 2)) {
@@ -97,7 +97,7 @@ int main() {
             if (count > 1) {
                 counts <<= 8;
                 counts |= __int128(count - 1);
-                totC += 1;
+                tot_c += 1;
             }
         }
     }
@@ -106,8 +106,8 @@ int main() {
         tot += 1;
     }
 
-    if (totC) {
-        tot += gen(counts, totC, totC, 1, 0);
+    if (tot_c) {
+        tot += gen(counts, tot_c, tot_c, 1, 0);
     }
 
     cout << tot << endl;

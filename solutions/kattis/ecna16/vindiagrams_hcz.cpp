@@ -10,9 +10,8 @@
 
 using namespace std;
 
-char graph[128][128];
 int row, column;
-int countA, countB, countAB;
+char graph[128][128];
 
 #define SCAN1(func) \
     for (int i = 1; i <= row; ++i) { \
@@ -135,19 +134,23 @@ bool try_explain(char a, char b, char ab) {
     )
 
     if (ok) {
+        int count_a = 0;
+        int count_b = 0;
+        int count_ab = 0;
+
         SCAN1(
             if (self == a) {
-                countA += 1;
+                count_a += 1;
             }
             if (self == b) {
-                countB += 1;
+                count_b += 1;
             }
             if (self == ab) {
-                countAB += 1;
+                count_ab += 1;
             }
         )
 
-        cout << countA << ' ' << countB << ' ' << countAB << endl;
+        cout << count_a << ' ' << count_b << ' ' << count_ab << endl;
     }
 
     // SCAN1(
@@ -168,6 +171,7 @@ int main() {
     cout.precision(10);
 
     memset(graph, ' ', sizeof(graph));
+
     cin >> row >> column;
 
     SCAN1(
