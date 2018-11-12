@@ -100,18 +100,15 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         for (int j = i + 1; j < n; ++j) {
-            int tot_i = 0;
-            int tot_j = 0;
+            int tot = 0;
 
             for (int k = 0; k < m; ++k) {
-                if (pos[i][k] < pos[j][k]) {
-                    tot_i += p[k];
-                } else {
-                    tot_j += p[k];
-                }
+                // tot += p[k] if pos[j][k] > pos[i][k]
+                // tot -= p[k] otherwise
+                tot += p[k] * (((pos[j][k] - pos[i][k]) >> 16) | 1);
             }
 
-            if (tot_i > tot_j) {
+            if (tot > 0) {
                 tarjan.add(i, j);
             } else {
                 tarjan.add(j, i);
