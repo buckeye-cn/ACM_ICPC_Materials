@@ -85,13 +85,14 @@ struct EdmondsKarpMinCost {
     long dist[N];
     long route[N];
     long visiting[N * N];
+    bool active[N];
 
     pair<long, long> solve(long from, long to) {
         long flow = 0;
         long cost = 0;
 
         while (true) {
-            memset(amount, 0, sizeof(amount));
+            memset(active, 0, sizeof(active));
 
             for (int i = 0; i < N; ++i) {
                 dist[i] = 1l << 60;
@@ -101,11 +102,14 @@ struct EdmondsKarpMinCost {
             long tail = 0;
 
             amount[from] = 1l << 60;
+            amount[to] = 0;
             dist[from] = 0;
             visiting[tail++] = from;
+            active[from] = true;
 
             while (head < tail) {
                 long i = visiting[head++];
+                active[i] = false;
 
                 for (long j = 0; j < outs[i].size(); ++j) {
                     Edge &e = edges[outs[i][j]];
@@ -115,7 +119,10 @@ struct EdmondsKarpMinCost {
                         dist[e.to] = dist[i] + e.len;
                         route[e.to] = outs[i][j];
 
-                        visiting[tail++] = e.to;
+                        if (!active[e.to]) {
+                            visiting[tail++] = e.to;
+                            active[e.to] = true;
+                        }
                     }
                 }
             }
