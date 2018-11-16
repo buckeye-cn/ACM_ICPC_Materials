@@ -10,10 +10,8 @@ struct HeldKarp {
     vector<long> outs[N];
 
     void add(long from, long to, long len) {
-        if (len >= 0) {
-            edges.push_back({to, len});
-            outs[from].push_back(edges.size() - 1);
-        }
+        edges.push_back({to, len});
+        outs[from].push_back(edges.size() - 1);
     }
 
     long dist[N][N];

@@ -23,10 +23,8 @@ struct HeldKarp {
     vector<long> outs[N];
 
     void add(long from, long to, long len) {
-        if (len >= 0) {
-            edges.push_back({to, len});
-            outs[from].push_back(edges.size() - 1);
-        }
+        edges.push_back({to, len});
+        outs[from].push_back(edges.size() - 1);
     }
 
     long dist[N][N];
@@ -103,7 +101,7 @@ struct EdmondsKarpMinCost {
     long amount[N];
     long dist[N];
     long route[N];
-    long visiting[N * N];
+    long visiting[N];
     bool active[N];
 
     pair<long, long> solve(long from, long to) {
@@ -123,11 +121,11 @@ struct EdmondsKarpMinCost {
             amount[from] = 1l << 60;
             amount[to] = 0;
             dist[from] = 0;
-            visiting[tail++] = from;
+            visiting[(tail++) % N] = from;
             active[from] = true;
 
             while (head < tail) {
-                long i = visiting[head++];
+                long i = visiting[(head++) % N];
                 active[i] = false;
 
                 for (long j = 0; j < outs[i].size(); ++j) {
@@ -139,7 +137,7 @@ struct EdmondsKarpMinCost {
                         route[e.to] = outs[i][j];
 
                         if (!active[e.to]) {
-                            visiting[tail++] = e.to;
+                            visiting[(tail++) % N] = e.to;
                             active[e.to] = true;
                         }
                     }
