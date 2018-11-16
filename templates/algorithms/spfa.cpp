@@ -42,7 +42,7 @@ struct SPFA {
 
                 if (dist[e.to] > dist[i] + e.len) {
                     dist[e.to] = dist[i] + e.len;
-                    route[e.to] = outs[i][j];
+                    route[e.to] = i;
 
                     if (!active[e.to]) {
                         visiting[(tail++) % N] = e.to;
