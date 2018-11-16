@@ -84,7 +84,7 @@ struct EdmondsKarpMinCost {
     long amount[N];
     long dist[N];
     long route[N];
-    long visiting[N];
+    long visiting[N * N];
 
     pair<long, long> solve(long from, long to) {
         long flow = 0;
@@ -104,7 +104,7 @@ struct EdmondsKarpMinCost {
             dist[from] = 0;
             visiting[tail++] = from;
 
-            while (head < tail && !amount[to]) {
+            while (head < tail) {
                 long i = visiting[head++];
 
                 for (long j = 0; j < outs[i].size(); ++j) {
