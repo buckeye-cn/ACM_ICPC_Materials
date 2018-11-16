@@ -71,23 +71,37 @@ For reference.
 * Segment Tree, Binary Indexed Tree
 * Hashing, Bitmap
 
-### Math and Geometry
+### Math
 
-* Fast Matrix Power
+* Fast Matrix Exponentiation
 * Large Number / High Precision
 * GCD / LCM, Negative Carry System
-* Euler's Function, Prime Test, Eratosthenes, Chinese remainder theorem
-* Collision Detection, Intersection Test, Measure, Convex Hull, ...
+* Prime Test (Eratosthenes, Miller-Rabin)
+* Euler's Function, Eratosthenes, Chinese remainder theorem
+* Gauss-Jordan, Simplex, FFT
 
-### Graph Algorithms
+### Geometry
+
+* Collision Detection, Intersection Test, Measure
+* Convex Hull, Delaunay Triangulation
+
+### Graph
 
 * Shortest Path (Dijkstra, SPFA, Floyd, A*)
 * Minimum Spanning Tree (Prim, Kruskal)
 * Strongly Connected Component (Tarjan)
-* Maximum Flow (Edmonds-Karp, Dinic), Minimum Cost Maximum Flow, Bipartite Match
+* Eulerian Path (Hierholzer)
+* TSP (Held-Karp)
 * Topological Sort
 
-### String Algorithms
+### Optimization
+
+* Maximum Flow and Minimum Cut (Edmonds-Karp, Dinic, Push-relabel)
+* Bipartite Matching
+* Minimum Cost Maximum Flow and Matching
+* Graph Cut Inference
+
+### String
 
 * String Searching (Boyer-Moore, KMP, Aho-Corasick)
 * Trie, Suffix Array

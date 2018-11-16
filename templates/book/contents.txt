@@ -4,15 +4,15 @@
 #   [filename within code directory][tab character \t][subsection title]
 
 [Combinatorial optimization]
-#stanford/MaxFlow.cc	Dense max-flow
-../algorithms/edmondskarp.hpp	Edmonds-Karp max-flow
+../algorithms/edmondskarp.hpp	Edmonds-Karp max-flow (normal, SPFA min-cost)
 stanford/Dinic.cc	Dinic max-flow
-stanford/MinCostMaxFlow.cc	Min-cost max-flow
 stanford/PushRelabel.cc	Push-relabel max-flow
 stanford/MinCostMatching.cc	Min-cost matching
-stanford/MaxBipartiteMatching.cc	Max bipartite matchine
+stanford/MaxBipartiteMatching.cc	Max bipartite matching
 stanford/MinCut.cc	Global min-cut
 stanford/GraphCutInference.cc	Graph cut inference
+#stanford/MaxFlow.cc	Dense max-flow
+#stanford/MinCostMaxFlow.cc	Min-cost max-flow
 
 [Geometry]
 stanford/ConvexHull.cc	Convex hull
@@ -28,17 +28,22 @@ stanford/Simplex.cc	Simplex algorithm
 #stanford/FFT.cc	Fast Fourier transform (C++)
 
 [Graph algorithms]
-#stanford/BellmanFord.cc	Bellman-Ford shortest paths with negative edge weights (C++)
 stanford/Floyd.cc	Floyd's algorithm (C++)
-stanford/FastDijkstra.cc	Fast Dijkstra's algorithm
+stanford/TopologicalSort.cc	Topological sort (C++)
 ../algorithms/dijkstra.hpp	Dijkstra's algorithm
+../algorithms/spfa.cpp	SPFA shortest paths
 ../algorithms/prim.hpp	Minimum spanning trees using Prim
 ../algorithms/kruskal.hpp	Minimum spanning trees using Kruskal
-stanford/SCC.cc	Strongly connected components
-stanford/EulerianPath.cc	Eulerian path
+../algorithms/tarjan.cpp	Strongly connected components
+../algorithms/hierholzer.cpp	Eulerian path
+../algorithms/heldkarp.cpp	Travelling Salesman Problem
+#stanford/BellmanFord.cc	Bellman-Ford shortest paths with negative edge weights (C++)
+#stanford/FastDijkstra.cc	Fast Dijkstra's algorithm
 #stanford/Dijkstra.cc	Dijkstra's algorithm
 #stanford/Kruskal.cc	Kruskal's algorithm
 #stanford/Prim.cc	Minimum spanning trees
+#stanford/SCC.cc	Strongly connected components
+#stanford/EulerianPath.cc	Eulerian path
 
 [Data structures]
 stanford/SuffixArray.cc	Suffix array
@@ -52,13 +57,12 @@ stanford/LCA.cc	Lowest common ancestor
 stanford/LongestIncreasingSubsequence.cc	Longest increasing subsequence
 stanford/Dates.cc	Dates
 stanford/Primes.cc	Prime numbers
+stanford/MillerRabin.cc	Miller-Rabin Primality Test
+stanford/FastExpo.cc	Fast exponentiation
 stanford/IO.cc	C++ input/output
 stanford/KMP.cc	Knuth-Morris-Pratt
 stanford/LatLong.cc	Latitude/longitude
 vimrc.txt	Vim settings
-#stanford/TopologicalSort.cc	Topological sort (C++)
 #stanford/RandomSTL.cc	Random STL stuff
 #stanford/CSP.cc	Constraint satisfaction problems
-#stanford/FastExpo.cc	Fast exponentiation
 #stanford/LCS.cc	Longest common subsequence
-#stanford/MillerRabin.c	Miller-Rabin Primality Test (C)
