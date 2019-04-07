@@ -8,8 +8,6 @@
 
 using namespace std;
 
-int res[5][1024];
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -22,54 +20,34 @@ int main() {
         int n, b, f;
         cin >> n >> b >> f;
 
-        // cerr << n << ' ' << b << ' ' << f << endl;
+        int res[n - b];
+        memset(res, 0, sizeof(res));
 
-        for (int i = 4; i >= 0; --i) {
+        for (int i = 0; i < 4; ++i) {
             for (int j = 0; j < n; ++j) {
-                cout << "01"[(j >> i) & 1];
-                // cerr << "01"[(j >> i) & 1];
+                cout << char('0' + ((j >> i) & 1));
             }
             cout << endl;
-            // cerr << endl;
 
-            string s;
-            cin >> s;
+            for (int j = 0; j < n - b; ++j) {
+                char c;
+                cin >> c;
 
-            // cerr << s << endl;
-
-            if (i < 4) {
-                int cur = 0;
-                for (int j = 0; j < n - b; ++j) {
-                    while (!res[i + 1][cur]) {
-                        cur += 1;
-                    }
-                    res[i + 1][cur] -= 1;
-
-                    res[i][(cur << 1) + (s[j] - '0')] += 1;
-                }
-            } else {
-                res[4][0] = 1;
-
-                int cur = 0;
-                for (int j = 1; j < n - b; ++j) {
-                    if (s[j] != s[j - 1]) {
-                        cur += 1;
-                    }
-
-                    res[4][cur] += 1;
-                }
+                res[j] |= (c - '0') << i;
             }
-
-            // for (int j = 0; j < n; ++j) {
-            //     cerr << '\t' << res[i][j];
-            // }
-            // cerr << endl;
         }
 
+        // for (int i = 0; i < n - b; ++i) {
+        //     cerr << '\t' << res[i];
+        // }
+        // cerr << endl;
+
         bool first = true;
+        int pos = 0;
+
         for (int i = 0; i < n; ++i) {
-            if (res[0][i]) {
-                res[0][i] -= 1;
+            if (res[pos] == (i & 0xf)) {
+                pos += 1;
             } else {
                 if (first) {
                     first = false;
