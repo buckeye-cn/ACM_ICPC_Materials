@@ -13,7 +13,7 @@ using namespace std;
 int value[24];
 
 int pos[25];
-pair<int, int> dp[1 << 25];
+int dp[1 << 25][2];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -45,10 +45,10 @@ int main() {
 
             while (true) {
                 if (p2 < pos[i]) {
-                    if (dp[p2].first + value[i] > dp[p1].first) {
-                        if ((dp[p2].first + value[i]) * 2 <= sum) {
-                            dp[pp].first = dp[p2].first + value[i];
-                            dp[pp].second = dp[p2].second + (1 << i);
+                    if (dp[p2][0] + value[i] > dp[p1][0]) {
+                        if ((dp[p2][0] + value[i]) * 2 <= sum) {
+                            dp[pp][0] = dp[p2][0] + value[i];
+                            dp[pp][1] = dp[p2][1] + (1 << i);
                             pp += 1;
                         }
 
@@ -59,8 +59,8 @@ int main() {
                 }
 
                 if (p1 < pos[i]) {
-                    dp[pp].first = dp[p1].first;
-                    dp[pp].second = dp[p1].second;
+                    dp[pp][0] = dp[p1][0];
+                    dp[pp][1] = dp[p1][1];
                     pp += 1;
 
                     p1 += 1;
@@ -73,10 +73,10 @@ int main() {
         }
 
         for (int i = pos[n - 1]; i < pp; ++i) {
-            for (int j = i; dp[j].first == dp[i].first; ++j) {
-                if (dp[j].second & dp[i].second) continue;
+            for (int j = i; dp[j][0] == dp[i][0]; ++j) {
+                if (dp[j][1] & dp[i][1]) continue;
 
-                cout << sum - dp[i].first - dp[j].first << endl;
+                cout << sum - dp[i][0] - dp[j][0] << endl;
 
                 goto out;
             }

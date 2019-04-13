@@ -69,7 +69,7 @@ int main() {
 
     // add
 
-    for (int i = 63; i > 0; --i) {
+    for (int i = 51; i > 0; --i) {
         for (; addseq[i] > 0 && add2 >= i; --addseq[i]) {
             addresult += 1l << i;
 
@@ -79,7 +79,7 @@ int main() {
 
     bool t = false;
     int k = add0 + add1 + add2;
-    for (int i = 63; i > 0; --i) {
+    for (int i = 51; i > 0; --i) {
         for (; addseq[i] > 0; --addseq[i]) {
             memset(dp[t], 0, sizeof(dp[t]));
             for (int k2 = 0; k2 <= add2 && k2 <= k; ++k2) {
@@ -114,7 +114,7 @@ int main() {
 
     // sub
 
-    for (int i = 63; i > 0; --i) {
+    for (int i = 51; i > 0; --i) {
         for (; subseq[i] > 0 && sub0 >= 1; --subseq[i]) {
             sub0 -= 1;
 
@@ -128,7 +128,7 @@ int main() {
         }
     }
 
-    for (int i = 63; i > 0; --i) {
+    for (int i = 51; i > 0; --i) {
         if (sub1 >= subseq[i]) {
             subseq[i - 1] += subseq[i];
             subseq[i] = 0;
@@ -143,7 +143,7 @@ int main() {
     }
 
     // notice: includes 0
-    for (int i = 63; i >= 0; --i) {
+    for (int i = 51; i >= 0; --i) {
         for (; subseq[i] > 0; --subseq[i]) {
             subresult -= 1l << i;
 
