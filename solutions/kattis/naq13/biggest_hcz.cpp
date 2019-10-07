@@ -46,7 +46,7 @@ int main() {
             }
         }
 
-        printf("%.6f\n", best);
+        printf("%.4f\n", best);
     }
 
     return 0;

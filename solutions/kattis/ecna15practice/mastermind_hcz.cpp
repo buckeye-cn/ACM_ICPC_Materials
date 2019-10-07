@@ -16,7 +16,7 @@ int slot2[128];
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout.precision(15);
+    cout.precision(10);
 
     int n;
     string s1, s2;

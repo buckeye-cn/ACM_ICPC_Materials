@@ -15,7 +15,7 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout.precision(15);
+    cout.precision(10);
 
     int n;
     cin >> n;
@@ -27,7 +27,7 @@ int main() {
         double lo = sqrt(sqr(g - h) + sqr(w));
         double hi = sqrt(sqr(g + h - 2 * r) + sqr(w));
 
-        cout << lo << ' ' << hi << endl;
+        printf("%.6f %.6f\n", lo, hi);
     }
 
     return 0;
