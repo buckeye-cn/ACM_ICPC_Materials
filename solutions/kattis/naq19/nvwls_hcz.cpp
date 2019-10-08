@@ -94,8 +94,12 @@ int main() {
 
                 if (hash_roll[j] == one_hash[j]) {
                     pos = one_pos[j];
-                } else if (dicts[keys[j]].find(hash_roll[j]) != dicts[keys[j]].end()) {
-                    pos = dicts[keys[j]][hash_roll[j]];
+                } else {
+                    unordered_map<int, int> &dict = dicts[keys[j]];
+
+                    if (dict.find(hash_roll[j]) != dict.end()) {
+                        pos = dict[hash_roll[j]];
+                    }
                 }
 
                 if (pos != -1 && best[i + 1] < best[i + 1 - keys[j]] + vowel[pos]) {
