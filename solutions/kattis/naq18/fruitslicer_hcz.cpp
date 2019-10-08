@@ -29,7 +29,7 @@ pair<int, double> test(double rot) {
 
     int current = 0;
 
-    for (const pair<double, bool> &i: range) {
+    for (auto i: range) {
         if (!i.second) {
             current += 1;
         } else {

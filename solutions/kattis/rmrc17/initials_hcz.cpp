@@ -39,7 +39,7 @@ int main() {
     }
 
     int i = 0;
-    for (const pair<string, int> &name: names) {
+    for (auto name: names) {
         len[i] = name.first.size() - 1;
 
         for (int j = 0; j < len[i]; ++j) {

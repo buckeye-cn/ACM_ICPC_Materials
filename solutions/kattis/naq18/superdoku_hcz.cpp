@@ -77,7 +77,7 @@ struct EdmondsKarp {
 EdmondsKarp<202> ek[100];
 
 int n, k;
-int data[100][100];
+int grid[100][100];
 __int128 mask_i[100];
 __int128 mask_j[100];
 
@@ -90,11 +90,11 @@ int main() {
 
     for (int i = 0; i < k; ++i) {
         for (int j = 0; j < n; ++j) {
-            cin >> data[i][j];
-            data[i][j] -= 1;
+            cin >> grid[i][j];
+            grid[i][j] -= 1;
 
             __int128 mask = mask_i[i] | mask_j[j];
-            __int128 m = __int128(1) << data[i][j];
+            __int128 m = __int128(1) << grid[i][j];
 
             if (!(mask & m)) {
                 mask_i[i] ^= m;
@@ -123,12 +123,12 @@ int main() {
 
         ek[i].solve(200, 201);
 
-        for (auto &edge: ek[i].edges) {
+        for (auto edge: ek[i].edges) {
             if (!edge.cap && edge.from < 100 && edge.to < 200) {
                 int j = edge.from;
                 int k = edge.to - 100;
 
-                data[i][j] = k;
+                grid[i][j] = k;
                 mask_j[j] ^= __int128(1) << k;
             }
         }
@@ -141,7 +141,7 @@ int main() {
             if (j) {
                 cout << ' ';
             }
-            cout << data[i][j] + 1;
+            cout << grid[i][j] + 1;
         }
         cout << endl;
     }
