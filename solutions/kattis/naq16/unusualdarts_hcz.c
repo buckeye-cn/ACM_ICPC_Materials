@@ -94,8 +94,6 @@ int main() {
                                 for (int o = j + 1; o < 7; ++o) {
                                     ITER(n, o)
 
-                                    (void) MAP_o;
-
                                     double s = fabs(S_o + s2[o][i]);
 
                                     if (s < s_lo) continue;

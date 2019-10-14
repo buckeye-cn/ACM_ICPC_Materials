@@ -12,7 +12,7 @@
 using namespace std;
 
 int n;
-int data[100][5][5];
+int games[100][5][5];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -24,7 +24,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         for (int x = 0; x < 5; ++x) {
             for (int y = 0; y < 5; ++y) {
-                cin >> data[i][x][y];
+                cin >> games[i][x][y];
             }
         }
     }
@@ -35,15 +35,13 @@ int main() {
         int found_tot = 0;
         int found[100];
         int found_x[100];
-        int found_y[100];
 
         for (int i = 0; i < n; ++i) {
             for (int x = 0; x < 5; ++x) {
                 for (int y = 0; y < 5; ++y) {
-                    if (data[i][x][y] == last) {
+                    if (games[i][x][y] == last) {
                         found[found_tot] = i;
                         found_x[found_tot] = x;
-                        found_y[found_tot] = y;
                         found_tot += 1;
                     }
                 }
@@ -51,23 +49,23 @@ int main() {
         }
 
         for (int i = 0; i < found_tot; ++i) {
-            auto data_i = data[found[i]];
+            auto vi = games[found[i]];
 
             for (int j = i + 1; j < found_tot; ++j) {
-                auto data_j = data[found[j]];
+                auto vj = games[found[j]];
 
                 unordered_set<int> s;
 
-                s.insert({data_i[found_x[i]][0]});
-                s.insert({data_i[found_x[i]][1]});
-                s.insert({data_i[found_x[i]][2]});
-                s.insert({data_i[found_x[i]][3]});
-                s.insert({data_i[found_x[i]][4]});
-                s.insert({data_j[found_x[j]][0]});
-                s.insert({data_j[found_x[j]][1]});
-                s.insert({data_j[found_x[j]][2]});
-                s.insert({data_j[found_x[j]][3]});
-                s.insert({data_j[found_x[j]][4]});
+                s.insert({vi[found_x[i]][0]});
+                s.insert({vi[found_x[i]][1]});
+                s.insert({vi[found_x[i]][2]});
+                s.insert({vi[found_x[i]][3]});
+                s.insert({vi[found_x[i]][4]});
+                s.insert({vj[found_x[j]][0]});
+                s.insert({vj[found_x[j]][1]});
+                s.insert({vj[found_x[j]][2]});
+                s.insert({vj[found_x[j]][3]});
+                s.insert({vj[found_x[j]][4]});
                 s.erase(last);
 
                 bool fail = false;
@@ -80,7 +78,7 @@ int main() {
                         int match = 0;
 
                         for (int y = 0; y < 5; ++y) {
-                            match += s.find(data[k][x][y]) != s.end();
+                            match += s.find(games[k][x][y]) != s.end();
                         }
 
                         fail |= match == 5;

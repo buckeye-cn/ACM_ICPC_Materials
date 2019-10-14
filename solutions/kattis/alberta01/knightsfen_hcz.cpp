@@ -65,18 +65,13 @@ int main() {
 
     for (int i = 0; i < n; ++i) {
         long data = 0;
-        int sp_x;
-        int sp_y;
 
         for (int j = 0; j < 5; ++j) {
             char s[6];
             cin.getline(s, 6);
 
             for (int k = 0; k < 5; ++k) {
-                if (s[k] == ' ') {
-                    sp_x = j;
-                    sp_y = k;
-                } else if (s[k] == '0') {
+                if (s[k] == '0') {
                     data |= 1l << (SHIFT(j, k) + 0);
                 } else if (s[k] == '1') {
                     data |= 1l << (SHIFT(j, k) + 1);
