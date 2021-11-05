@@ -91,7 +91,7 @@ int main() {
         double pos = -PI;
         int cut_sum = 0;
 
-        for (const pair<double, int> &p: cut) {
+        for (pair<double, int> p: cut) {
             if (cut_sum > 0) {
                 total += (p.first - pos) * r[i];
             }
