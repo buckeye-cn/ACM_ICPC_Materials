@@ -7,13 +7,12 @@
 #include <cstring>
 #include <string>
 #include <vector>
-#include <set>
 #include <iostream>
 
 using namespace std;
 
 template <long N>
-struct Dijkstra {
+struct SPFA {
     struct Edge {
         long to, len;
     };
@@ -28,46 +27,47 @@ struct Dijkstra {
 
     long dist[N];
     long route[N];
+    long visiting[N];
+    bool active[N];
 
     long solve(long from, long to) {
-        set<pair<long, long>> q;
+        memset(active, 0, sizeof(active));
 
-        for (long i = 0; i < N; ++i) {
-            if (i == from) {
-                dist[i] = 0;
-            } else {
-                dist[i] = 1l << 60;
-            }
-            q.insert({dist[i], i});
+        for (int i = 0; i < N; ++i) {
+            dist[i] = 1l << 60;
         }
 
-        while (!q.empty()) {
-            pair<long, long> i = *q.begin();
-            q.erase(i);
+        long head = 0;
+        long tail = 0;
 
-            if (i.second == to) {
-                return i.first;
-            }
+        dist[from] = 0;
+        visiting[(tail++) % N] = from;
+        active[from] = true;
 
-            for (long j = 0; j < outs[i.second].size(); ++j) {
-                Edge &e = edges[outs[i.second][j]];
+        while (head < tail) {
+            long i = visiting[(head++) % N];
+            active[i] = false;
 
-                if (dist[e.to] > i.first + e.len) {
-                    if (q.find({dist[e.to], e.to}) != q.end()) {
-                        q.erase({dist[e.to], e.to});
-                        dist[e.to] = i.first + e.len;
-                        route[e.to] = i.second;
-                        q.insert({dist[e.to], e.to});
+            for (long j = 0; j < outs[i].size(); ++j) {
+                Edge &e = edges[outs[i][j]];
+
+                if (dist[e.to] > dist[i] + e.len) {
+                    dist[e.to] = dist[i] + e.len;
+                    route[e.to] = i;
+
+                    if (!active[e.to]) {
+                        visiting[(tail++) % N] = e.to;
+                        active[e.to] = true;
                     }
                 }
             }
         }
 
-        return 1l << 60;
+        return dist[to];
     }
 };
 
-Dijkstra<200000> dijk;
+SPFA<200000> spfa;
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -81,8 +81,8 @@ int main() {
         int a, b, t;
         cin >> a >> b >> t;
 
-        dijk.add(a - 1, b - 1, t);
-        dijk.add(b - 1, a - 1, t);
+        spfa.add(a - 1, b - 1, t);
+        spfa.add(b - 1, a - 1, t);
     }
 
     int c[7];
@@ -95,7 +95,7 @@ int main() {
 
     for (int i = 0; i < 7; ++i) {
         for (int j = i + 1; j < 7; ++j) {
-            d[i][j] = dijk.solve(c[i] - 1, c[j] - 1);
+            d[i][j] = spfa.solve(c[i] - 1, c[j] - 1);
             d[j][i] = d[i][j];
         }
     }
@@ -103,7 +103,7 @@ int main() {
     long best = 2.1e9;
 
     for (int i = 0; i < 7; ++i) {
-        long l1 = dijk.solve(0, c[i] - 1);
+        long l1 = spfa.solve(0, c[i] - 1);
 
         for (int j = 0; j < 7; ++j) {
             if (i == j) continue;
