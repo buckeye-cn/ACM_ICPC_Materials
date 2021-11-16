@@ -21,7 +21,6 @@ int gcd(int y, int x) {
 
 int inv[100];
 int lcm[100][100];
-int n, m, p;
 int x[400][401];
 int y[400];
 
@@ -96,6 +95,7 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
+    int n, m, p;
     cin >> n >> m >> p;
 
     for (int i = 1; i < p; ++i) {
