@@ -20,7 +20,7 @@ int gcd(int y, int x) {
 }
 
 int inv[37];
-int lcm[37][37];
+int g[37][37];
 int x[2000][101];
 int y[100];
 
@@ -31,7 +31,7 @@ int gaussian(int n_equ, int n_var, int mod) {
         int best_i = row;
 
         for (int i = row + 1; i < n_equ; ++i) {
-            if (abs(x[i][col]) > abs(x[best_i][col])) {
+            if (x[i][col] > x[best_i][col]) {
                 best_i = i;
             }
         }
@@ -49,8 +49,8 @@ int gaussian(int n_equ, int n_var, int mod) {
 
         for (int i = row + 1; i < n_equ; ++i) {
             if (x[i][col]) {
-                int ta = lcm[x[row][col]][x[i][col]] / x[i][col];
-                int tb = lcm[x[row][col]][x[i][col]] / x[row][col];
+                int ta = x[row][col] * inv[g[x[row][col]][x[i][col]]];
+                int tb = x[i][col] * inv[g[x[row][col]][x[i][col]]];
 
                 if (x[i][col] * x[row][col] < 0) {
                     tb = -tb;
@@ -101,7 +101,7 @@ int main() {
                 inv[i] = j;
             }
 
-            lcm[i][j] = i * j / gcd(i, j);
+            g[i][j] = gcd(i, j);
         }
     }
 
