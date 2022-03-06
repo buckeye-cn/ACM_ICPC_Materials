@@ -99,16 +99,16 @@ int main() {
         }
     }
 
-    spfa[0].solve(0, 0);
-
-    long best = spfa[1].solve(grid[0][0], 0);
-
-    for (int i = 1; i < 10000; ++i) {
-        spfa[0].dist[i] += spfa[1].dist[i];
-    }
+    long best = spfa[0].solve(0, grid[0][0]);
 
     for (int j = 1; j < w; ++j) {
         if (grid[0][0] == grid[0][j]) continue;
+
+        spfa[1].solve(grid[0][0], 0);
+
+        for (int i = 1; i < 10000; ++i) {
+            spfa[0].dist[i] += spfa[1].dist[i];
+        }
 
         best += spfa[1].solve(grid[0][j], 0);
 
