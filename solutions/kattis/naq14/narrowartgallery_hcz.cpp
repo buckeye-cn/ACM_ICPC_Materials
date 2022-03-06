@@ -34,9 +34,9 @@ int main() {
         cin >> a >> b;
 
         for (int j = 0; j <= k; ++j) {
-            dp01[(i & 1) ^ 1][j + 1] = max(dp01[i & 1][j], dp11[i & 1][j]) + b;
-            dp10[(i & 1) ^ 1][j + 1] = max(dp10[i & 1][j], dp11[i & 1][j]) + a;
-            dp11[(i & 1) ^ 1][j] = max(max(dp01[i & 1][j], dp10[i & 1][j]), dp11[i & 1][j]) + a + b;
+            dp01[~i & 1][j + 1] = max(dp01[i & 1][j], dp11[i & 1][j]) + b;
+            dp10[~i & 1][j + 1] = max(dp10[i & 1][j], dp11[i & 1][j]) + a;
+            dp11[~i & 1][j] = max(max(dp01[i & 1][j], dp10[i & 1][j]), dp11[i & 1][j]) + a + b;
         }
     }
 

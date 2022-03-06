@@ -17,8 +17,6 @@ int set_d;
 int need = 5000;
 
 void iter(int index, long curr_s, long a, int set_a, long b, int set_b, long bc, int set_bc) {
-    // cerr << index << ' ' << a << ' ' << set_a << ' ' << b << ' ' << set_b << ' ' << bc << ' ' << set_bc << endl;
-
     if (index == s.size()) {
         if (set_b & set_d) return;
         if (set_b & set_a) return;
@@ -36,8 +34,6 @@ void iter(int index, long curr_s, long a, int set_a, long b, int set_b, long bc,
 
             int new_set_a = set_a | (new_a ? 1 << i : 0);
 
-            // cerr << i << " a:" << new_a << '-' << new_set_a << endl;
-
             if (new_set_a & set_d) continue;
 
             long new_b = new_s - new_a;
@@ -54,8 +50,6 @@ void iter(int index, long curr_s, long a, int set_a, long b, int set_b, long bc,
             } else {
                 new_set_bc = set_bc | (new_bc ? 1 << (10 + d - i - 1) : 0);
             }
-
-            // cerr << i << " b:" << new_b << '-' << new_set_b << " bc:" << new_bc << '-' << new_set_bc << endl;
 
             if ((new_set_b & set_d) && (new_set_bc & set_d)) continue;
             if ((new_set_b & new_set_a) && (new_set_bc & new_set_a)) continue;
@@ -119,7 +113,7 @@ int main() {
                 if (set_b & set_d) continue;
                 if (set_b & set_a) continue;
 
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][0][false][false])
+                if (long count = cases[~i & 1][set_a][set_b][0][false][false])
                 for (int a = 0; a <= 9; ++a) {
                     for (int b = 0; b <= 9; ++b) {
                         if (a + b == d) {
@@ -135,7 +129,7 @@ int main() {
                         }
                     }
                 }
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][1][false][false])
+                if (long count = cases[~i & 1][set_a][set_b][1][false][false])
                 for (int a = 0; a <= 9; ++a) {
                     for (int b = 0; b <= 9; ++b) {
                         if (a + b + 1 == d) {
@@ -151,14 +145,14 @@ int main() {
                         }
                     }
                 }
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][0][false][true])
+                if (long count = cases[~i & 1][set_a][set_b][0][false][true])
                 for (int a = 0; a <= 9; ++a) {
                     if (a == d) {
                         cases[i & 1][set_a | (1 << a)][set_b][0][false][true] += count;
                         if (a) cases[i & 1][set_a | (1 << a)][set_b][0][true][true] += count;
                     }
                 }
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][1][false][true])
+                if (long count = cases[~i & 1][set_a][set_b][1][false][true])
                 for (int a = 0; a <= 9; ++a) {
                     if (a + 1 == d) {
                         cases[i & 1][set_a | (1 << a)][set_b][0][false][true] += count;
@@ -168,14 +162,14 @@ int main() {
                         if (a) cases[i & 1][set_a | (1 << a)][set_b][1][true][true] += count;
                     }
                 }
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][0][true][false])
+                if (long count = cases[~i & 1][set_a][set_b][0][true][false])
                 for (int b = 0; b <= 9; ++b) {
                     if (b == d) {
                         cases[i & 1][set_a][set_b | (1 << b)][0][true][false] += count;
                         if (b) cases[i & 1][set_a][set_b | (1 << b)][0][true][true] += count;
                     }
                 }
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][1][true][false])
+                if (long count = cases[~i & 1][set_a][set_b][1][true][false])
                 for (int b = 0; b <= 9; ++b) {
                     if (b + 1 == d) {
                         cases[i & 1][set_a][set_b | (1 << b)][0][true][false] += count;
@@ -185,11 +179,11 @@ int main() {
                         if (b) cases[i & 1][set_a][set_b | (1 << b)][1][true][true] += count;
                     }
                 }
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][0][true][true])
+                if (long count = cases[~i & 1][set_a][set_b][0][true][true])
                 if (0 == d) {
                     cases[i & 1][set_a][set_b][0][true][true] += count;
                 }
-                if (long count = cases[1 ^ (i & 1)][set_a][set_b][1][true][true])
+                if (long count = cases[~i & 1][set_a][set_b][1][true][true])
                 if (1 == d) {
                     cases[i & 1][set_a][set_b][0][true][true] += count;
                 }
@@ -204,8 +198,8 @@ int main() {
         //         if (set_b & set_d) continue;
         //         if (set_b & set_a) continue;
 
-        //         if (cases[1 ^ (i & 1)][set_a][set_b][1][true][true]) {
-        //             fprintf(stderr, "last %x %x %x %d\n", set_d, set_a, set_b, cases[1 ^ (i & 1)][set_a][set_b][1][true][true]);
+        //         if (cases[~i & 1][set_a][set_b][1][true][true]) {
+        //             fprintf(stderr, "last %x %x %x %d\n", set_d, set_a, set_b, cases[~i & 1][set_a][set_b][1][true][true]);
         //         }
         //         if (cases[i & 1][set_a][set_b][0][true][true]) {
         //             fprintf(stderr, "this %x %x %x %d\n", set_d, set_a, set_b, cases[i & 1][set_a][set_b][0][true][true]);
@@ -225,7 +219,7 @@ int main() {
             if (set_b & set_d) continue;
             if (set_b & set_a) continue;
 
-            global_tot += cases[1 ^ (s.size() & 1)][set_a][set_b][0][true][true];
+            global_tot += cases[~s.size() & 1][set_a][set_b][0][true][true];
         }
     }
 

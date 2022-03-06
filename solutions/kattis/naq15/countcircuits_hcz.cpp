@@ -35,7 +35,7 @@ int main() {
         cin >> x >> y;
 
         long *count_last = count[i & 1];
-        long *count_now = count[(i & 1) ^ 1];
+        long *count_now = count[~i & 1];
         int delta = x * BASE + y;
         int old_tot = tot;
 
