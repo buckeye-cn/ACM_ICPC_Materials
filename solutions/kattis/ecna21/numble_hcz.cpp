@@ -12,8 +12,7 @@ using namespace std;
 
 char board[22][22];
 char v[10];
-bool good[22][22];
-char new_board[22][22];
+char new_row[22];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -46,59 +45,58 @@ int main() {
 
     for (int d = 0; d < 4; ++d) {
         for (int i = 1; i <= row; ++i) {
+            int good = 0;
+
             for (int j = 1; j <= col; ++j) {
-                good[i][j] = board[i][j - 1] >= '0' && board[i][j - 1] <= '9';
-                good[i][j] |= board[i][j + 1] >= '0' && board[i][j + 1] <= '9';
-                good[i][j] |= board[i - 1][j] >= '0' && board[i - 1][j] <= '9';
-                good[i][j] |= board[i + 1][j] >= '0' && board[i + 1][j] <= '9';
+                good |= (board[i][j - 1] >= '0' && board[i][j - 1] <= '9') << j;
+                good |= (board[i][j + 1] >= '0' && board[i][j + 1] <= '9') << j;
+                good |= (board[i - 1][j] >= '0' && board[i - 1][j] <= '9') << j;
+                good |= (board[i + 1][j] >= '0' && board[i + 1][j] <= '9') << j;
             }
-        }
 
-        memcpy(new_board, board, sizeof(board));
+            for (int j = 1; j <= col; ++j) {
+                good >>= 1;
+                if (!good) break;
 
-        for (int i = 1; i <= row; ++i) {
-            for (int j = col; j >= 1; --j) {
                 if (board[i][j] >= '0' && board[i][j] <= '9') continue;
 
                 for (int mask = 0; mask < 1 << t; ++mask) {
-                    int p = 0;
-                    bool has_good = false;
+                    memcpy(new_row, board[i], sizeof(board[i]));
 
-                    for (int jj = j; jj <= col; ++jj) {
-                        if (board[i][jj] >= '0' && board[i][jj] <= '9') continue;
+                    int k = j;
+                    int p = 0;
+
+                    for (; k <= col; ++k) {
+                        if (board[i][k] >= '0' && board[i][k] <= '9') continue;
 
                         while (mask & (1 << p)) {
                             p += 1;
                         }
 
-                        if (p < t) {
-                            new_board[i][jj] = v[p];
-                            p += 1;
-                            has_good |= good[i][jj];
-                        } else {
-                            new_board[i][jj] = board[i][jj];
-                        }
+                        if (p >= t) break;
+
+                        new_row[k] = v[p];
+                        p += 1;
                     }
 
-                    if (!has_good) continue;
+                    if (good >> (k - j) << (k - j) == good) continue;
 
                     bool inc = true;
                     long val = 0;
-                    long jval = (new_board[i][j] - '0') * (board[i][j] == 't' ? 3 : board[i][j] == 'd' ? 2 : 1);
+                    long jval = (new_row[j] - '0') * (board[i][j] == 't' ? 3 : board[i][j] == 'd' ? 2 : 1);
                     long jmul = board[i][j] == 'T' ? 3 : board[i][j] == 'D' ? 2 : 1;
                     int l = j - 1;
                     int r = j + 1;
 
-                    while (new_board[i][l] >= '0' && new_board[i][l] <= '9') {
-                        inc &= new_board[i][l] <= new_board[i][l + 1];
-                        jval += (new_board[i][l] - '0') * (board[i][l] == 't' ? 3 : board[i][l] == 'd' ? 2 : 1);
-                        jmul *= board[i][l] == 'T' ? 3 : board[i][l] == 'D' ? 2 : 1;
+                    while (new_row[l] >= '0' && new_row[l] <= '9') {
+                        inc &= new_row[l] <= new_row[l + 1];
+                        jval += new_row[l] - '0';
                         l -= 1;
                     }
 
-                    while (new_board[i][r] >= '0' && new_board[i][r] <= '9') {
-                        inc &= new_board[i][r - 1] <= new_board[i][r];
-                        jval += (new_board[i][r] - '0') * (board[i][r] == 't' ? 3 : board[i][r] == 'd' ? 2 : 1);
+                    while (new_row[r] >= '0' && new_row[r] <= '9') {
+                        inc &= new_row[r - 1] <= new_row[r];
+                        jval += (new_row[r] - '0') * (board[i][r] == 't' ? 3 : board[i][r] == 'd' ? 2 : 1);
                         jmul *= board[i][r] == 'T' ? 3 : board[i][r] == 'D' ? 2 : 1;
                         r += 1;
                     }
@@ -116,24 +114,28 @@ int main() {
 
                         bool inc = true;
                         bool dec = true;
-                        long ival = (new_board[i][jj] - '0') * (board[i][jj] == 't' ? 3 : board[i][jj] == 'd' ? 2 : 1);
+                        long ival = (new_row[jj] - '0') * (board[i][jj] == 't' ? 3 : board[i][jj] == 'd' ? 2 : 1);
                         long imul = board[i][jj] == 'T' ? 3 : board[i][jj] == 'D' ? 2 : 1;
                         int t = i - 1;
                         int b = i + 1;
 
-                        while (new_board[t][jj] >= '0' && new_board[t][jj] <= '9') {
-                            inc &= new_board[t][jj] <= new_board[t + 1][jj];
-                            dec &= new_board[t][jj] >= new_board[t + 1][jj];
-                            ival += (new_board[t][jj] - '0') * (board[t][jj] == 't' ? 3 : board[t][jj] == 'd' ? 2 : 1);
-                            imul *= board[t][jj] == 'T' ? 3 : board[t][jj] == 'D' ? 2 : 1;
+                        int last = new_row[jj];
+
+                        while (board[t][jj] >= '0' && board[t][jj] <= '9') {
+                            inc &= board[t][jj] <= last;
+                            dec &= board[t][jj] >= last;
+                            ival += board[t][jj] - '0';
+                            last = board[t][jj];
                             t -= 1;
                         }
 
-                        while (new_board[b][jj] >= '0' && new_board[b][jj] <= '9') {
-                            inc &= new_board[b - 1][jj] <= new_board[b][jj];
-                            dec &= new_board[b - 1][jj] >= new_board[b][jj];
-                            ival += (new_board[b][jj] - '0') * (board[b][jj] == 't' ? 3 : board[b][jj] == 'd' ? 2 : 1);
-                            imul *= board[b][jj] == 'T' ? 3 : board[b][jj] == 'D' ? 2 : 1;
+                        last = new_row[jj];
+
+                        while (board[b][jj] >= '0' && board[b][jj] <= '9') {
+                            inc &= last <= board[b][jj];
+                            dec &= last >= board[b][jj];
+                            ival += board[b][jj] - '0';
+                            last = board[b][jj];
                             b += 1;
                         }
 
