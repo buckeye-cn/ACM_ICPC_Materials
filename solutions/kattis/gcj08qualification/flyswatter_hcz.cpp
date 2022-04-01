@@ -19,25 +19,25 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
-    int n;
-    cin >> n;
+    int t;
+    cin >> t;
 
     double ss = PI / 4 / 3e-7;
 
-    for (int i = 1; i <= n; ++i) {
-        double f, rr, t, r, g;
-        cin >> f >> rr >> t >> r >> g;
+    for (int n_case = 1; n_case <= t; ++n_case) {
+        double f, rr, tt, r, g;
+        cin >> f >> rr >> tt >> r >> g;
 
-        t += f;
-        rr -= t;
+        tt += f;
+        rr -= tt;
         g += 2 * r;
         r += f;
-        t /= rr;
+        tt /= rr;
         r /= rr;
         g /= rr;
 
         if (r / g < 1e-5) {
-            cout << "Case #" << i << ": " << 1 - sqr(1 - r / g) / sqr(1 + t) << endl;
+            cout << "Case #" << n_case << ": " << 1 - sqr(1 - r / g) / sqr(1 + tt) << endl;
             continue;
         }
 
@@ -80,7 +80,7 @@ int main() {
             }
         }
 
-        cout << "Case #" << i << ": " << 1 - s / ss / sqr(1 + t) << endl;
+        cout << "Case #" << n_case << ": " << 1 - s / ss / sqr(1 + tt) << endl;
     }
 
     return 0;
