@@ -25,6 +25,8 @@ int main() {
     double ss = PI / 4 / 3e-7;
 
     for (int n_case = 1; n_case <= t; ++n_case) {
+        cout << "Case #" << n_case << ": ";
+
         double f, rr, tt, r, g;
         cin >> f >> rr >> tt >> r >> g;
 
@@ -37,7 +39,7 @@ int main() {
         g /= rr;
 
         if (r / g < 1e-5) {
-            cout << "Case #" << n_case << ": " << 1 - sqr(1 - r / g) / sqr(1 + tt) << endl;
+            cout << 1 - sqr(1 - r / g) / sqr(1 + tt) << endl;
             continue;
         }
 
@@ -80,7 +82,7 @@ int main() {
             }
         }
 
-        cout << "Case #" << n_case << ": " << 1 - s / ss / sqr(1 + tt) << endl;
+        cout << 1 - s / ss / sqr(1 + tt) << endl;
     }
 
     return 0;

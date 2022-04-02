@@ -22,6 +22,8 @@ int main() {
     cin >> t;
 
     for (int n_case = 1; n_case <= t; ++n_case) {
+        cout << "Case #" << n_case << ": ";
+
         memset(pa, 0, sizeof(pa));
         memset(pb, 0, sizeof(pb));
 
@@ -59,7 +61,7 @@ int main() {
             b = max(b, pb[i]);
         }
 
-        cout << "Case #" << n_case << ": " << a << ' ' << b << endl;
+        cout << a << ' ' << b << endl;
     }
 
     return 0;
