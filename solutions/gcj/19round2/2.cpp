@@ -4,7 +4,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <algorithm>
 #include <iostream>
 
 using namespace std;
@@ -37,7 +36,10 @@ int main() {
                     cin >> p;
                 }
             } else if (day < 100) {
-                sort(v, v + 5);
+                if (v[3] > v[4]) swap(v[3], v[4]);
+                if (v[2] > v[3]) swap(v[2], v[3]);
+                if (v[1] > v[2]) swap(v[1], v[2]);
+                if (v[0] > v[1]) swap(v[0], v[1]);
 
                 cout << v[1].second << ' ' << day << endl;
 
