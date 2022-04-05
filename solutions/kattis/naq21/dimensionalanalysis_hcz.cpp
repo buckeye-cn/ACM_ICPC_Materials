@@ -11,6 +11,21 @@
 
 using namespace std;
 
+int modinv(int x, int mod) {
+    int p = x;
+    int y = 1;
+
+    for (int i = 0; (mod - 2) >> i; ++i) {
+        if (((mod - 2) >> i) & 1) {
+            y = y * p % mod;
+        }
+
+        p = p * p % mod;
+    }
+
+    return y;
+}
+
 int gcd(int y, int x) {
     while (x) {
         y %= x;
@@ -97,11 +112,7 @@ int main() {
     cout.precision(10);
 
     for (int i = 1; i < 1163; ++i) {
-        for (int j = 1; j < 1163; ++j) {
-            if (i * j % 1163 == 1) {
-                inv[i] = j;
-            }
-        }
+        inv[i] = modinv(i, 1163);
     }
 
     int n;
