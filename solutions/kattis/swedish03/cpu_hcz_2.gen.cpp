@@ -43,10 +43,12 @@ bool witness(long base, long x) {
 }
 
 bool prime(long x) {
+    if (x <= 1) return false;
     if (x == 2) return true;
+    if (!(x & 1)) return false;
 
     for (int iter = 0; iter < 5; ++iter) {
-        if (witness(rand() % (x - 2) + 1, x)) {
+        if (witness(hash<string>()(string {iter}) % (x - 2) + 1, x)) {
             return false;
         }
     }
