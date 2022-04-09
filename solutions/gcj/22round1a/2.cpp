@@ -8,7 +8,7 @@
 
 using namespace std;
 
-long values[200];
+int values[200];
 
 int main() {
     ios_base::sync_with_stdio(false);
