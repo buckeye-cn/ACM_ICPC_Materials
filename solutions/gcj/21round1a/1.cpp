@@ -30,7 +30,7 @@ int main() {
         int tot = 0;
 
         for (int i = 1; i < n; ++i) {
-            if (x[i - 1] > 1e12l) {
+            if (x[i - 1] > 1e12) {
                 x[i - 1] /= 10;
                 tot += n - i;
             }
