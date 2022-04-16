@@ -5,6 +5,7 @@
 #include <cstring>
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 #define sqr(x) ((x) * (x))
 
@@ -50,7 +51,7 @@ int main() {
             double yyi = yi[i] + viy[i] * t;
 
             if (sqr(xxi) + sqr(yyi) < sqr(ri[i])) {
-                printf("%.2f\n", t);
+                cout << round(t * 100) / 100 << endl;
 
                 return 0;
             }
