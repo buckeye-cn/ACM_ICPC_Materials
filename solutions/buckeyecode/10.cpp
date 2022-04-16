@@ -5,7 +5,6 @@
 #include <cstring>
 #include <string>
 #include <iostream>
-#include <iomanip>
 
 #define sqr(x) ((x) * (x))
 
