@@ -17,7 +17,7 @@ int main() {
     cin >> t;
 
     for (int n_case = 1; n_case <= t; ++n_case) {
-        cout << "Case #" << n_case << ":" << endl;
+        cout << "Case #" << n_case << ':' << endl;
 
         double a;
         cin >> a;
