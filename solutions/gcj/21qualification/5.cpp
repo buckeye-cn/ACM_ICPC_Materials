@@ -63,9 +63,9 @@ int main() {
         int ii[100];
         double ss[100];
 
-        for (auto &pair: scores) {
-            ii[i] = pair.first % 100;
-            ss[i] = pair.second;
+        for (pair<int, double> p: scores) {
+            ii[i] = p.first % 100;
+            ss[i] = p.second;
             i += 1;
         }
 
