@@ -1,15 +1,94 @@
-// https://open.kattis.com/problems/workers
+// Maximum Flow
 
-#include <cstdlib>
-#include <cstdint>
-#include <cstdio>
-#include <cmath>
-#include <cstring>
-#include <string>
-#include <vector>
-#include <iostream>
+template <long N>
+struct Dinic {
+    struct Edge {
+        long from, to, cap;
+    };
 
-using namespace std;
+    vector<Edge> edges;
+    vector<long> outs[N];
+
+    void add(long from, long to, long cap) {
+        if (cap > 0) {
+            edges.push_back(Edge {from, to, cap});
+            outs[from].push_back(edges.size() - 1);
+            edges.push_back(Edge {to, from, 0});
+            outs[to].push_back(edges.size() - 1);
+        }
+    }
+
+    long layer[N];
+    long visiting[N];
+    long step[N];
+
+    long dfs(long from, long to, long limit) {
+        if (from == to) {
+            return limit;
+        }
+
+        long amount = limit;
+
+        for (long j = step[from]; j < outs[from].size(); ++j) {
+            Edge &e = edges[outs[from][j]];
+
+            if (layer[e.to] == layer[from] + 1 && e.cap) {
+                long flow = dfs(e.to, to, min(amount, e.cap));
+
+                if (flow) {
+                    e.cap -= flow;
+                    edges[outs[from][j] ^ 1].cap += flow;
+                    amount -= flow;
+
+                    if (!amount) {
+                        step[from] = j;
+
+                        return limit;
+                    }
+                }
+            }
+        }
+
+        step[from] = outs[from].size();
+
+        return limit - amount;
+    }
+
+    long solve(long from, long to) {
+        long flow = 0;
+
+        while (true) {
+            memset(layer, 0, sizeof(layer));
+            memset(step, 0, sizeof(step));
+
+            long head = 0;
+            long tail = 0;
+
+            layer[from] = 1;
+            visiting[tail++] = from;
+
+            while (head < tail && !layer[to]) {
+                long i = visiting[head++];
+
+                for (long j = 0; j < outs[i].size(); ++j) {
+                    Edge &e = edges[outs[i][j]];
+
+                    if (!layer[e.to] && e.cap) {
+                        layer[e.to] = layer[i] + 1;
+
+                        visiting[tail++] = e.to;
+                    }
+                }
+            }
+
+            if (!layer[to]) break;
+
+            flow += dfs(from, to, 1l << 60);
+        }
+
+        return flow;
+    }
+};
 
 template <long N>
 struct DinicMinCost {
@@ -115,69 +194,3 @@ struct DinicMinCost {
         return {flow, cost};
     }
 };
-
-DinicMinCost<202> dinic[51];
-
-int dist[2][50][50][2];
-
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.precision(10);
-
-    int n;
-    cin >> n;
-
-    for (int i = 0; i < 2; ++i) {
-        for (int j = 0; j < n; ++j) {
-            for (int k = 0; k < n; ++k) {
-                cin >> dist[i][j][k][0] >> dist[i][j][k][1];
-            }
-        }
-    }
-
-    int best = 0;
-    int best_cost = 1e8;
-
-    for (int i = 0; i <= n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            dinic[i].add(200, j, 1, 0);
-            dinic[i].add(50 + j, 100 + j, 1, 0);
-            dinic[i].add(150 + j, 201, 1, 0);
-
-            for (int k = 0; k < n; ++k) {
-                dinic[i].add(j, 50 + k, 1, dist[0][j][k][k >= i]);
-                dinic[i].add(100 + k, 150 + j, 1, dist[1][j][k][k >= i]);
-            }
-        }
-
-        int cost = dinic[i].solve(200, 201).second;
-
-        if (best_cost > cost) {
-            best = i;
-            best_cost = cost;
-        }
-    }
-
-    cout << best_cost << endl;
-
-    for (int i = 0; i < n; ++i) {
-        int p1, p2;
-
-        for (int j = 0; j < dinic[best].edges.size(); j += 2) {
-            if (!dinic[best].edges[j].cap && dinic[best].edges[j].from == i) {
-                p1 = dinic[best].edges[j].to - 50;
-            }
-        }
-
-        for (int j = 0; j < dinic[best].edges.size(); j += 2) {
-            if (!dinic[best].edges[j].cap && dinic[best].edges[j].from - 100 == p1) {
-                p2 = dinic[best].edges[j].to - 150;
-            }
-        }
-
-        cout << i + 1 << ' ' << p1 + 1 << "AB"[p1 >= best] << ' ' << p2 + 1 << endl;
-    }
-
-    return 0;
-}

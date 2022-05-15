@@ -81,7 +81,7 @@ struct HeldKarp {
 };
 
 template <long N>
-struct EdmondsKarpMinCost {
+struct DinicMinCost {
     struct Edge {
         long from, to, cap, len;
     };
@@ -98,11 +98,46 @@ struct EdmondsKarpMinCost {
         }
     }
 
-    long amount[N];
     long dist[N];
-    long route[N];
     long visiting[N];
     bool active[N];
+    long step[N];
+
+    long dfs(long from, long to, long limit, long &cost) {
+        if (from == to) {
+            return limit;
+        }
+
+        active[from] = true;
+
+        long amount = limit;
+
+        for (long j = step[from]; j < outs[from].size(); ++j) {
+            Edge &e = edges[outs[from][j]];
+
+            if (dist[e.to] == dist[from] + e.len && e.cap && !active[e.to]) {
+                long flow = dfs(e.to, to, min(amount, e.cap), cost);
+
+                if (flow) {
+                    e.cap -= flow;
+                    edges[outs[from][j] ^ 1].cap += flow;
+                    amount -= flow;
+                    cost += flow * e.len;
+
+                    if (!amount) {
+                        step[from] = j;
+
+                        return limit;
+                    }
+                }
+            }
+        }
+
+        step[from] = outs[from].size();
+        active[from] = false;
+
+        return limit - amount;
+    }
 
     pair<long, long> solve(long from, long to) {
         long flow = 0;
@@ -110,6 +145,7 @@ struct EdmondsKarpMinCost {
 
         while (true) {
             memset(active, 0, sizeof(active));
+            memset(step, 0, sizeof(step));
 
             for (int i = 0; i < N; ++i) {
                 dist[i] = 1l << 60;
@@ -118,8 +154,6 @@ struct EdmondsKarpMinCost {
             long head = 0;
             long tail = 0;
 
-            amount[from] = 1l << 60;
-            amount[to] = 0;
             dist[from] = 0;
             visiting[(tail++) % N] = from;
             active[from] = true;
@@ -132,9 +166,7 @@ struct EdmondsKarpMinCost {
                     Edge &e = edges[outs[i][j]];
 
                     if (e.cap && dist[e.to] > dist[i] + e.len) {
-                        amount[e.to] = min(amount[i], e.cap);
                         dist[e.to] = dist[i] + e.len;
-                        route[e.to] = outs[i][j];
 
                         if (!active[e.to]) {
                             visiting[(tail++) % N] = e.to;
@@ -144,15 +176,9 @@ struct EdmondsKarpMinCost {
                 }
             }
 
-            if (!amount[to]) break;
+            if (dist[to] == 1l << 60) break;
 
-            for (long i = to; i != from; i = edges[route[i]].from) {
-                edges[route[i]].cap -= amount[to];
-                edges[route[i] ^ 1].cap += amount[to];
-            }
-
-            flow += amount[to];
-            cost += amount[to] * dist[to];
+            flow += dfs(from, to, 1l << 60, cost);
         }
 
         return {flow, cost};
@@ -160,7 +186,7 @@ struct EdmondsKarpMinCost {
 };
 
 HeldKarp<16> hk;
-EdmondsKarpMinCost<52> ek;
+DinicMinCost<52> dinic;
 
 int d;
 int n[50];
@@ -198,9 +224,9 @@ int main() {
         cost[i] = hk.solve(n[i]);
 
         if (i < d / 2) {
-            ek.add(50, i, 1, 0);
+            dinic.add(50, i, 1, 0);
         } else {
-            ek.add(i, 51, 1, 0);
+            dinic.add(i, 51, 1, 0);
         }
 
         // cerr << i << endl;
@@ -233,7 +259,7 @@ int main() {
                 }
             }
 
-            ek.add(i, j, 1, hk.solve(n[i] + n[j]) - cost[i] - cost[j]);
+            dinic.add(i, j, 1, hk.solve(n[i] + n[j]) - cost[i] - cost[j]);
 
             // cerr << i << ' ' << j << endl;
         }
@@ -245,7 +271,7 @@ int main() {
         tot += cost[i];
     }
 
-    cout << tot * 1e-6 << ' ' << (tot + ek.solve(50, 51).second) * 1e-6 << endl;
+    cout << tot * 1e-6 << ' ' << (tot + dinic.solve(50, 51).second) * 1e-6 << endl;
 
     return 0;
 }

@@ -12,7 +12,7 @@
 using namespace std;
 
 template <long N>
-struct EdmondsKarp {
+struct Dinic {
     struct Edge {
         long from, to, cap;
     };
@@ -29,52 +29,79 @@ struct EdmondsKarp {
         }
     }
 
-    long amount[N];
-    long route[N];
+    long layer[N];
     long visiting[N];
+    long step[N];
+
+    long dfs(long from, long to, long limit) {
+        if (from == to) {
+            return limit;
+        }
+
+        long amount = limit;
+
+        for (long j = step[from]; j < outs[from].size(); ++j) {
+            Edge &e = edges[outs[from][j]];
+
+            if (layer[e.to] == layer[from] + 1 && e.cap) {
+                long flow = dfs(e.to, to, min(amount, e.cap));
+
+                if (flow) {
+                    e.cap -= flow;
+                    edges[outs[from][j] ^ 1].cap += flow;
+                    amount -= flow;
+
+                    if (!amount) {
+                        step[from] = j;
+
+                        return limit;
+                    }
+                }
+            }
+        }
+
+        step[from] = outs[from].size();
+
+        return limit - amount;
+    }
 
     long solve(long from, long to) {
         long flow = 0;
 
         while (true) {
-            memset(amount, 0, sizeof(amount));
+            memset(layer, 0, sizeof(layer));
+            memset(step, 0, sizeof(step));
 
             long head = 0;
             long tail = 0;
 
-            amount[from] = 1l << 60;
+            layer[from] = 1;
             visiting[tail++] = from;
 
-            while (head < tail && !amount[to]) {
+            while (head < tail && !layer[to]) {
                 long i = visiting[head++];
 
                 for (long j = 0; j < outs[i].size(); ++j) {
                     Edge &e = edges[outs[i][j]];
 
-                    if (!amount[e.to] && e.cap) {
-                        amount[e.to] = min(amount[i], e.cap);
-                        route[e.to] = outs[i][j];
+                    if (!layer[e.to] && e.cap) {
+                        layer[e.to] = layer[i] + 1;
 
                         visiting[tail++] = e.to;
                     }
                 }
             }
 
-            if (!amount[to]) break;
+            if (!layer[to]) break;
 
-            for (long i = to; i != from; i = edges[route[i]].from) {
-                edges[route[i]].cap -= amount[to];
-                edges[route[i] ^ 1].cap += amount[to];
-            }
-
-            flow += amount[to];
+            flow += dfs(from, to, 1l << 60);
         }
 
         return flow;
     }
 };
 
-EdmondsKarp<10000> ek;
+Dinic<10000> dinic;
 
 int n;
 bool ud[100][100];
@@ -117,9 +144,9 @@ int main() {
             slot[i][j] = !ud[i][j] + !ud[i + 1][j] + !lr[i][j] + !lr[i][j + 1] - 1;
 
             if ((i ^ j) & 1) {
-                ek.add(100 * i + j, 9999, slot[i][j]);
+                dinic.add(100 * i + j, 9999, slot[i][j]);
             } else {
-                ek.add(9998, 100 * i + j, slot[i][j]);
+                dinic.add(9998, 100 * i + j, slot[i][j]);
             }
 
             // cerr << slot[i][j] << ' ';
@@ -134,9 +161,9 @@ int main() {
 
             if (!ud[i][j]) {
                 if ((i ^ j) & 1) {
-                    ek.add(100 * (i - 1) + j, 100 * i + j, 1);
+                    dinic.add(100 * (i - 1) + j, 100 * i + j, 1);
                 } else {
-                    ek.add(100 * i + j, 100 * (i - 1) + j, 1);
+                    dinic.add(100 * i + j, 100 * (i - 1) + j, 1);
                 }
             }
         }
@@ -146,15 +173,15 @@ int main() {
         for (int j = 1; j <= n; ++j) {
             if (!lr[i][j]) {
                 if ((i ^ j) & 1) {
-                    ek.add(100 * i + (j - 1), 100 * i + j, 1);
+                    dinic.add(100 * i + (j - 1), 100 * i + j, 1);
                 } else {
-                    ek.add(100 * i + j, 100 * i + (j - 1), 1);
+                    dinic.add(100 * i + j, 100 * i + (j - 1), 1);
                 }
             }
         }
     }
 
-    cout << ek.solve(9998, 9999) + 1 << endl;
+    cout << dinic.solve(9998, 9999) + 1 << endl;
 
     return 0;
 }

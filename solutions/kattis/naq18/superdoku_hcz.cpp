@@ -12,7 +12,7 @@
 using namespace std;
 
 template <long N>
-struct EdmondsKarp {
+struct Dinic {
     struct Edge {
         long from, to, cap;
     };
@@ -29,52 +29,79 @@ struct EdmondsKarp {
         }
     }
 
-    long amount[N];
-    long route[N];
+    long layer[N];
     long visiting[N];
+    long step[N];
+
+    long dfs(long from, long to, long limit) {
+        if (from == to) {
+            return limit;
+        }
+
+        long amount = limit;
+
+        for (long j = step[from]; j < outs[from].size(); ++j) {
+            Edge &e = edges[outs[from][j]];
+
+            if (layer[e.to] == layer[from] + 1 && e.cap) {
+                long flow = dfs(e.to, to, min(amount, e.cap));
+
+                if (flow) {
+                    e.cap -= flow;
+                    edges[outs[from][j] ^ 1].cap += flow;
+                    amount -= flow;
+
+                    if (!amount) {
+                        step[from] = j;
+
+                        return limit;
+                    }
+                }
+            }
+        }
+
+        step[from] = outs[from].size();
+
+        return limit - amount;
+    }
 
     long solve(long from, long to) {
         long flow = 0;
 
         while (true) {
-            memset(amount, 0, sizeof(amount));
+            memset(layer, 0, sizeof(layer));
+            memset(step, 0, sizeof(step));
 
             long head = 0;
             long tail = 0;
 
-            amount[from] = 1l << 60;
+            layer[from] = 1;
             visiting[tail++] = from;
 
-            while (head < tail && !amount[to]) {
+            while (head < tail && !layer[to]) {
                 long i = visiting[head++];
 
                 for (long j = 0; j < outs[i].size(); ++j) {
                     Edge &e = edges[outs[i][j]];
 
-                    if (!amount[e.to] && e.cap) {
-                        amount[e.to] = min(amount[i], e.cap);
-                        route[e.to] = outs[i][j];
+                    if (!layer[e.to] && e.cap) {
+                        layer[e.to] = layer[i] + 1;
 
                         visiting[tail++] = e.to;
                     }
                 }
             }
 
-            if (!amount[to]) break;
+            if (!layer[to]) break;
 
-            for (long i = to; i != from; i = edges[route[i]].from) {
-                edges[route[i]].cap -= amount[to];
-                edges[route[i] ^ 1].cap += amount[to];
-            }
-
-            flow += amount[to];
+            flow += dfs(from, to, 1l << 60);
         }
 
         return flow;
     }
 };
 
-EdmondsKarp<202> ek[100];
+Dinic<202> dinic[100];
 
 int n, k;
 int grid[100][100];
@@ -109,21 +136,21 @@ int main() {
 
     for (int i = k; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            ek[i].add(200, j, 1);
-            ek[i].add(100 + j, 201, 1);
+            dinic[i].add(200, j, 1);
+            dinic[i].add(100 + j, 201, 1);
         }
 
         for (int j = 0; j < n; ++j) {
             for (int k = 0; k < n; ++k) {
                 if ((mask_j[j] & (__int128(1) << k)) == 0) {
-                    ek[i].add(j, 100 + k, 1);
+                    dinic[i].add(j, 100 + k, 1);
                 }
             }
         }
 
-        ek[i].solve(200, 201);
+        dinic[i].solve(200, 201);
 
-        for (auto edge: ek[i].edges) {
+        for (auto edge: dinic[i].edges) {
             if (!edge.cap && edge.from < 100 && edge.to < 200) {
                 int j = edge.from;
                 int k = edge.to - 100;
