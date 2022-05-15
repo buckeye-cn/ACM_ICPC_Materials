@@ -133,8 +133,8 @@ struct DinicMinCost {
             }
         }
 
-        step[from] = outs[from].size();
         active[from] = false;
+        step[from] = outs[from].size();
 
         return limit - amount;
     }
