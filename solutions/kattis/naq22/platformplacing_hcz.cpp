@@ -30,19 +30,17 @@ int main() {
 
     int tot = 0;
     int prev = -2e5;
-    int l = s;
     int r = 0;
 
     xs.insert(2e9 + 2e5);
 
     for (int x: xs) {
-        if (x - prev < s + l) {
+        if (x - prev < 2 * s) {
             cout << -1 << endl;
 
             return 0;
         }
 
-        int l_new = s;
         int r_new = max(min(x - prev - r, k), s);
 
         if (x - prev - r >= k) {
@@ -51,7 +49,6 @@ int main() {
             tot += x - prev - r_new;
         }
 
-        l = l_new;
         r = r_new;
         prev = x;
     }
