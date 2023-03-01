@@ -37,7 +37,7 @@ pair<int, int> find(int limit, int now, int i) {
     int min_t = now;
 
     while (true) {
-        map<int, int>::iterator iter = group[i].upper_bound(limit);
+        auto iter = group[i].upper_bound(limit);
 
         if (iter == group[i].end()) {
             return {min_t, i};
