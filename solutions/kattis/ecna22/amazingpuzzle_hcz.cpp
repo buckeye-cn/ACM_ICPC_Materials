@@ -80,10 +80,10 @@ int main() {
 
     while (!best[e][0][e][0]) {
         for (int i = 0; i < 4; ++i) {
-            char &cc1 = q[tail][0] = q[head][0];
-            char &rr1 = q[tail][1] = q[head][1];
-            char &cc2 = q[tail][2] = q[head][2];
-            char &rr2 = q[tail][3] = q[head][3];
+            char cc1 = q[head][0];
+            char rr1 = q[head][1];
+            char cc2 = q[head][2];
+            char rr2 = q[head][3];
             int p1 = (d1 + i) & 3;
             int p2 = (d2 + i) & 3;
             int target = best[cc1][rr1][cc2][rr2] + 65536;
@@ -114,6 +114,10 @@ int main() {
                 int &b = best[cc1][rr1][cc2][rr2];
 
                 if (!b || b > target) {
+                    q[tail][0] = cc1;
+                    q[tail][1] = rr1;
+                    q[tail][2] = cc2;
+                    q[tail][3] = rr2;
                     b = target;
                     tail += 1;
                 }
