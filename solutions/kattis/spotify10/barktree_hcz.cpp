@@ -32,21 +32,9 @@ bool within(
     double x, double y,
     double x1, double y1, double x2, double y2, double x3, double y3
 ) {
-    int d1 = sign(
-        ((x - x1) * (y2 - y1) - (y - y1) * (x2 - x1))
-            / sqrt(sqr(x - x1) + sqr(y - y1))
-            / sqrt(sqr(y2 - y1) + sqr(x2 - x1))
-    );
-    int d2 = sign(
-        ((x - x2) * (y3 - y2) - (y - y2) * (x3 - x2))
-            / sqrt(sqr(x - x2) + sqr(y - y2))
-            / sqrt(sqr(y3 - y2) + sqr(x3 - x2))
-    );
-    int d3 = sign(
-        ((x - x3) * (y1 - y3) - (y - y3) * (x1 - x3))
-            / sqrt(sqr(x - x3) + sqr(y - y3))
-            / sqrt(sqr(y1 - y3) + sqr(x1 - x3))
-    );
+    int d1 = sign(((x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)) / sqrt(sqr(y2 - y1) + sqr(x2 - x1)));
+    int d2 = sign(((x - x2) * (y3 - y2) - (y - y2) * (x3 - x2)) / sqrt(sqr(y3 - y2) + sqr(x3 - x2)));
+    int d3 = sign(((x - x3) * (y1 - y3) - (y - y3) * (x1 - x3)) / sqrt(sqr(y1 - y3) + sqr(x1 - x3)));
 
     return d1 && d1 == d2 && d2 == d3;
 }
