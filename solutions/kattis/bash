@@ -5,21 +5,28 @@ https://open.kattis.com/problems/lastfactorialdigit/statistics (13)
     sed "1d;s/.*[05-9]/0/;s/3/6/"
 https://open.kattis.com/problems/hissingmicrophone/statistics (13)
     sed "s/.*ss.*/hiss/;t;cno hiss"
+https://open.kattis.com/problems/isithalloween/statistics (13)
+    sed "s/OCT 31\\|D.*25/yup/;t;cnope"
+https://open.kattis.com/problems/nodup/statistics (13)
+    sed "s/.*\(\<[A-Z]*\) .*\<\1\>.*/no/;t;cyes"
 https://open.kattis.com/problems/twostones/statistics (13)
     sed "s/.*[13579]$/Alice/;t;cBob"
 https://open.kattis.com/problems/oddities/statistics (13)
     sed "1d;s/[13579]$/\\0 is odd/;t;s/$/ is even/"
-https://open.kattis.com/problems/isithalloween/statistics (13)
-    sed "s/OCT 31\\|D.*25/yup/;t;cnope"
 https://open.kattis.com/problems/quickestimate/statistics (13)
     sed 1d|awk "{print length}"
+https://open.kattis.com/problems/trik/statistics (13)
+    sed $(cat|sed `ls s*|tr _ ";"`)<<<1
+    sxAxyz12z21z_xg_sxBxyz23z32z_xg_sxCxyz31z13z_xg
 https://open.kattis.com/problems/simonsays/statistics (13)
     grep "Simon says"|cut -c 12-
 https://open.kattis.com/problems/magictrick/statistics (13)
     grep -P "(.).*\1">_;echo $?
 https://open.kattis.com/problems/classfieldtrip/statistics (13)
     grep -o .|sort|tr -d "\\n"
-https://open.kattis.com/problems/countthevowels/statistics
+https://open.kattis.com/problems/conundrum/statistics (13)
+    grep -o .|sed "1~3s/P//;2~3s/E//;3~3s/R//"|wc -w
+https://open.kattis.com/problems/countthevowels/statistics (13)
     grep -oi [aeiou]|wc -l
 https://open.kattis.com/problems/quadrant/statistics (13)
     xargs|tr -d 0-9|sed s/^.-/----/|wc -L
@@ -34,73 +41,81 @@ https://open.kattis.com/problems/filip/statistics (13)
 
 encoded: math
 https://open.kattis.com/problems/sanic/statistics (13)
-    ruby -e "p `cat`-1"
+    ruby -e"p `cat`-1"
 https://open.kattis.com/problems/metronome/statistics (13)
-    ruby -e "p `cat`/4.0"
+    ruby -e"p `cat`/4.0"
 https://open.kattis.com/problems/ameriskur/statistics (13)
-    ruby -e "p `cat`*0.09144"
+    ruby -e"p `cat`*0.09144"
 https://open.kattis.com/problems/romans/statistics (13)
-    ruby -e "p (`cat`*88e4/809).round"
+    ruby -e"p (`cat`*88e4/809).round"
 https://open.kattis.com/problems/areal/statistics (13)
-    ruby -e "p `cat`**0.5*4"
+    ruby -e"p `cat`**0.5*4"
 https://open.kattis.com/problems/crne/statistics (13)
-    ruby -e "p (`cat`+2)**2/4"
+    ruby -e"p (`cat`+2)**2/4"
 https://open.kattis.com/problems/planina/statistics (13)
-    ruby -e "p (2**`cat`+1)**2"
+    ruby -e"p (2**`cat`+1)**2"
 https://open.kattis.com/problems/alloys/statistics (13)
-    ruby -e "p [`cat`,1.0].min**2/4"
+    ruby -e"p [`cat`,1.0].min**2/4"
 https://open.kattis.com/problems/3dprinter/statistics (13)
-    ruby -e "p Math.log(`cat`*2,2).ceil
+    ruby -e"p Math.log(`cat`*2,2).ceil
 https://open.kattis.com/problems/combinatorialstanleycup/statistics (13)
-    ruby -e "p 1<<`cat`.to_s(2).count('1')"
+    ruby -e"p 1<<`cat`.to_s(2).count('1')"
+https://open.kattis.com/problems/reversebinary/statistics (13)
+    ruby -e"p `cat`.to_s(2).reverse.to_i(2)"
 https://open.kattis.com/problems/temperatureconfusion/statistics (13)
-    ruby -e "print ((`cat`r*5-160)/9).to_s"
+    ruby -e"print ((`cat`r*5-160)/9).to_s"
 https://open.kattis.com/problems/marswindow/statistics (13)
-    ruby -e "print (`cat`*12-2)%26<12?'yes':'no'"
+    ruby -e"print (`cat`*12-2)%26<12?'yes':'no'"
 https://open.kattis.com/problems/oktalni/statistics (13)
-    ruby -e "print '%o'%0b`cat`"
+    ruby -e"print '%o'%0b`cat`"
 https://open.kattis.com/problems/arithmetic/statistics (13)
     echo "print '%X'%0`cat`"|ruby
+https://open.kattis.com/problems/sretan/statistics (13)
+    ruby -e"print ('"'"'%b'"'"'%(`cat`+1))[1..]"|tr 01 47
 https://open.kattis.com/problems/character/statistics (13)
-    ruby -e "x=`cat`;p 2**x-x-1"
+    ruby -e"x=`cat`;p 2**x-x-1"
 https://open.kattis.com/problems/tetration/statistics (13)
-    ruby -e "x=`cat`;p x**(1/x)"
+    ruby -e"x=`cat`;p x**(1/x)"
 https://open.kattis.com/problems/popkorn/statistics (13)
-    ruby -e "x=`cat`;p x*(x-4)/8+4"
+    ruby -e"x=`cat`;p x*(x-4)/8+4"
 https://open.kattis.com/problems/sjecista/statistics (13)
-    ruby -e "x=`cat`;p x*(x-1)*(x-2)*(x-3)/24"
+    ruby -e"x=`cat`;p x*(x-1)*(x-2)*(x-3)/24"
 https://open.kattis.com/problems/betting/statistics (13)
-    ruby -e "x=`cat`.0;p 100/x;p 100/(100-x)"
+    ruby -e"x=`cat`.0;p 100/x;p 100/(100-x)"
 https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (13)
-    ruby -e "p `tr " " "*"`"
+    ruby -e"p `tr " " "*"`"
 https://open.kattis.com/problems/r2/statistics (13)
-    ruby -e "p -`tr " " +`*2"
+    ruby -e"p -`tr " " +`*2"
 https://open.kattis.com/problems/triarea/statistics (13)
-    ruby -e "p `tr " " "*"`/2.0"
+    ruby -e"p `tr " " "*"`/2.0"
 https://open.kattis.com/problems/jumbojavelin/statistics (13)
-    ruby -e "p -`tr "\\n" +`1"
+    ruby -e"p -`tr "\\n" +`1"
 https://open.kattis.com/problems/fifa/statistics (13)
-    ruby -e "p `tr "\\n" /`1+2022"
+    ruby -e"p `tr "\\n" /`1+2022"
 https://open.kattis.com/problems/whichisgreater/statistics (13)
-    ruby -e "p `tr " " ">"`?1:0"
+    ruby -e"p `tr " " ">"`?1:0"
 https://open.kattis.com/problems/nsum/statistics (13)
-    ruby -e "p 0*`tr " \\n" ++`0"
+    ruby -e"p 0*`tr " \\n" ++`0"
 https://open.kattis.com/problems/qaly/statistics (13)
-    ruby -e "p 0*`tr " \\n" "*+"`0"
+    ruby -e"p 0*`tr " \\n" "*+"`0"
 https://open.kattis.com/problems/basketballoneonone/statistics (13)
-    ruby -e "print `tr AB +-`>0?'A':'B'"
+    ruby -e"print `tr AB +-`>0?'A':'B'"
+https://open.kattis.com/problems/spavanac/statistics (13)
+    ruby -e"x=60*`tr " " +`+1395;p x/60%24;p x%60"
 https://open.kattis.com/problems/gcd/statistics (13)
-    ruby -e "p `sed "s/ /.gcd /"`"
+    ruby -e"p `sed "s/ /.gcd /"`"
 https://open.kattis.com/problems/faktor/statistics (13)
-    ruby -e "p `sed "s/ /*(/"`-1)+1"
+    ruby -e"p `sed "s/ /*(/"`-1)+1"
 https://open.kattis.com/problems/modulo/statistics (13)
-    ruby -e "p [`sed s/$/%42,/`].uniq.size"
+    ruby -e"p [`sed s/$/%42,/`].uniq.size"
 https://open.kattis.com/problems/distributingpoffins/statistics (13)
-    ruby -e "x=`sed "s/ /;p /"`%x>0?1:0"
+    ruby -e"x=`sed "s/ /;p /"`%x>0?1:0"
 https://open.kattis.com/problems/tarifa/statistics (13)
-    ruby -e "x=`tr "\\n" -|sed "s/-/;p x+x*/"`0"
+    ruby -e"x=`tr "\\n" -|sed "s/-/;p x+x*/"`0"
 https://open.kattis.com/problems/pot/statistics (13)
-    ruby -e "p 0`sed "s/.$/**\\0/"|tr "\\n" +`0"
+    ruby -e"p 0`sed "s/.$/**\\0/"|tr "\\n" +`0"
+https://open.kattis.com/problems/grassseed/statistics (13)
+    ruby -e"p `sed "1s/$/*(0*/"|tr " \\n" "*+"`0)"
 
 encoded: multiline math
 https://open.kattis.com/problems/pet/statistics (13)
