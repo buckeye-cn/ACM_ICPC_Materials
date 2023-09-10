@@ -1,8 +1,10 @@
 encoded: string
 https://open.kattis.com/problems/quadrant/statistics (13)
     tr -d 0-9|sed 2p|wc -w|tr 012 124
-https://open.kattis.com/problems/simonsays/statistics (13)
-    sed "s/Simon says //;t;d"
+https://open.kattis.com/problems/kemija08/statistics (13)
+    sed "s/\([aeiou]\)p\1/\1/g"
+https://open.kattis.com/problems/apaxianparent/statistics (13)
+    sed "s/\([aeiou]\|ex\|\) /ex/"
 https://open.kattis.com/problems/quiteaproblem/statistics (13)
     sed "s/.*problem.*/yes/I;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (13)
@@ -15,6 +17,8 @@ https://open.kattis.com/problems/nodup/statistics (13)
     sed "s/.*\(\<.*\) .*\<\1\>.*/no/;t;cyes"
 https://open.kattis.com/problems/twostones/statistics (13)
     sed "s/.*[13579]$/Alice/;t;cBob"
+https://open.kattis.com/problems/breakingbranches/statistics (13)
+    sed "s/.*[13579]$/Bob/;t;cAlice 1"
 https://open.kattis.com/problems/oddities/statistics (13)
     sed "1d;s/[13579]$/\\0 is odd/;t;s/$/ is even/"
 https://open.kattis.com/problems/quickestimate/statistics (13)
@@ -124,12 +128,16 @@ https://open.kattis.com/problems/pet/statistics (13)
     tr " " +|python3 -i|nl|sort -nk +2|tac|sed 1!d
 https://open.kattis.com/problems/different/statistics (13)
     tr " " -|python3 -i|tr - " "
+https://open.kattis.com/problems/bishops/statistics (13)
+    sed "s/^/max(1,/;s/$/*2-2)/"|python3 -i
+https://open.kattis.com/problems/sumoftheothers (13)
+    sed "s/^/sum((/;s/$/))>>1/;y/ /,/"|python3 -i
+https://open.kattis.com/problems/deathstar/statistics (13)
+    sed "1d;y/ /|/"|python3 -i
 https://open.kattis.com/problems/bus/statistics (13)
     sed "1d;s/^/-1+2**/"|python3 -i
 https://open.kattis.com/problems/soylent/statistics (13)
     sed "1d;s/^/(/;s/$/+399)\\/\\/400/"|python3 -i
-https://open.kattis.com/problems/sumoftheothers (13)
-    sed "s/^/sum((/;s/$/))>>1/;y/ /,/"|python3 -i
 https://open.kattis.com/problems/dicecup/statistics (13)
     seq `xargs -n1 echo 1+|python3 -i|sort -n`
 
@@ -160,6 +168,9 @@ https://open.kattis.com/problems/apaxiaaans/statistics (8)
 https://open.kattis.com/problems/stickykeys/statistics (8)
     tr -s A*
     A-Za-z0-9
+https://open.kattis.com/problems/cold/statistics (11)
+    t* \ |wc -w
+    tr ts0-9
 https://open.kattis.com/problems/autori/statistics (5)
     t*|s*
     tr tsa-z- tt sed sztzzg
@@ -169,6 +180,9 @@ https://open.kattis.com/problems/greetings2/statistics (2)
 https://open.kattis.com/problems/howl/statistics (2)
     s*
     sed szAzAAz
+https://open.kattis.com/problems/simonsays/statistics (5)
+    s* -n
+    sed szSimon.says.zzp
 https://open.kattis.com/problems/haughtycuisine/statistics (6)
     s* 2!d
     sed
@@ -182,34 +196,31 @@ https://open.kattis.com/problems/ofugsnuid/statistics (8)
     s* 1d|t*
     sed tac
 https://open.kattis.com/problems/fyi/statistics (11)
-    *d *z|*d *y
-    sed sz555....z1z sy.......y0y
-https://open.kattis.com/problems/lastfactorialdigit/statistics (11)
-    *d 1d|s*|t*
-    sed sz..z0z tr ts356789 tt600000
+    *d *y|*d *z
+    sed sy555....y1y sz.......z0z
+https://open.kattis.com/problems/lastfactorialdigit/statistics (8)
+    r*;s*|t*
+    read sed sz..z0z tr ts35-9 tt60
 https://open.kattis.com/problems/findingana/statistics (9)
     g* -o a.*
     grep
 https://open.kattis.com/problems/carrots/statistics (12)
     g* -Po \\d+$
     grep
-https://open.kattis.com/problems/cold/statistics (13)
-    g* -o -|wc -l
-    grep
 https://open.kattis.com/problems/sorttwonumbers/statistics (12)
     x* -n1|s* -n
     xargs sort
 
 math
+https://open.kattis.com/problems/longestprimesum/statistics (11)
+    e* `c*` / 2
+    expr cat
 https://open.kattis.com/problems/simpleaddition/statistics (10)
     e* `s* i+`
     expr sed
 https://open.kattis.com/problems/leggjasaman/statistics (10)
     e* `s* i+`
     expr sed
-https://open.kattis.com/problems/longestprimesum/statistics (11)
-    e* `c*` / 2
-    expr cat
 https://open.kattis.com/problems/addtwonumbers/statistics (13)
     tr \  +|p* -i
     python3
