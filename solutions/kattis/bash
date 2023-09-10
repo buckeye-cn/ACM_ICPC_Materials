@@ -106,6 +106,8 @@ https://open.kattis.com/problems/qaly/statistics (13)
     ruby -e"p 0*`tr " \\n" "*+"`0"
 https://open.kattis.com/problems/basketballoneonone/statistics (13)
     ruby -e"print `tr AB +-`>0?'A':'B'"
+https://open.kattis.com/problems/kornislav/statistics (13)
+    ruby -e"x=[`tr " " ,`].sort;p x[0]*x[2]"
 https://open.kattis.com/problems/spavanac/statistics (13)
     ruby -e"x=60*`tr " " +`+1395;p x/60%24;p x%60"
 https://open.kattis.com/problems/gcd/statistics (13)
@@ -125,7 +127,7 @@ https://open.kattis.com/problems/distributingpoffins/statistics (13)
 
 encoded: multiline math
 https://open.kattis.com/problems/pet/statistics (13)
-    tr " " +|python3 -i|nl|sort -nk +2|tac|sed 1!d
+    tr " " +|python3 -i|nl|sort -rnk +2|sed 1!d
 https://open.kattis.com/problems/different/statistics (13)
     tr " " -|python3 -i|tr - " "
 https://open.kattis.com/problems/bishops/statistics (13)
