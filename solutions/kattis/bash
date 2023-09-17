@@ -34,8 +34,6 @@ https://open.kattis.com/problems/countthevowels/statistics (13)
     grep -oi [aeiou]|wc -l
 https://open.kattis.com/problems/aaah/statistics (13)
     xargs|sed "s/^\(a*h\).*a\1/no/;t;cgo"
-https://open.kattis.com/problems/timeloop/statistics (13)
-    xargs seq|sed "s/$/ Abracadabra/"
 https://open.kattis.com/problems/bossbattle/statistics (13)
     (xargs seq 4;echo)|wc -l
 https://open.kattis.com/problems/filip/statistics (13)
@@ -88,6 +86,8 @@ https://open.kattis.com/problems/sjecista/statistics (13)
     ruby -e"x=`cat`;p x*(x-1)*(x-2)*(x-3)/24"
 https://open.kattis.com/problems/betting/statistics (13)
     ruby -e"x=`cat`.0;p 100/x;p 100/(100-x)"
+https://open.kattis.com/problems/shortestcompositesum/statistics (13)
+    ruby -e"x=`cat`;p 2;y=[4,9][x&1];p y;p x-y"
 https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (13)
     ruby -e"p `tr " " "*"`"
 https://open.kattis.com/problems/r2/statistics (13)
@@ -104,8 +104,6 @@ https://open.kattis.com/problems/nsum/statistics (13)
     ruby -e"p 0*`tr " \\n" ++`0"
 https://open.kattis.com/problems/qaly/statistics (13)
     ruby -e"p 0*`tr " \\n" "*+"`0"
-https://open.kattis.com/problems/basketballoneonone/statistics (13)
-    ruby -e"print `tr AB +-`>0?'A':'B'"
 https://open.kattis.com/problems/kornislav/statistics (13)
     ruby -e"x=[`tr " " ,`].sort;p x[0]*x[2]"
 https://open.kattis.com/problems/spavanac/statistics (13)
@@ -134,6 +132,8 @@ https://open.kattis.com/problems/bishops/statistics (13)
     sed "s/^/max(1,/;s/$/*2-2)/"|python3 -i
 https://open.kattis.com/problems/sumoftheothers (13)
     sed "s/^/sum((/;s/$/))>>1/;y/ /,/"|python3 -i
+https://open.kattis.com/problems/calculator/statistics (13)
+    sed "s/^/print(f'{/;s/$/:.2f}')/"|python3 -i
 https://open.kattis.com/problems/deathstar/statistics (13)
     sed "1d;y/ /|/"|python3 -i
 https://open.kattis.com/problems/bus/statistics (13)
@@ -185,9 +185,9 @@ https://open.kattis.com/problems/howl/statistics (2)
 https://open.kattis.com/problems/simonsays/statistics (5)
     s* -n
     sed szSimon.says.zzp
-https://open.kattis.com/problems/haughtycuisine/statistics (6)
-    s* 2!d
-    sed
+https://open.kattis.com/problems/simon/statistics (5)
+    s* -n
+    sed szsimon.says.zzp
 https://open.kattis.com/problems/oddecho/statistics (7)
     s* 1~2d
     sed
@@ -200,18 +200,27 @@ https://open.kattis.com/problems/ofugsnuid/statistics (8)
 https://open.kattis.com/problems/fyi/statistics (11)
     *d *y|*d *z
     sed sy555....y1y sz.......z0z
-https://open.kattis.com/problems/lastfactorialdigit/statistics (8)
-    r*;s*|t*
-    read sed sz..z0z tr ts35-9 tt60
 https://open.kattis.com/problems/findingana/statistics (9)
     g* -o a.*
     grep
-https://open.kattis.com/problems/carrots/statistics (12)
-    g* -Po \\d+$
-    grep
+https://open.kattis.com/problems/lastfactorialdigit/statistics (8)
+    r*;s*|t*
+    read sed sz..z0z tr ts35-9 tt60
+https://open.kattis.com/problems/carrots/statistics (9)
+    r*;e* $rg
+    read rf rg echo
+https://open.kattis.com/problems/timeloop/statistics (11)
+    x* *q|*d a*
+    xargs seq sed aAbracadabra
 https://open.kattis.com/problems/sorttwonumbers/statistics (12)
     x* -n1|s* -n
     xargs sort
+https://open.kattis.com/problems/basketballoneonone/statistics (9)
+    r*|c* -b2
+    rev cut
+https://open.kattis.com/problems/haughtycuisine/statistics (5)
+    t* -1
+    tail
 
 math
 https://open.kattis.com/problems/longestprimesum/statistics (11)
@@ -229,6 +238,6 @@ https://open.kattis.com/problems/addtwonumbers/statistics (13)
 https://open.kattis.com/problems/twosum/statistics (13)
     tr \  +|p* -i
     python3
-https://open.kattis.com/problems/buka/statistics (8)
-    x*|p* -i
-    xargs python3
+https://open.kattis.com/problems/buka/statistics (5)
+    x* e*
+    xargs expr
