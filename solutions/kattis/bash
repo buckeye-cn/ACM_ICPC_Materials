@@ -85,9 +85,9 @@ https://open.kattis.com/problems/popkorn/statistics (13)
 https://open.kattis.com/problems/sjecista/statistics (13)
     ruby -e"x=`cat`;p x*(x-1)*(x-2)*(x-3)/24"
 https://open.kattis.com/problems/betting/statistics (13)
-    ruby -e"x=`cat`.0;p 100/x;p 100/(100-x)"
+    ruby -e"x=`cat`.0;p 100/x,100/(100-x)"
 https://open.kattis.com/problems/shortestcompositesum/statistics (13)
-    ruby -e"x=`cat`;p 2;y=[4,9][x&1];p y;p x-y"
+    ruby -e"x=`cat`;y=4+5*(x&1);p 2,y,x-y"
 https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (13)
     ruby -e"p `tr " " "*"`"
 https://open.kattis.com/problems/r2/statistics (13)
@@ -107,7 +107,7 @@ https://open.kattis.com/problems/qaly/statistics (13)
 https://open.kattis.com/problems/kornislav/statistics (13)
     ruby -e"x=[`tr " " ,`].sort;p x[0]*x[2]"
 https://open.kattis.com/problems/spavanac/statistics (13)
-    ruby -e"x=60*`tr " " +`+1395;p x/60%24;p x%60"
+    ruby -e"x=60*`tr " " +`+1395;p x/60%24,x%60"
 https://open.kattis.com/problems/gcd/statistics (13)
     ruby -e"p `sed "s/ /.gcd /"`"
 https://open.kattis.com/problems/faktor/statistics (13)
@@ -130,7 +130,7 @@ https://open.kattis.com/problems/different/statistics (13)
     tr " " -|python3 -i|tr - " "
 https://open.kattis.com/problems/bishops/statistics (13)
     sed "s/^/max(1,/;s/$/*2-2)/"|python3 -i
-https://open.kattis.com/problems/sumoftheothers (13)
+https://open.kattis.com/problems/sumoftheothers/statistics (13)
     sed "s/^/sum((/;s/$/))>>1/;y/ /,/"|python3 -i
 https://open.kattis.com/problems/calculator/statistics (13)
     sed "s/^/print(f'{/;s/$/:.2f}')/"|python3 -i
