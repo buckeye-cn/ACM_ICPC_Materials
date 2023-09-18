@@ -29,10 +29,10 @@ https://open.kattis.com/problems/deathknight/statistics (13)
     sed "1d;/CD/d"|wc -l
 https://open.kattis.com/problems/magictrick/statistics (13)
     sed "/\(.\).*\1/d"|wc -l
-https://open.kattis.com/problems/quickestimate/statistics (13)
-    sed 1d|awk "{print length}"
 https://open.kattis.com/problems/cyaniderivers/statistics (13)
     sed s/00/0/g|tr 1 "\\n"|wc -L
+https://open.kattis.com/problems/quickestimate/statistics (13)
+    sed 1d|awk "{print length}"
 https://open.kattis.com/problems/knotknowledge/statistics (13)
     sed 1d|xargs -n1|sort|uniq -u
 https://open.kattis.com/problems/ullendullendoff/statistics (13)
@@ -42,14 +42,14 @@ https://open.kattis.com/problems/trik/statistics (13)
     sxAxyz12z21z_xg_sxBxyz23z32z_xg_sxCxyz31z13z_xg
 https://open.kattis.com/problems/countthevowels/statistics (13)
     grep -oi [aeiou]|wc -l
+https://open.kattis.com/problems/zoom/statistics (13)
+    read a b;tr " " "\\n"|sed "$b~$b!d"
 https://open.kattis.com/problems/aaah/statistics (13)
     xargs|sed "s/^\(a*h\).*a\1/no/;t;cgo"
 https://open.kattis.com/problems/classfieldtrip/statistics (13)
     fold -w1|sort|tr -d "\\n"
 https://open.kattis.com/problems/conundrum/statistics (13)
     fold -w1|sed "1~3s/P//;2~3s/E//;3~3s/R//"|wc -w
-https://open.kattis.com/problems/zoom/statistics (13)
-    read a b;tr " " "\\n"|sed "$b~$b!d"
 
 encoded: math
 https://open.kattis.com/problems/sanic/statistics (13)
@@ -233,9 +233,6 @@ https://open.kattis.com/problems/simon/statistics (5)
 https://open.kattis.com/problems/oddecho/statistics (7)
     s* 1~2d
     sed
-https://open.kattis.com/problems/echoechoecho/statistics (7)
-    t*;*t
-    tee tft tgt cat
 https://open.kattis.com/problems/ofugsnuid/statistics (8)
     s* 1d|t*
     sed tac
@@ -257,6 +254,9 @@ https://open.kattis.com/problems/timeloop/statistics (11)
 https://open.kattis.com/problems/sorttwonumbers/statistics (12)
     x* -n1|s* -n
     xargs sort
+https://open.kattis.com/problems/echoechoecho/statistics (7)
+    t*;*t
+    tee tft tgt cat
 https://open.kattis.com/problems/basketballoneonone/statistics (9)
     r*|c* -b2
     rev cut
