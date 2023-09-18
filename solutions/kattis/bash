@@ -75,7 +75,7 @@ https://open.kattis.com/problems/3dprinter/statistics (13)
 https://open.kattis.com/problems/combinatorialstanleycup/statistics (13)
     ruby -e"p 1<<`cat`.to_s(2).count('1')"
 https://open.kattis.com/problems/reversebinary/statistics (13)
-    ruby -e"p `cat`.to_s(2).reverse.to_i(2)"c
+    ruby -e"p `cat`.to_s(2).reverse.to_i(2)"
 https://open.kattis.com/problems/temperatureconfusion/statistics (13)
     ruby -e"print ((`cat`r*5-160)/9).to_s"
 https://open.kattis.com/problems/peachpowderpolygon/statistics (13)
