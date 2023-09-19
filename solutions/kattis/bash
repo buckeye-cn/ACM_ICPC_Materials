@@ -42,8 +42,10 @@ https://open.kattis.com/problems/trik/statistics (13)
     sxAxyz12z21z_xg_sxBxyz23z32z_xg_sxCxyz31z13z_xg
 https://open.kattis.com/problems/countthevowels/statistics (13)
     grep -oi [aeiou]|wc -l
+https://open.kattis.com/problems/smil/statistics (13)
+    grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/zoom/statistics (13)
-    read a b;tr " " "\\n"|sed "$b~$b!d"
+    read a b;tr " " "\\n"|sed $b~$b!d
 https://open.kattis.com/problems/aaah/statistics (13)
     xargs|sed "s/^\(a*h\).*a\1/no/;t;cgo"
 https://open.kattis.com/problems/classfieldtrip/statistics (13)
@@ -72,6 +74,8 @@ https://open.kattis.com/problems/99problems/statistics (13)
     ruby -e"p [`cat`+1,100].max.round(-2)-1"
 https://open.kattis.com/problems/3dprinter/statistics (13)
     ruby -e"p Math.log(`cat`*2,2).ceil
+https://open.kattis.com/problems/pyramids/statistics (13)
+    ruby -e"x=(6*`cat`)**0.3334;p (x/2+0.2/x).to_i"
 https://open.kattis.com/problems/combinatorialstanleycup/statistics (13)
     ruby -e"p 1<<`cat`.to_s(2).count('1')"
 https://open.kattis.com/problems/reversebinary/statistics (13)
@@ -134,6 +138,8 @@ https://open.kattis.com/problems/faktor/statistics (13)
     ruby -e"p `sed "s/ /*(/"`-1)+1"
 https://open.kattis.com/problems/pot/statistics (13)
     ruby -e"p 0`sed "s/.$/**\\0+/"`0"
+https://open.kattis.com/problems/jobexpenses/statistics (13)
+    ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
 https://open.kattis.com/problems/grassseed/statistics (13)
     ruby -e"p `sed "1s/$/*(0*/;y/ /*/;s/$/+/"`0)"
 https://open.kattis.com/problems/modulo/statistics (13)
