@@ -33,8 +33,6 @@ https://open.kattis.com/problems/cyaniderivers/statistics (13)
     sed s/00/0/g|tr 1 "\\n"|wc -L
 https://open.kattis.com/problems/quickestimate/statistics (13)
     sed 1d|awk "{print length}"
-https://open.kattis.com/problems/knotknowledge/statistics (13)
-    sed 1d|xargs -n1|sort|uniq -u
 https://open.kattis.com/problems/ullendullendoff/statistics (13)
     sed 1d|xargs yes|xargs -n1|sed "13!d;13q"
 https://open.kattis.com/problems/trik/statistics (13)
@@ -44,6 +42,8 @@ https://open.kattis.com/problems/countthevowels/statistics (13)
     grep -oi [aeiou]|wc -l
 https://open.kattis.com/problems/smil/statistics (13)
     grep -ob "[:;]-\?)"|sed s/:.*//
+https://open.kattis.com/problems/reversiblecyclic/statistics (13)
+    read a;echo $a$a|rev|grep $a|wc -l
 https://open.kattis.com/problems/zoom/statistics (13)
     read a b;tr " " "\\n"|sed $b~$b!d
 https://open.kattis.com/problems/aaah/statistics (13)
@@ -88,8 +88,6 @@ https://open.kattis.com/problems/marswindow/statistics (13)
     ruby -e"print (`cat`*12-2)%26<12?'yes':'no'"
 https://open.kattis.com/problems/oktalni/statistics (13)
     ruby -e"print '%o'%0b`cat`"
-https://open.kattis.com/problems/arithmetic/statistics (13)
-    echo "print '%X'%0`cat`"|ruby
 https://open.kattis.com/problems/sretan/statistics (13)
     ruby -e"print ('"'"'%b'"'"'%(`cat`+1))[1..]"|tr 01 47
 https://open.kattis.com/problems/character/statistics (13)
@@ -108,6 +106,8 @@ https://open.kattis.com/problems/houseofcards/statistics (13)
     ruby -e"x=`cat`;p x+[0,4,3,2,1,0,2,1][x%8]"
 https://open.kattis.com/problems/shortestcompositesum/statistics (13)
     ruby -e"x=`cat`;y=4+5*(x&1);p 2,y,x-y"
+https://open.kattis.com/problems/arithmetic/statistics (13)
+    echo "print '%X'%0`cat`"|ruby
 https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (13)
     ruby -e"p `tr " " "*"`"
 https://open.kattis.com/problems/r2/statistics (13)
@@ -121,11 +121,15 @@ https://open.kattis.com/problems/fifa/statistics (13)
 https://open.kattis.com/problems/whichisgreater/statistics (13)
     ruby -e"p `tr " " ">"`?1:0"
 https://open.kattis.com/problems/nsum/statistics (13)
-    ruby -e"p 0*`tr " \\n" ++`0"
+    ruby -e"p 0*`tr " \\n" +`0"
 https://open.kattis.com/problems/qaly/statistics (13)
-    ruby -e"p 0*`tr " \\n" "*+"`0"
+    ruby -e"p 0*`tr " \\n" *+`0"
+https://open.kattis.com/problems/knotknowledge/statistics (13)
+    ruby -e"p 0*`tr " \\n" ^`0"
 https://open.kattis.com/problems/pizza2/statistics (13)
     ruby -e"p (10-10.0/`tr " " "*"`.0)**2"
+https://open.kattis.com/problems/zebrasocelots/statistics (13)
+    ruby -e"p 0b`tr "ZO\\n0-9" 01_0`0/2"
 https://open.kattis.com/problems/kornislav/statistics (13)
     ruby -e"x=[`tr " " ,`].sort;p x[0]*x[2]"
 https://open.kattis.com/problems/spavanac/statistics (13)
@@ -138,6 +142,8 @@ https://open.kattis.com/problems/faktor/statistics (13)
     ruby -e"p `sed "s/ /*(/"`-1)+1"
 https://open.kattis.com/problems/pot/statistics (13)
     ruby -e"p 0`sed "s/.$/**\\0+/"`0"
+https://open.kattis.com/problems/titlecost/statistics (13)
+    ruby -e"p ['`sed "s/ /'.size,/"`].min"
 https://open.kattis.com/problems/jobexpenses/statistics (13)
     ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
 https://open.kattis.com/problems/grassseed/statistics (13)
@@ -148,6 +154,8 @@ https://open.kattis.com/problems/tarifa/statistics (13)
     ruby -e"p `sed "s/^/-/;2s/^/*~-/"|xargs`"
 https://open.kattis.com/problems/bestcompression/statistics (13)
     ruby -e"print `sed "s/ /<2<</"`?'yes':'no'"
+https://open.kattis.com/problems/yinyangstones/statistics (13)
+    echo "p `sed "s/W/+1/g;s/B/-1/g"`==0?1:0"|ruby
 https://open.kattis.com/problems/finalexam2/statistics (13)
     ruby -e"p `tee z|wc -l`-`uniq z|wc -l`"
 https://open.kattis.com/problems/distributingpoffins/statistics (13)
@@ -182,6 +190,10 @@ https://open.kattis.com/problems/soylent/statistics (13)
     sed "1d;s/^/(/;s/$/+399)\\/\\/400/"|python3 -i
 https://open.kattis.com/problems/dicecup/statistics (13)
     seq `xargs -n1 echo 1+|python3 -i|sort -n`
+
+encoded: string math
+https://open.kattis.com/problems/averagecharacter/statistics (13)
+    ruby -e"x=gets.chop;putc x.sum/x.size"
 
 encoded: misc math
 https://open.kattis.com/problems/bossbattle/statistics (13)
@@ -260,7 +272,7 @@ https://open.kattis.com/problems/timeloop/statistics (11)
 https://open.kattis.com/problems/sorttwonumbers/statistics (12)
     x* -n1|s* -n
     xargs sort
-https://open.kattis.com/problems/echoechoecho/statistics (7)
+https://open.kattis.com/problems/echoechoecho/statistics (5)
     t*;*t
     tee tft tgt cat
 https://open.kattis.com/problems/basketballoneonone/statistics (9)
