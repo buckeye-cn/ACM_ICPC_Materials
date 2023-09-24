@@ -17,6 +17,8 @@ https://open.kattis.com/problems/breakingbranches/statistics (13)
     sed "s/.*[13579]$/Bob/;t;cAlice 1"
 https://open.kattis.com/problems/knightpacking/statistics (13)
     sed "s/.*[13579]$/first/;t;csecond"
+https://open.kattis.com/problems/railroad2/statistics (13)
+    sed "s/.*[13579]$/impossible/;t;cpossible"
 https://open.kattis.com/problems/oddities/statistics (13)
     sed "1d;s/[13579]$/& is odd/;t;s/$/ is even/"
 
@@ -174,6 +176,8 @@ https://open.kattis.com/problems/irrationaldivision/statistics (13)
     read a b;ruby -e"p $a%2*(~$b%2*($b<=>$a)+1)"
 https://open.kattis.com/problems/ladder/statistics (13)
     read a b;ruby -e"p ($a/Math.sin($b*57.29578)).ceil"
+https://open.kattis.com/problems/eveningout1/statistics (13)
+    read a b;ruby -e"p [$a%$b,$b-$a%$b].min"
 https://open.kattis.com/problems/trollhunt/statistics (13)
     read a b c;ruby -e"p ($a-2)/($b/$c)+1"
 https://open.kattis.com/problems/skocimis/statistics (13)
@@ -329,6 +333,33 @@ https://open.kattis.com/problems/appelspelet/statistics (9)
     s/Z../ZZ/
     s/Z./alf/
     s/Z/beata/
+https://open.kattis.com/problems/eulersnumber/statistics (9)
+    s/...../W.UQIWIQIWIRTO/
+    s/..../W.UQIWIQIWIRTO/
+    s/.../W.UQIWIQIWIRTO/
+    s/0/Q/
+    s/1Q/W.UQIWIQIPQQRY/
+    s/11/W.UQIWIQIWYQOI/
+    s/12/W.UQIWIQIWIWIY/
+    s/13/W.UQIWIQIWIRRU/
+    s/14/W.UQIWIQIWIRTI/
+    s/15/W.UQIWIQIWIRTO/
+    s/16/W.UQIWIQIWIRTO/
+    s/17/W.UQIWIQIWIRTO/
+    s/18/W.UQIWIQIWIRTO/
+    s/19/W.UQIWIQIWIRTO/
+    s/1/W/
+    s/2./W.UQIWIQIWIRTO/
+    s/2/W.T/
+    s/3./W.UQIWIQIWIRTO/
+    s/3/W.YYYYYYYYYYYU/
+    s/4/W.UPIEEEEEEEEE/
+    s/5/W.UQYYYYYYYYYU/
+    s/6/W.UQIPTTTTTTTY/
+    s/7/W.UQIWTEOYIWTR/
+    s/8/W.UQIWUIUYOIRQ/
+    s/9/W.UQIWIQTWTTUE/
+    y/QWERTYUIOP/1234567890/
 
 single command
 https://open.kattis.com/problems/discdistrict/statistics (2)
