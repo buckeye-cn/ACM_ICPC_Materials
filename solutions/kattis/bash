@@ -96,8 +96,6 @@ https://open.kattis.com/problems/oktalni/statistics (13)
     ruby -e"puts '%o'%0b`cat`"
 https://open.kattis.com/problems/sretan/statistics (13)
     ruby -e"puts ('%b'%-~`cat`)[1..]"|tr 01 47
-https://open.kattis.com/problems/character/statistics (13)
-    ruby -e"x=`cat`;p 2**x-x-1"
 https://open.kattis.com/problems/tetration/statistics (13)
     ruby -e"x=`cat`;p x**(1/x)"
 https://open.kattis.com/problems/popkorn/statistics (13)
