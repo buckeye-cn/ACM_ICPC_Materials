@@ -7,14 +7,10 @@ https://open.kattis.com/problems/quiteaproblem/statistics (13)
     sed "s/.*problem.*/yes/I;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (13)
     sed "s/.*ss.*/hiss/;t;cno hiss"
-https://open.kattis.com/problems/isithalloween/statistics (13)
-    sed "s/OCT 31\|D.*25/yup/;t;cnope"
 https://open.kattis.com/problems/eyeofsauron/statistics (13)
     sed "s/^\(|*\)()\1$/correct/I;t;cfix"
 https://open.kattis.com/problems/nodup/statistics (13)
     sed "s/.*\(\<.*\) .*\<\1\>.*/no/;t;cyes"
-https://open.kattis.com/problems/hvertskalmaeta/statistics (13)
-    sed "s/.*[id]$\|.*ng/Akureyri/;t;cReykjavik"
 https://open.kattis.com/problems/twostones/statistics (13)
     sed "s/.*[13579]$/Alice/;t;cBob"
 https://open.kattis.com/problems/breakingbranches/statistics (13)
@@ -33,6 +29,8 @@ https://open.kattis.com/problems/magictrick/statistics (13)
     sed "/\(.\).*\1/d"|wc -l
 https://open.kattis.com/problems/cyaniderivers/statistics (13)
     sed s/00/0/g|tr 1 "\\n"|wc -L
+https://open.kattis.com/problems/coffeecupcombo/statistics (13)
+    sed "1d;s/10/11/g;s/10/11/g;s/0//g"|wc -L
 https://open.kattis.com/problems/icpcawards/statistics (13)
     sed "1d;s/.* /mkdir &\&\&echo &/"|sh|head -12
 https://open.kattis.com/problems/trik/statistics (13)
@@ -70,14 +68,10 @@ https://open.kattis.com/problems/metronome/statistics (13)
     ruby -e"p `cat`/4.0"
 https://open.kattis.com/problems/ameriskur/statistics (13)
     ruby -e"p `cat`*0.09144"
-https://open.kattis.com/problems/romans/statistics (13)
-    ruby -e"p (`cat`*88e4/809).round"
 https://open.kattis.com/problems/areal/statistics (13)
     ruby -e"p `cat`**0.5*4"
 https://open.kattis.com/problems/crne/statistics (13)
     ruby -e"p (`cat`+2)**2/4"
-https://open.kattis.com/problems/planina/statistics (13)
-    ruby -e"p (2**`cat`+1)**2"
 https://open.kattis.com/problems/alloys/statistics (13)
     ruby -e"p [`cat`,1.0].min**2/4"
 https://open.kattis.com/problems/99problems/statistics (13)
@@ -114,6 +108,8 @@ https://open.kattis.com/problems/herman/statistics (13)
     ruby -e"x=`cat`**2;p x*Math::PI,x*2"
 https://open.kattis.com/problems/houseofcards/statistics (13)
     ruby -e"x=`cat`;p x+[0,4,3,2,1,0,2,1][x%8]"
+https://open.kattis.com/problems/jazzitup/statistics (13)
+    ruby -e"x=`cat`;p (2..).detect{|y|x.gcd(y)<2}"
 https://open.kattis.com/problems/shortestcompositesum/statistics (13)
     ruby -e"x=`cat`;y=4+5*(x&1);p 2,y,x-y"
 https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (13)
@@ -205,7 +201,7 @@ https://open.kattis.com/problems/bishops/statistics (13)
 https://open.kattis.com/problems/sumoftheothers/statistics (13)
     sed "s/.*/(&)>>1/;y/ /+/"|python3 -i
 https://open.kattis.com/problems/calculator/statistics (13)
-    sed "s/.*/print(f'{&:.2f}')/"|python3 -i
+    sed "s/.*/print(f'{&:.2f}')/"|python3
 https://open.kattis.com/problems/deathstar/statistics (13)
     sed "1d;y/ /|/"|python3 -i
 https://open.kattis.com/problems/electricaloutlets/statistics (13)
@@ -214,6 +210,8 @@ https://open.kattis.com/problems/bus/statistics (13)
     sed "1d;s/^/-1+2**/"|python3 -i
 https://open.kattis.com/problems/soylent/statistics (13)
     sed "1d;s/.*/(&+399)\/\/400/"|python3 -i
+https://open.kattis.com/problems/parsinghex/statistics (13)
+    grep -oi 0x[0-9a-f]*|sed "s/.*/print('&',&)/"|python3
 https://open.kattis.com/problems/dicecup/statistics (13)
     seq `xargs -n1 echo 1+|python3 -i|sort -n`
 https://open.kattis.com/problems/scalingrecipe/statistics (13)
@@ -226,6 +224,99 @@ https://open.kattis.com/problems/filip/statistics (13)
     rev|fold -w4|sort|sed 1d
 https://open.kattis.com/problems/listgame/statistics (13)
     factor|tr -d 0-z|wc -L
+
+pattern matching:
+https://open.kattis.com/problems/romans/statistics (9)
+    s/1.00.000/1087763/
+    s/1.0/1088/
+    s/20.267/22046/
+    s/455/494932/
+https://open.kattis.com/problems/character/statistics (9)
+    s/.0/QPUEURQUOE/
+    s/.1/WPOUQEP/
+    s/0/P/
+    s/1/P/
+    s/2/Q/
+    s/3/R/
+    s/4/QQ/
+    s/5/WY/
+    y/QWERTYUIOP/1234567890/
+https://open.kattis.com/problems/hvertskalmaeta/statistics (9)
+    s/Akranes/Reykjavik/
+    s/Arborg/Reykjavik/
+    s/Fjardabyggd/Akureyri/
+    s/Gardabaer/Reykjavik/
+    s/Hafnarfjordur/Reykjavik/
+    s/KopavogursReykjavik/
+    s/Mosfellsbaer/Reykjavik/
+    s/Mulathing/Akureyri/
+    s/Reykjanesbaer/Reykjavik/
+    s/Seltjarnarnes/Reykjavik/
+https://open.kattis.com/problems/fyi/statistics (9)
+    s/.55..../1/
+    s/0....../0/
+    s/1....../0/
+    s/2....../0/
+    s/3....../0/
+    s/4....../0/
+    s/5....../0/
+    s/6....../0/
+    s/7....../0/
+    s/8....../0/
+    s/9....../0/
+https://open.kattis.com/problems/isithalloween/statistics (9)
+    s/.CT.31/yup/
+    s/.EC.25/yup/
+    s/A..../nope/
+    s/D..../nope/
+    s/F..../nope/
+    s/J..../nope/
+    s/M..../nope/
+    s/N..../nope/
+    s/O..../nope/
+    s/S..../nope/
+    s/nope./nope/
+https://open.kattis.com/problems/planina/statistics (9)
+    s/.0/QPTPYWT/
+    s/.1/RQOIRPQ/
+    s/.2/QYUITRPO/
+    s/.3/YUQWTWRO/
+    s/.4/WYIRYIWWT/
+    s/.5/QPUEIPUEYQ/
+    s/1/O/
+    s/2/WT/
+    s/3/IQ/
+    s/4/WIO/
+    s/5/QPIO/
+    s/6/RWWT/
+    s/7/QYYRQ/
+    s/8/YYPRO/
+    s/9/WYEQYO/
+    y/QWERTYUIOP/1234567890/
+https://open.kattis.com/problems/appelspelet/statistics (9)
+    s/......0/Z/
+    s/.....2/Z/
+    s/.....4/Z/
+    s/.....6/Z/
+    s/.....8/Z/
+    s/....05/Z/
+    s/....71/Z/
+    s/...0/Z/
+    s/..2/Z/
+    s/..4/Z/
+    s/..8/Z/
+    s/1/ZZ/
+    s/437/Z/
+    s/4/ZZ/
+    s/5/ZZ/
+    s/6/Z/
+    s/7/Z/
+    s/9/ZZ/
+    s/Z...../ZZ/
+    s/Z.../ZZ/
+    s/Z../ZZ/
+    s/Z./alf/
+    s/Z/beata/
 
 single command
 https://open.kattis.com/problems/discdistrict/statistics (2)
@@ -278,9 +369,6 @@ https://open.kattis.com/problems/oddecho/statistics (7)
 https://open.kattis.com/problems/ofugsnuid/statistics (8)
     s* 1d|t*
     sed tac
-https://open.kattis.com/problems/fyi/statistics (11)
-    *d *y|*d *z
-    sed sy555....y1y sz.......z0z
 https://open.kattis.com/problems/findingana/statistics (9)
     g* -o a.*
     grep
