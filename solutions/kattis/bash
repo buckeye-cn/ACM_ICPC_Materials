@@ -44,6 +44,8 @@ https://open.kattis.com/problems/smil/statistics (13)
     grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/quickestimate/statistics (13)
     read;awk "{print length}"
+https://open.kattis.com/problems/keywords/statistics (13)
+    read;tr A-Z- "a-z "|sort|uniq|wc -l
 https://open.kattis.com/problems/ullendullendoff/statistics (13)
     read;xargs yes|xargs -n1|sed "13!d;13q"
 https://open.kattis.com/problems/reversiblecyclic/statistics (13)
@@ -140,6 +142,11 @@ https://open.kattis.com/problems/pizza2/statistics (13)
     ruby -e"p (10-10.0/`tr " " "*"`)**2"
 https://open.kattis.com/problems/zebrasocelots/statistics (13)
     ruby -e"p 0b`tr "ZO\\n0-9" 01_0`0/2"
+https://open.kattis.com/problems/addingtrouble/statistics (13)
+    ruby -e"p `tr " " +`*-1==0"|sed *x|sed *y|tr z !
+    sxtruexcorrectzx syfalseywrongzy
+https://open.kattis.com/problems/divvyingup/statistics (13)
+    ruby -e"puts (0*`tr " " +`)%3>0?'no':'yes'"
 https://open.kattis.com/problems/kornislav/statistics (13)
     ruby -e"x=[`tr " " ,`].sort;p x[0]*x[2]"
 https://open.kattis.com/problems/spavanac/statistics (13)
@@ -163,11 +170,9 @@ https://open.kattis.com/problems/grassseed/statistics (13)
 https://open.kattis.com/problems/kafkaesque/statistics (13)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
 https://open.kattis.com/problems/tarifa/statistics (13)
-    ruby -e"p `sed "s/^/-/;2s/^/*~-/"|xargs`"
+    ruby -e"p `sed "1s/$/*-~/;t;s/$/-/"`0"
 https://open.kattis.com/problems/bestcompression/statistics (13)
     ruby -e"puts `sed "s/ /<2<</"`?'yes':'no'"
-https://open.kattis.com/problems/divvyingup/statistics (13)
-    read;ruby -e"puts (`tr " " +`)%3>0?'no':'yes'"
 https://open.kattis.com/problems/distributingpoffins/statistics (13)
     read a b;ruby -e"p $b%$a<=>0"
 https://open.kattis.com/problems/babypanda/statistics (13)
@@ -182,6 +187,8 @@ https://open.kattis.com/problems/trollhunt/statistics (13)
     read a b c;ruby -e"p ($a-2)/($b/$c)+1"
 https://open.kattis.com/problems/skocimis/statistics (13)
     read a b c;ruby -e"p [$c-$b,$b-$a].max-1"
+https://open.kattis.com/problems/expectedearnings/statistics (13)
+    read a b c;echo spela;ruby -e"$a*$c<$b?0:puts('inte!')"
 https://open.kattis.com/problems/makingameowth/statistics (13)
     read a b c d;ruby -e"p $b*$c+$b/($a-1)*$d"
 https://open.kattis.com/problems/laptopsticker/statistics (13)
