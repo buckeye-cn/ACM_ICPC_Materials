@@ -90,6 +90,8 @@ https://open.kattis.com/problems/combinatorialstanleycup/statistics (13)
     ruby -e"p 1<<('%b'%`cat`).count('1')"
 https://open.kattis.com/problems/reversebinary/statistics (13)
     ruby -e"p ('%b'%`cat`).reverse.to_i 2"
+https://open.kattis.com/problems/meowfactor/statistics (13)
+    ruby -e"p (1..128).reject{|x|`cat`%x**9>0}.max"
 https://open.kattis.com/problems/temperatureconfusion/statistics (13)
     ruby -e"puts (`cat`r*5-160)/9"
 https://open.kattis.com/problems/peachpowderpolygon/statistics (13)
@@ -183,6 +185,9 @@ https://open.kattis.com/problems/ladder/statistics (13)
     read a b;ruby -e"p ($a/Math.sin($b*57.29578)).ceil"
 https://open.kattis.com/problems/eveningout1/statistics (13)
     read a b;ruby -e"p [$a%$b,$b-$a%$b].min"
+https://open.kattis.com/problems/countingclauses/statistics (13)
+    read a b;ruby -e"p $a>7"|sed *x|sed *z
+    sxtruexsatisfactoryx szfalsezunsatisfactoryz
 https://open.kattis.com/problems/trollhunt/statistics (13)
     read a b c;ruby -e"p ($a-2)/($b/$c)+1"
 https://open.kattis.com/problems/skocimis/statistics (13)
@@ -193,6 +198,8 @@ https://open.kattis.com/problems/makingameowth/statistics (13)
     read a b c d;ruby -e"p $b*$c+$b/($a-1)*$d"
 https://open.kattis.com/problems/laptopsticker/statistics (13)
     read a b c d;ruby -e"p $a>$c+1&&$b>$d+1?1:0"
+https://open.kattis.com/problems/bottleflip/statistics (13)
+    read a b c d;ruby -e"p $a/(1+($d.0/$c)**0.5)"
 
 encoded: math (ruby, string)
 https://open.kattis.com/problems/averagecharacter/statistics (13)
@@ -241,6 +248,8 @@ https://open.kattis.com/problems/filip/statistics (13)
     rev|fold -w4|sort|sed 1d
 https://open.kattis.com/problems/listgame/statistics (13)
     factor|tr -d 0-z|wc -L
+https://open.kattis.com/problems/datum/statistics (13)
+    read a b;date -d2009/$b/$a +%A
 
 pattern matching:
 https://open.kattis.com/problems/romans/statistics (9)
