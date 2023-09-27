@@ -1,6 +1,4 @@
 encoded: string (pure sed)
-https://open.kattis.com/problems/kemija08/statistics (13)
-    sed "s/\([aeiou]\)p\1/\1/g"
 https://open.kattis.com/problems/apaxianparent/statistics (13)
     sed "s/\([aeiou]\|ex\|\) /ex/"
 https://open.kattis.com/problems/quiteaproblem/statistics (13)
@@ -9,6 +7,8 @@ https://open.kattis.com/problems/hissingmicrophone/statistics (13)
     sed "s/.*ss.*/hiss/;t;cno hiss"
 https://open.kattis.com/problems/hradgreining/statistics (13)
     sed "s/.*COV.*/Veikur!/;t;cEkki veikur!"
+https://open.kattis.com/problems/canadianseh/statistics (13)
+    sed "s/.*eh?$/Canadian!/;t;cImposter!"
 https://open.kattis.com/problems/eyeofsauron/statistics (13)
     sed "s/^\(|*\)()\1$/correct/I;t;cfix"
 https://open.kattis.com/problems/nodup/statistics (13)
@@ -17,14 +17,12 @@ https://open.kattis.com/problems/twostones/statistics (13)
     sed "s/.*[13579]$/Alice/;t;cBob"
 https://open.kattis.com/problems/breakingbranches/statistics (13)
     sed "s/.*[13579]$/Bob/;t;cAlice 1"
-https://open.kattis.com/problems/knightpacking/statistics (13)
-    sed "s/.*[13579]$/first/;t;csecond"
-https://open.kattis.com/problems/railroad2/statistics (13)
-    sed "s/.*[13579]$/impossible/;t;cpossible"
 https://open.kattis.com/problems/chocolatedivision/statistics (13)
     sed "s/.*[13579] .*[13579]$/Beata/;t;cAlf"
 https://open.kattis.com/problems/oddities/statistics (13)
     sed "1d;s/[13579]$/& is odd/;t;s/$/ is even/"
+https://open.kattis.com/problems/digits/statistics (13)
+    sed "$ d;s/^[^1]$/2/;s/.\{10,\}/4/;s/...*/3/"
 
 encoded: string (combined)
 https://open.kattis.com/problems/quadrant/statistics (13)
@@ -100,6 +98,8 @@ https://open.kattis.com/problems/reversebinary/statistics (13)
     ruby -e"p ('%b'%`cat`).reverse.to_i 2"
 https://open.kattis.com/problems/meowfactor/statistics (13)
     ruby -e"p (1..128).reject{|x|`cat`%x**9>0}.max"
+https://open.kattis.com/problems/harshadnumbers/statistics (13)
+    ruby -e"x=`cat`;p (x..x+999).select{|y|y%(0..9).sum{|z|y/10**z%10}==0}[0]"
 https://open.kattis.com/problems/temperatureconfusion/statistics (13)
     ruby -e"puts (`cat`r*5-160)/9"
 https://open.kattis.com/problems/peachpowderpolygon/statistics (13)
@@ -128,6 +128,8 @@ https://open.kattis.com/problems/jazzitup/statistics (13)
     ruby -e"x=`cat`;p (2..).detect{|y|x.gcd(y)<2}"
 https://open.kattis.com/problems/shortestcompositesum/statistics (13)
     ruby -e"x=`cat`;y=4+5*(x&1);p 2,y,x-y"
+https://open.kattis.com/problems/bootstrappingnumber/statistics (13)
+    ruby -e"x=3.0;(0..99).map{x=(x*`cat`**(1/x))**0.5};p x"
 https://open.kattis.com/problems/rijeci/statistics (13)
     ruby -e"x,y=0,1;(2..`cat`).map{x,y=y,x+y};p x,y"
 https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (13)
@@ -187,12 +189,16 @@ https://open.kattis.com/problems/bestcompression/statistics (13)
     ruby -e"puts `sed "s/ /<2<</"`?'yes':'no'"
 https://open.kattis.com/problems/overdraft/statistics (13)
     ruby -e"x=0;p -[`sed "1d;s/.*/x+=&,/"`0].min"
+https://open.kattis.com/problems/mult/statistics (13)
+    read;ruby -e"x=0;[`tr "\\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
 https://open.kattis.com/problems/distributingpoffins/statistics (13)
     read a b;ruby -e"p $b%$a<=>0"
 https://open.kattis.com/problems/babypanda/statistics (13)
     read a b;ruby -e"p ('%b'%$b).count '1'"
 https://open.kattis.com/problems/irrationaldivision/statistics (13)
     read a b;ruby -e"p $a%2*(~$b%2*($b<=>$a)+1)"
+https://open.kattis.com/problems/carddivisibility/statistics (13)
+    read a b;ruby -e"p ($a+$b)*($b-$a+1)/2%9"
 https://open.kattis.com/problems/ladder/statistics (13)
     read a b;ruby -e"p ($a/Math.sin($b*57.29578)).ceil"
 https://open.kattis.com/problems/eveningout1/statistics (13)
@@ -210,6 +216,8 @@ https://open.kattis.com/problems/sodaslurper/statistics (13)
     read a b c;ruby -e"p [($a+$b-1)/~-$c,0].max"
 https://open.kattis.com/problems/climbingworm/statistics (13)
     read a b c;ruby -e"p [($c-$b-1)/($a-$b)+1,1].max"
+https://open.kattis.com/problems/climbingstairs/statistics (13)
+    read a b c;ruby -e"p 2*[(1+$a+$b)/2,$b,$c].max"
 https://open.kattis.com/problems/expectedearnings/statistics (13)
     read a b c;echo spela;ruby -e"$a*$c<$b?0:puts('inte!')"
 https://open.kattis.com/problems/makingameowth/statistics (13)
@@ -230,6 +238,8 @@ https://open.kattis.com/problems/yinyangstones/statistics (13)
     echo "p `sed "s/W/+1/g;s/B/-1/g"`==0?1:0"|ruby
 https://open.kattis.com/problems/pvbg/statistics (13)
     read;echo "p [`tr " " ,`].min+1"|ruby
+https://open.kattis.com/problems/licensetolaunch/statistics (13)
+    read;echo "p [`tr " " ,`].each_with_index.min[1]"|ruby
 
 encoded: math (python, multiline)
 https://open.kattis.com/problems/pet/statistics (13)
@@ -328,6 +338,35 @@ https://open.kattis.com/problems/isithalloween/statistics (9)
     s/O..../nope/
     s/S..../nope/
     s/nope./nope/
+https://open.kattis.com/problems/railroad2/statistics (10)
+    s/....0/possible/
+    s/..0/possible/
+    s/....1/impossible/
+    s/..1/impossible/
+    s/..2/possible/
+    s/..3/impossible/
+    s/..4/possible/
+    s/..5/impossible/
+    s/......8/possible/
+    s/....8/possible/
+    s/..8/possible/
+    s/......9/impossible/
+    s/....9/impossible/
+https://open.kattis.com/problems/knightpacking/statistics (10)
+    s/..1/first/
+    s/1/first/
+    s/..2/second/
+    s/2/second/
+    s/..3/first/
+    s/.3/first/
+    s/3/first/
+    s/..4/second/
+    s/..5/first/
+    s/..6/second/
+    s/..7/first/
+    s/..8/second/
+    s/..9/first/
+    s/..../second/
 https://open.kattis.com/problems/planina/statistics (9)
     s/.0/QPTPYWT/
     s/.1/RQOIRPQ/
@@ -345,6 +384,27 @@ https://open.kattis.com/problems/planina/statistics (9)
     s/8/YYPRO/
     s/9/WYEQYO/
     y/QWERTYUIOP/1234567890/
+https://open.kattis.com/problems/kemija08/statistics (9)
+    s/apaapa/aa/
+    s/apadnapa/adna/
+    s/apaepeipiopoupu/aeiou/
+    s/apan/an/
+    s/apapapagepenopo/apageno/
+    s/apapapapapaprpopopapalapapapa/apapaprpopalapa/
+    s/apapripikapa/aprika/
+    s/apavapantupuripizapa/avanturiza/
+    s/bapa/ba/
+    s/bopozipi/bozi/
+    s/dopo/do/
+    s/epelepenapa/elena/
+    s/epemipijapa/emija/
+    s/epeopoapauputepentipicnipi/eoautenticni/
+    s/ipi/i/
+    s/jepe/je/
+    s/opobapa/oba/
+    s/opodipinapa/odina/
+    s/opovapa/ova/
+    s/repe/re/
 https://open.kattis.com/problems/appelspelet/statistics (9)
     s/......0/Z/
     s/.....2/Z/
