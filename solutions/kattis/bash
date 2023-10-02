@@ -172,6 +172,8 @@ https://open.kattis.com/problems/spavanac/statistics (11)
     ruby -e"x=60*`tr " " +`+1395;p x/60%24,x%60"
 https://open.kattis.com/problems/mult/statistics (11)
     ruby -e"x=0;[0*`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
+https://open.kattis.com/problems/associationofmyths/statistics (11)
+    ruby -e"x=[`tr " \n" ,`][-1];p x**2/Math::PI/Math::E+1.0/-~x"
 https://open.kattis.com/problems/gcd/statistics (11)
     ruby -e"p `sed "s/ /.gcd /"`"
 https://open.kattis.com/problems/slatkisi/statistics (11)
@@ -184,20 +186,18 @@ https://open.kattis.com/problems/modulo/statistics (11)
     ruby -e"p [`sed s/$/%42,/`].uniq.size"
 https://open.kattis.com/problems/jobexpenses/statistics (11)
     ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
-https://open.kattis.com/problems/grassseed/statistics (11)
-    ruby -e"p `sed "1s/$/*(0*/;y/ /*/;s/$/+/"`0)"
-https://open.kattis.com/problems/tarifa/statistics (11)
-    ruby -e"p `sed "1s/$/*-~/;t;s/$/-/"`0"
 https://open.kattis.com/problems/kafkaesque/statistics (11)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
 https://open.kattis.com/problems/bestcompression/statistics (11)
     ruby -e"puts `sed "s/ /<2<</"`?'yes':'no'"
-https://open.kattis.com/problems/associationofmyths/statistics (11)
-    ruby -e"x=`sed "3!d;s/.* //"`;p x**2/Math::PI/Math::E+1.0/-~x"
-https://open.kattis.com/problems/batterup/statistics (11)
-    ruby -e"x=[`sed "1d;s/-1 *//g;s/ /.0,/g"`];p x.sum/x.size"
 https://open.kattis.com/problems/overdraft/statistics (11)
     ruby -e"x=0;p -[`sed "1d;s/.*/x+=&,/"`0].min"
+https://open.kattis.com/problems/batterup/statistics (11)
+    read;ruby -e"x=[`tr " " ,`]-[-1];p 1.0*x.sum/x.size"
+https://open.kattis.com/problems/tarifa/statistics (11)
+    read a;ruby -e"p $a*-~`tr "\n" -`0"
+https://open.kattis.com/problems/grassseed/statistics (11)
+    read a;ruby -e"p $a*(0*`tr " \n" *+`0)"
 https://open.kattis.com/problems/distributingpoffins/statistics (11)
     read a b;ruby -e"p $b%$a<=>0"
 https://open.kattis.com/problems/babypanda/statistics (11)
@@ -230,6 +230,8 @@ https://open.kattis.com/problems/expectedearnings/statistics (11)
     read a b c;ruby -e"puts $a*$c<$b?'spela':'spela inte!'"
 https://open.kattis.com/problems/gcvwr/statistics (11)
     read a b c;ruby -e"p ($a-$b)*9/10-[`tr " " ,`].sum"
+https://open.kattis.com/problems/sottkvi/statistics (10)
+    read a b c;ruby -e"p [`tr "\n" ,`].count{|x|x<$b+$c-13}"
 https://open.kattis.com/problems/makingameowth/statistics (11)
     read a b c d;ruby -e"p $b*$c+$b/($a-1)*$d"
 https://open.kattis.com/problems/laptopsticker/statistics (11)
@@ -261,7 +263,7 @@ https://open.kattis.com/problems/yinyangstones/statistics (11)
 https://open.kattis.com/problems/pvbg/statistics (11)
     read;echo "p [`tr " " ,`].min+1"|ruby
 https://open.kattis.com/problems/licensetolaunch/statistics (11)
-    read;echo "x=[`tr " " ,`];p x.index(x.min)"|ruby
+    read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (11)
     ruby -e"gets;p 1+gets.split(' ').each_cons(2).count{|x,y|x.to_i<y.to_i}"
 
