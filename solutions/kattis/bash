@@ -27,6 +27,8 @@ https://open.kattis.com/problems/digits/statistics (10)
     sed "$ d;s/^[^1]$/2/;s/.\{10,\}/4/;s/...*/3/"
 
 encoded: string (combined)
+https://open.kattis.com/problems/cold/statistics (10)
+    tr -d 0-9|wc -w
 https://open.kattis.com/problems/quadrant/statistics (10)
     tr -d 0-9|sed 2p|wc -w|tr 012 124
 https://open.kattis.com/problems/deathknight/statistics (10)
@@ -62,6 +64,8 @@ https://open.kattis.com/problems/fizzbuzz/statistics (10)
     read a b c;seq $c|sed "$b~$b s/.*/Buzz/;$a~$a s/[0-9]*/Fizz/"
 https://open.kattis.com/problems/ekkidaudi/statistics (10)
     IFS=, read a b c d< <(tr "\n|" ,);echo $a$c $b$d
+https://open.kattis.com/problems/timeloop/statistics (10)
+    xargs seq|sed aAbracadabra
 https://open.kattis.com/problems/sorttwonumbers/statistics (10)
     xargs -n1|sort -n
 https://open.kattis.com/problems/aaah/statistics (10)
@@ -165,13 +169,13 @@ https://open.kattis.com/problems/socialrunning/statistics (10)
 https://open.kattis.com/problems/addingtrouble/statistics (10)
     ruby -e"puts `tr " " +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/divvyingup/statistics (10)
-    ruby -e"puts (0*`tr " " +`)%3>0?'no':'yes'"
+    ruby -e"puts (0*`tr " \n" +`0)%3>0?'no':'yes'"
 https://open.kattis.com/problems/kornislav/statistics (10)
     ruby -e"x=[`tr " " ,`].sort;p x[0]*x[2]"
 https://open.kattis.com/problems/spavanac/statistics (10)
     ruby -e"x=60*`tr " " +`+1395;p x/60%24,x%60"
 https://open.kattis.com/problems/mult/statistics (10)
-    ruby -e"x=0;[0*`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
+    ruby -e"x=0;[-`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
 https://open.kattis.com/problems/associationofmyths/statistics (10)
     ruby -e"x=[`tr " \n" ,`][-1];p x**2/Math::PI/Math::E+1.0/-~x"
 https://open.kattis.com/problems/gcd/statistics (10)
@@ -207,7 +211,7 @@ https://open.kattis.com/problems/irrationaldivision/statistics (10)
 https://open.kattis.com/problems/carddivisibility/statistics (10)
     read a b;ruby -e"p ($a+$b)*($b-$a+1)/2%9"
 https://open.kattis.com/problems/ladder/statistics (10)
-    read a b;ruby -e"p ($a/Math.sin($b*57.29578)).ceil"
+    read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
 https://open.kattis.com/problems/titlecost/statistics (10)
     read a b;ruby -e"p [${#a},$b].min"
 https://open.kattis.com/problems/eveningout1/statistics (10)
@@ -258,14 +262,16 @@ https://open.kattis.com/problems/abc/statistics (10)
 encoded: math (ruby, large input)
 https://open.kattis.com/problems/arithmetic/statistics (10)
     echo "puts '%X'%0`cat`"|ruby
+https://open.kattis.com/problems/tornbygge/statistics (10)
+    echo "p [-`tr " \n" ,`].each_cons(2).count{|x,y|x.to_i<y.to_i}"|ruby
 https://open.kattis.com/problems/yinyangstones/statistics (10)
     echo "p `sed "s/W/+1/g;s/B/-1/g"`==0?1:0"|ruby
 https://open.kattis.com/problems/pvbg/statistics (10)
     read;echo "p [`tr " " ,`].min+1"|ruby
 https://open.kattis.com/problems/licensetolaunch/statistics (10)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
-https://open.kattis.com/problems/tornbygge/statistics (10)
-    ruby -e"gets;p 1+gets.split(' ').each_cons(2).count{|x,y|x.to_i<y.to_i}"
+https://open.kattis.com/problems/goombastacks/statistics (10)
+    read;echo "x=0;puts [`tr " \n" ,`].each_slice(2).find{|y,z|z>x+=y}?'impossible':'possible'"|ruby
 
 encoded: math (python, simple)
 https://open.kattis.com/problems/addtwonumbers/statistics (10)
@@ -528,9 +534,6 @@ https://open.kattis.com/problems/apaxiaaans/statistics (8)
 https://open.kattis.com/problems/stickykeys/statistics (8)
     tr -s A*
     A-Za-z0-9
-https://open.kattis.com/problems/cold/statistics (10)
-    t* \ |wc -w
-    tr ts0-9
 https://open.kattis.com/problems/autori/statistics (5)
     t*|s*
     tr tsa-z- tt sed sztzzg
@@ -561,9 +564,6 @@ https://open.kattis.com/problems/lastfactorialdigit/statistics (8)
 https://open.kattis.com/problems/carrots/statistics (9)
     r*;e* $rg
     read rf rg echo
-https://open.kattis.com/problems/timeloop/statistics (10)
-    x* *q|*d a*
-    xargs seq sed aAbracadabra
 https://open.kattis.com/problems/echoechoecho/statistics (5)
     t*;*t
     tee tft tgt cat
