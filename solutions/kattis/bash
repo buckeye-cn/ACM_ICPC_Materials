@@ -1,6 +1,10 @@
 encoded: string (pure sed)
+https://open.kattis.com/problems/kemija08/statistics (10)
+    sed "s/\([aeiou]\)p\1/\1/g"
 https://open.kattis.com/problems/apaxianparent/statistics (10)
     sed "s/\([aeiou]\|ex\|\) /ex/"
+https://open.kattis.com/problems/fyi/statistics (10)
+    sed "s/555..../1/;s/......./0/"
 https://open.kattis.com/problems/quiteaproblem/statistics (10)
     sed "s/.*problem.*/yes/I;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (10)
@@ -9,18 +13,28 @@ https://open.kattis.com/problems/hradgreining/statistics (10)
     sed "s/.*COV.*/Veikur!/;t;cEkki veikur!"
 https://open.kattis.com/problems/canadianseh/statistics (10)
     sed "s/.*eh?$/Canadian!/;t;cImposter!"
+https://open.kattis.com/problems/isithalloween/statistics (10)
+    sed "s/OCT 31\|D.*25/yup/;t;cnope"
 https://open.kattis.com/problems/eyeofsauron/statistics (10)
     sed "s/^\(|*\)()\1$/correct/I;t;cfix"
 https://open.kattis.com/problems/nodup/statistics (10)
     sed "s/.*\(\<.*\) .*\<\1\>.*/no/;t;cyes"
+https://open.kattis.com/problems/hvertskalmaeta/statistics (10)
+    sed "s/.*[id]$\|.*ng/Akureyri/;t;cReykjavik"
 https://open.kattis.com/problems/twostones/statistics (10)
     sed "s/.*[13579]$/Alice/;t;cBob"
 https://open.kattis.com/problems/breakingbranches/statistics (10)
     sed "s/.*[13579]$/Bob/;t;cAlice 1"
+https://open.kattis.com/problems/knightpacking/statistics (10)
+    sed "s/.*[13579]$/first/;t;csecond"
+https://open.kattis.com/problems/railroad2/statistics (10)
+    sed "s/.*[13579]$/impossible/;t;cpossible"
 https://open.kattis.com/problems/chocolatedivision/statistics (10)
     sed "s/.*[13579] .*[13579]$/Beata/;t;cAlf"
 https://open.kattis.com/problems/oddities/statistics (10)
     sed "1d;s/[13579]$/& is odd/;t;s/$/ is even/"
+https://open.kattis.com/problems/stafur/statistics (10)
+    sed "s/[AEIOU]/Jebb/;t;s/Y/Kannski/;t;cNeibb"
 https://open.kattis.com/problems/cats/statistics (10)
     sed "s/1/yes/;s/6/yes no no yes yes yes/;q"
 https://open.kattis.com/problems/digits/statistics (10)
@@ -44,6 +58,8 @@ https://open.kattis.com/problems/icpcawards/statistics (10)
 https://open.kattis.com/problems/trik/statistics (10)
     sed $(cat|sed `ls s*|tr _ ";"`)<<<1
     sxAxyz12z21z_xg_sxBxyz23z32z_xg_sxCxyz31z13z_xg
+https://open.kattis.com/problems/spacerace/statistics (10)
+    sed "1,2d;y/ /\t/"|sort -nk3|head -1|cut -f1
 https://open.kattis.com/problems/quickestimate/statistics (10)
     awk "NR>1{print length}"
 https://open.kattis.com/problems/countthevowels/statistics (10)
@@ -92,6 +108,10 @@ https://open.kattis.com/problems/areal/statistics (10)
     ruby -e"p `cat`**0.5*4"
 https://open.kattis.com/problems/crne/statistics (10)
     ruby -e"p (`cat`+2)**2/4"
+https://open.kattis.com/problems/planina/statistics (10)
+    ruby -e"p (2**`cat`+1)**2"
+https://open.kattis.com/problems/romans/statistics (10)
+    ruby -e"p (`cat`*88e4/809).round"
 https://open.kattis.com/problems/alloys/statistics (10)
     ruby -e"p [`cat`,1.0].min**2/4"
 https://open.kattis.com/problems/99problems/statistics (10)
@@ -116,6 +136,8 @@ https://open.kattis.com/problems/oktalni/statistics (10)
     ruby -e"puts '%o'%0b`cat`"
 https://open.kattis.com/problems/sretan/statistics (10)
     ruby -e"puts ('%b'%-~`cat`)[1..]"|tr 01 47
+https://open.kattis.com/problems/character/statistics (10)
+    ruby -e"x=`cat`;p 2**x-x-1"
 https://open.kattis.com/problems/tetration/statistics (10)
     ruby -e"x=`cat`;p x**(1/x)"
 https://open.kattis.com/problems/popkorn/statistics (10)
@@ -125,7 +147,7 @@ https://open.kattis.com/problems/sjecista/statistics (10)
 https://open.kattis.com/problems/betting/statistics (10)
     ruby -e"x=`cat`.0;p 100/x,100/(100-x)"
 https://open.kattis.com/problems/herman/statistics (10)
-    ruby -e"x=`cat`**2;p x*Math::PI,x*2"
+    ruby -e"x=`cat`**2;p Math::PI*x,2*x"
 https://open.kattis.com/problems/busskortet/statistics (10)
     ruby -e"x=(`cat`+99)/100;p x/5+x%5/2+x%5%2"
 https://open.kattis.com/problems/houseofcards/statistics (10)
@@ -134,12 +156,18 @@ https://open.kattis.com/problems/jazzitup/statistics (10)
     ruby -e"x=`cat`;p (2..).find{|y|x.gcd(y)<2}"
 https://open.kattis.com/problems/pyramids/statistics (10)
     ruby -e"x=(6*`cat`)**0.3334;p (x/2+0.2/x).to_i"
+https://open.kattis.com/problems/eulersnumber/statistics (10)
+    ruby -e"x=1.0;p 1+(1..`cat`).sum{|y|x/=y}"
+https://open.kattis.com/problems/theplank/statistics (10)
+    ruby -e"x=[1,0,0];p (1..`cat`).map{|y|x[y%3]=x.sum}[-1]"
 https://open.kattis.com/problems/bootstrappingnumber/statistics (10)
     ruby -e"x=1;(0..99).map{x=(x*`cat`**(1/x))**0.5};p x"
 https://open.kattis.com/problems/shortestcompositesum/statistics (10)
-    ruby -e"x=`cat`;y=4+5*(x&1);p 2,y,x-y"
+    ruby -e"x=`cat`;y=4+5*x[0];p 2,y,x-y"
 https://open.kattis.com/problems/rijeci/statistics (10)
     ruby -e"x,y=0,1;(2..`cat`).map{x,y=y,x+y};p x,y"
+https://open.kattis.com/problems/klockan2/statistics (10)
+    ruby -e"x=`cat`;puts '%d:%d'%[131*x/300%12,11*x/5%60]"
 https://open.kattis.com/problems/r2/statistics (10)
     ruby -e"p -`tr " " +`*2"
 https://open.kattis.com/problems/triarea/statistics (10)
@@ -196,6 +224,8 @@ https://open.kattis.com/problems/bestcompression/statistics (10)
     ruby -e"puts `sed "s/ /<2<</"`?'yes':'no'"
 https://open.kattis.com/problems/overdraft/statistics (10)
     ruby -e"x=0;p -[`sed "1d;s/.*/x+=&,/"`0].min"
+https://open.kattis.com/problems/cosmicpathoptimization/statistics (10)
+    read;ruby -e"x=[`tr " " ,`];p x.sum/x.size"
 https://open.kattis.com/problems/batterup/statistics (10)
     read;ruby -e"x=[`tr " " ,`]-[-1];p 1.0*x.sum/x.size"
 https://open.kattis.com/problems/tarifa/statistics (10)
@@ -218,8 +248,12 @@ https://open.kattis.com/problems/eveningout1/statistics (10)
     read a b;ruby -e"p [$a%$b,$b-$a%$b].min"
 https://open.kattis.com/problems/powers/statistics (10)
     read a b;ruby -e"p [$b<2?$a:0,0,$a,0][$a%4]/2"
+https://open.kattis.com/problems/lamps/statistics (10)
+    read a b;ruby -e"p (1..).find{|x|$a*x/1000+98e-6*$a*$b*x>11}"
 https://open.kattis.com/problems/countingclauses/statistics (10)
-    read a b;ruby -e"puts $a>7?'satisfactory':'unsatisfactory'"
+    read a b;ruby -e"puts ($a>7?'':'un')+'satisfactory'"
+https://open.kattis.com/problems/cinema2/statistics (10)
+    read a b;ruby -e"x=$a;p [`tr " " ,`].filter{|y|x-=y;x<0}.size"
 https://open.kattis.com/problems/trollhunt/statistics (10)
     read a b c;ruby -e"p ($a-2)/($b/$c)+1"
 https://open.kattis.com/problems/skocimis/statistics (10)
@@ -250,6 +284,8 @@ https://open.kattis.com/problems/bijele/statistics (10)
     read a b c d e f;ruby -e"p 1-$a,1-$b,2-$c,2-$d,2-$e,8-$f"
 
 encoded: math (ruby, string)
+https://open.kattis.com/problems/everywhere/statistics (10)
+    ruby -e"(1..gets.to_i).map{p (1..gets.to_i).map{gets}.uniq.size}"
 https://open.kattis.com/problems/averagecharacter/statistics (10)
     ruby -e"x=gets.chop;putc x.sum/x.size"
 https://open.kattis.com/problems/doublepassword/statistics (10)
@@ -271,7 +307,7 @@ https://open.kattis.com/problems/pvbg/statistics (10)
 https://open.kattis.com/problems/licensetolaunch/statistics (10)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
 https://open.kattis.com/problems/goombastacks/statistics (10)
-    read;echo "x=0;puts [`tr " \n" ,`].each_slice(2).find{|y,z|z>x+=y}?'impossible':'possible'"|ruby
+    read;echo "x=0;puts ([`tr " \n" ,`].each_slice(2).find{|y,z|z>x+=y}?'im':'')+'possible'"|ruby
 
 encoded: math (python, simple)
 https://open.kattis.com/problems/addtwonumbers/statistics (10)
@@ -330,182 +366,6 @@ https://open.kattis.com/problems/datum/statistics (10)
     read a b;date -d2009/$b/$a +%A
 https://open.kattis.com/problems/finalexam2/statistics (10)
     expr `tee _|wc -l` - `uniq _|wc -l`|cat
-
-pattern matching:
-https://open.kattis.com/problems/romans/statistics (9)
-    s/1.00.000/1087763/
-    s/1.0/1088/
-    s/20.267/22046/
-    s/455/494932/
-https://open.kattis.com/problems/klockan2/statistics (10)
-    s/1730/11:26/
-    s/3035/05:17/
-    s/3140/03:08/
-    s/855/01:21/
-    s/85/01:07/
-https://open.kattis.com/problems/character/statistics (9)
-    s/.0/QPUEURQUOE/
-    s/.1/WPOUQEP/
-    s/0/P/
-    s/1/P/
-    s/2/Q/
-    s/3/R/
-    s/4/QQ/
-    s/5/WY/
-    y/QWERTYUIOP/1234567890/
-https://open.kattis.com/problems/hvertskalmaeta/statistics (9)
-    s/Akranes/Reykjavik/
-    s/Arborg/Reykjavik/
-    s/Fjardabyggd/Akureyri/
-    s/Gardabaer/Reykjavik/
-    s/Hafnarfjordur/Reykjavik/
-    s/KopavogursReykjavik/
-    s/Mosfellsbaer/Reykjavik/
-    s/Mulathing/Akureyri/
-    s/Reykjanesbaer/Reykjavik/
-    s/Seltjarnarnes/Reykjavik/
-https://open.kattis.com/problems/fyi/statistics (9)
-    s/.55..../1/
-    s/0....../0/
-    s/1....../0/
-    s/2....../0/
-    s/3....../0/
-    s/4....../0/
-    s/5....../0/
-    s/6....../0/
-    s/7....../0/
-    s/8....../0/
-    s/9....../0/
-https://open.kattis.com/problems/isithalloween/statistics (9)
-    s/.CT.31/yup/
-    s/.EC.25/yup/
-    s/A..../nope/
-    s/D..../nope/
-    s/F..../nope/
-    s/J..../nope/
-    s/M..../nope/
-    s/N..../nope/
-    s/O..../nope/
-    s/S..../nope/
-    s/nope./nope/
-https://open.kattis.com/problems/railroad2/statistics (10)
-    s/......8/possible/
-    s/......9/impossible/
-    s/....0/possible/
-    s/....1/impossible/
-    s/....8/possible/
-    s/....9/impossible/
-    s/..0/possible/
-    s/..1/impossible/
-    s/..2/possible/
-    s/..3/impossible/
-    s/..4/possible/
-    s/..5/impossible/
-    s/..8/possible/
-https://open.kattis.com/problems/knightpacking/statistics (10)
-    s/...0/second/
-    s/..1/first/
-    s/..2/second/
-    s/..3/first/
-    s/..4/second/
-    s/..5/first/
-    s/..6/second/
-    s/..7/first/
-    s/..8/second/
-    s/..9/first/
-    s/.3/first/
-    s/1/first/
-    s/2/second/
-    s/3/first/
-https://open.kattis.com/problems/planina/statistics (9)
-    s/.0/QPTPYWT/
-    s/.1/RQOIRPQ/
-    s/.2/QYUITRPO/
-    s/.3/YUQWTWRO/
-    s/.4/WYIRYIWWT/
-    s/.5/QPUEIPUEYQ/
-    s/1/O/
-    s/2/WT/
-    s/3/IQ/
-    s/4/WIO/
-    s/5/QPIO/
-    s/6/RWWT/
-    s/7/QYYRQ/
-    s/8/YYPRO/
-    s/9/WYEQYO/
-    y/QWERTYUIOP/1234567890/
-https://open.kattis.com/problems/kemija08/statistics (9)
-    s/apaapa/aa/
-    s/apadnapa/adna/
-    s/apaepeipiopoupu/aeiou/
-    s/apan/an/
-    s/apapapagepenopo/apageno/
-    s/apapapapapaprpopopapalapapapa/apapaprpopalapa/
-    s/apapripikapa/aprika/
-    s/apavapantupuripizapa/avanturiza/
-    s/bapa/ba/
-    s/bopozipi/bozi/
-    s/dopo/do/
-    s/epelepenapa/elena/
-    s/epemipijapa/emija/
-    s/epeopoapauputepentipicnipi/eoautenticni/
-    s/ipi/i/
-    s/jepe/je/
-    s/opobapa/oba/
-    s/opodipinapa/odina/
-    s/opovapa/ova/
-    s/repe/re/
-https://open.kattis.com/problems/appelspelet/statistics (9)
-    s/......0/Z/
-    s/.....2/Z/
-    s/.....4/Z/
-    s/.....6/Z/
-    s/.....8/Z/
-    s/....05/Z/
-    s/....71/Z/
-    s/...0/Z/
-    s/..2/Z/
-    s/..4/Z/
-    s/..8/Z/
-    s/1/ZZ/
-    s/437/Z/
-    s/4/ZZ/
-    s/5/ZZ/
-    s/6/Z/
-    s/7/Z/
-    s/9/ZZ/
-    s/Z...../ZZ/
-    s/Z.../ZZ/
-    s/Z../ZZ/
-    s/Z./alf/
-    s/Z/beata/
-https://open.kattis.com/problems/eulersnumber/statistics (9)
-    s/...../W.UQIWIQIWIRTO/
-    s/..../W.UQIWIQIWIRTO/
-    s/.../W.UQIWIQIWIRTO/
-    s/0/Q/
-    s/1Q/W.UQIWIQIPQQRY/
-    s/11/W.UQIWIQIWYQOI/
-    s/12/W.UQIWIQIWIWIY/
-    s/13/W.UQIWIQIWIRRU/
-    s/14/W.UQIWIQIWIRTI/
-    s/15/W.UQIWIQIWIRTO/
-    s/16/W.UQIWIQIWIRTO/
-    s/17/W.UQIWIQIWIRTO/
-    s/18/W.UQIWIQIWIRTO/
-    s/19/W.UQIWIQIWIRTO/
-    s/1/W/
-    s/2./W.UQIWIQIWIRTO/
-    s/2/W.T/
-    s/3./W.UQIWIQIWIRTO/
-    s/3/W.YYYYYYYYYYYU/
-    s/4/W.UPIEEEEEEEEE/
-    s/5/W.UQYYYYYYYYYU/
-    s/6/W.UQIPTTTTTTTY/
-    s/7/W.UQIWTEOYIWTR/
-    s/8/W.UQIWUIUYOIRQ/
-    s/9/W.UQIWIQTWTTUE/
-    y/QWERTYUIOP/1234567890/
 
 single command
 https://open.kattis.com/problems/discdistrict/statistics (2)
