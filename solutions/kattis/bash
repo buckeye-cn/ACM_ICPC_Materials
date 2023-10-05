@@ -319,9 +319,9 @@ https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (10)
 
 encoded: math (python, multiline)
 https://open.kattis.com/problems/pet/statistics (10)
-    tr " " +|python3 -i|nl|sort -rnk +2|sed 1!d
+    tr " " +|python3 -i|nl|sort -rnk +2|head -1
 https://open.kattis.com/problems/different/statistics (10)
-    tr " " -|python3 -i|tr - " "
+    tr " " -|python3 -i|tr -d -
 https://open.kattis.com/problems/bishops/statistics (10)
     sed "s/.*/max(1,&*2-2)/"|python3 -i
 https://open.kattis.com/problems/sumoftheothers/statistics (10)
@@ -347,7 +347,7 @@ https://open.kattis.com/problems/catmouse/statistics (10)
 https://open.kattis.com/problems/parsinghex/statistics (10)
     grep -oi 0x[0-9a-f]*|sed "s/.*/print('&',&)/"|python3
 https://open.kattis.com/problems/dicecup/statistics (10)
-    seq `xargs -n1 echo 1+|python3 -i|sort -n`
+    seq `sed "s/ /+1;1+/"|python3 -i|sort -n`
 https://open.kattis.com/problems/vedurheidar/statistics (10)
     read a;sed "1d;s/^/print('&/;s/ .*/',['opin','lokud'][&<$a])/"|python3
 https://open.kattis.com/problems/scalingrecipe/statistics (10)
