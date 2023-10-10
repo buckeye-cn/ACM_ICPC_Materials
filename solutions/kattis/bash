@@ -188,6 +188,8 @@ https://open.kattis.com/problems/pizza2/statistics (10)
     ruby -e"p (10-10.0/`tr " " "*"`)**2"
 https://open.kattis.com/problems/zebrasocelots/statistics (10)
     ruby -e"p 0b`tr "ZO\n0-9" 01_0`0/2"
+https://open.kattis.com/problems/maximumchoice/statistics (10)
+    ruby -e"p 1+Math.log(`tr " " ,`+1).to_i"
 https://open.kattis.com/problems/heimavinna/statistics (10)
     ruby -e"p [`tr ";" ,`].sum{|x|x<0?1-x:1}"
 https://open.kattis.com/problems/monopol/statistics (10)
@@ -284,8 +286,12 @@ https://open.kattis.com/problems/bijele/statistics (10)
     read a b c d e f;ruby -e"p 1-$a,1-$b,2-$c,2-$d,2-$e,8-$f"
 
 encoded: math (ruby, string)
+https://open.kattis.com/problems/gangur/statistics (10)
+    ruby -e"x=0;p gets.bytes.sum{|y|y>61?0*x+=1:y>59?x:0}"
 https://open.kattis.com/problems/everywhere/statistics (10)
     ruby -e"(1..gets.to_i).map{p (1..gets.to_i).map{gets}.uniq.size}"
+https://open.kattis.com/problems/sortofsorting/statistics (10)
+    ruby -e"(1..).find{(1..gets.to_i).map{gets}.sort_by{|x|x[0..1]}.map{|y|puts y}==[]}"
 https://open.kattis.com/problems/averagecharacter/statistics (10)
     ruby -e"x=gets.chop;putc x.sum/x.size"
 https://open.kattis.com/problems/doublepassword/statistics (10)
