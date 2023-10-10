@@ -255,7 +255,7 @@ https://open.kattis.com/problems/lamps/statistics (10)
 https://open.kattis.com/problems/countingclauses/statistics (10)
     read a b;ruby -e"puts ($a>7?'':'un')+'satisfactory'"
 https://open.kattis.com/problems/cinema2/statistics (10)
-    read a b;ruby -e"x=$a;p [`tr " " ,`].filter{|y|x-=y;x<0}.size"
+    read a b;ruby -e"x=$a;p [`tr " " ,`].count{|y|x-=y;x<0}"
 https://open.kattis.com/problems/trollhunt/statistics (10)
     read a b c;ruby -e"p ($a-2)/($b/$c)+1"
 https://open.kattis.com/problems/skocimis/statistics (10)
@@ -291,7 +291,7 @@ https://open.kattis.com/problems/gangur/statistics (10)
 https://open.kattis.com/problems/everywhere/statistics (10)
     ruby -e"(1..gets.to_i).map{p (1..gets.to_i).map{gets}.uniq.size}"
 https://open.kattis.com/problems/sortofsorting/statistics (10)
-    ruby -e"(1..).find{(1..gets.to_i).map{gets}.sort_by{|x|x[0..1]}.map{|y|puts y}==[]}"
+    ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{|x|x[..1]};end"
 https://open.kattis.com/problems/averagecharacter/statistics (10)
     ruby -e"x=gets.chop;putc x.sum/x.size"
 https://open.kattis.com/problems/doublepassword/statistics (10)
@@ -299,13 +299,13 @@ https://open.kattis.com/problems/doublepassword/statistics (10)
 https://open.kattis.com/problems/exam/statistics (10)
     read a;ruby -e"x,y=gets,gets;p x.size-1-($a-(0..x.size-2).count{|z|x[z]==y[z]}).abs"
 https://open.kattis.com/problems/abc/statistics (10)
-    read a b c;ruby -e"gets[..2].bytes{|y|p [$a,$b,$c].sort()[y-65]}"
+    read a b c;ruby -e"gets[..2].bytes{|y|p [$a,$b,$c].sort[y-65]}"
 
 encoded: math (ruby, large input)
 https://open.kattis.com/problems/arithmetic/statistics (10)
     echo "puts '%X'%0`cat`"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
-    echo "p [-`tr " \n" ,`].each_cons(2).count{|x,y|x.to_i<y.to_i}"|ruby
+    echo "p [-`tr " \n" ,`].each_cons(2).count{|x,y|x<y}"|ruby
 https://open.kattis.com/problems/yinyangstones/statistics (10)
     echo "p `sed "s/W/+1/g;s/B/-1/g"`==0?1:0"|ruby
 https://open.kattis.com/problems/pvbg/statistics (10)
