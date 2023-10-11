@@ -286,16 +286,18 @@ https://open.kattis.com/problems/bijele/statistics (10)
     read a b c d e f;ruby -e"p 1-$a,1-$b,2-$c,2-$d,2-$e,8-$f"
 
 encoded: math (ruby, string)
-https://open.kattis.com/problems/gangur/statistics (10)
-    ruby -e"x=0;p gets.bytes.sum{|y|y>61?0*x+=1:y>59?x:0}"
 https://open.kattis.com/problems/everywhere/statistics (10)
     ruby -e"(1..gets.to_i).map{p (1..gets.to_i).map{gets}.uniq.size}"
-https://open.kattis.com/problems/sortofsorting/statistics (10)
-    ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{|x|x[..1]};end"
+https://open.kattis.com/problems/gangur/statistics (10)
+    ruby -e"x=0;p gets.bytes.sum{|y|y>61?0*x+=1:y>59?x:0}"
+https://open.kattis.com/problems/pokechat/statistics (10)
+    ruby -e"x=gets;gets.scan(/.../){|y|putc x[y.to_i-1]}"
 https://open.kattis.com/problems/averagecharacter/statistics (10)
     ruby -e"x=gets.chop;putc x.sum/x.size"
 https://open.kattis.com/problems/doublepassword/statistics (10)
     ruby -e"x,y=gets,gets;p 2**(0..3).count{|z|x[z]!=y[z]}"
+https://open.kattis.com/problems/sortofsorting/statistics (10)
+    ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{|x|x[..1]};end"
 https://open.kattis.com/problems/exam/statistics (10)
     read a;ruby -e"x,y=gets,gets;p x.size-1-($a-(0..x.size-2).count{|z|x[z]==y[z]}).abs"
 https://open.kattis.com/problems/abc/statistics (10)
