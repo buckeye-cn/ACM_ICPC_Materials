@@ -115,7 +115,7 @@ https://open.kattis.com/problems/romans/statistics (10)
 https://open.kattis.com/problems/alloys/statistics (10)
     ruby -e"p [`cat`,1.0].min**2/4"
 https://open.kattis.com/problems/99problems/statistics (10)
-    ruby -e"p [`cat`+1,100].max.round(-2)-1"
+    ruby -e"p [`cat`+51,100].max/100*100-1"
 https://open.kattis.com/problems/3dprinter/statistics (10)
     ruby -e"p Math.log(`cat`*2,2).ceil"
 https://open.kattis.com/problems/combinatorialstanleycup/statistics (10)
@@ -155,17 +155,17 @@ https://open.kattis.com/problems/houseofcards/statistics (10)
 https://open.kattis.com/problems/jazzitup/statistics (10)
     ruby -e"x=`cat`;p (2..).find{|y|x.gcd(y)<2}"
 https://open.kattis.com/problems/pyramids/statistics (10)
-    ruby -e"x=(6*`cat`)**0.3334;p (x/2+0.2/x).to_i"
+    ruby -e"x=(6*`cat`)**3**-1;p (x/2+0.2/x).to_i"
 https://open.kattis.com/problems/eulersnumber/statistics (10)
     ruby -e"x=1.0;p 1+(1..`cat`).sum{|y|x/=y}"
-https://open.kattis.com/problems/theplank/statistics (10)
-    ruby -e"x=[1,0,0];p (1..`cat`).map{|y|x[y%3]=x.sum}[-1]"
 https://open.kattis.com/problems/bootstrappingnumber/statistics (10)
-    ruby -e"x=1;(0..99).map{x=(x*`cat`**(1/x))**0.5};p x"
+    ruby -e"x=1;99.times{x=(x*`cat`**(1/x))**0.5};p x"
 https://open.kattis.com/problems/shortestcompositesum/statistics (10)
     ruby -e"x=`cat`;y=4+5*x[0];p 2,y,x-y"
 https://open.kattis.com/problems/rijeci/statistics (10)
-    ruby -e"x,y=0,1;(2..`cat`).map{x,y=y,x+y};p x,y"
+    ruby -e"x,y=1,0;`cat`.times{x,y=y,x+y};p x,y"
+https://open.kattis.com/problems/theplank/statistics (10)
+    ruby -e"x=y=0;z=1;`cat`.times{x,y,z=y,z,x+y+z};p z"
 https://open.kattis.com/problems/klockan2/statistics (10)
     ruby -e"x=`cat`;puts '%d:%d'%[131*x/300%12,11*x/5%60]"
 https://open.kattis.com/problems/r2/statistics (10)
@@ -287,7 +287,7 @@ https://open.kattis.com/problems/bijele/statistics (10)
 
 encoded: math (ruby, string)
 https://open.kattis.com/problems/everywhere/statistics (10)
-    ruby -e"(1..gets.to_i).map{p (1..gets.to_i).map{gets}.uniq.size}"
+    ruby -e"gets.to_i.times{p gets.to_i.times.uniq{gets}.size}"
 https://open.kattis.com/problems/gangur/statistics (10)
     ruby -e"x=0;p gets.bytes.sum{|y|y>61?0*x+=1:y>59?x:0}"
 https://open.kattis.com/problems/pokechat/statistics (10)
