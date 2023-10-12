@@ -301,21 +301,21 @@ https://open.kattis.com/problems/sortofsorting/statistics (10)
 https://open.kattis.com/problems/exam/statistics (10)
     read a;ruby -e"x,y=gets,gets;p x.size-1-($a-(0..x.size-2).count{|z|x[z]==y[z]}).abs"
 https://open.kattis.com/problems/abc/statistics (10)
-    read a b c;ruby -e"gets[..2].bytes{|y|p [$a,$b,$c].sort[y-65]}"
+    read a b c;ruby -e"gets.bytes{|x|puts [$a,$b,$c].sort[x-65]}"
 
 encoded: math (ruby, large input)
 https://open.kattis.com/problems/arithmetic/statistics (10)
     echo "puts '%X'%0`cat`"|ruby
+https://open.kattis.com/problems/pvbg/statistics (10)
+    echo "p [9`tr " \n" ,`].min+1"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
     echo "p [-`tr " \n" ,`].each_cons(2).count{|x,y|x<y}"|ruby
 https://open.kattis.com/problems/yinyangstones/statistics (10)
     echo "p `sed "s/W/+1/g;s/B/-1/g"`==0?1:0"|ruby
-https://open.kattis.com/problems/pvbg/statistics (10)
-    read;echo "p [`tr " " ,`].min+1"|ruby
+https://open.kattis.com/problems/goombastacks/statistics (10)
+    echo "puts 'im'*-[(x=`sed "1d;s/ .*/)<=>&,(x+=/"`-x)].min+'possible'"|ruby
 https://open.kattis.com/problems/licensetolaunch/statistics (10)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
-https://open.kattis.com/problems/goombastacks/statistics (10)
-    read;echo "x=0;puts ([`tr " \n" ,`].each_slice(2).find{|y,z|z>x+=y}?'im':'')+'possible'"|ruby
 
 encoded: math (python, simple)
 https://open.kattis.com/problems/addtwonumbers/statistics (10)
