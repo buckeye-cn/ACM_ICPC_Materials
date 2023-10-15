@@ -20,7 +20,7 @@ Practicing Materials
 
 * Kattis: https://open.kattis.com/
     * 2023 North America Qualifier Contest: [Contest](https://naq23.kattis.com/contests/naq23-fall/problems)
-    * 2022 North America Qualifier Contest: [Contest](https://naq22.kattis.com/contests/naq22/problems) - [Open Section](https://open.kattis.com/contests/naq22open) - [Answer and Analysis](https://na.icpc.global/wp-content/uploads/2023/02/NAQ-Outlines.pdf) - [Answer and Analysis]()
+    * 2022 North America Qualifier Contest: [Contest](https://naq22.kattis.com/contests/naq22/problems) - [Open Section](https://open.kattis.com/contests/naq22open) - [Answer and Analysis](https://na.icpc.global/wp-content/uploads/2023/02/NAQ-Outlines.pdf)
     * 2021 North America Qualifier Contest: [Contest](https://naq21.kattis.com/contests/naq21/problems) - [Open Section](https://naq21-open.kattis.com/contests/naq21open/problems) - [Answer and Analysis](https://na.icpc.global/2021-22/naq/)
     * 2020 North America Qualifier Contest: [Contest](https://naq20.kattis.com/contests/naq20/problems) - [Open Section](https://open.kattis.com/contests/naq20open/problems) - [Answer and Analysis](https://web.archive.org/web/20210228041823/https://www.icpc.org/icpc-north-america-qualifier)
     * 2019 North America Qualifier Contest: [Contest](https://naq19.kattis.com/contests/naq19/problems) - [Open Section](https://open.kattis.com/contests/naq19open/problems) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2019/)
