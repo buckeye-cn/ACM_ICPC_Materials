@@ -6,8 +6,11 @@ This repository contains ACM-ICPC preparation materials used by our ICPC trainin
 Official Websites
 ---
 
-* North America Qualification Contest: http://cs.baylor.edu/~hamerly/icpc/
-* East Central North America Regional: http://acm-ecna.ysu.edu/
+* Qualifier Round (ICPC North America Qualification Contest)
+    * 2019-Current: https://na.icpc.global/naq/
+    * 2012-2019: http://cs.baylor.edu/~hamerly/icpc/
+* Regional Round
+    * East Central North America Regional: http://acm-ecna.ysu.edu/
 * World Final: https://icpc.baylor.edu/
 
 Practicing Materials
@@ -16,6 +19,12 @@ Practicing Materials
 ### Online Judges
 
 * Kattis: https://open.kattis.com/
+    * 2023 North America Qualifier Contest: [Contest](https://naq23.kattis.com/contests/naq23-fall/problems)
+    * 2022 North America Qualifier Contest: [Contest](https://naq22.kattis.com/contests/naq22/problems) - [Open Section](https://open.kattis.com/contests/naq22open) - [Answer and Analysis](https://na.icpc.global/wp-content/uploads/2023/02/NAQ-Outlines.pdf) - [Answer and Analysis]()
+    * 2021 North America Qualifier Contest: [Contest](https://naq21.kattis.com/contests/naq21/problems) - [Open Section](https://naq21-open.kattis.com/contests/naq21open/problems) - [Answer and Analysis](https://na.icpc.global/2021-22/naq/)
+    * 2020 North America Qualifier Contest: [Contest](https://naq20.kattis.com/contests/naq20/problems) - [Open Section](https://open.kattis.com/contests/naq20open/problems) - [Answer and Analysis](https://web.archive.org/web/20210228041823/https://www.icpc.org/icpc-north-america-qualifier)
+    * 2019 North America Qualifier Contest: [Contest](https://naq19.kattis.com/contests/naq19/problems) - [Open Section](https://open.kattis.com/contests/naq19open/problems) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2019/)
+    * 2018 North America Qualifier Contest: [Contest](https://naq18.kattis.com/contests/naq18/problems) - [Open Section](https://open.kattis.com/contests/naq18open/problems) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2018/)
     * 2017 North America Qualifier Contest: [Contest](https://naq17.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2017%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2017/)
     * 2016 North America Qualifier Contest: [Contest](https://naq16.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/)
     * 2015 North America Qualifier Contest: [Contest](https://naq15.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2015%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2015/)
