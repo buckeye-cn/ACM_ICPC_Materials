@@ -28,7 +28,7 @@ Practicing Materials
     * 2017 North America Qualifier Contest: [Contest](https://naq17.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2017%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2017/)
     * 2016 North America Qualifier Contest: [Contest](https://naq16.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2016%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2016/)
     * 2015 North America Qualifier Contest: [Contest](https://naq15.kattis.com/problems) - [Open Section](https://open.kattis.com/problem-sources/2015%20ICPC%20North%20American%20Qualifier%20Contest) - [Answer and Analysis](http://cs.baylor.edu/~hamerly/icpc/qualifier_2015/)
-    * 2022 East Central NA Reginal Contest: [Contest](https://ecna22.kattis.com/problems) - [Answer](https://na.icpc.global/2022-23/regionals/ecna/ecna-archive-2022-23/)
+    * 2022 East Central NA Reginal Contest: [Contest](https://ecna22.kattis.com/contests/ecna22) - [Answer](https://na.icpc.global/2022-23/regionals/ecna/ecna-archive-2022-23/)
     * 2021 East Central NA Reginal Contest: [Contest](https://ecna21.kattis.com/problems) - [Answer](https://na.icpc.global/2022-23/regionals/ecna/ecna-archive-2022-23/)
     * 2020 East Central NA Reginal Contest: [Contest](https://ecna20.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2020/problemset.html)
     * 2019 East Central NA Reginal Contest: [Contest](https://ecna19.kattis.com/problems) - [Answer](http://acm-ecna.ysu.edu/PastResults/2019/problemset.html)
