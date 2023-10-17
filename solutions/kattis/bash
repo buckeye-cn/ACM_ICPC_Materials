@@ -256,6 +256,8 @@ https://open.kattis.com/problems/countingclauses/statistics (10)
     read a b;ruby -e"puts ($a>7?'':'un')+'satisfactory'"
 https://open.kattis.com/problems/cinema2/statistics (10)
     read a b;ruby -e"x=$a;p [`tr " " ,`].count{|y|x-=y;x<0}"
+https://open.kattis.com/problems/countdoubles/statistics (10)
+    read a b;ruby -e"p [`tr " " ,`].each_cons($b).count{|x|x.sum{|y|~y%2}>1}"
 https://open.kattis.com/problems/trollhunt/statistics (10)
     read a b c;ruby -e"p ($a-2)/($b/$c)+1"
 https://open.kattis.com/problems/skocimis/statistics (10)
