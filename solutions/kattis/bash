@@ -207,7 +207,7 @@ https://open.kattis.com/problems/spavanac/statistics (10)
 https://open.kattis.com/problems/mult/statistics (10)
     ruby -e"x=0;[-`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
 https://open.kattis.com/problems/associationofmyths/statistics (10)
-    ruby -e"x=[`tr " \n" ,`][-1];p x**2/Math::PI/Math::E+1.0/-~x"
+    ruby -e"x=[`tr " \n" ,`][-1];p x*x/Math::PI/Math::E+1.0/-~x"
 https://open.kattis.com/problems/gcd/statistics (10)
     ruby -e"p `sed "s/ /.gcd /"`"
 https://open.kattis.com/problems/slatkisi/statistics (10)
@@ -363,7 +363,7 @@ https://open.kattis.com/problems/vedurheidar/statistics (10)
 https://open.kattis.com/problems/scalingrecipe/statistics (10)
     read a b c;sed "s/$/*$c\/\/$b/"|python3 -i
 https://open.kattis.com/problems/sibice/statistics (10)
-    read a b c;sed "s/.*/print(['DA','NE'][&**2>$b**2+$c**2])/"|python3
+    read a b c;sed "s/.*/print(['DA','NE'][&*&>$b*$b+$c*$c])/"|python3
 
 encoded: misc
 https://open.kattis.com/problems/bossbattle/statistics (10)
