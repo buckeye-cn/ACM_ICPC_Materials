@@ -10,13 +10,13 @@
 
 using namespace std;
 
-int data[4][4];
-int action;
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.precision(10);
+
+    int data[4][4];
+    int action;
 
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 4; ++j) {

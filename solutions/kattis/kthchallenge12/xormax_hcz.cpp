@@ -10,7 +10,7 @@
 
 using namespace std;
 
-long data[60];
+long vec[60];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -26,10 +26,10 @@ int main() {
 
         for (int j = 59; j >= 0; --j) {
             if (value >> j) {
-                if (data[j]) {
-                    value ^= data[j];
+                if (vec[j]) {
+                    value ^= vec[j];
                 } else {
-                    data[j] = value;
+                    vec[j] = value;
                     break;
                 }
             }
@@ -39,7 +39,7 @@ int main() {
     long result = 0;
 
     for (int i = 59; i >= 0; --i) {
-        result = max(result, result ^ data[i]);
+        result = max(result, result ^ vec[i]);
     }
 
     cout << result << endl;

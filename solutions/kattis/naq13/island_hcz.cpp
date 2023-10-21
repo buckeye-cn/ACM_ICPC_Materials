@@ -12,7 +12,7 @@ using namespace std;
 
 int maps;
 int n, m;
-char data[100][100];
+char mapdata[100][100];
 int i_tot;
 int b_tot;
 int bus_tot;
@@ -21,7 +21,7 @@ int uf[10000];
 
 void dfs(int i, int j) {
     if (i < 0 || i >= n || j < 0 || j >= m) return;
-    if (data[i][j] != '#' && data[i][j] != 'X') return;
+    if (mapdata[i][j] != '#' && mapdata[i][j] != 'X') return;
     if (group[i][j] >= 0) return;
 
     group[i][j] = i_tot;
@@ -60,7 +60,7 @@ void solve() {
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
-            if ((data[i][j] == '#' || data[i][j] == 'X') && group[i][j] < 0) {
+            if ((mapdata[i][j] == '#' || mapdata[i][j] == 'X') && group[i][j] < 0) {
                 dfs(i, j);
                 i_tot += 1;
             }
@@ -73,19 +73,19 @@ void solve() {
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
-            if (data[i][j] == 'X') {
+            if (mapdata[i][j] == 'X') {
                 int ii;
-                for (ii = i + 1; data[ii][j] == 'B'; ++ii);
+                for (ii = i + 1; mapdata[ii][j] == 'B'; ++ii);
 
-                if (ii > i + 1 && data[ii][j] == 'X') {
+                if (ii > i + 1 && mapdata[ii][j] == 'X') {
                     b_tot += 1;
                     merge(group[i][j], group[ii][j]);
                 }
 
                 int jj;
-                for (jj = j + 1; data[i][jj] == 'B'; ++jj);
+                for (jj = j + 1; mapdata[i][jj] == 'B'; ++jj);
 
-                if (jj > j + 1 && data[i][jj] == 'X') {
+                if (jj > j + 1 && mapdata[i][jj] == 'X') {
                     b_tot += 1;
                     merge(group[i][j], group[i][jj]);
                 }
@@ -124,11 +124,11 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
-    while (cin.getline(data[n], 100)) {
-        if (data[n][0]) {
+    while (cin.getline(mapdata[n], 100)) {
+        if (mapdata[n][0]) {
             n += 1;
         } else {
-            m = strlen(data[0]);
+            m = strlen(mapdata[0]);
 
             solve();
 
@@ -136,7 +136,7 @@ int main() {
         }
     }
 
-    m = strlen(data[0]);
+    m = strlen(mapdata[0]);
 
     solve();
 

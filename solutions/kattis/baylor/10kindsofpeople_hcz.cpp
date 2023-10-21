@@ -10,23 +10,23 @@
 
 using namespace std;
 
-char data[1002][1002];
+char mapdata[1002][1002];
 int region[1002][1002];
 int tot_region;
 
 void dfs(int i, int j) {
     region[i][j] = tot_region;
 
-    if (!region[i - 1][j] && data[i - 1][j] == data[i][j]) {
+    if (!region[i - 1][j] && mapdata[i - 1][j] == mapdata[i][j]) {
         dfs(i - 1, j);
     }
-    if (!region[i + 1][j] && data[i + 1][j] == data[i][j]) {
+    if (!region[i + 1][j] && mapdata[i + 1][j] == mapdata[i][j]) {
         dfs(i + 1, j);
     }
-    if (!region[i][j - 1] && data[i][j - 1] == data[i][j]) {
+    if (!region[i][j - 1] && mapdata[i][j - 1] == mapdata[i][j]) {
         dfs(i, j - 1);
     }
-    if (!region[i][j + 1] && data[i][j + 1] == data[i][j]) {
+    if (!region[i][j + 1] && mapdata[i][j + 1] == mapdata[i][j]) {
         dfs(i, j + 1);
     }
 }
@@ -41,7 +41,7 @@ int main() {
 
     for (int i = 1; i <= r; ++i) {
         for (int j = 1; j <= c; ++j) {
-            cin >> data[i][j];
+            cin >> mapdata[i][j];
         }
     }
 
@@ -63,9 +63,9 @@ int main() {
         cin >> r1 >> c1 >> r2 >> c2;
 
         if (region[r1][c1] == region[r2][c2]) {
-            if (data[r1][c1] == '0' && data[r2][c2] == '0') {
+            if (mapdata[r1][c1] == '0' && mapdata[r2][c2] == '0') {
                 cout << "binary" << endl;
-            } else if (data[r1][c1] == '1' && data[r2][c2] == '1') {
+            } else if (mapdata[r1][c1] == '1' && mapdata[r2][c2] == '1') {
                 cout << "decimal" << endl;
             }
         } else {

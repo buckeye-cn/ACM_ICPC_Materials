@@ -10,7 +10,7 @@
 
 using namespace std;
 
-char data[200][200];
+char mapdata[200][200];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -29,7 +29,7 @@ int main() {
 
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m; ++j) {
-                cin >> data[i][j];
+                cin >> mapdata[i][j];
             }
         }
 
@@ -38,10 +38,10 @@ int main() {
 
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < m - r + 1; ++j) {
-                char now = data[i][j];
+                char now = mapdata[i][j];
 
                 for (int k = 1; k < r; ++k) {
-                    if (data[i][j + k] != now) now = '.';
+                    if (mapdata[i][j + k] != now) now = '.';
                 }
 
                 if (now == 'x') xx = true;
@@ -51,10 +51,10 @@ int main() {
 
         for (int i = 0; i < n - r + 1; ++i) {
             for (int j = 0; j < m; ++j) {
-                char now = data[i][j];
+                char now = mapdata[i][j];
 
                 for (int k = 1; k < r; ++k) {
-                    if (data[i + k][j] != now) now = '.';
+                    if (mapdata[i + k][j] != now) now = '.';
                 }
 
                 if (now == 'x') xx = true;
@@ -64,10 +64,10 @@ int main() {
 
         for (int i = 0; i < n - r + 1; ++i) {
             for (int j = r - 1; j < m; ++j) {
-                char now = data[i][j];
+                char now = mapdata[i][j];
 
                 for (int k = 1; k < r; ++k) {
-                    if (data[i + k][j - k] != now) now = '.';
+                    if (mapdata[i + k][j - k] != now) now = '.';
                 }
 
                 if (now == 'x') xx = true;
@@ -77,10 +77,10 @@ int main() {
 
         for (int i = 0; i < n - r + 1; ++i) {
             for (int j = 0; j < m - r + 1; ++j) {
-                char now = data[i][j];
+                char now = mapdata[i][j];
 
                 for (int k = 1; k < r; ++k) {
-                    if (data[i + k][j + k] != now) now = '.';
+                    if (mapdata[i + k][j + k] != now) now = '.';
                 }
 
                 if (now == 'x') xx = true;

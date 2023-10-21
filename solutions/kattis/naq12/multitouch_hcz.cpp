@@ -12,7 +12,7 @@
 
 using namespace std;
 
-string data[2][15];
+string mapdata[2][15];
 
 int pixels[2][5];
 double ave_i[2][5];
@@ -25,9 +25,9 @@ double g_ave_j[2];
 void dfs(int d, int i, int j, int touch) {
     if (i < 0 || i >= 15) return;
     if (j < 0 || j >= 30) return;
-    if (data[d][i][j] != 'X') return;
+    if (mapdata[d][i][j] != 'X') return;
 
-    data[d][i][j] = '0' + touch;
+    mapdata[d][i][j] = '0' + touch;
 
     ave_i[d][touch] += i;
     ave_j[d][touch] += j;
@@ -45,13 +45,13 @@ int main() {
     cout.precision(10);
 
     for (int i = 0; i < 15; ++i) {
-        cin >> data[0][i] >> data[1][i];
+        cin >> mapdata[0][i] >> mapdata[1][i];
     }
 
     for (int d = 0; d < 2; ++d) {
         for (int i = 0; i < 15; ++i) {
             for (int j = 0; j < 30; ++j) {
-                if (data[d][i][j] == 'X') {
+                if (mapdata[d][i][j] == 'X') {
                     dfs(d, i, j, touches[d]);
 
                     ave_i[d][touches[d]] /= pixels[d][touches[d]];
@@ -138,7 +138,7 @@ int main() {
     double rotation = touches[0] > 1 ? abs(gr * spread[0]) : 0;
 
     // for (int i = 0; i < 15; ++i) {
-    //     cerr << data[0][i] << ' ' << data[1][i] << endl;
+    //     cerr << mapdata[0][i] << ' ' << mapdata[1][i] << endl;
     // }
     // cerr << pan << ' ' << zoom << ' ' << rotation << endl;
 

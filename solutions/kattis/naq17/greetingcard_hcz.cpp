@@ -18,7 +18,7 @@
 using namespace std;
 
 int n;
-uint64_t data[100000];
+uint64_t data_ori[100000];
 uint64_t data_hash[MOD + 3];
 
 int main() {
@@ -34,24 +34,24 @@ int main() {
         cin >> xx >> yy;
         ++xx; ++yy;
 
-        data[i] = (xx << 32) + yy;
+        data_ori[i] = (xx << 32) + yy;
 
-        uint64_t hash = data[i] % MOD;
+        uint64_t hash = data_ori[i] % MOD;
         if (data_hash[hash]) ++hash;
         if (data_hash[hash]) ++hash;
         if (data_hash[hash]) ++hash;
-        data_hash[hash] = data[i];
+        data_hash[hash] = data_ori[i];
     }
 
     long count = 0;
 
     for (int i = 0; i < n; ++i) {
-        uint64_t hash1 = (data[i] + (0ul << 32) + 2018ul);
-        uint64_t hash2 = (data[i] + (2018ul << 32) + 0ul);
-        uint64_t hash3 = (data[i] + (1680ul << 32) - 1118ul);
-        uint64_t hash4 = (data[i] + (1680ul << 32) + 1118ul);
-        uint64_t hash5 = (data[i] + (1118ul << 32) - 1680ul);
-        uint64_t hash6 = (data[i] + (1118ul << 32) + 1680ul);
+        uint64_t hash1 = (data_ori[i] + (0ul << 32) + 2018ul);
+        uint64_t hash2 = (data_ori[i] + (2018ul << 32) + 0ul);
+        uint64_t hash3 = (data_ori[i] + (1680ul << 32) - 1118ul);
+        uint64_t hash4 = (data_ori[i] + (1680ul << 32) + 1118ul);
+        uint64_t hash5 = (data_ori[i] + (1118ul << 32) - 1680ul);
+        uint64_t hash6 = (data_ori[i] + (1118ul << 32) + 1680ul);
 
         count += data_hash[hash1 % MOD] == hash1;
         count += data_hash[hash1 % MOD + 1] == hash1;

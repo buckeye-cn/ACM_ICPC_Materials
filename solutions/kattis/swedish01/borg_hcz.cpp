@@ -74,7 +74,7 @@ struct Prim {
 Prim<101> prim[50];
 
 int x, y;
-char data[60][60];
+char mapdata[60][60];
 
 int q_x[3600][3600];
 int q_y[3600][3600];
@@ -95,12 +95,12 @@ int main() {
         cin.get();
 
         for (int j = 0; j < x; ++j) {
-            cin.getline(data[j], y + 1);
+            cin.getline(mapdata[j], y + 1);
         }
 
         for (int j = 0; j < x; ++j) {
             for (int k = 0; k < y; ++k) {
-                if (data[j][k] != 'A' && data[j][k] != 'S') {
+                if (mapdata[j][k] != 'A' && mapdata[j][k] != 'S') {
                     continue;
                 }
 
@@ -119,7 +119,7 @@ int main() {
 
                     for (int m = 0; m < q_tot[l]; ++m) {
                         auto add = [&](int xx, int yy) {
-                            if (data[xx][yy] == '#') return;
+                            if (mapdata[xx][yy] == '#') return;
                             if (dist[j][k][xx][yy] != -1) return;
 
                             dist[j][k][xx][yy] = l + 1;
@@ -141,14 +141,14 @@ int main() {
         int i1 = 0;
         for (int j = 0; j < x; ++j) {
             for (int k = 0; k < y; ++k) {
-                if (data[j][k] != 'A' && data[j][k] != 'S') {
+                if (mapdata[j][k] != 'A' && mapdata[j][k] != 'S') {
                     continue;
                 }
 
                 int i2 = 0;
                 for (int l = 0; l < x; ++l) {
                     for (int m = 0; m < y; ++m) {
-                        if (data[l][m] != 'A' && data[l][m] != 'S') {
+                        if (mapdata[l][m] != 'A' && mapdata[l][m] != 'S') {
                             continue;
                         }
 

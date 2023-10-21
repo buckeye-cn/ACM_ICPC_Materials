@@ -13,7 +13,7 @@ using namespace std;
 
 int n;
 int tot[1024];
-int data[1024][1024];
+int seqdata[1024][1024];
 int cache[1024][1024][2][32];
 
 struct Comp {
@@ -52,11 +52,11 @@ struct Comp {
                 result = false;
                 break;
             }
-            if (data[x][i] < data[y][j]) {
+            if (seqdata[x][i] < seqdata[y][j]) {
                 result = true;
                 break;
             }
-            if (data[x][i] > data[y][j]) {
+            if (seqdata[x][i] > seqdata[y][j]) {
                 result = false;
                 break;
             }
@@ -97,7 +97,7 @@ int main() {
             int item;
             cin >> item;
 
-            data[i][j] = item;
+            seqdata[i][j] = item;
         }
 
         compset.insert(i);
@@ -111,12 +111,12 @@ int main() {
         int i = *compset.begin();
         compset.erase(compset.begin());
 
-        int flag = data[i][tot[i] - 1];
-        cout << data[i][tot[i] - 1];
+        int flag = seqdata[i][tot[i] - 1];
+        cout << seqdata[i][tot[i] - 1];
         tot[i] -= 1;
 
-        while (tot[i] && data[i][tot[i] - 1] < flag) {
-            cout << ' ' << data[i][tot[i] - 1];
+        while (tot[i] && seqdata[i][tot[i] - 1] < flag) {
+            cout << ' ' << seqdata[i][tot[i] - 1];
             tot[i] -= 1;
         }
 

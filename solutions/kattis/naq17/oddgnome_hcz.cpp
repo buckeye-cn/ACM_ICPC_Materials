@@ -10,15 +10,15 @@
 
 using namespace std;
 
-int n;
-int data[2000];
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.precision(10);
 
+    int n;
     cin >> n;
+
+    int data[2000];
 
     for (int i = 0; i < n; ++i) {
         int tot;
