@@ -97,6 +97,14 @@ https://open.kattis.com/problems/pokerhand/statistics (10)
 https://open.kattis.com/problems/conundrum/statistics (10)
     fold -w1|sed "1~3s/P//;2~3s/E//;3~3s/R//"|wc -w
 
+encoded: math (simple)
+https://open.kattis.com/problems/longestprimesum/statistics (10)
+    expr `cat` / 2
+https://open.kattis.com/problems/simpleaddition/statistics (10)
+    expr `sed i+`
+https://open.kattis.com/problems/leggjasaman/statistics (10)
+    expr `sed i+`
+
 encoded: math (ruby)
 https://open.kattis.com/problems/sanic/statistics (10)
     ruby -e"p `cat`-1"
@@ -292,6 +300,8 @@ https://open.kattis.com/problems/everywhere/statistics (10)
     ruby -e"gets.to_i.times{p gets.to_i.times.uniq{gets}.size}"
 https://open.kattis.com/problems/gangur/statistics (10)
     ruby -e"x=0;p gets.bytes.sum{|y|y>61?0*x+=1:y>59?x:0}"
+https://open.kattis.com/problems/sevenwonders/statistics (10)
+    ruby -e"x=gets.chop.bytes.tally.values;p x.sum{|y|y*y}+(x.size<3?0:x.min)*7"
 https://open.kattis.com/problems/pokechat/statistics (10)
     ruby -e"x=gets;gets.scan(/.../){|y|putc x[y.to_i-1]}"
 https://open.kattis.com/problems/averagecharacter/statistics (10)
@@ -304,6 +314,10 @@ https://open.kattis.com/problems/exam/statistics (10)
     read a;ruby -e"x,y=gets,gets;p x.size-1-($a-(0..x.size-2).count{|z|x[z]==y[z]}).abs"
 https://open.kattis.com/problems/abc/statistics (10)
     read a b c;ruby -e"gets.bytes{|x|puts [$a,$b,$c].sort[x-65]}"
+
+encoded: math (ruby, interactive)
+https://open.kattis.com/problems/ninetynine/statistics (10)
+    ruby -e"p 2;(1..).find{x=gets.to_i;p x+x%3%2+1;x>96}"
 
 encoded: math (ruby, large input)
 https://open.kattis.com/problems/arithmetic/statistics (10)
@@ -422,9 +436,9 @@ https://open.kattis.com/problems/simon/statistics (5)
 https://open.kattis.com/problems/oddecho/statistics (7)
     s* 1~2d
     sed
-https://open.kattis.com/problems/ofugsnuid/statistics (8)
-    s* 1d|t*
-    sed tac
+https://open.kattis.com/problems/ofugsnuid/statistics (7)
+    t*|s* x
+    tac sed
 https://open.kattis.com/problems/findingana/statistics (9)
     g* -o a.*
     grep
@@ -445,15 +459,6 @@ https://open.kattis.com/problems/haughtycuisine/statistics (5)
     tail
 
 math
-https://open.kattis.com/problems/longestprimesum/statistics (10)
-    e* `c*` / 2
-    expr cat
-https://open.kattis.com/problems/simpleaddition/statistics (10)
-    e* `s* i+`
-    expr sed
-https://open.kattis.com/problems/leggjasaman/statistics (10)
-    e* `s* i+`
-    expr sed
 https://open.kattis.com/problems/buka/statistics (5)
     x* e*
     xargs expr
