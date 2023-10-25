@@ -234,6 +234,8 @@ https://open.kattis.com/problems/bestcompression/statistics (10)
     ruby -e"puts `sed "s/ /<2<</"`?'yes':'no'"
 https://open.kattis.com/problems/overdraft/statistics (10)
     ruby -e"x=0;p -[`sed "1d;s/.*/x+=&,/"`0].min"
+https://open.kattis.com/problems/cetvrta/statistics (10)
+    ruby -e"x=y=0`sed "s/.* /;x^=&;y^=/"`;p x,y"
 https://open.kattis.com/problems/cosmicpathoptimization/statistics (10)
     read;ruby -e"x=[`tr " " ,`];p x.sum/x.size"
 https://open.kattis.com/problems/batterup/statistics (10)
@@ -260,6 +262,8 @@ https://open.kattis.com/problems/powers/statistics (10)
     read a b;ruby -e"p [$b<2?$a:0,0,$a,0][$a%4]/2"
 https://open.kattis.com/problems/lamps/statistics (10)
     read a b;ruby -e"p (1..).find{|x|$a*x/1000+98e-6*$a*$b*x>11}"
+https://open.kattis.com/problems/numbertree/statistics (10)
+    read a b;ruby -e"p 1+'$b'.tr('LR','10').to_i(2)+2*(2**$a-2**${#b})"
 https://open.kattis.com/problems/countingclauses/statistics (10)
     read a b;ruby -e"puts ($a>7?'':'un')+'satisfactory'"
 https://open.kattis.com/problems/cinema2/statistics (10)
@@ -288,6 +292,8 @@ https://open.kattis.com/problems/laptopsticker/statistics (10)
     read a b c d;ruby -e"p $a>$c+1&&$b>$d+1?1:0"
 https://open.kattis.com/problems/bottleflip/statistics (10)
     read a b c d;ruby -e"p $a/(1+($d.0/$c)**0.5)"
+https://open.kattis.com/problems/rectanglearea/statistics (10)
+    read a b c d;ruby -e"p (($c-$a)*($d-$b)).abs"
 https://open.kattis.com/problems/janitortroubles/statistics (10)
     read a b c d;ruby -e"x=($a+$b+$c+$d)/2.0;p (($a-x)*($b-x)*($c-x)*($d-x))**0.5"
 https://open.kattis.com/problems/savingforretirement/statistics (10)
