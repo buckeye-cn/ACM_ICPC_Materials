@@ -11,12 +11,11 @@
 #include <emmintrin.h>
 
 #define MSIZE (4 * 4 * 16)
-#define PVAL 1000000007ul
+#define MOD 1000000007l
 #define ACCESS(a, b, s) \
     [((a) * 4 + (b)) * 16 + (s)]
 #define REQUIRE(cond) \
     if (!(cond)) continue
-#define MOD(x) ((x) %= PVAL)
 
 using namespace std;
 
@@ -180,22 +179,22 @@ int main() {
                 }
 
                 for (uint64_t kbase = 0; kbase < MSIZE; kbase += 16) {
-                    if (buf[kbase + 0]) MOD(buf[kbase + 0]);
-                    if (buf[kbase + 1]) MOD(buf[kbase + 1]);
-                    if (buf[kbase + 2]) MOD(buf[kbase + 2]);
-                    if (buf[kbase + 3]) MOD(buf[kbase + 3]);
-                    if (buf[kbase + 4]) MOD(buf[kbase + 4]);
-                    if (buf[kbase + 5]) MOD(buf[kbase + 5]);
-                    if (buf[kbase + 6]) MOD(buf[kbase + 6]);
-                    if (buf[kbase + 7]) MOD(buf[kbase + 7]);
-                    if (buf[kbase + 8]) MOD(buf[kbase + 8]);
-                    if (buf[kbase + 9]) MOD(buf[kbase + 9]);
-                    if (buf[kbase + 10]) MOD(buf[kbase + 10]);
-                    if (buf[kbase + 11]) MOD(buf[kbase + 11]);
-                    if (buf[kbase + 12]) MOD(buf[kbase + 12]);
-                    if (buf[kbase + 13]) MOD(buf[kbase + 13]);
-                    if (buf[kbase + 14]) MOD(buf[kbase + 14]);
-                    if (buf[kbase + 15]) MOD(buf[kbase + 15]);
+                    if (buf[kbase + 0]) buf[kbase + 0] %= MOD;
+                    if (buf[kbase + 1]) buf[kbase + 1] %= MOD;
+                    if (buf[kbase + 2]) buf[kbase + 2] %= MOD;
+                    if (buf[kbase + 3]) buf[kbase + 3] %= MOD;
+                    if (buf[kbase + 4]) buf[kbase + 4] %= MOD;
+                    if (buf[kbase + 5]) buf[kbase + 5] %= MOD;
+                    if (buf[kbase + 6]) buf[kbase + 6] %= MOD;
+                    if (buf[kbase + 7]) buf[kbase + 7] %= MOD;
+                    if (buf[kbase + 8]) buf[kbase + 8] %= MOD;
+                    if (buf[kbase + 9]) buf[kbase + 9] %= MOD;
+                    if (buf[kbase + 10]) buf[kbase + 10] %= MOD;
+                    if (buf[kbase + 11]) buf[kbase + 11] %= MOD;
+                    if (buf[kbase + 12]) buf[kbase + 12] %= MOD;
+                    if (buf[kbase + 13]) buf[kbase + 13] %= MOD;
+                    if (buf[kbase + 14]) buf[kbase + 14] %= MOD;
+                    if (buf[kbase + 15]) buf[kbase + 15] %= MOD;
                 }
             }
 
@@ -242,22 +241,22 @@ int main() {
                 }
 
                 for (uint64_t jbase = 0; jbase < MSIZE; jbase += 16) {
-                    if (buf[jbase + 0]) MOD(buf[jbase + 0]);
-                    if (buf[jbase + 1]) MOD(buf[jbase + 1]);
-                    if (buf[jbase + 2]) MOD(buf[jbase + 2]);
-                    if (buf[jbase + 3]) MOD(buf[jbase + 3]);
-                    if (buf[jbase + 4]) MOD(buf[jbase + 4]);
-                    if (buf[jbase + 5]) MOD(buf[jbase + 5]);
-                    if (buf[jbase + 6]) MOD(buf[jbase + 6]);
-                    if (buf[jbase + 7]) MOD(buf[jbase + 7]);
-                    if (buf[jbase + 8]) MOD(buf[jbase + 8]);
-                    if (buf[jbase + 9]) MOD(buf[jbase + 9]);
-                    if (buf[jbase + 10]) MOD(buf[jbase + 10]);
-                    if (buf[jbase + 11]) MOD(buf[jbase + 11]);
-                    if (buf[jbase + 12]) MOD(buf[jbase + 12]);
-                    if (buf[jbase + 13]) MOD(buf[jbase + 13]);
-                    if (buf[jbase + 14]) MOD(buf[jbase + 14]);
-                    if (buf[jbase + 15]) MOD(buf[jbase + 15]);
+                    if (buf[jbase + 0]) buf[jbase + 0] %= MOD;
+                    if (buf[jbase + 1]) buf[jbase + 1] %= MOD;
+                    if (buf[jbase + 2]) buf[jbase + 2] %= MOD;
+                    if (buf[jbase + 3]) buf[jbase + 3] %= MOD;
+                    if (buf[jbase + 4]) buf[jbase + 4] %= MOD;
+                    if (buf[jbase + 5]) buf[jbase + 5] %= MOD;
+                    if (buf[jbase + 6]) buf[jbase + 6] %= MOD;
+                    if (buf[jbase + 7]) buf[jbase + 7] %= MOD;
+                    if (buf[jbase + 8]) buf[jbase + 8] %= MOD;
+                    if (buf[jbase + 9]) buf[jbase + 9] %= MOD;
+                    if (buf[jbase + 10]) buf[jbase + 10] %= MOD;
+                    if (buf[jbase + 11]) buf[jbase + 11] %= MOD;
+                    if (buf[jbase + 12]) buf[jbase + 12] %= MOD;
+                    if (buf[jbase + 13]) buf[jbase + 13] %= MOD;
+                    if (buf[jbase + 14]) buf[jbase + 14] %= MOD;
+                    if (buf[jbase + 15]) buf[jbase + 15] %= MOD;
                 }
             }
 
@@ -296,9 +295,7 @@ int main() {
         sum += cases[level - 1][i];
     }
 
-    MOD(sum);
-
-    cout << sum << endl;
+    cout << sum % MOD << endl;
 
     return 0;
 }

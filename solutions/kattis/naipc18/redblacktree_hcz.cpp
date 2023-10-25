@@ -8,7 +8,7 @@
 #include <string>
 #include <iostream>
 
-#define MOD(x) ((x) % 1000000007)
+#define MOD 1000000007l
 
 using namespace std;
 
@@ -59,12 +59,12 @@ int main() {
 
             for (int j = 0; result[p][j]; ++j) {
                 for (int k = 0; result[c][k]; ++k) {
-                    buf[j + k] += MOD(long(result[p][j]) * long(result[c][k]));
+                    buf[j + k] += long(result[p][j]) * long(result[c][k]) % MOD;
                 }
             }
 
             for (int j = 0; buf[j]; ++j) {
-                result[p][j] = MOD(buf[j]);
+                result[p][j] = buf[j] % MOD;
             }
 
             children[p] -= 1;

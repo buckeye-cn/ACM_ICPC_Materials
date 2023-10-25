@@ -8,7 +8,7 @@
 #include <string>
 #include <iostream>
 
-#define MOD(x) ((x) % 1000000009)
+#define MOD 1000000009l
 
 using namespace std;
 
@@ -57,7 +57,7 @@ int main() {
     long result = 1;
 
     for (int i = 0; i < power; ++i) {
-        result = MOD(2 * result);
+        result = 2 * result % MOD;
     }
 
     cout << result << endl;
