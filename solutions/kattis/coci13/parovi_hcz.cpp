@@ -23,28 +23,16 @@ int main() {
     string s1, s2;
     cin >> s1 >> s2;
 
-    for (int i = 0; i * 2 < s1.size(); ++i) {
-        swap(s1[i], s1[s1.size() - 1 - i]);
-    }
-
-    for (int i = 0; i * 2 < s2.size(); ++i) {
-        swap(s2[i], s2[s2.size() - 1 - i]);
-    }
-
-    for (int i = s1.size(); i < s2.size(); ++i) {
-        s1.push_back('0');
-    }
-
     for (int mode = 0; mode < 16; ++mode) {
         dp1[0][mode] = 1;
     }
 
-    for (int i = 0; i < s1.size(); ++i) {
+    for (int i = 0; i < s2.size(); ++i) {
         for (int mode = 0; mode < 16; ++mode) {
-            int jmin = mode & 1 ? s1[i] - '0' : 0;
-            int jmax = mode & 2 ? s2[i] - '0' : 9;
-            int kmin = mode & 4 ? s1[i] - '0' : 0;
-            int kmax = mode & 8 ? s2[i] - '0' : 9;
+            int jmin = (mode & 1) && i < s1.size() ? s1[s1.size() - 1 - i] - '0' : 0;
+            int jmax = mode & 2 ? s2[s2.size() - 1 - i] - '0' : 9;
+            int kmin = (mode & 4) && i < s1.size() ? s1[s1.size() - 1 - i] - '0' : 0;
+            int kmax = mode & 8 ? s2[s2.size() - 1 - i] - '0' : 9;
 
             for (int j = jmin; j <= jmax; ++j) {
                 for (int k = kmin; k <= kmax; ++k) {
@@ -62,7 +50,7 @@ int main() {
         }
     }
 
-    cout << dp2[s1.size()][15] << endl;
+    cout << dp2[s2.size()][15] << endl;
 
     return 0;
 }
