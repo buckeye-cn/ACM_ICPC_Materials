@@ -232,6 +232,8 @@ https://open.kattis.com/problems/jobexpenses/statistics (10)
     ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
 https://open.kattis.com/problems/kafkaesque/statistics (10)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
+https://open.kattis.com/problems/skruop/statistics (10)
+    ruby -e"x=8;`sed "s/.*p!/x+=10<=>x;/;t;cx+=0<=>x;"`p x"
 https://open.kattis.com/problems/overdraft/statistics (10)
     ruby -e"x=0;p -[`sed "1d;s/.*/x+=&,/"`0].min"
 https://open.kattis.com/problems/cetvrta/statistics (10)
@@ -300,6 +302,8 @@ https://open.kattis.com/problems/savingforretirement/statistics (10)
     read a b c d e;ruby -e"p (($b-$a)*$c+$e)/$e+$d"
 https://open.kattis.com/problems/bijele/statistics (10)
     read a b c d e f;ruby -e"p 1-$a,1-$b,2-$c,2-$d,2-$e,8-$f"
+https://open.kattis.com/problems/upprodun/statistics (10)
+    read a;read b;ruby -e"($b..$a+$b-1).map{|x|puts '*'*(x/$a)}"
 
 encoded: math (ruby, string)
 https://open.kattis.com/problems/yinyangstones/statistics (10)
@@ -396,6 +400,8 @@ https://open.kattis.com/problems/datum/statistics (10)
     read a b;date -d2009/$b/$a +%A
 https://open.kattis.com/problems/finalexam2/statistics (10)
     expr `tee _|wc -l` - `uniq _|wc -l`|cat
+https://open.kattis.com/problems/avion/statistics (10)
+    (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
 
 single command
 https://open.kattis.com/problems/discdistrict/statistics (2)
