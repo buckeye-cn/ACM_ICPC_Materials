@@ -1,4 +1,6 @@
 encoded: string (pure sed)
+https://open.kattis.com/problems/thelastproblem/statistics (10)
+    sed "s/.*/Thank you, &, and farewell!/"
 https://open.kattis.com/problems/kemija08/statistics (10)
     sed "s/\([aeiou]\)p\1/\1/g"
 https://open.kattis.com/problems/apaxianparent/statistics (10)
@@ -332,6 +334,8 @@ https://open.kattis.com/problems/ninetynine/statistics (10)
     ruby -e"p 2;while 98<p (x=gets.to_i)+x%3%2+1;end"
 
 encoded: math (ruby, large input)
+https://open.kattis.com/problems/sequencereduction/statistics (10)
+    ruby -e"x=10**9;p -x+(1..gets.to_i).sum{[x,x=gets.to_i].max}"
 https://open.kattis.com/problems/arithmetic/statistics (10)
     echo "puts '%X'%0`cat`"|ruby
 https://open.kattis.com/problems/pvbg/statistics (10)
