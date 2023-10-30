@@ -234,6 +234,8 @@ https://open.kattis.com/problems/jobexpenses/statistics (10)
     ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
 https://open.kattis.com/problems/kafkaesque/statistics (10)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
+https://open.kattis.com/problems/mixtapemanagement/statistics (10)
+    ruby -e"x=100`sed "1d;s/^\| /;p (x+=1)*10**/g"`"
 https://open.kattis.com/problems/skruop/statistics (10)
     ruby -e"x=8;`sed "s/.*p!/x+=10<=>x;/;t;cx+=0<=>x;"`p x"
 https://open.kattis.com/problems/overdraft/statistics (10)
