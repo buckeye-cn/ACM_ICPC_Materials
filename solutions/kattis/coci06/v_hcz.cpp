@@ -10,18 +10,18 @@
 
 using namespace std;
 
-long dp[1000001];
-
 int get_digits(long i) {
-    int m = 0;
+    int result = 0;
 
     while (i) {
-        m |= 1 << (i % 10);
+        result |= 1 << (i % 10);
         i /= 10;
     }
 
-    return m;
+    return result;
 }
+
+long dp[1000001];
 
 int main() {
     ios_base::sync_with_stdio(false);

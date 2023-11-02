@@ -10,8 +10,6 @@
 
 using namespace std;
 
-int chance[7][7][7][7];
-
 int gcd(int y, int x) {
     while (x) {
         y %= x;
@@ -20,6 +18,8 @@ int gcd(int y, int x) {
 
     return y;
 }
+
+int chance[7][7][7][7];
 
 int main() {
     ios_base::sync_with_stdio(false);

@@ -10,12 +10,15 @@
 
 using namespace std;
 
-int dsum(int n) {
-    if (n) {
-        return n % 10 + dsum(n / 10);
-    } else {
-        return 0;
+int sum_digits(long i) {
+    int result = 0;
+
+    while (i) {
+        result += i % 10;
+        i /= 10;
     }
+
+    return result;
 }
 
 int main() {
@@ -31,10 +34,10 @@ int main() {
             return 0;
         }
 
-        int sum = dsum(n);
+        int sum = sum_digits(n);
 
         for (int i = 11; true; ++i) {
-            if (dsum(i * n) == sum) {
+            if (sum_digits(i * n) == sum) {
                 cout << i << endl;
 
                 break;

@@ -15,19 +15,6 @@ const double PI = acos(-1);
 
 using namespace std;
 
-int n, m;
-double nx[50];
-double ny[50];
-double mx[50];
-double my[50];
-
-int k;
-double kx[2501];
-double ky[2501];
-double k_angle[2501];
-double k_len[2501];
-double max_len;
-
 bool within(
     double x, double y,
     double x1, double y1, double x2, double y2, double x3, double y3
@@ -77,6 +64,19 @@ void intersect(
     x = (py1 * pxqx - px1 * pyqx - qy1 * pxqx + qx1 * pxqy) / (pxqy - pyqx);
     y = (px2 * pyqy - py2 * pxqy - qx2 * pyqy + qy2 * pyqx) / (pyqx - pxqy);
 }
+
+int n, m;
+double nx[50];
+double ny[50];
+double mx[50];
+double my[50];
+
+int k;
+double kx[2501];
+double ky[2501];
+double k_angle[2501];
+double k_len[2501];
+double max_len;
 
 int main() {
     ios_base::sync_with_stdio(false);

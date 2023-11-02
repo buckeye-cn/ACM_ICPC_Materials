@@ -12,9 +12,6 @@
 
 using namespace std;
 
-double x[1001];
-double y[1001];
-
 void intersect(
     double &x, double &y,
     double px1, double py1, double px2, double py2,
@@ -33,6 +30,9 @@ void intersect(
     x = (py1 * pxqx - px1 * pyqx - qy1 * pxqx + qx1 * pxqy) / (pxqy - pyqx);
     y = (px2 * pyqy - py2 * pxqy - qx2 * pyqy + qy2 * pyqx) / (pyqx - pxqy);
 }
+
+double x[1001];
+double y[1001];
 
 int main() {
     ios_base::sync_with_stdio(false);

@@ -9,7 +9,6 @@
 #include <iostream>
 
 #define sqr(x) ((x) * (x))
-#define sqrdist(x, y) (sqr(x) + sqr(y))
 
 using namespace std;
 
@@ -36,7 +35,7 @@ int main() {
         double d[m];
         for (int j = 0; j < m; ++j) {
             cin >> x[j] >> y[j];
-            d[j] = sqrdist(x[j], y[j]);
+            d[j] = sqr(x[j]) + sqr(y[j]);
         }
 
         int best = 0;
@@ -44,7 +43,7 @@ int main() {
         auto test = [&](double xx, double yy) {
             int count = 0;
             for (int j = 0; j < m; ++j) {
-                if (sqrdist(x[j] - xx, y[j] - yy) < sqr(r)) {
+                if (sqr(x[j] - xx) + sqr(y[j] - yy) < sqr(r)) {
                     count += 1;
                 }
             }

@@ -10,10 +10,6 @@
 
 using namespace std;
 
-long buf_y[1000000];
-long buf_x[1000000];
-int tot;
-
 long gcd(long y, long x) {
     while (x) {
         y %= x;
@@ -22,6 +18,10 @@ long gcd(long y, long x) {
 
     return y;
 }
+
+long buf_y[1000000];
+long buf_x[1000000];
+int tot;
 
 long count_points(long n, long m, long range) {
     if (range < n) {

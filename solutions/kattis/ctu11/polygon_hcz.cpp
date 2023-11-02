@@ -13,6 +13,27 @@
 
 using namespace std;
 
+bool intersect(
+    long px1, long py1, long px2, long py2,
+    long qx1, long qy1, long qx2, long qy2
+) {
+    long p12q1 = (qx1 - px1) * (py2 - py1) - (px2 - px1) * (qy1 - py1);
+    long p12q2 = (qx2 - px1) * (py2 - py1) - (px2 - px1) * (qy2 - py1);
+
+    if (p12q1 * p12q2 > 0) {
+        return false;
+    }
+
+    long p1q12 = (px1 - qx1) * (qy2 - qy1) - (qx2 - qx1) * (py1 - qy1);
+    long p2q12 = (px2 - qx1) * (qy2 - qy1) - (qx2 - qx1) * (py2 - qy1);
+
+    if (p1q12 * p2q12 > 0) {
+        return false;
+    }
+
+    return true;
+}
+
 long n;
 long x[50000];
 long y[50000];
@@ -21,24 +42,6 @@ long sy[50000];
 
 long pxmap_tot[32000 / SCALE][32000 / SCALE];
 long pxmap[32000 / SCALE][32000 / SCALE][SLOT];
-
-bool cross(long x1, long y1, long x2, long y2, long x3, long y3, long x4, long y4) {
-    long s123 = (x3 - x1) * (y2 - y1) - (x2 - x1) * (y3 - y1);
-    long s124 = (x4 - x1) * (y2 - y1) - (x2 - x1) * (y4 - y1);
-
-    if (s123 * s124 > 0) {
-        return false;
-    }
-
-    long s134 = (x1 - x3) * (y4 - y3) - (x4 - x3) * (y1 - y3);
-    long s234 = (x2 - x3) * (y4 - y3) - (x4 - x3) * (y2 - y3);
-
-    if (s134 * s234 > 0) {
-        return false;
-    }
-
-    return true;
-}
 
 bool draw(long i, long j) {
     long ux = sx[j] > sx[i] ? 1 : -1;
@@ -64,7 +67,7 @@ bool draw(long i, long j) {
             if (tested[k]) continue;
             tested[k] = true;
 
-            if (cross(x[i], y[i], x[j], y[j], x[k], y[k], x[l], y[l])) {
+            if (intersect(x[i], y[i], x[j], y[j], x[k], y[k], x[l], y[l])) {
                 return true;
             }
         }

@@ -14,25 +14,6 @@
 
 using namespace std;
 
-int n;
-double nx[500];
-double ny[500];
-double vx[500];
-double vy[500];
-
-int m;
-int mp[21];
-double mx[21][11];
-double my[21][11];
-int mq[21];
-
-int cj[500];
-int ck[500];
-double cx[500];
-double cy[500];
-
-set<pair<double, int>> q;
-
 void intersect(
     double &x, double &y,
     double px1, double py1, double px2, double py2,
@@ -63,6 +44,25 @@ void reflect(
     x = px - 2 * (pxqy - pyqx) * qy / (sqr(qx) + sqr(qy));
     y = py - 2 * (pyqx - pxqy) * qx / (sqr(qx) + sqr(qy));
 }
+
+int n;
+double nx[500];
+double ny[500];
+double vx[500];
+double vy[500];
+
+int m;
+int mp[21];
+double mx[21][11];
+double my[21][11];
+int mq[21];
+
+int cj[500];
+int ck[500];
+double cx[500];
+double cy[500];
+
+set<pair<double, int>> q;
 
 void update(double t, int i, int from_j, int from_k) {
     double best_t = INFINITY;

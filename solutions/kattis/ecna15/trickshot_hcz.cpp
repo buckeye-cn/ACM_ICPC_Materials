@@ -14,7 +14,10 @@ const double PI = acos(-1);
 
 using namespace std;
 
-bool collide(double x1, double y1, double x2, double y2, double x, double y, double r) {
+bool collide(
+    double x1, double y1, double x2, double y2,
+    double x, double y, double r
+) {
     double d_sqr = sqr(x2 - x1) + sqr(y2 - y1);
     double dot = (x - x1) * (x2 - x1) + (y - y1) * (y2 - y1);
 
