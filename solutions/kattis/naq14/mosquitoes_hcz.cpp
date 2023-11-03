@@ -12,8 +12,8 @@
 
 using namespace std;
 
-double cross(double a, double b, double c, double d, double e, double f) {
-    return a * e + b * f + c * d - d * b - e * c - f * a;
+double double_area(double x1, double y1, double x2, double y2, double x3, double y3) {
+    return x1 * y2 + x2 * y3 + x3 * y1 - x1 * y3 - x3 * y2 - x2 * y1;
 }
 
 int main() {
@@ -71,11 +71,11 @@ int main() {
                     if (abs(x[b] - x[c]) > l) continue;
                     if (abs(y[b] - y[c]) > l) continue;
 
-                    double bb = 0.5 / cross(x[a], x[b], x[c], y[a], y[b], y[c]);
+                    double bb = 0.5 / double_area(x[a], y[a], x[b], y[b], x[c], y[c]);
 
                     test(
-                        cross(d[a], d[b], d[c], y[a], y[b], y[c]) * bb,
-                        cross(x[a], x[b], x[c], d[a], d[b], d[c]) * bb
+                        double_area(d[a], y[a], d[b], y[b], d[c], y[c]) * bb,
+                        double_area(x[a], d[a], x[b], d[b], x[c], d[c]) * bb
                     );
                 }
             }
