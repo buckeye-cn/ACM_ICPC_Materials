@@ -206,6 +206,8 @@ https://open.kattis.com/problems/heimavinna/statistics (10)
     ruby -e"p [`tr ";" ,`].sum{|x|x<0?1-x:1}"
 https://open.kattis.com/problems/monopol/statistics (10)
     ruby -e"p [1**`tr " \n" ,`].sum{|x|(6.0-(x-7).abs)/36}"
+https://open.kattis.com/problems/compass/statistics (10)
+    ruby -e"p -(-180..).find{|x|(`tr "\n" -`x)%360<1}"
 https://open.kattis.com/problems/socialrunning/statistics (10)
     ruby -e"p ([`tr "\n" ,`][1..]*2).each_cons(3).map{|x,y,z|x+z}.min"
 https://open.kattis.com/problems/kornislav/statistics (10)
@@ -292,6 +294,8 @@ https://open.kattis.com/problems/climbingstairs/statistics (10)
     read a b c;ruby -e"p 2*[(1+$a+$b)/2,$b,$c].max"
 https://open.kattis.com/problems/expectedearnings/statistics (10)
     read a b c;ruby -e"puts $a*$c<$b?'spela':'spela inte!'"
+https://open.kattis.com/problems/simplearithmetic/statistics (10)
+    read a b c;ruby -e"x=10**6;y=$a*$b*x/$c;puts '%d.%06d'%[y/x,y%x]"
 https://open.kattis.com/problems/gcvwr/statistics (10)
     read a b c;ruby -e"p ($a-$b)*9/10-[`tr " " ,`].sum"
 https://open.kattis.com/problems/sottkvi/statistics (10)
@@ -345,7 +349,7 @@ https://open.kattis.com/problems/arithmetic/statistics (10)
 https://open.kattis.com/problems/pvbg/statistics (10)
     echo "p [9`tr " \n" ,`].min+1"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
-    echo "p [-`tr " \n" ,`].each_cons(2).count{|x,y|x<y}"|ruby
+    echo "x=1e`tr " \n" ,`0;y=0;p x.count{|z|y<y=z}"|ruby
 https://open.kattis.com/problems/akcija/statistics (10)
     echo "x=[0*`tr "\n" ,`].sort;p x.sum-3.step(x.size,3).sum{|y|x[-y]}"|ruby
 https://open.kattis.com/problems/goombastacks/statistics (10)
