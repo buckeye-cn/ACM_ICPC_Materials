@@ -137,7 +137,7 @@ https://open.kattis.com/problems/popkorn/statistics (10)
 https://open.kattis.com/problems/sjecista/statistics (10)
     ruby -e"p (3-x=`cat`)*(2-x)*(x-1)*x/24"
 https://open.kattis.com/problems/betting/statistics (10)
-    ruby -e"p 100/x=`cat`.0,100/(100-x)"
+    ruby -e"p 1e2/x=`cat`,1e2/(1e2-x)"
 https://open.kattis.com/problems/herman/statistics (10)
     ruby -e"p Math::PI*x=`cat`**2,2*x"
 https://open.kattis.com/problems/houseofcards/statistics (10)
@@ -164,6 +164,8 @@ https://open.kattis.com/problems/bootstrappingnumber/statistics (10)
     ruby -e"x=1;99.times{x=(x*`cat`**(1/x))**0.5};p x"
 https://open.kattis.com/problems/rijeci/statistics (10)
     ruby -e"x,y=1,0;`cat`.times{x,y=y,x+y};p x,y"
+https://open.kattis.com/problems/snakesandmasters/statistics (10)
+    ruby -e"x,y=0,1;`cat`.times{x,y=y,x+y};p y%10**6"
 https://open.kattis.com/problems/theplank/statistics (10)
     ruby -e"x=y=0;z=1;`cat`.times{x,y,z=y,z,x+y+z};p z"
 https://open.kattis.com/problems/temperatureconfusion/statistics (10)
@@ -195,7 +197,7 @@ https://open.kattis.com/problems/qaly/statistics (10)
 https://open.kattis.com/problems/knotknowledge/statistics (10)
     ruby -e"p 0*`tr " \n" ^`0"
 https://open.kattis.com/problems/pizza2/statistics (10)
-    ruby -e"p (10-10.0/`tr " " "*"`)**2"
+    ruby -e"p (10-1e1/`tr " " "*"`)**2"
 https://open.kattis.com/problems/zebrasocelots/statistics (10)
     ruby -e"p 0b`tr "ZO\n0-9" 01_0`0/2"
 https://open.kattis.com/problems/maximumchoice/statistics (10)
@@ -327,7 +329,7 @@ https://open.kattis.com/problems/sortofsorting/statistics (10)
 https://open.kattis.com/problems/sevenwonders/statistics (10)
     ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
 https://open.kattis.com/problems/exam/statistics (10)
-    read a;ruby -e"x=gets;p x.size-1-($a+1-x.chars.count{|y|y==STDIN.getc}).abs"
+    read a;ruby -e"x=gets;p x.size-1-($a+1-x.chars.count{|y|y==ARGF.getc}).abs"
 https://open.kattis.com/problems/abc/statistics (10)
     read a b c;ruby -e"gets.bytes{|x|puts [$a,$b,$c].sort[x-65]}"
 
@@ -344,6 +346,8 @@ https://open.kattis.com/problems/pvbg/statistics (10)
     echo "p [9`tr " \n" ,`].min+1"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
     echo "p [-`tr " \n" ,`].each_cons(2).count{|x,y|x<y}"|ruby
+https://open.kattis.com/problems/akcija/statistics (10)
+    echo "x=[0*`tr "\n" ,`].sort;p x.sum-3.step(x.size,3).sum{|y|x[-y]}"|ruby
 https://open.kattis.com/problems/goombastacks/statistics (10)
     echo "puts 'im'*-[(x=`sed "1d;s/ .*/)<=>&,(x+=/"`-x)].min+'possible'"|ruby
 https://open.kattis.com/problems/licensetolaunch/statistics (10)
