@@ -84,10 +84,12 @@ https://open.kattis.com/problems/fizzbuzz/statistics (10)
     read a b c;seq $c|sed "$b~$b s/.*/Buzz/;$a~$a s/[0-9]*/Fizz/"
 https://open.kattis.com/problems/ekkidaudi/statistics (10)
     IFS=, read a b c d< <(tr "\n|" ,);echo $a$c $b$d
-https://open.kattis.com/problems/timeloop/statistics (10)
-    xargs seq|sed aAbracadabra
 https://open.kattis.com/problems/sorttwonumbers/statistics (10)
     xargs -n1|sort -n
+https://open.kattis.com/problems/timeloop/statistics (10)
+    xargs seq|sed aAbracadabra
+https://open.kattis.com/problems/namegeneration/statistics (10)
+    xargs seq|tr 0-9 a-j|sed "s/./&ab/g"
 https://open.kattis.com/problems/aaah/statistics (10)
     xargs|sed "s/^\(a*h\).*a\1/no/;t;cgo"
 https://open.kattis.com/problems/lostlineup/statistics (10)
@@ -360,6 +362,8 @@ https://open.kattis.com/problems/arithmetic/statistics (10)
     echo "puts '%X'%0`cat`"|ruby
 https://open.kattis.com/problems/pvbg/statistics (10)
     echo "p [9`tr " \n" ,`].min+1"|ruby
+https://open.kattis.com/problems/tram/statistics (10)
+    echo "x=[`tr " \n" -,`];p 1-1.0*x.sum/x[0]"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
     echo "x=1e`tr " \n" ,`0;y=0;p x.count{|z|y<y=z}"|ruby
 https://open.kattis.com/problems/akcija/statistics (10)
