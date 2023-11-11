@@ -93,7 +93,7 @@ https://open.kattis.com/problems/namegeneration/statistics (10)
 https://open.kattis.com/problems/aaah/statistics (10)
     xargs|sed "s/^\(a*h\).*a\1/no/;t;cgo"
 https://open.kattis.com/problems/lostlineup/statistics (10)
-    xargs -n1|sed '1s/.*/0/'|nl|sort -nk +2|cut -f1
+    xargs -n1|sed "1s/.*/0/"|nl|sort -nk +2|cut -f1
 https://open.kattis.com/problems/classfieldtrip/statistics (10)
     fold -w1|sort|tr -d "\n"
 https://open.kattis.com/problems/peragrams/statistics (10)
@@ -164,6 +164,8 @@ https://open.kattis.com/problems/shortestcompositesum/statistics (10)
     ruby -e"x=`cat`;p 2,y=4+x%2*5,x-y"
 https://open.kattis.com/problems/jazzitup/statistics (10)
     ruby -e"x=`cat`;p (2..).find{|y|x.gcd(y)<2}"
+https://open.kattis.com/problems/pascal/statistics (10)
+    ruby -e"x=`cat`;p x-x/((2..x**0.5).find{|y|x%y<1}||x)"
 https://open.kattis.com/problems/eulersnumber/statistics (10)
     ruby -e"x=1.0;p 1+(1..`cat`).sum{|y|x/=y}"
 https://open.kattis.com/problems/bootstrappingnumber/statistics (10)
@@ -264,6 +266,8 @@ https://open.kattis.com/problems/cosmicpathoptimization/statistics (10)
     read;ruby -e"x=[`tr " " ,`];p x.sum/x.size"
 https://open.kattis.com/problems/batterup/statistics (10)
     read;ruby -e"x=[`tr " " ,`]-[-1];p 1.0*x.sum/x.size"
+https://open.kattis.com/problems/prsteni/statistics (10)
+    read;ruby -e"x,*y=[0r+`tr " " ,`];y.map{|z|puts x/z}"
 https://open.kattis.com/problems/pallatolur/statistics (10)
     read a;ruby -e"puts $a<3&&`cat`>1?'1 2':':('"
 https://open.kattis.com/problems/upprodun/statistics (10)
@@ -346,6 +350,8 @@ https://open.kattis.com/problems/sortofsorting/statistics (10)
     ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{|y|y[..1]};end"
 https://open.kattis.com/problems/sevenwonders/statistics (10)
     ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
+https://open.kattis.com/problems/hardwoodspecies/statistics (10)
+    ruby -e"x=ARGF.to_a;x.tally.sort.map{|y,z|puts y,1e2*z/x.size}"
 https://open.kattis.com/problems/exam/statistics (10)
     read a;ruby -e"x=gets;p x.size-1-($a+1-x.chars.count{|y|y==ARGF.getc}).abs"
 https://open.kattis.com/problems/abc/statistics (10)
