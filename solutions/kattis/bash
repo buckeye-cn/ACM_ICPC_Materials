@@ -224,8 +224,12 @@ https://open.kattis.com/problems/socialrunning/statistics (10)
     ruby -e"p ([`tr "\n" ,`][1..]*2).each_cons(3).map{|x,y,z|x+z}.min"
 https://open.kattis.com/problems/kornislav/statistics (10)
     ruby -e"x=[`tr " " ,`].sort;p x[0]*x[2]"
+https://open.kattis.com/problems/cosmicpathoptimization/statistics (10)
+    ruby -e"x=[`tr " \n" ,`];p x.sum/x[0]-1"
 https://open.kattis.com/problems/spavanac/statistics (10)
     ruby -e"x=60*`tr " " +`+1395;p x/60%24,x%60"
+https://open.kattis.com/problems/batterup/statistics (10)
+    ruby -e"x=[0e`tr " \n" ,`-1]-[-1];p x.sum/~-x.size"
 https://open.kattis.com/problems/associationofmyths/statistics (10)
     ruby -e"x=[`tr " \n" ,`][-1];p x*x/Math::PI/Math::E+1.0/-~x"
 https://open.kattis.com/problems/mult/statistics (10)
@@ -262,10 +266,6 @@ https://open.kattis.com/problems/cetvrta/statistics (10)
     ruby -e"x=y=0`sed "s/.* /;x^=&;y^=/"`;p x,y"
 https://open.kattis.com/problems/bestcompression/statistics (10)
     ruby -e"puts `sed "s/ /<2<</"`?'yes':'no'"
-https://open.kattis.com/problems/cosmicpathoptimization/statistics (10)
-    read;ruby -e"x=[`tr " " ,`];p x.sum/x.size"
-https://open.kattis.com/problems/batterup/statistics (10)
-    read;ruby -e"x=[`tr " " ,`]-[-1];p 1.0*x.sum/x.size"
 https://open.kattis.com/problems/prsteni/statistics (10)
     read;ruby -e"x,*y=[0r+`tr " " ,`];y.map{|z|puts x/z}"
 https://open.kattis.com/problems/pallatolur/statistics (10)
@@ -369,7 +369,7 @@ https://open.kattis.com/problems/arithmetic/statistics (10)
 https://open.kattis.com/problems/pvbg/statistics (10)
     echo "p [9`tr " \n" ,`].min+1"|ruby
 https://open.kattis.com/problems/tram/statistics (10)
-    echo "x=[`tr " \n" -,`];p 1-1.0*x.sum/x[0]"|ruby
+    echo "x=`tr " \n" -,`0.0;p 1-x.sum/x[0]"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
     echo "x=1e`tr " \n" ,`0;y=0;p x.count{|z|y<y=z}"|ruby
 https://open.kattis.com/problems/akcija/statistics (10)
