@@ -268,6 +268,8 @@ https://open.kattis.com/problems/bestcompression/statistics (10)
     ruby -e"puts `sed "s/ /<2<</"`?'yes':'no'"
 https://open.kattis.com/problems/prsteni/statistics (10)
     read;ruby -e"x,*y=[0r+`tr " " ,`];y.map{|z|puts x/z}"
+https://open.kattis.com/problems/nop/statistics (10)
+    read a;ruby -e"x=0;'$a'.bytes{|y|x+=y<96?4-x%4:1};p x-${#a}-3"
 https://open.kattis.com/problems/pallatolur/statistics (10)
     read a;ruby -e"puts $a<3&&`cat`>1?'1 2':':('"
 https://open.kattis.com/problems/upprodun/statistics (10)
