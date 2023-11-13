@@ -68,6 +68,8 @@ https://open.kattis.com/problems/quickestimate/statistics (10)
     awk "NR>1{print length}"
 https://open.kattis.com/problems/countthevowels/statistics (10)
     grep -oi [aeiou]|wc -l
+https://open.kattis.com/problems/skammstofun/statistics (10)
+    grep -o "\b[A-Z]"|tr -d "\n"
 https://open.kattis.com/problems/smil/statistics (10)
     grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/keywords/statistics (10)
@@ -273,7 +275,7 @@ https://open.kattis.com/problems/nop/statistics (10)
 https://open.kattis.com/problems/pallatolur/statistics (10)
     read a;ruby -e"puts $a<3&&`cat`>1?'1 2':':('"
 https://open.kattis.com/problems/upprodun/statistics (10)
-    read a;ruby -e"(1..$a).map{|x|puts '*'*((x+`cat`-1)/$a)}"
+    read a;ruby -e"$a.times{|x|puts '*'*((x+`cat`)/$a)}"
 https://open.kattis.com/problems/tarifa/statistics (10)
     read a;ruby -e"p $a*-~`tr "\n" -`0"
 https://open.kattis.com/problems/grassseed/statistics (10)
@@ -372,6 +374,8 @@ https://open.kattis.com/problems/pvbg/statistics (10)
     echo "p [9`tr " \n" ,`].min+1"|ruby
 https://open.kattis.com/problems/tram/statistics (10)
     echo "x=`tr " \n" -,`0.0;p 1-x.sum/x[0]"|ruby
+https://open.kattis.com/problems/umferd/statistics (10)
+    echo "x='`tr -dc .#`';p 1.0*x.count('.')/x.size"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
     echo "x=1e`tr " \n" ,`0;y=0;p x.count{|z|y<y=z}"|ruby
 https://open.kattis.com/problems/akcija/statistics (10)
