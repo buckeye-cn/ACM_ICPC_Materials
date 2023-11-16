@@ -108,15 +108,17 @@ https://open.kattis.com/problems/conundrum/statistics (10)
 encoded: math (simple)
 https://open.kattis.com/problems/longestprimesum/statistics (10)
     expr `cat` / 2
+https://open.kattis.com/problems/tolvunarfraedingartelja/statistics (10)
+    expr `cat` - 1|cat
 https://open.kattis.com/problems/simpleaddition/statistics (10)
     expr `sed i+`
 https://open.kattis.com/problems/leggjasaman/statistics (10)
     expr `sed i+`
+https://open.kattis.com/problems/flatbokuveisla/statistics (10)
+    expr `sed 1a%`|cat
 
 encoded: math (ruby)
 https://open.kattis.com/problems/sanic/statistics (10)
-    ruby -e"p `cat`-1"
-https://open.kattis.com/problems/tolvunarfraedingartelja/statistics (10)
     ruby -e"p `cat`-1"
 https://open.kattis.com/problems/metronome/statistics (10)
     ruby -e"p `cat`/4.0"
@@ -242,8 +244,6 @@ https://open.kattis.com/problems/addingtrouble/statistics (10)
     ruby -e"puts `tr " " +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/divvyingup/statistics (10)
     ruby -e"puts (0*`tr " \n" +`0)%3>0?'no':'yes'"
-https://open.kattis.com/problems/flatbokuveisla/statistics (10)
-    ruby -e"p `sed 1s/$/%/`"
 https://open.kattis.com/problems/gcd/statistics (10)
     ruby -e"p `sed "s/ /.gcd /"`"
 https://open.kattis.com/problems/slatkisi/statistics (10)
@@ -364,6 +364,8 @@ https://open.kattis.com/problems/abc/statistics (10)
 encoded: math (ruby, interactive)
 https://open.kattis.com/problems/ninetynine/statistics (10)
     ruby -e"p 2;while 98<p (x=gets.to_i)+x%3%2+1;end"
+https://open.kattis.com/problems/guess/statistics (10)
+    ruby -e"x,y=0,-999;(0..).find{p x-y/=2;(z=gets)<'i'?x-=y:0;z<'d'}"
 
 encoded: math (ruby, large input)
 https://open.kattis.com/problems/sequencereduction/statistics (10)
