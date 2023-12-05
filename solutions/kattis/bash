@@ -5,8 +5,6 @@ https://open.kattis.com/problems/kemija08/statistics (10)
     sed "s/\([aeiou]\)p\1/\1/g"
 https://open.kattis.com/problems/apaxianparent/statistics (10)
     sed "s/\([aeiou]\|ex\|\) /ex/"
-https://open.kattis.com/problems/fyi/statistics (10)
-    sed "s/555..../1/;s/......./0/"
 https://open.kattis.com/problems/quiteaproblem/statistics (10)
     sed "s/.*problem.*/yes/I;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (10)
@@ -290,8 +288,6 @@ https://open.kattis.com/problems/carddivisibility/statistics (10)
     read a b;ruby -e"p ($a+$b)*($b-$a+1)/2%9"
 https://open.kattis.com/problems/ladder/statistics (10)
     read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
-https://open.kattis.com/problems/titlecost/statistics (10)
-    read a b;ruby -e"p [${#a},$b].min"
 https://open.kattis.com/problems/eveningout1/statistics (10)
     read a b;ruby -e"p [$a%$b,$b-$a%$b].min"
 https://open.kattis.com/problems/powers/statistics (10)
@@ -480,6 +476,9 @@ https://open.kattis.com/problems/stickykeys/statistics (8)
 https://open.kattis.com/problems/autori/statistics (5)
     t*|s*
     tr tsa-z- tt sed sztzzg
+https://open.kattis.com/problems/titlecost/statistics (8)
+    t* \ |s*
+    tr tsA-Za-z sed sz93.7z4z
 https://open.kattis.com/problems/greetings2/statistics (2)
     s*
     sed szezeezg
@@ -495,6 +494,9 @@ https://open.kattis.com/problems/simon/statistics (5)
 https://open.kattis.com/problems/oddecho/statistics (7)
     s* 1~2d
     sed
+https://open.kattis.com/problems/fyi/statistics (6)
+    *e?|*d
+    sed sz555....z1zwee sz.......z0zwd
 https://open.kattis.com/problems/ofugsnuid/statistics (7)
     t*|s* x
     tac sed
