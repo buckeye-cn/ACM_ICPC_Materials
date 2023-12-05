@@ -127,7 +127,7 @@ https://open.kattis.com/problems/areal/statistics (10)
 https://open.kattis.com/problems/crne/statistics (10)
     ruby -e"p (`cat`+2)**2/4"
 https://open.kattis.com/problems/planina/statistics (10)
-    ruby -e"p (2**`cat`+1)**2"
+    ruby -e"p ~(2**`cat`)**2"
 https://open.kattis.com/problems/romans/statistics (10)
     ruby -e"p (`cat`*88e4/809).round"
 https://open.kattis.com/problems/alloys/statistics (10)
@@ -166,6 +166,8 @@ https://open.kattis.com/problems/shortestcompositesum/statistics (10)
     ruby -e"x=`cat`;p 2,y=4+x%2*5,x-y"
 https://open.kattis.com/problems/jazzitup/statistics (10)
     ruby -e"x=`cat`;p (2..).find{|y|x.gcd(y)<2}"
+https://open.kattis.com/problems/treirad/statistics (10)
+    ruby -e"x=`cat`;p (1..).find{|y|~-y*y*-~y>=x}-2"
 https://open.kattis.com/problems/pascal/statistics (10)
     ruby -e"x=`cat`;p x-x/((2..x**0.5).find{|y|x%y<1}||x)"
 https://open.kattis.com/problems/eulersnumber/statistics (10)
