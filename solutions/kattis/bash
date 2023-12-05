@@ -143,7 +143,7 @@ https://open.kattis.com/problems/reversebinary/statistics (10)
 https://open.kattis.com/problems/popkorn/statistics (10)
     ruby -e"p (-4+x=`cat`)*x/8+4"
 https://open.kattis.com/problems/sjecista/statistics (10)
-    ruby -e"p (3-x=`cat`)*(2-x)*(x-1)*x/24"
+    ruby -e"p (3-x=`cat`)*(2-x)*~-x*x/24"
 https://open.kattis.com/problems/betting/statistics (10)
     ruby -e"p 1e2/x=`cat`,1e2/(1e2-x)"
 https://open.kattis.com/problems/herman/statistics (10)
@@ -323,7 +323,7 @@ https://open.kattis.com/problems/gcvwr/statistics (10)
 https://open.kattis.com/problems/sottkvi/statistics (10)
     read a b c;ruby -e"p [`tr "\n" ,`].count{|x|x<$b+$c-13}"
 https://open.kattis.com/problems/makingameowth/statistics (10)
-    read a b c d;ruby -e"p $b*$c+$b/($a-1)*$d"
+    read a b c d;ruby -e"p $b*$c+$b/~-$a*$d"
 https://open.kattis.com/problems/laptopsticker/statistics (10)
     read a b c d;ruby -e"p $a>$c+1&&$b>$d+1?1:0"
 https://open.kattis.com/problems/bottleflip/statistics (10)
