@@ -1,3 +1,7 @@
+encoded: string (pure tr)
+https://open.kattis.com/problems/soundex/statistics (10)
+    tr -d AEIOUHWY|tr -s B-Z 123_12__22455_12623_1_2_2
+
 encoded: string (pure sed)
 https://open.kattis.com/problems/thelastproblem/statistics (10)
     sed "s/.*/Thank you, &, and farewell!/"
@@ -258,6 +262,10 @@ https://open.kattis.com/problems/jobexpenses/statistics (10)
     ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
 https://open.kattis.com/problems/kafkaesque/statistics (10)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
+https://open.kattis.com/problems/smallestmultiple/statistics (10)
+    ruby -e"`sed "s/ /.lcm /g;s/^/p /"`"
+https://open.kattis.com/problems/batteries/statistics (10)
+    ruby -e"`sed "x;s/..*/p (0..).find{|x|x*x+x>&*2-3}/"`"
 https://open.kattis.com/problems/mixtapemanagement/statistics (10)
     ruby -e"x=100`sed "1d;s/^\| /;p (x+=1)*10**/g"`"
 https://open.kattis.com/problems/skruop/statistics (10)
@@ -352,10 +360,12 @@ https://open.kattis.com/problems/doublepassword/statistics (10)
     ruby -e"x,y=gets,gets;p 2**(0..3).count{|z|x[z]!=y[z]}"
 https://open.kattis.com/problems/sortofsorting/statistics (10)
     ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{|y|y[..1]};end"
-https://open.kattis.com/problems/sevenwonders/statistics (10)
-    ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
 https://open.kattis.com/problems/hardwoodspecies/statistics (10)
     ruby -e"x=ARGF.to_a;x.tally.sort.map{|y,z|puts y,1e2*z/x.size}"
+https://open.kattis.com/problems/sevenwonders/statistics (10)
+    ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
+https://open.kattis.com/problems/raggedright/statistics (10)
+    ruby -e"x=`sed "s/./+1/g;s/$/,/"`0;p x[..-3].sum{|y|(x.max-y)**2}"
 https://open.kattis.com/problems/exam/statistics (10)
     read a;ruby -e"x=gets;p x.size-1-($a+1-x.chars.count{|y|y==ARGF.getc}).abs"
 https://open.kattis.com/problems/abc/statistics (10)
@@ -477,6 +487,9 @@ https://open.kattis.com/problems/apaxiaaans/statistics (8)
 https://open.kattis.com/problems/stickykeys/statistics (8)
     tr -s A*
     A-Za-z0-9
+https://open.kattis.com/problems/meddelande/statistics (9)
+    tr -dc a*
+    a-z
 https://open.kattis.com/problems/autori/statistics (5)
     t*|s*
     tr tsa-z- tt sed sztzzg
