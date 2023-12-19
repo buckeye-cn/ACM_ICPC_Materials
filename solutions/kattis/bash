@@ -45,6 +45,10 @@ https://open.kattis.com/problems/cats/statistics (10)
     sed "s/1/yes/;s/6/yes no no yes yes yes/;q"
 https://open.kattis.com/problems/digits/statistics (10)
     sed "$ d;s/^[^1]$/2/;s/.\{10,\}/4/;s/...*/3/"
+https://open.kattis.com/problems/headguard/statistics (10)
+    sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
+https://open.kattis.com/problems/aaah/statistics (10)
+    sed -z "s/^\(a*h\).*a\1/no/;t;cgo"
 
 encoded: string (combined)
 https://open.kattis.com/problems/cold/statistics (10)
@@ -94,16 +98,14 @@ https://open.kattis.com/problems/timeloop/statistics (10)
     xargs seq|sed aAbracadabra
 https://open.kattis.com/problems/namegeneration/statistics (10)
     xargs seq|tr 0-9 a-j|sed "s/./&ab/g"
-https://open.kattis.com/problems/aaah/statistics (10)
-    xargs|sed "s/^\(a*h\).*a\1/no/;t;cgo"
 https://open.kattis.com/problems/lostlineup/statistics (10)
-    xargs -n1|sed "1s/.*/0/"|nl|sort -nk +2|cut -f1
+    xargs -n1|sed 1s/.*/0/|nl|sort -nk +2|cut -f1
 https://open.kattis.com/problems/classfieldtrip/statistics (10)
     fold -w1|sort|tr -d "\n"
 https://open.kattis.com/problems/peragrams/statistics (10)
     fold -w1|sort|uniq -c|grep "[13579] "|sed 1d|wc -l
 https://open.kattis.com/problems/pokerhand/statistics (10)
-    fold -w3|sort|uniq -cw1|sort -r|xargs|cut -c1
+    fold -w3|sort|uniq -cw1|sort -r|cut -zc7
 https://open.kattis.com/problems/conundrum/statistics (10)
     fold -w1|sed "1~3s/P//;2~3s/E//;3~3s/R//"|wc -w
 
@@ -296,12 +298,16 @@ https://open.kattis.com/problems/ladder/statistics (10)
     read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
 https://open.kattis.com/problems/eveningout1/statistics (10)
     read a b;ruby -e"p [$a%$b,$b-$a%$b].min"
+https://open.kattis.com/problems/movingday/statistics (10)
+    read a b;ruby -e"p [`tr " \n" *,`].max-$b"
 https://open.kattis.com/problems/powers/statistics (10)
     read a b;ruby -e"p [$b<2?$a:0,0,$a,0][$a%4]/2"
 https://open.kattis.com/problems/numbertree/statistics (10)
     read a b;ruby -e"p (2<<$a)-'R$b'.tr('LR','01').to_i(2)"
 https://open.kattis.com/problems/lamps/statistics (10)
     read a b;ruby -e"p (1..).find{|x|$a*x/1000+98e-6*$a*$b*x>11}"
+https://open.kattis.com/problems/diagonalcut/statistics (10)
+    read a b;ruby -e"x=$a.gcd $b;p x*($a/x&$b/x&1)"
 https://open.kattis.com/problems/countingclauses/statistics (10)
     read a b;ruby -e"puts ($a>7?'':'un')+'satisfactory'"
 https://open.kattis.com/problems/countdoubles/statistics (10)
@@ -320,6 +326,8 @@ https://open.kattis.com/problems/climbingstairs/statistics (10)
     read a b c;ruby -e"p 2*[(1+$a+$b)/2,$b,$c].max"
 https://open.kattis.com/problems/expectedearnings/statistics (10)
     read a b c;ruby -e"puts $a*$c<$b?'spela':'spela inte!'"
+https://open.kattis.com/problems/dasblinkenlights/statistics (10)
+    read a b c;ruby -e"puts $a*$b/$a.gcd($b)>$c?'no':'yes'"
 https://open.kattis.com/problems/simplearithmetic/statistics (10)
     read a b c;ruby -e"x=10**6;y=$a*$b*x/$c;puts'%d.%06d'%[y/x,y%x]"
 https://open.kattis.com/problems/gcvwr/statistics (10)
@@ -408,6 +416,8 @@ https://open.kattis.com/problems/electricaloutlets/statistics (10)
     sed "1d;y/ /+/;s/^/p 1-/"|ruby
 https://open.kattis.com/problems/owlandfox/statistics (10)
     sed "1d;s/^/p /;s/0*$/&-1&/"|ruby
+https://open.kattis.com/problems/heartrate/statistics (10)
+    sed "1d;s/.* /(&-1..&+1).map{|x|p x*60\//;s/$/}/"|ruby
 https://open.kattis.com/problems/shortlex/statistics (10)
     sed "1d;s/.*/puts ('%b'%-~&)[1..]/"|ruby
 https://open.kattis.com/problems/helpaphd/statistics (10)
@@ -415,7 +425,7 @@ https://open.kattis.com/problems/helpaphd/statistics (10)
 https://open.kattis.com/problems/catmouse/statistics (10)
     sed "1d;s/ /;puts(/;s/ /*4.603339>/;s/$/?'YES':'NO')/"|ruby
 https://open.kattis.com/problems/batteries/statistics (10)
-    sed "x;s/..*/p (0..).find{|x|x*x+x>&*2-3}/"|ruby
+    sed "s/.*/p (0..).find{|x|x*x+x>&*2-3}/;x"|ruby
 https://open.kattis.com/problems/parsinghex/statistics (10)
     grep -oi 0x[0-9a-f]*|sed "s/.*/puts'&',&/"|ruby
 https://open.kattis.com/problems/vedurheidar/statistics (10)
