@@ -262,10 +262,6 @@ https://open.kattis.com/problems/jobexpenses/statistics (10)
     ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
 https://open.kattis.com/problems/kafkaesque/statistics (10)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
-https://open.kattis.com/problems/smallestmultiple/statistics (10)
-    ruby -e"`sed "s/ /.lcm /g;s/^/p /"`"
-https://open.kattis.com/problems/batteries/statistics (10)
-    ruby -e"`sed "x;s/..*/p (0..).find{|x|x*x+x>&*2-3}/"`"
 https://open.kattis.com/problems/mixtapemanagement/statistics (10)
     ruby -e"x=100`sed "1d;s/^\| /;p (x+=1)*10**/g"`"
 https://open.kattis.com/problems/skruop/statistics (10)
@@ -394,10 +390,40 @@ https://open.kattis.com/problems/akcija/statistics (10)
     echo "x=[0*`tr "\n" ,`].sort;p x.sum-3.step(x.size,3).sum{|y|x[-y]}"|ruby
 https://open.kattis.com/problems/goombastacks/statistics (10)
     echo "puts'im'*-[(x=`sed "1d;s/ .*/)<=>&,(x+=/"`-x)].min+'possible'"|ruby
-https://open.kattis.com/problems/owlandfox/statistics (10)
-    sed "1d;s/^/p /;s/0*$/&-1&/"|ruby
 https://open.kattis.com/problems/licensetolaunch/statistics (10)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
+
+encoded: math (ruby, multiline)
+https://open.kattis.com/problems/bishops/statistics (10)
+    sed "s/.*/p &<2?1:&*2-2/"|ruby
+https://open.kattis.com/problems/smallestmultiple/statistics (10)
+    sed "s/ /.lcm /g;s/^/p /"|ruby
+https://open.kattis.com/problems/bus/statistics (10)
+    sed "1d;s/^/p~-2**/"|ruby
+https://open.kattis.com/problems/soylent/statistics (10)
+    sed "1d;s/.*/p~-&\/400+1/"|ruby
+https://open.kattis.com/problems/sumoftheothers/statistics (10)
+    sed "y/ /+/;s/.*/p (&)\/2/"|ruby
+https://open.kattis.com/problems/electricaloutlets/statistics (10)
+    sed "1d;y/ /+/;s/^/p 1-/"|ruby
+https://open.kattis.com/problems/owlandfox/statistics (10)
+    sed "1d;s/^/p /;s/0*$/&-1&/"|ruby
+https://open.kattis.com/problems/shortlex/statistics (10)
+    sed "1d;s/.*/puts ('%b'%-~&)[1..]/"|ruby
+https://open.kattis.com/problems/helpaphd/statistics (10)
+    sed "1d;s/^/puts /;s/P=NP/'skipped'/"|ruby
+https://open.kattis.com/problems/catmouse/statistics (10)
+    sed "1d;s/ /;puts(/;s/ /*4.603339>/;s/$/?'YES':'NO')/"|ruby
+https://open.kattis.com/problems/batteries/statistics (10)
+    sed "x;s/..*/p (0..).find{|x|x*x+x>&*2-3}/"|ruby
+https://open.kattis.com/problems/parsinghex/statistics (10)
+    grep -oi 0x[0-9a-f]*|sed "s/.*/puts'&',&/"|ruby
+https://open.kattis.com/problems/vedurheidar/statistics (10)
+    read a;sed "1d;s/^/puts'/;s/ .*/',&<$a?'lokud':'opin'/"|ruby
+https://open.kattis.com/problems/scalingrecipe/statistics (10)
+    read a b c;sed "s/.*/p &*$c\/$b/"|ruby
+https://open.kattis.com/problems/sibice/statistics (10)
+    read a b c;sed "s/.*/puts &*&>$b*$b+$c*$c?'NE':'DA'/"|ruby
 
 encoded: math (python, simple)
 https://open.kattis.com/problems/addtwonumbers/statistics (10)
@@ -412,38 +438,14 @@ https://open.kattis.com/problems/pet/statistics (10)
     tr " " +|python3 -i|nl|sort -rnk +2|head -1
 https://open.kattis.com/problems/different/statistics (10)
     tr " " -|python3 -i|tr -d -
-https://open.kattis.com/problems/bishops/statistics (10)
-    sed "s/.*/max(1,&*2-2)/"|python3 -i
-https://open.kattis.com/problems/sumoftheothers/statistics (10)
-    sed "y/ /+/;s/.*/(&)>>1/"|python3 -i
-https://open.kattis.com/problems/calculator/statistics (10)
-    sed "s/.*/print(f'{&:.2f}')/"|python3
-https://open.kattis.com/problems/deathstar/statistics (10)
-    sed "1d;y/ /|/"|python3 -i
-https://open.kattis.com/problems/electricaloutlets/statistics (10)
-    sed "1d;y/ /+/;s/^/1-/"|python3 -i
-https://open.kattis.com/problems/bus/statistics (10)
-    sed "1d;s/^/-1+2**/"|python3 -i
-https://open.kattis.com/problems/soylent/statistics (10)
-    sed "1d;s/.*/(&+399)\/\/400/"|python3 -i
 https://open.kattis.com/problems/chanukah/statistics (10)
     sed "1d;s/ .*/;&*(&+3)>>1/"|python3 -i
-https://open.kattis.com/problems/helpaphd/statistics (10)
-    sed "1d;s/P=NP/print('skipped')/"|python3 -i
-https://open.kattis.com/problems/shortlex/statistics (10)
-    sed "1d;s/.*/print(bin(&+1)[3:])/"|python3
-https://open.kattis.com/problems/catmouse/statistics (10)
-    sed "1d;s/ /;print(['NO','YES'][/;s/ /*4.603339>/;s/$/])/"|python3
-https://open.kattis.com/problems/parsinghex/statistics (10)
-    grep -oi 0x[0-9a-f]*|sed "s/.*/print('&',&)/"|python3
 https://open.kattis.com/problems/dicecup/statistics (10)
     seq `sed "s/ /+1;1+/"|python3 -i|sort -n`
-https://open.kattis.com/problems/vedurheidar/statistics (10)
-    read a;sed "1d;s/^/print('&/;s/ .*/',['opin','lokud'][&<$a])/"|python3
-https://open.kattis.com/problems/scalingrecipe/statistics (10)
-    read a b c;sed "s/$/*$c\/\/$b/"|python3 -i
-https://open.kattis.com/problems/sibice/statistics (10)
-    read a b c;sed "s/.*/print(['DA','NE'][&*&>$b*$b+$c*$c])/"|python3
+https://open.kattis.com/problems/calculator/statistics (10)
+    printf "%.2f\n" `python3 -i`
+https://open.kattis.com/problems/deathstar/statistics (10)
+    read;tr " " "|"|python3 -i
 
 encoded: misc
 https://open.kattis.com/problems/bossbattle/statistics (10)
