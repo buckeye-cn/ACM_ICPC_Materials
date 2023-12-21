@@ -9,6 +9,8 @@ https://open.kattis.com/problems/leggjasaman/statistics (10)
     expr `sed i+`
 https://open.kattis.com/problems/flatbokuveisla/statistics (10)
     expr `sed 1a%`|cat
+https://open.kattis.com/problems/finalexam2/statistics (10)
+    expr `tee _|wc -l` - `uniq _|wc -l`|cat
 
 encoded: tr
 https://open.kattis.com/problems/soundex/statistics (10)
@@ -131,11 +133,9 @@ encoded: misc
 https://open.kattis.com/problems/listgame/statistics (10)
     factor|tr -d 0-z|wc -L
 https://open.kattis.com/problems/primality/statistics (10)
-    xargs factor|sed "s/.* .* .*/NO/;t;cYES"
+    factor|sed "s/.* .* .*/NO/;t;cYES"
 https://open.kattis.com/problems/datum/statistics (10)
     read a b;date -d2009/$b/$a +%A
-https://open.kattis.com/problems/finalexam2/statistics (10)
-    expr `tee _|wc -l` - `uniq _|wc -l`|cat
 
 encoded: ruby, math
 https://open.kattis.com/problems/nop/statistics (10)
