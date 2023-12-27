@@ -190,8 +190,6 @@ https://open.kattis.com/problems/rectanglearea/statistics (10)
     read a b c d;ruby -e"p (($c-$a)*($d-$b)).abs"
 https://open.kattis.com/problems/savingforretirement/statistics (10)
     read a b c d e;ruby -e"p (($b-$a)*$c+$e)/$e+$d"
-https://open.kattis.com/problems/bijele/statistics (10)
-    read a b c d e f;ruby -e"p 1-$a,1-$b,2-$c,2-$d,2-$e,8-$f"
 
 encoded: ruby + cat, math
 https://open.kattis.com/problems/sanic/statistics (10)
@@ -308,6 +306,8 @@ https://open.kattis.com/problems/monopol/statistics (10)
     ruby -e"p [1**`tr " \n" ,`].sum{|x|(6.0-(x-7).abs)/36}"
 https://open.kattis.com/problems/compass/statistics (10)
     ruby -e"p -(-180..).find{|x|(`tr "\n" -`x)%360<1}"
+https://open.kattis.com/problems/bijele/statistics (10)
+    ruby -e"[1,1,2,2,2,8].zip([`tr " " ,`]){|x,y|p x-y}"
 https://open.kattis.com/problems/socialrunning/statistics (10)
     ruby -e"p ([`tr "\n" ,`][1..]*2).each_cons(3).map{|x,y,z|x+z}.min"
 https://open.kattis.com/problems/kornislav/statistics (10)
@@ -324,10 +324,14 @@ https://open.kattis.com/problems/mult/statistics (10)
     ruby -e"x=0;[-`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
 https://open.kattis.com/problems/janitortroubles/statistics (10)
     ruby -e"x=`tr " " ,`;p x.map{|y|x.sum*0.5-y}.inject(:*)**0.5"
+https://open.kattis.com/problems/squarepeg/statistics (10)
+    ruby -e"puts `tr " " ">"`*1.414?'nope':'fits'"
 https://open.kattis.com/problems/addingtrouble/statistics (10)
     ruby -e"puts `tr " " +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/divvyingup/statistics (10)
     ruby -e"puts (0*`tr " \n" +`0)%3>0?'no':'yes'"
+https://open.kattis.com/problems/internationaldates/statistics (10)
+    ruby -e"x,y,z=`tr /89 ,7`;puts x>12?'EU':y>12?'US':'either'"
 https://open.kattis.com/problems/prsteni/statistics (10)
     read;ruby -e"x,*y=[0r+`tr " " ,`];y.map{|z|puts x/z}"
 https://open.kattis.com/problems/tarifa/statistics (10)
@@ -378,6 +382,8 @@ https://open.kattis.com/problems/reduplikation/statistics (10)
     ruby -e"puts gets.chop*gets.to_i"
 https://open.kattis.com/problems/yinyangstones/statistics (10)
     ruby -e"p gets.bytes.sum{|x|8-x/9}==7?1:0"
+https://open.kattis.com/problems/cprnummer/statistics (10)
+    ruby -e"p'FEDIHGGFEDCB'.bytes.zip(gets.bytes).sum{|x,y|x*y}%11/10"
 https://open.kattis.com/problems/everywhere/statistics (10)
     ruby -e"gets.to_i.times{p gets.to_i.times.uniq{gets}.size}"
 https://open.kattis.com/problems/averagecharacter/statistics (10)
