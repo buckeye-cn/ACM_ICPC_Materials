@@ -455,7 +455,9 @@ https://open.kattis.com/problems/shortlex/statistics (10)
 https://open.kattis.com/problems/helpaphd/statistics (10)
     sed "1d;s/^/puts /;s/P=NP/'skipped'/"|ruby
 https://open.kattis.com/problems/catmouse/statistics (10)
-    sed "1d;s/ /;puts(/;s/ /*4.603339>/;s/$/?'YES':'NO')/"|ruby
+    sed "1d;s/ .* /;puts&*4.603339>/;s/$/?'YES':'NO'/"|ruby
+https://open.kattis.com/problems/nastyhacks/statistics (10)
+    sed "1d;s/ .* /<=>&-/;s/.*/puts ['does not matter','do not '+x='advertise',x][&]/"|ruby
 https://open.kattis.com/problems/batteries/statistics (10)
     sed "s/.*/p (0..).find{|x|x*x+x>&*2-3}/;x"|ruby
 https://open.kattis.com/problems/parsinghex/statistics (10)
