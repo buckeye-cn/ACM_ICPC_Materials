@@ -69,6 +69,8 @@ https://open.kattis.com/problems/cold/statistics (10)
     tr -dc -|wc -L
 https://open.kattis.com/problems/quadrant/statistics (10)
     tr -d 0-9|sed 2p|wc -w|tr 012 124
+https://open.kattis.com/problems/isyavowel/statistics (10)
+    tr -dc aeiouy|tee _|tr -d y|wc -L;wc -L<_
 https://open.kattis.com/problems/deathknight/statistics (10)
     sed "1d;/CD/d"|wc -l
 https://open.kattis.com/problems/magictrick/statistics (10)
@@ -97,7 +99,7 @@ https://open.kattis.com/problems/avion/statistics (10)
 https://open.kattis.com/problems/keywords/statistics (10)
     read;tr A-Z- "a-z "|sort|uniq|wc -l
 https://open.kattis.com/problems/mumblerap/statistics (10)
-    read;grep -o [0-9]*|sort -n|tail -1
+    read;tr -c 0-9 "\n"|sort -n|tail -1
 https://open.kattis.com/problems/ullendullendoff/statistics (10)
     read;xargs yes|xargs -n1|sed "13!d;13q"
 https://open.kattis.com/problems/reversiblecyclic/statistics (10)
@@ -163,7 +165,7 @@ https://open.kattis.com/problems/lamps/statistics (10)
 https://open.kattis.com/problems/diagonalcut/statistics (10)
     read a b;ruby -e"x=$a.gcd $b;p x*($a/x&$b/x&1)"
 https://open.kattis.com/problems/countingclauses/statistics (10)
-    read a b;ruby -e"puts ($a>7?'':'un')+'satisfactory'"
+    read a b;ruby -e"puts'un'*($a-8)[9]+'satisfactory'"
 https://open.kattis.com/problems/trollhunt/statistics (10)
     read a b c;ruby -e"p ($a-2)/($b/$c)+1"
 https://open.kattis.com/problems/skocimis/statistics (10)
@@ -175,7 +177,7 @@ https://open.kattis.com/problems/climbingworm/statistics (10)
 https://open.kattis.com/problems/climbingstairs/statistics (10)
     read a b c;ruby -e"p 2*[(1+$a+$b)/2,$b,$c].max"
 https://open.kattis.com/problems/expectedearnings/statistics (10)
-    read a b c;ruby -e"puts $a*$c<$b?'spela':'spela inte!'"
+    read a b c;ruby -e"puts'spela'+($a*$c<$b?'':' inte!')"
 https://open.kattis.com/problems/dasblinkenlights/statistics (10)
     read a b c;ruby -e"puts $a*$b/$a.gcd($b)>$c?'no':'yes'"
 https://open.kattis.com/problems/simplearithmetic/statistics (10)
@@ -336,6 +338,8 @@ https://open.kattis.com/problems/addingtrouble/statistics (10)
     ruby -e"puts `tr " " +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/divvyingup/statistics (10)
     ruby -e"puts (0*`tr " \n" +`0)%3>0?'no':'yes'"
+https://open.kattis.com/problems/millifaersla/statistics (10)
+    ruby -e"puts [`tr "\n" ,`].zip(['Monnei','Fjee','Dolladollabilljoll']).min[1]"
 https://open.kattis.com/problems/internationaldates/statistics (10)
     ruby -e"x,y,z=`tr /89 ,7`;puts x>12?'EU':y>12?'US':'either'"
 https://open.kattis.com/problems/tarifa/statistics (10)
@@ -430,10 +434,10 @@ https://open.kattis.com/problems/arithmetic/statistics (10)
     echo "puts'%X'%0`cat`"|ruby
 https://open.kattis.com/problems/pvbg/statistics (10)
     echo "p [9`tr " \n" ,`].min+1"|ruby
-https://open.kattis.com/problems/tram/statistics (10)
-    echo "x=`tr " \n" -,`0.0;p 1-x.sum/x[0]"|ruby
 https://open.kattis.com/problems/umferd/statistics (10)
     echo "x='`tr -dc .#`';p 1.0*x.count('.')/x.size"|ruby
+https://open.kattis.com/problems/tram/statistics (10)
+    echo "x,*y=`tr " \n" -,`0.0;p -y.sum/x"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (10)
     echo "x=0;p [1e`tr " \n" ,`].count{|y|x<x=y}"|ruby
 https://open.kattis.com/problems/akcija/statistics (10)
@@ -551,6 +555,9 @@ https://open.kattis.com/problems/greetings2/statistics (2)
 https://open.kattis.com/problems/howl/statistics (2)
     s*
     sed szAzAAz
+https://open.kattis.com/problems/bitteeinbit/statistics (2)
+    s*
+    sed sz.zz2g
 https://open.kattis.com/problems/simonsays/statistics (5)
     s* -n
     sed szSimon.says.zzp
