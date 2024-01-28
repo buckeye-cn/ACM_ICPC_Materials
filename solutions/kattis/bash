@@ -462,8 +462,12 @@ https://open.kattis.com/problems/electricaloutlets/statistics (10)
     sed "1d;y/ /+/;s/^/p 1-/"|ruby
 https://open.kattis.com/problems/owlandfox/statistics (10)
     sed "1d;s/^/p /;s/0*$/&-1&/"|ruby
+https://open.kattis.com/problems/batteries/statistics (10)
+    sed "s/.*/p (0..).find{|x|x*x+x>&*2-3}/;x"|ruby
 https://open.kattis.com/problems/heartrate/statistics (10)
     sed "1d;s/.* /(&-1..&+1).map{|x|p x*60\//;s/$/}/"|ruby
+https://open.kattis.com/problems/nine/statistics (10)
+    sed "1d;s/.*/x,y=8,9;99.times{|z|x=x*y**(&-1)[z]%z=10**9+7;y*=y%z};p x/"|ruby
 https://open.kattis.com/problems/shortlex/statistics (10)
     sed "1d;s/.*/puts ('%b'%-~&)[1..]/"|ruby
 https://open.kattis.com/problems/helpaphd/statistics (10)
@@ -472,8 +476,8 @@ https://open.kattis.com/problems/catmouse/statistics (10)
     sed "1d;s/ .* /;puts&*4.603339>/;s/$/?'YES':'NO'/"|ruby
 https://open.kattis.com/problems/nastyhacks/statistics (10)
     sed "1d;s/ .* /<=>&-/;s/.*/puts ['does not matter','do not '+x='advertise',x][&]/"|ruby
-https://open.kattis.com/problems/batteries/statistics (10)
-    sed "s/.*/p (0..).find{|x|x*x+x>&*2-3}/;x"|ruby
+https://open.kattis.com/problems/simplefactoring/statistics (10)
+    sed "1d;y/ /,/;s/.*/x,y,z=&;x=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?'YES':'NO'/"|ruby
 https://open.kattis.com/problems/parsinghex/statistics (10)
     grep -oi 0x[0-9a-f]*|sed "s/.*/puts'&',&/"|ruby
 https://open.kattis.com/problems/vedurheidar/statistics (10)
