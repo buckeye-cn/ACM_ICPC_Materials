@@ -40,6 +40,9 @@ Practicing Materials
 * CodeForces: http://codeforces.com/
 * Hackerrank: https://www.hackerrank.com/
 * POJ: http://poj.org/
+* Universal Cup:  [Universal Cup - Universal Cup (ucup.ac)](https://ucup.ac/)
+* OI Wiki: [OI Wiki - OI Wiki](https://oi.wiki/)
+* ATCoder: [AtCoder](https://atcoder.jp/)
 
 ### Roadmaps
 
