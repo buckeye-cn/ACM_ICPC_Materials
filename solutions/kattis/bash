@@ -20,7 +20,7 @@ https://open.kattis.com/problems/stickykeys/statistics (6)
 https://open.kattis.com/problems/meddelande/statistics (6)
     tr -dc a-z
 https://open.kattis.com/problems/soundex/statistics (6)
-    tr -d AEIOUHWY|tr -s B-Z 123_12__22455_12623_1_2_2
+    tr -s A-Z _123_12__22455_12623_1_2_2|tr -d _
 
 encoded: sed
 https://open.kattis.com/problems/oddecho/statistics (6)
@@ -181,7 +181,7 @@ https://open.kattis.com/problems/emergency/statistics (6)
 https://open.kattis.com/problems/numbertree/statistics (6)
     read a b;ruby -e"p (2<<$a)-'R$b'.tr('LR','01').to_i(2)"
 https://open.kattis.com/problems/lamps/statistics (6)
-    read a b;ruby -e"p (1..).find{|x|$a*x/1000+98e-6*$a*$b*x>11}"
+    read a b;ruby -e"p (1..).find{|x|$a*~-x/1000+98e-6*$a*$b*x>11}"
 https://open.kattis.com/problems/diagonalcut/statistics (6)
     read a b;ruby -e"x=$a.gcd $b;p x*($a/x&$b/x&1)"
 https://open.kattis.com/problems/countingclauses/statistics (6)
@@ -455,7 +455,7 @@ https://open.kattis.com/problems/sequencereduction/statistics (6)
 https://open.kattis.com/problems/arithmetic/statistics (6)
     echo "puts'%X'%0`cat`"|ruby
 https://open.kattis.com/problems/pvbg/statistics (6)
-    echo "p [9`tr " \n" ,`].min+1"|ruby
+    echo "p [9e`tr " \n" ,`].min+1"|ruby
 https://open.kattis.com/problems/umferd/statistics (6)
     echo "x='`tr -dc .#`';p 1.0*x.count('.')/x.size"|ruby
 https://open.kattis.com/problems/tram/statistics (6)
@@ -548,9 +548,6 @@ print
 https://open.kattis.com/problems/velkomin/statistics (4)
     s*
     sed syVyVELKOMINy V!>sz
-https://open.kattis.com/problems/hello/statistics (9)
-    l*|b* -di
-    ls lsJBSWY3DPEBLW64TMMQQQUCQK base32
 
 math
 https://open.kattis.com/problems/buka/statistics (5)
