@@ -446,9 +446,9 @@ https://open.kattis.com/problems/abc/statistics (5)
     read a b c;ruby -e"gets.bytes{|x|puts [$a,$b,$c].sort[x-65]}"
 
 encoded: ruby, interactive
-https://open.kattis.com/problems/ninetynine/statistics (5)
+https://open.kattis.com/problems/ninetynine/statistics (6)
     ruby -e"p 2;(1..).find{x=gets.to_i;p(x+x%3%2+1)>98}"
-https://open.kattis.com/problems/guess/statistics (5)
+https://open.kattis.com/problems/guess/statistics (6)
     ruby -e"x,y=0,-999;(0..).find{p x-y/=2;(z=gets)<'i'?x-=y:0;z<'d'}"
 
 encoded: ruby, large input
