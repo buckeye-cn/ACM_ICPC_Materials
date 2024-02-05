@@ -14,9 +14,9 @@ https://open.kattis.com/problems/finalexam2/statistics (5)
 
 encoded: tr
 https://open.kattis.com/problems/apaxiaaans/statistics (5)
-    tr -s a-z
+    tr -sc _
 https://open.kattis.com/problems/stickykeys/statistics (5)
-    tr -s 0-z
+    tr -sc _
 https://open.kattis.com/problems/meddelande/statistics (5)
     tr -dc a-z
 https://open.kattis.com/problems/soundex/statistics (5)
@@ -112,8 +112,8 @@ https://open.kattis.com/problems/smil/statistics (5)
     grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/avion/statistics (5)
     (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
-https://open.kattis.com/problems/carrots/statistics (5)
-    read a b;echo $b
+https://open.kattis.com/problems/liquidassets/statistics (5)
+    read;tr -sc _|sed "s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/keywords/statistics (5)
     read;tr A-Z- "a-z "|sort|uniq|wc -l
 https://open.kattis.com/problems/mumblerap/statistics (5)
@@ -122,6 +122,8 @@ https://open.kattis.com/problems/ullendullendoff/statistics (5)
     read;xargs yes|xargs -n1|sed "13!d;13q"
 https://open.kattis.com/problems/reversiblecyclic/statistics (5)
     read a;echo $a$a|rev|grep $a|wc -l
+https://open.kattis.com/problems/carrots/statistics (5)
+    read a b;echo $b
 https://open.kattis.com/problems/zoom/statistics (5)
     read a b;tr " " "\n"|sed $b~$b!d
 https://open.kattis.com/problems/fizzbuzz/statistics (5)
@@ -350,12 +352,14 @@ https://open.kattis.com/problems/batterup/statistics (5)
     ruby -e"x=[0e`tr " \n" ,`-1]-[-1];p x.sum/~-x.size"
 https://open.kattis.com/problems/cosmicpathoptimization/statistics (5)
     ruby -e"x,*y=`tr " \n" ,`0;p y.sum/x"
-https://open.kattis.com/problems/kornislav/statistics (5)
-    ruby -e"x,y,z=[`tr " " ,`].sort;p x*z"
 https://open.kattis.com/problems/mult/statistics (5)
     ruby -e"x=0;[-`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
 https://open.kattis.com/problems/janitortroubles/statistics (5)
     ruby -e"x=`tr " " ,`;p x.map{|y|x.sum*0.5-y}.inject(:*)**0.5"
+https://open.kattis.com/problems/kornislav/statistics (5)
+    ruby -e"x,y,z=[`tr " " ,`].sort;p x*z"
+https://open.kattis.com/problems/linesperhour/statistics (5)
+    ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{|a|0>y-=a}"
 https://open.kattis.com/problems/squarepeg/statistics (5)
     ruby -e"puts `tr " " ">"`*1.414?'nope':'fits'"
 https://open.kattis.com/problems/addingtrouble/statistics (5)
@@ -366,6 +370,8 @@ https://open.kattis.com/problems/millifaersla/statistics (5)
     ruby -e"puts [`tr "\n" ,`].zip(['Monnei','Fjee','Dolladollabilljoll']).min[1]"
 https://open.kattis.com/problems/internationaldates/statistics (5)
     ruby -e"x,y,z=`tr /89 ,7`;puts x>12?'EU':y>12?'US':'either'"
+https://open.kattis.com/problems/cuchitunnels/statistics (5)
+    read;ruby -e"x=0;puts [`tr " " ,`+1].all?{|y|2>x+=2-y}&&x>0?'YES':'NO'"
 https://open.kattis.com/problems/tarifa/statistics (5)
     read a;ruby -e"p $a*-~`tr "\n" -`0"
 https://open.kattis.com/problems/grassseed/statistics (5)
@@ -444,6 +450,8 @@ https://open.kattis.com/problems/exam/statistics (5)
     read a;ruby -e"x=gets;p~-x.size-(~$a+x.chars.count{|y|y==ARGF.getc}).abs"
 https://open.kattis.com/problems/abc/statistics (5)
     read a b c;ruby -e"gets.bytes{|x|puts [$a,$b,$c].sort[x-65]}"
+https://open.kattis.com/problems/skener/statistics (5)
+    read a b c d;ruby -e"$a.times{puts gets.each_char.map{|x|x*$d}.join*$c}"
 
 encoded: ruby, interactive
 https://open.kattis.com/problems/ninetynine/statistics (6)
