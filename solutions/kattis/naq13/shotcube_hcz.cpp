@@ -42,7 +42,7 @@ int main() {
         }
     }
 
-    for (auto i: shot_h) {
+    for (pair<long, long> i: shot_h) {
         pair<long, long> vert {0, 0};
 
         for (long j = 0; j < 7; ++j) {

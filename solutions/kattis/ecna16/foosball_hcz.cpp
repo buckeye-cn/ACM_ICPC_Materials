@@ -73,7 +73,7 @@ int main() {
         }
     }
 
-    for (auto i: bests) {
+    for (pair<string, string> i: bests) {
         cout << i.first << ' ' << i.second << endl;
     }
 

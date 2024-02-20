@@ -39,7 +39,7 @@ int main() {
     }
 
     int i = 0;
-    for (auto name: names) {
+    for (pair<string, int> name: names) {
         len[i] = name.first.size() - 1;
 
         for (int j = 0; j < len[i]; ++j) {
