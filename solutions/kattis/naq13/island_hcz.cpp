@@ -16,15 +16,15 @@ char mapdata[100][100];
 int i_tot;
 int b_tot;
 int bus_tot;
-int group[100][100];
-int uf[10000];
+int mapgroup[100][100];
+int group[10000];
 
 void dfs(int i, int j) {
     if (i < 0 || i >= n || j < 0 || j >= m) return;
     if (mapdata[i][j] != '#' && mapdata[i][j] != 'X') return;
-    if (group[i][j] >= 0) return;
+    if (mapgroup[i][j] >= 0) return;
 
-    group[i][j] = i_tot;
+    mapgroup[i][j] = i_tot;
 
     dfs(i, j - 1);
     dfs(i, j + 1);
@@ -32,10 +32,23 @@ void dfs(int i, int j) {
     dfs(i + 1, j);
 }
 
-int find(int i) {
-    if (uf[i] == i) return i;
+int find(int g) {
+    int root = g;
 
-    return uf[i] = find(uf[i]);
+    while (root != group[root]) {
+        root = group[root];
+    }
+
+    int curr = g;
+
+    while (curr != root) {
+        int prev = curr;
+
+        curr = group[prev];
+        group[prev] = root;
+    }
+
+    return root;
 }
 
 void merge(int from, int to) {
@@ -43,7 +56,7 @@ void merge(int from, int to) {
     to = find(to);
 
     if (from != to) {
-        uf[from] = to;
+        group[from] = to;
     }
 }
 
@@ -54,13 +67,13 @@ void solve() {
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
-            group[i][j] = -1;
+            mapgroup[i][j] = -1;
         }
     }
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
-            if ((mapdata[i][j] == '#' || mapdata[i][j] == 'X') && group[i][j] < 0) {
+            if ((mapdata[i][j] == '#' || mapdata[i][j] == 'X') && mapgroup[i][j] < 0) {
                 dfs(i, j);
                 i_tot += 1;
             }
@@ -68,7 +81,7 @@ void solve() {
     }
 
     for (int i = 0; i < i_tot; ++i) {
-        uf[i] = i;
+        group[i] = i;
     }
 
     for (int i = 0; i < n; ++i) {
@@ -79,7 +92,7 @@ void solve() {
 
                 if (ii > i + 1 && mapdata[ii][j] == 'X') {
                     b_tot += 1;
-                    merge(group[i][j], group[ii][j]);
+                    merge(mapgroup[i][j], mapgroup[ii][j]);
                 }
 
                 int jj;
@@ -87,14 +100,14 @@ void solve() {
 
                 if (jj > j + 1 && mapdata[i][jj] == 'X') {
                     b_tot += 1;
-                    merge(group[i][j], group[i][jj]);
+                    merge(mapgroup[i][j], mapgroup[i][jj]);
                 }
             }
         }
     }
 
     for (int i = 0; i < i_tot; ++i) {
-        if (uf[i] == i) {
+        if (group[i] == i) {
             bus_tot += 1;
         }
     }
@@ -112,7 +125,7 @@ void solve() {
 
     // for (int i = 0; i < n; ++i) {
     //     for (int j = 0; j < m; ++j) {
-    //         cerr << char('0' + group[i][j]);
+    //         cerr << char('0' + mapgroup[i][j]);
     //     }
     //     cerr << endl;
     // }

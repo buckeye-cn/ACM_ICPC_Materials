@@ -13,21 +13,25 @@
 using namespace std;
 
 int n, m;
-int uf[100000];
+int group[100000];
 
-int find(int i) {
-    if (uf[i] == i) return i;
+int find(int g) {
+    int root = g;
 
-    return uf[i] = find(uf[i]);
-}
-
-void merge(int from, int to) {
-    from = find(from);
-    to = find(to);
-
-    if (from != to) {
-        uf[from] = to;
+    while (root != group[root]) {
+        root = group[root];
     }
+
+    int curr = g;
+
+    while (curr != root) {
+        int prev = curr;
+
+        curr = group[prev];
+        group[prev] = root;
+    }
+
+    return root;
 }
 
 int main() {
@@ -38,20 +42,25 @@ int main() {
     cin >> n >> m;
 
     for (int i = 0; i < n; ++i) {
-        uf[i] = i;
+        group[i] = i;
     }
 
     for (int i = 0; i < m; ++i) {
         int from, to;
         cin >> from >> to;
 
-        merge(from - 1, to - 1);
+        from = find(from - 1);
+        to = find(to - 1);
+
+        if (from != to) {
+            group[from] = to;
+        }
     }
 
     int power = m - n;
 
     for (int i = 0; i < n; ++i) {
-        if (uf[i] == i) power += 1;
+        power += group[i] == i;
     }
 
     long result = 1;
