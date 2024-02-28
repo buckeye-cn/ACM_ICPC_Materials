@@ -83,6 +83,8 @@ https://open.kattis.com/problems/quadrant/statistics (5)
     tr -d 0-9|sed 2p|wc -w|tr 012 124
 https://open.kattis.com/problems/isyavowel/statistics (5)
     tr -dc aeiouy|tee _|tr -d y|wc -L;wc -L<_
+https://open.kattis.com/problems/triplesevens/statistics (5)
+    tr -dc 7|grep -o 777||echo 0
 https://open.kattis.com/problems/deathknight/statistics (5)
     sed "1d;/CD/d"|wc -l
 https://open.kattis.com/problems/magictrick/statistics (5)
@@ -460,6 +462,8 @@ https://open.kattis.com/problems/ninetynine/statistics (6)
     ruby -e"p 2;(1..).find{x=gets.to_i;p(x+x%3%2+1)>98}"
 https://open.kattis.com/problems/guess/statistics (6)
     ruby -e"x,y=0,-999;(0..).find{p x-y/=2;(z=gets)<'i'?x-=y:0;z<'d'}"
+https://open.kattis.com/problems/julmust/statistics (6)
+    ruby -e"x,y=0,-gets.to_i;(1..).find{|z|p z*(x-y/=2);(a=gets)>'m'?x-=y:0;a<'f'}"
 
 encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
@@ -478,6 +482,8 @@ https://open.kattis.com/problems/akcija/statistics (5)
     echo "x=[0*`tr "\n" ,`].sort;p x.sum-3.step(x.size,3).sum{|y|x[-y]}"|ruby
 https://open.kattis.com/problems/goombastacks/statistics (5)
     echo "puts'im'*-[(x=`sed "1d;s/ .*/)<=>&,(x+=/"`-x)].min+'possible'"|ruby
+https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
+    sed "1d;y/ /,/;s/.*/x=0;p [&,0].sum{|y|[x-x=y,1].max-1}/"|ruby
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
 
@@ -514,6 +520,8 @@ https://open.kattis.com/problems/nastyhacks/statistics (5)
     sed "1d;s/ .* /<=>&-/;s/.*/puts ['does not matter','do not '+x='advertise',x][&]/"|ruby
 https://open.kattis.com/problems/simplefactoring/statistics (5)
     sed "1d;y/ /,/;s/.*/x,y,z=&;x=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?:YES:'NO'/"|ruby
+https://open.kattis.com/problems/babelfish/statistics (5)
+    rev|sed "s/ .*/:'&',/;t;s/..*/puts x[:&]||'he'/;t;c}"|sed "1ix={"|ruby|rev
 https://open.kattis.com/problems/parsinghex/statistics (5)
     grep -oi 0x[0-9a-f]*|sed "s/.*/puts'&',&/"|ruby
 https://open.kattis.com/problems/vedurheidar/statistics (5)
