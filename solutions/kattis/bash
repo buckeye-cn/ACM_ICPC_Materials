@@ -166,6 +166,8 @@ https://open.kattis.com/problems/datum/statistics (5)
     read a b;date -d2009/$b/$a +%A
 
 encoded: ruby, math
+https://open.kattis.com/problems/champernowneverification/statistics (5)
+    read a;ruby -e"p'123456789'.match(/^$a/)?$a%10:-1"
 https://open.kattis.com/problems/nop/statistics (5)
     read a;ruby -e"x=0;'$a'.bytes{|y|x+=y<96?4-x%4:1};p x-${#a}-3"
 https://open.kattis.com/problems/distributingpoffins/statistics (5)
