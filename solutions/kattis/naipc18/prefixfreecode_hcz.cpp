@@ -47,7 +47,7 @@ int main() {
 
     ptable[n - k] = 1;
     for (int i = n - k + 1; i < n; ++i) {
-        ptable[i] = ptable[i - 1] * i % 1000000007l;
+        ptable[i] = ptable[i - 1] * i % MOD;
     }
 
     cin.get();
@@ -93,7 +93,7 @@ int main() {
         }
     }
 
-    cout << (r % 1000000007l) << endl;
+    cout << (r % MOD) << endl;
 
     return 0;
 }
