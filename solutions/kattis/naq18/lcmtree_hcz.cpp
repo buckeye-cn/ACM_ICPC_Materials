@@ -68,6 +68,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < i; ++j) {
             for (int k = 0; k < j; ++k) {
+                if (v[j] == v[k] && j != k + 1) continue;
+
                 if (v[j] * v[k] == v[i] * gcd(v[j], v[k])) {
                     lcmi[i][lcmn[i]][0] = j;
                     lcmi[i][lcmn[i]][1] = k;
