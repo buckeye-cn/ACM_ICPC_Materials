@@ -19,6 +19,8 @@ https://open.kattis.com/problems/apaxiaaans/statistics (5)
     tr -sc _
 https://open.kattis.com/problems/stickykeys/statistics (5)
     tr -sc _
+https://open.kattis.com/problems/biladlyklabord/statistics (5)
+    tr -sc _
 https://open.kattis.com/problems/meddelande/statistics (5)
     tr -dc a-z
 https://open.kattis.com/problems/soundex/statistics (5)
@@ -77,6 +79,8 @@ https://open.kattis.com/problems/headguard/statistics (5)
     sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/aaah/statistics (5)
     sed -z "s/^\(a*h\).*a\1/no/;t;cgo"
+https://open.kattis.com/problems/blandadbest/statistics (5)
+    sed -z "s/1//;t;cblandad best"
 
 encoded: string combined
 https://open.kattis.com/problems/cold/statistics (5)
@@ -374,6 +378,8 @@ https://open.kattis.com/problems/janitortroubles/statistics (5)
     ruby -e"x=`tr " " ,`;p x.map{|y|x.sum*0.5-y}.inject(:*)**0.5"
 https://open.kattis.com/problems/kornislav/statistics (5)
     ruby -e"x,y,z=[`tr " " ,`].sort;p x*z"
+https://open.kattis.com/problems/dfyrirdreki/statistics (5)
+    ruby -e"x,y,z=[`tr "\n" ,`];p 1+(y*y-4*x*z<=>0)"
 https://open.kattis.com/problems/linesperhour/statistics (5)
     ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{|a|0>y-=a}"
 https://open.kattis.com/problems/squarepeg/statistics (5)
@@ -462,6 +468,8 @@ https://open.kattis.com/problems/sevenwonders/statistics (5)
     ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
 https://open.kattis.com/problems/raggedright/statistics (5)
     ruby -e"x=`sed "s/./+1/g;s/$/,/"`0;p x[..-3].sum{|y|(x.max-y)**2}"
+https://open.kattis.com/problems/asciikassi/statistics (5)
+    read a;ruby -e"puts x='+'+'-'*$a+'+',(1..$a).map{'|'+' '*$a+'|'},x"
 https://open.kattis.com/problems/exam/statistics (5)
     read a;ruby -e"x=gets;p~-x.size-(~$a+x.chars.count{|y|y==ARGF.getc}).abs"
 https://open.kattis.com/problems/abc/statistics (5)
@@ -520,6 +528,8 @@ https://open.kattis.com/problems/heartrate/statistics (5)
     sed "1d;s/.* /(&-1..&+1).map{|x|p x*60\//;a}"|ruby
 https://open.kattis.com/problems/estimatingtheareaofacircle/statistics (5)
     sed "$ d;s/ .* /**2;p 3.1416*x,4.0*x\/&*/;ix="|ruby
+https://open.kattis.com/problems/irepeatmyself/statistics (5)
+    sed "1d;y/\\\\'/__/;s/.*/p (1..).find{|x|y='&'[0..x-1]*99;y>'&'\&\&y<'&~'}/"|ruby
 https://open.kattis.com/problems/nine/statistics (5)
     sed "1d;s/.*/x,y=8,9;99.times{|z|x=x*y**(&-1)[z]%z=10**9+7;y*=y%z};p x/"|ruby
 https://open.kattis.com/problems/shortlex/statistics (5)
