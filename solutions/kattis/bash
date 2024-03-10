@@ -7,6 +7,8 @@ https://open.kattis.com/problems/simpleaddition/statistics (5)
     expr `sed i+`
 https://open.kattis.com/problems/leggjasaman/statistics (5)
     expr `sed i+`
+https://open.kattis.com/problems/dragafra/statistics (5)
+    expr `sed 1a-`;cd
 https://open.kattis.com/problems/flatbokuveisla/statistics (5)
     expr `sed 1a%`;cd
 https://open.kattis.com/problems/finalexam2/statistics (5)
@@ -23,6 +25,8 @@ https://open.kattis.com/problems/soundex/statistics (5)
     tr -s A-Z _123_12__22455_12623_1_2_2|tr -d _
 
 encoded: sed
+https://open.kattis.com/problems/kvedja/statistics (5)
+    sed iKvedja,
 https://open.kattis.com/problems/oddecho/statistics (5)
     sed 1~2d
 https://open.kattis.com/problems/fyi/statistics (5)
@@ -77,6 +81,8 @@ https://open.kattis.com/problems/aaah/statistics (5)
 encoded: string combined
 https://open.kattis.com/problems/cold/statistics (5)
     tr -dc -|wc -L
+https://open.kattis.com/problems/fjoldibokstafa/statistics (5)
+    tr -dc A-Za-z|wc -L
 https://open.kattis.com/problems/titlecost/statistics (5)
     tr -d A-z|sed /93.7/c4
 https://open.kattis.com/problems/quadrant/statistics (5)
@@ -234,10 +240,14 @@ https://open.kattis.com/problems/crne/statistics (5)
     ruby -e"p (`cat`+2)**2/4"
 https://open.kattis.com/problems/planina/statistics (5)
     ruby -e"p~(2**`cat`)**2"
+https://open.kattis.com/problems/lidaskipting2/statistics (5)
+    ruby -e"p 0-p(`cat`)/-3"
 https://open.kattis.com/problems/romans/statistics (5)
     ruby -e"p (`cat`*88e4/809).round"
 https://open.kattis.com/problems/alloys/statistics (5)
     ruby -e"p [`cat`,1.0].min**2/4"
+https://open.kattis.com/problems/fimmtudagstilbod/statistics (5)
+    ruby -e"p [`cat`-2010,10].max*100"
 https://open.kattis.com/problems/99problems/statistics (5)
     ruby -e"p [`cat`+51,100].max/100*100-1"
 https://open.kattis.com/problems/3dprinter/statistics (5)
