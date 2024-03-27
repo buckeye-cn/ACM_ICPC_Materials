@@ -14,6 +14,18 @@ https://open.kattis.com/problems/flatbokuveisla/statistics (5)
 https://open.kattis.com/problems/finalexam2/statistics (5)
     expr `tee _|wc -l` - `uniq _|wc -l`;cd
 
+encoded: factor
+https://open.kattis.com/problems/listgame/statistics (5)
+    factor|tr -d 0-z|wc -L
+https://open.kattis.com/problems/primality/statistics (5)
+    factor|sed "s/.* .* .*/NO/;t;cYES"
+
+encoded: date
+https://open.kattis.com/problems/parentgap/statistics (5)
+    date -d`cat`/5/1|sed "s/[FS].*/6 weeks/;t;c5 weeks"
+https://open.kattis.com/problems/datum/statistics (5)
+    read a b;date -d$b/$a/09 +%A
+
 encoded: tr
 https://open.kattis.com/problems/apaxiaaans/statistics (5)
     tr -sc _
@@ -166,14 +178,6 @@ https://open.kattis.com/problems/filip/statistics (5)
     rev|fold -w4|sort|sed 1d
 https://open.kattis.com/problems/ofugsnuid/statistics (5)
     tac|sed x
-
-encoded: misc
-https://open.kattis.com/problems/listgame/statistics (5)
-    factor|tr -d 0-z|wc -L
-https://open.kattis.com/problems/primality/statistics (5)
-    factor|sed "s/.* .* .*/NO/;t;cYES"
-https://open.kattis.com/problems/datum/statistics (5)
-    read a b;date -d2009/$b/$a +%A
 
 encoded: ruby, math
 https://open.kattis.com/problems/champernowneverification/statistics (5)
@@ -477,14 +481,6 @@ https://open.kattis.com/problems/abc/statistics (5)
 https://open.kattis.com/problems/skener/statistics (5)
     read a b c d;ruby -e"$a.times{puts gets.each_char.map{|x|x*$d}.join*$c}"
 
-encoded: ruby, interactive
-https://open.kattis.com/problems/ninetynine/statistics (6)
-    ruby -e"p 2;(1..).find{x=gets.to_i;p(x+x%3%2+1)>98}"
-https://open.kattis.com/problems/guess/statistics (6)
-    ruby -e"x,y=0,-999;(0..).find{p x-y/=2;(z=gets)<'i'?x-=y:0;z<'d'}"
-https://open.kattis.com/problems/julmust/statistics (6)
-    ruby -e"x,y=0,-gets.to_i;(1..).find{|z|p z*(x-y/=2);(a=gets)>'m'?x-=y:0;a<'f'}"
-
 encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
     ruby -e"x=10**9;p -x+(1..gets.to_i).sum{[x,x=gets.to_i].max}"
@@ -553,6 +549,16 @@ https://open.kattis.com/problems/scalingrecipe/statistics (5)
 https://open.kattis.com/problems/sibice/statistics (5)
     read a b c;sed "s/.*/puts &*&>$b*$b+$c*$c?:NE:'DA'/"|ruby
 
+encoded: ruby, interactive
+https://open.kattis.com/problems/ninetynine/statistics (6)
+    ruby -e"p 2;(1..).find{x=gets.to_i;p(x+x%3%2+1)>98}"
+https://open.kattis.com/problems/askmarilyn/statistics (6)
+    ruby -e"1000.times{|x|putc 65+x=x/7%3;p;y=gets.bytes;putc y[0]^~x/~y[2][0];p;gets}"
+https://open.kattis.com/problems/guess/statistics (6)
+    ruby -e"x,y=0,-999;(0..).find{p x-y/=2;(z=gets)<'i'?x-=y:0;z<'d'}"
+https://open.kattis.com/problems/julmust/statistics (6)
+    ruby -e"x,y=0,-gets.to_i;(1..).find{|z|p z*(x-y/=2);(a=gets)>'m'?x-=y:0;a<'f'}"
+
 encoded: python, math
 https://open.kattis.com/problems/addtwonumbers/statistics (5)
     tr " " +|python3 -i
@@ -594,17 +600,12 @@ https://open.kattis.com/problems/velkomin/statistics (4)
     sed syVyVELKOMINy V!>sz
 https://open.kattis.com/problems/hello/statistics (5)
 
-math
+expr
 https://open.kattis.com/problems/buka/statistics (5)
     x* e*
     xargs expr
 
-string
-https://open.kattis.com/problems/ovissa/statistics (5)
-    wc -L
-https://open.kattis.com/problems/autori/statistics (5)
-    t*|s*
-    tr tsa-z- tt sed sztzzg
+sed
 https://open.kattis.com/problems/greetings2/statistics (2)
     s*
     sed szezeezg
@@ -614,12 +615,22 @@ https://open.kattis.com/problems/howl/statistics (2)
 https://open.kattis.com/problems/bitteeinbit/statistics (2)
     s*
     sed sz.zz2g
+https://open.kattis.com/problems/lubbilaerir/statistics (2)
+    s*
+    sed sz.zz2g
 https://open.kattis.com/problems/simonsays/statistics (5)
     s* -n
     sed szSimon.says.zzp
 https://open.kattis.com/problems/simon/statistics (5)
     s* -n
     sed szsimon.says.zzp
+
+string combined
+https://open.kattis.com/problems/ovissa/statistics (5)
+    wc -L
+https://open.kattis.com/problems/autori/statistics (5)
+    t*|s*
+    tr tsa-z- tt sed sztzzg
 https://open.kattis.com/problems/echoechoecho/statistics (5)
     t*;*t
     tee tft tgt cat
