@@ -10,8 +10,6 @@
 
 using namespace std;
 
-int v[5];
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
