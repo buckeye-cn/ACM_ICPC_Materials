@@ -470,10 +470,6 @@ https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{|y|y[..1]};end"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"x=ARGF.to_a;x.tally.sort.map{|y,z|puts y,1e2*z/x.size}"
-https://open.kattis.com/problems/sevenwonders/statistics (5)
-    ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
-https://open.kattis.com/problems/raggedright/statistics (5)
-    ruby -e"x=`sed "s/./+1/g;s/$/,/"`0;p x[..-3].sum{|y|(x.max-y)**2}"
 https://open.kattis.com/problems/asciikassi/statistics (5)
     read a;ruby -e"puts x='+'+'-'*$a+'+',(1..$a).map{'|'+' '*$a+'|'},x"
 https://open.kattis.com/problems/exam/statistics (5)
@@ -483,7 +479,21 @@ https://open.kattis.com/problems/abc/statistics (5)
 https://open.kattis.com/problems/skener/statistics (5)
     read a b c d;ruby -e"$a.times{puts gets.each_char.map{|x|x*$d}.join*$c}"
 
+encoded: ruby + cat/tr/sed, string
+https://open.kattis.com/problems/sevenwonders/statistics (5)
+    ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
+https://open.kattis.com/problems/raggedright/statistics (5)
+    ruby -e"x=`sed "s/./+1/g;s/$/,/"`0;p x[..-3].sum{|y|(x.max-y)**2}"
+
 encoded: ruby, large input
+https://open.kattis.com/problems/backspace/statistics (5)
+    rev|ruby -e"x=0;gets.bytes{|y|x+=y>60?x<1?putc(y)*0:-1:1}"|rev
+https://open.kattis.com/problems/sequencereduction/statistics (5)
+    read a;ruby -e"x=10**9;p -x+(1..$a).sum{[x,x=gets.to_i].max}"
+https://open.kattis.com/problems/spritt/statistics (5)
+    read a b;ruby -e"puts $b-(1..$a).sum{gets.to_i}<0?'Neibb':'Jebb'"
+
+encoded: ruby + cat/tr/sed, large input
 https://open.kattis.com/problems/arithmetic/statistics (5)
     echo "puts'%X'%0`cat`"|ruby
 https://open.kattis.com/problems/pvbg/statistics (5)
@@ -502,10 +512,6 @@ https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
     sed "1d;y/ /,/;s/.*/x=0;p [&,0].sum{|y|[x-x=y,1].max-1}/"|ruby
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
-https://open.kattis.com/problems/sequencereduction/statistics (5)
-    read a;ruby -e"x=10**9;p -x+(1..$a).sum{[x,x=gets.to_i].max}"
-https://open.kattis.com/problems/spritt/statistics (5)
-    read a b;ruby -e"puts $b-(1..$a).sum{gets.to_i}<0?'Neibb':'Jebb'"
 
 encoded: ruby, multiline
 https://open.kattis.com/problems/bishops/statistics (5)
