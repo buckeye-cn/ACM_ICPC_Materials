@@ -139,7 +139,7 @@ https://open.kattis.com/problems/avion/statistics (5)
 https://open.kattis.com/problems/liquidassets/statistics (5)
     read;tr -sc _|sed "s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/keywords/statistics (5)
-    read;tr A-Z- "a-z "|sort|uniq|wc -l
+    read;tr A-Z- "a-z "|sort -u|wc -l
 https://open.kattis.com/problems/mumblerap/statistics (5)
     read;tr -c 0-9 "\n"|sort -n|tail -1
 https://open.kattis.com/problems/ullendullendoff/statistics (5)
@@ -176,6 +176,8 @@ https://open.kattis.com/problems/basketballoneonone/statistics (5)
     rev|cut -b2
 https://open.kattis.com/problems/filip/statistics (5)
     rev|fold -w4|sort|sed 1d
+https://open.kattis.com/problems/coursescheduling/statistics (5)
+    sort -u|sed "1d;s/.* //"|sort -r|uniq -c|tac -s" "
 https://open.kattis.com/problems/ofugsnuid/statistics (5)
     tac|sed x
 
@@ -388,6 +390,8 @@ https://open.kattis.com/problems/cornhusker/statistics (5)
     ruby -e"*x,y,z=[`tr " \n" ,`];p (0..4).sum{x.pop*x.pop}/5*y/z"
 https://open.kattis.com/problems/linesperhour/statistics (5)
     ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{|a|0>y-=a}"
+https://open.kattis.com/problems/server/statistics (5)
+    ruby -e"x,y,*z=[`tr " \n" ,`];p z.count{|a|0<=y-=a}"
 https://open.kattis.com/problems/squarepeg/statistics (5)
     ruby -e"puts `tr " " ">"`*1.414?:nope:'fits'"
 https://open.kattis.com/problems/addingtrouble/statistics (5)
@@ -554,6 +558,8 @@ https://open.kattis.com/problems/catmouse/statistics (5)
     sed "1d;s/ .* /;puts&*4.603339>/;s/$/?:YES:'NO'/"|ruby
 https://open.kattis.com/problems/nastyhacks/statistics (5)
     sed "1d;s/ .* /<=>&-/;s/.*/puts ['does not matter','do not '+x='advertise',x][&]/"|ruby
+https://open.kattis.com/problems/mixedfractions/statistics (5)
+    sed "$ d;y/ /,/;s/.*/x,y=&;puts x\/y,x%y,'\/',y/"|ruby
 https://open.kattis.com/problems/simplefactoring/statistics (5)
     sed "1d;y/ /,/;s/.*/x,y,z=&;x=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?:YES:'NO'/"|ruby
 https://open.kattis.com/problems/babelfish/statistics (5)
