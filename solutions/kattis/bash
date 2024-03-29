@@ -220,6 +220,8 @@ https://open.kattis.com/problems/climbingworm/statistics (5)
     read a b c;ruby -e"p [1-($a-$c)/($a-$b),1].max"
 https://open.kattis.com/problems/climbingstairs/statistics (5)
     read a b c;ruby -e"p 2*[(1+$a+$b)/2,$b,$c].max"
+https://open.kattis.com/problems/pieceofcake2/statistics (5)
+    read a b c;ruby -e"p [$b,$a-$b].max*[$c,$a-$c].max*4"
 https://open.kattis.com/problems/expectedearnings/statistics (5)
     read a b c;ruby -e"puts'spela'+($a*$c<$b?'':' inte!')"
 https://open.kattis.com/problems/dasblinkenlights/statistics (5)
@@ -497,9 +499,9 @@ encoded: ruby, large input
 https://open.kattis.com/problems/backspace/statistics (5)
     rev|ruby -e"x=0;gets.bytes{|y|x+=y>60?x<1?putc(y)*0:-1:1}"|rev
 https://open.kattis.com/problems/sequencereduction/statistics (5)
-    read a;ruby -e"x=10**9;p -x+(1..$a).sum{[x,x=gets.to_i].max}"
+    read;ruby -e"x=10**9;p -x+ARGF.sum{|y|[x,x=y.to_i].max}"
 https://open.kattis.com/problems/spritt/statistics (5)
-    read a b;ruby -e"puts $b-(1..$a).sum{gets.to_i}<0?:Neibb:'Jebb'"
+    read a b;ruby -e"puts $b-ARGF.sum{|x|x.to_i}<0?:Neibb:'Jebb'"
 
 encoded: ruby + cat/tr/sed, large input
 https://open.kattis.com/problems/arithmetic/statistics (5)
@@ -575,7 +577,7 @@ https://open.kattis.com/problems/sibice/statistics (5)
 
 encoded: ruby, interactive
 https://open.kattis.com/problems/ninetynine/statistics (6)
-    ruby -e"p 2;(1..).find{x=gets.to_i;p(x+x%3%2+1)>98}"
+    ruby -e"p 2;ARGF.find{|x|y=x.to_i;p(y+y%3%2+1)>98}"
 https://open.kattis.com/problems/askmarilyn/statistics (6)
     ruby -e"1000.times{|x|putc 65+x=x/7%3;p;y=gets.bytes;putc y[0]^~x/~y[2][0];p;gets}"
 https://open.kattis.com/problems/guess/statistics (6)
