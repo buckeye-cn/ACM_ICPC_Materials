@@ -226,6 +226,8 @@ https://open.kattis.com/problems/expectedearnings/statistics (5)
     read a b c;ruby -e"puts'spela'+($a*$c<$b?'':' inte!')"
 https://open.kattis.com/problems/dasblinkenlights/statistics (5)
     read a b c;ruby -e"puts $a*$b/$a.gcd($b)>$c?:no:'yes'"
+https://open.kattis.com/problems/freecell/statistics (5)
+    read a b c;ruby -e"puts -~$a*2**$b<$c?:no:'yes'"
 https://open.kattis.com/problems/simplearithmetic/statistics (5)
     read a b c;ruby -e"x=10**6;y=$a*$b*x/$c;puts'%d.%06d'%[y/x,y%x]"
 https://open.kattis.com/problems/makingameowth/statistics (5)
@@ -476,10 +478,16 @@ https://open.kattis.com/problems/reduplikation/statistics (5)
     ruby -e"puts gets.chop*gets.to_i"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
     ruby -e"x=gets.size/3*(gets.size/3);puts'S('*x+'0'+')'*x"
+https://open.kattis.com/problems/tripletexting/statistics (5)
+    ruby -e"x=gets;puts x.chars.each_slice(x.size/3).sort[2].join"
 https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{|y|y[..1]};end"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"x=ARGF.to_a;x.tally.sort.map{|y,z|puts y,1e2*z/x.size}"
+https://open.kattis.com/problems/kikiboba/statistics (5)
+    ruby -e"x=gets;y,z=x.count('b'),x.count('k');puts y+z<1?:none:['boki','boba','kiki'][y<=>z]"
+https://open.kattis.com/problems/recount/statistics (5)
+    ruby -e"x,y,*z=ARGF.tally.sort_by{|a,b|-b};puts x[1]>y[1]?x[0]:'Runoff!'"
 https://open.kattis.com/problems/asciikassi/statistics (5)
     read a;ruby -e"puts x='+'+'-'*$a+'+',(1..$a).map{'|'+' '*$a+'|'},x"
 https://open.kattis.com/problems/exam/statistics (5)
@@ -494,6 +502,8 @@ https://open.kattis.com/problems/sevenwonders/statistics (5)
     ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{|y|~-y*~-y}+x.min*7-7"
 https://open.kattis.com/problems/raggedright/statistics (5)
     ruby -e"x=`sed "s/./+1/g;s/$/,/"`0;p x[..-3].sum{|y|(x.max-y)**2}"
+https://open.kattis.com/problems/keysphonewallet/statistics (5)
+    ruby -e"x=[:keys,:phone,:wallet]-[`sed "1d;s/.*/:&,/"`];puts x==[]?:ready:x"
 
 encoded: ruby, large input
 https://open.kattis.com/problems/backspace/statistics (5)
