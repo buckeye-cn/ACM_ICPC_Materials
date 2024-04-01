@@ -227,9 +227,9 @@ https://open.kattis.com/problems/pieceofcake2/statistics (5)
 https://open.kattis.com/problems/expectedearnings/statistics (5)
     read a b c;ruby -e"puts'spela'+($a*$c<$b?'':' inte!')"
 https://open.kattis.com/problems/dasblinkenlights/statistics (5)
-    read a b c;ruby -e"puts $a*$b/$a.gcd($b)>$c?:no:'yes'"
+    read a b c;ruby -e"puts $a.lcm($b)>$c?:no:'yes'"
 https://open.kattis.com/problems/freecell/statistics (5)
-    read a b c;ruby -e"puts -~$a*2**$b<$c?:no:'yes'"
+    read a b c;ruby -e"puts~$a*2**$b>-$c?:no:'yes'"
 https://open.kattis.com/problems/simplearithmetic/statistics (5)
     read a b c;ruby -e"x=10**6;y=$a*$b*x/$c;puts'%d.%06d'%[y/x,y%x]"
 https://open.kattis.com/problems/makingameowth/statistics (5)
@@ -366,12 +366,12 @@ https://open.kattis.com/problems/aleidibio/statistics (5)
     ruby -e"p `tac|tr "\n" -`0"
 https://open.kattis.com/problems/kcuddlanod/statistics (5)
     ruby -e"p `rev|tr "25 " "52>"`?2:1"
+https://open.kattis.com/problems/compass/statistics (5)
+    ruby -e"p 180-(`tr "\n" -`180)%360"
 https://open.kattis.com/problems/heimavinna/statistics (5)
     ruby -e"p [`tr ";" ,`].sum{|x|x<0?1-x:1}"
 https://open.kattis.com/problems/monopol/statistics (5)
     ruby -e"p [-`tr " \n" ,`].sum{|x|x>7?14-x:x}/36.0"
-https://open.kattis.com/problems/compass/statistics (5)
-    ruby -e"p -(-180..).find{|x|(`tr "\n" -`x)%360<1}"
 https://open.kattis.com/problems/bijele/statistics (5)
     ruby -e"[1,1,2,2,2,8].zip([`tr " " ,`]){|x,y|p x-y}"
 https://open.kattis.com/problems/colourwars/statistics (5)
@@ -436,10 +436,14 @@ https://open.kattis.com/problems/pot/statistics (5)
     ruby -e"p 0`sed "s/.$/**&+/"`0"
 https://open.kattis.com/problems/modulo/statistics (5)
     ruby -e"p [`sed s/$/%42,/`].uniq.size"
+https://open.kattis.com/problems/locustlocus/statistics (5)
+    ruby -e"p [`sed "1d;s/ /+/;s/ .*/.lcm(&),/"`].min"
 https://open.kattis.com/problems/jobexpenses/statistics (5)
     ruby -e"p -(0`sed "s/\(^\| \)[0-9]*//g"`)"
 https://open.kattis.com/problems/kafkaesque/statistics (5)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
+https://open.kattis.com/problems/freefood/statistics (5)
+    ruby -e"p (`sed "1d;s/ /../;s/.*/(&).to_a+/"`[]).uniq.size"
 https://open.kattis.com/problems/cinema2/statistics (5)
     ruby -e"p (x=`sed "1s/ .*/-/;s/ /)[9]+(x-=/g"`)[9]"
 https://open.kattis.com/problems/associationofmyths/statistics (5)
@@ -517,7 +521,7 @@ https://open.kattis.com/problems/backspace/statistics (5)
 https://open.kattis.com/problems/sequencereduction/statistics (5)
     read;ruby -e"x=10**9;p -x+ARGF.sum{|y|[x,x=y.to_i].max}"
 https://open.kattis.com/problems/spritt/statistics (5)
-    read a b;ruby -e"puts $b-ARGF.sum{|x|x.to_i}<0?:Neibb:'Jebb'"
+    read a b;ruby -e"puts $b<ARGF.sum{|x|x.to_i}?:Neibb:'Jebb'"
 
 encoded: ruby + cat/tr/sed, large input
 https://open.kattis.com/problems/arithmetic/statistics (5)
@@ -542,6 +546,8 @@ https://open.kattis.com/problems/prjonamynstur/statistics (5)
     read;tr ".A^v\n/\\" YhJ[E^|ruby -e"p gets.bytes.sum{|x|x-69}"
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
+https://open.kattis.com/problems/buildinghighways/statistics (5)
+    read a;echo "x=[`tr " " ,`];p x.min*($a-2)+x.sum"|ruby
 
 encoded: ruby, multiline
 https://open.kattis.com/problems/bishops/statistics (5)
@@ -564,6 +570,8 @@ https://open.kattis.com/problems/heartrate/statistics (5)
     sed "1d;s/.* /(&-1..&+1).map{|x|p x*60\//;a}"|ruby
 https://open.kattis.com/problems/estimatingtheareaofacircle/statistics (5)
     sed "$ d;s/ .* /**2;p 3.1416*x,4.0*x\/&*/;ix="|ruby
+https://open.kattis.com/problems/oddmanout/statistics (5)
+    sed "y/ /^/;2~2s/.*/puts'Case #%d:'%x+=1,/;1cx=0"|ruby
 https://open.kattis.com/problems/irepeatmyself/statistics (5)
     sed "1d;y/\\\\'/__/;s/.*/p (1..).find{|x|y='&'[0..x-1]*99;y>'&'\&\&y<'&~'}/"|ruby
 https://open.kattis.com/problems/nine/statistics (5)
