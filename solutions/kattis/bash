@@ -478,6 +478,8 @@ https://open.kattis.com/problems/pokechat/statistics (5)
     ruby -e"x=gets;gets.scan(/.../){|y|putc x[y.to_i-1]}"
 https://open.kattis.com/problems/doublepassword/statistics (5)
     ruby -e"x,y=gets,gets;p 2**(0..3).count{|z|x[z]!=y[z]}"
+https://open.kattis.com/problems/encodedmessage/statistics (5)
+    ruby -e"gets.to_i.times{x=gets;y=x.size;y.times{|z|putc x[((y-1)**0.5*z-1)%y]}}"
 https://open.kattis.com/problems/reduplikation/statistics (5)
     ruby -e"puts gets.chop*gets.to_i"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
@@ -536,6 +538,8 @@ https://open.kattis.com/problems/goombastacks/statistics (5)
     echo "puts'im'*-[(x=`sed "1d;s/ .*/)<=>&,(x+=/"`-x)].min+'possible'"|ruby
 https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
     sed "1d;y/ /,/;s/.*/x=0;p [&,0].sum{|y|[x-x=y,1].max-1}/"|ruby
+https://open.kattis.com/problems/prjonamynstur/statistics (5)
+    read;tr ".A^v\n/\\" YhJ[E^|ruby -e"p gets.bytes.sum{|x|x-69}"
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
     read;echo "x=`tr " " ,`;p x.index(x.min)"|ruby
 
