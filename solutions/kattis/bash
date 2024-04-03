@@ -50,7 +50,7 @@ https://open.kattis.com/problems/thelastproblem/statistics (5)
 https://open.kattis.com/problems/kemija08/statistics (5)
     sed "s/\([aeiou]\)p\1/\1/g"
 https://open.kattis.com/problems/apaxianparent/statistics (5)
-    sed "s/\([aeiou]\|ex\|\) /ex/"
+    sed "s/[aeiou] \|ex \| /ex/"
 https://open.kattis.com/problems/piglatin/statistics (5)
     sed "s/\([^aeiouy ]*\)\(\w*\)/\2:\1ay/g;s/:a/ya/g;s/://g"
 https://open.kattis.com/problems/quiteaproblem/statistics (5)
@@ -87,14 +87,14 @@ https://open.kattis.com/problems/stafur/statistics (5)
     sed "s/[AEIOU]/Jebb/;t;s/Y/Kannski/;t;cNeibb"
 https://open.kattis.com/problems/cats/statistics (5)
     sed "s/1/yes/;s/6/yes no no yes yes yes/;q"
+https://open.kattis.com/problems/blandadbest/statistics (5)
+    sed "$ !d;3cblandad best"
 https://open.kattis.com/problems/digits/statistics (5)
     sed "$ d;s/^[^1]$/2/;s/.\{10,\}/4/;/../c3"
 https://open.kattis.com/problems/headguard/statistics (5)
     sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/aaah/statistics (5)
-    sed -z "s/^\(a*h\).*a\1/no/;t;cgo"
-https://open.kattis.com/problems/blandadbest/statistics (5)
-    sed -z "s/1//;t;cblandad best"
+    read a;sed -z "s/.*a$a/no/;t;cgo"
 
 encoded: string combined
 https://open.kattis.com/problems/cold/statistics (5)
@@ -462,6 +462,8 @@ https://open.kattis.com/problems/bestcompression/statistics (5)
     ruby -e"puts `sed "s/ /<2<</"`?:yes:'no'"
 https://open.kattis.com/problems/sith/statistics (5)
     ruby -e"puts ['VEIT EKKI',:SITH,:JEDI][(`sed "1d;2s/$/-/;3a)[9]+"`[9]]"
+https://open.kattis.com/problems/ferskastajarmid/statistics (5)
+    ruby -e"puts [`sed "1d;s/ /*/2;s/\(.*\) \(.*\)/[-\2,'\1'],/"`].min[1]"
 https://open.kattis.com/problems/prsteni/statistics (5)
     ruby -e"x=`sed "1d;s/ /r;puts x\//g"`"
 https://open.kattis.com/problems/sottkvi/statistics (5)
