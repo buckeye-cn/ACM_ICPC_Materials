@@ -43,8 +43,6 @@ https://open.kattis.com/problems/kvedja/statistics (5)
     sed iKvedja,
 https://open.kattis.com/problems/oddecho/statistics (5)
     sed 1~2d
-https://open.kattis.com/problems/fyi/statistics (5)
-    sed "s/555..../1/;t;c0"
 https://open.kattis.com/problems/thelastproblem/statistics (5)
     sed "s/.*/Thank you, &, and farewell!/"
 https://open.kattis.com/problems/kemija08/statistics (5)
@@ -53,6 +51,8 @@ https://open.kattis.com/problems/apaxianparent/statistics (5)
     sed "s/[aeiou] \|ex \| /ex/"
 https://open.kattis.com/problems/piglatin/statistics (5)
     sed "s/\([^aeiouy ]*\)\(\w*\)/\2:\1ay/g;s/:a/ya/g;s/://g"
+https://open.kattis.com/problems/fyi/statistics (5)
+    sed "s/555..../1/;t;c0"
 https://open.kattis.com/problems/quiteaproblem/statistics (5)
     sed "s/.*problem.*/yes/I;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (5)
@@ -87,6 +87,8 @@ https://open.kattis.com/problems/stafur/statistics (5)
     sed "s/[AEIOU]/Jebb/;t;s/Y/Kannski/;t;cNeibb"
 https://open.kattis.com/problems/cats/statistics (5)
     sed "s/1/yes/;s/6/yes no no yes yes yes/;q"
+https://open.kattis.com/problems/avian/statistics (5)
+    sed "2!d;s/^/iunty23v7itdhugh3c/"
 https://open.kattis.com/problems/blandadbest/statistics (5)
     sed "$ !d;3cblandad best"
 https://open.kattis.com/problems/digits/statistics (5)
@@ -94,7 +96,7 @@ https://open.kattis.com/problems/digits/statistics (5)
 https://open.kattis.com/problems/headguard/statistics (5)
     sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/aaah/statistics (5)
-    read a;sed -z "s/.*a$a/no/;t;cgo"
+    read a;sed "s/.*a$a/no/;t;cgo"
 
 encoded: string combined
 https://open.kattis.com/problems/cold/statistics (5)
@@ -384,12 +386,16 @@ https://open.kattis.com/problems/batterup/statistics (5)
     ruby -e"x=[0e`tr " \n" ,`-1]-[-1];p x.sum/~-x.size"
 https://open.kattis.com/problems/cosmicpathoptimization/statistics (5)
     ruby -e"x,*y=`tr " \n" ,`0;p y.sum/x"
-https://open.kattis.com/problems/socialrunning/statistics (5)
-    ruby -e"x,*y=[`tr "\n" ,`];p (1..x).map{|z|y[-z]+y[2-z]}.min"
 https://open.kattis.com/problems/mult/statistics (5)
     ruby -e"x=0;[-`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
 https://open.kattis.com/problems/janitortroubles/statistics (5)
     ruby -e"x=`tr " " ,`;p x.map{|y|x.sum*0.5-y}.inject(:*)**0.5"
+https://open.kattis.com/problems/movingday/statistics (5)
+    ruby -e"x,*y=1**`tr " \n" *,`0;p y.max-x"
+https://open.kattis.com/problems/socialrunning/statistics (5)
+    ruby -e"x,*y=[`tr "\n" ,`];p (1..x).map{|z|y[-z]+y[2-z]}.min"
+https://open.kattis.com/problems/grading/statistics (5)
+    ruby -e"*x,y=[`tr " \n" ,`];putc 65+x.count{|z|z>y}"
 https://open.kattis.com/problems/kornislav/statistics (5)
     ruby -e"x,y,z=[`tr " " ,`].sort;p x*z"
 https://open.kattis.com/problems/dfyrirdreki/statistics (5)
@@ -400,6 +406,8 @@ https://open.kattis.com/problems/linesperhour/statistics (5)
     ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{|a|0>y-=a}"
 https://open.kattis.com/problems/server/statistics (5)
     ruby -e"x,y,*z=[`tr " \n" ,`];p z.count{|a|0<=y-=a}"
+https://open.kattis.com/problems/gcvwr/statistics (5)
+    ruby -e"x,y,z,*a=`tr " \n" ,`0;p (x-y)*9/10-a.sum"
 https://open.kattis.com/problems/squarepeg/statistics (5)
     ruby -e"puts `tr " " ">"`*1.414?:nope:'fits'"
 https://open.kattis.com/problems/addingtrouble/statistics (5)
@@ -418,14 +426,12 @@ https://open.kattis.com/problems/tarifa/statistics (5)
     read a;ruby -e"p $a*-~`tr "\n" -`0"
 https://open.kattis.com/problems/grassseed/statistics (5)
     read a;ruby -e"p $a*(0*`tr " \n" *+`0)"
-https://open.kattis.com/problems/movingday/statistics (5)
-    read a b;ruby -e"p [`tr " \n" *,`].max-$b"
 https://open.kattis.com/problems/countdoubles/statistics (5)
     read a b;ruby -e"p [`tr " " ,`].each_cons($b).count{|x|x.sum{|y|~y%2}>1}"
+https://open.kattis.com/problems/hangingout/statistics (5)
+    read a b;ruby -e"x=0;p [`tr "v\na-t" -,+`].sum{|y|x+y>$a?1:0*x+=y}"
 https://open.kattis.com/problems/ratingproblems/statistics (5)
     read a b;ruby -e"x=`tr "\n" +`0;p (x-y=($a-$b)*3.0)/$a,(x+y)/$a"
-https://open.kattis.com/problems/gcvwr/statistics (5)
-    read a b c;ruby -e"p ($a-$b)*9/10-[`tr " " ,`].sum"
 
 encoded: ruby + sed, math
 https://open.kattis.com/problems/gcd/statistics (5)
