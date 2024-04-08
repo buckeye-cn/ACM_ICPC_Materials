@@ -186,6 +186,8 @@ https://open.kattis.com/problems/coursescheduling/statistics (5)
     sort -u|sed "1d;s/.* //"|sort -r|uniq -c|tac -s" "
 https://open.kattis.com/problems/ofugsnuid/statistics (5)
     tac|sed x
+https://open.kattis.com/problems/vefthjonatjon/statistics (5)
+    (tee _|grep -c ^J;grep -c .J. _;grep -c J$ _)|sort -n|head -1
 
 encoded: ruby, math
 https://open.kattis.com/problems/champernowneverification/statistics (5)
