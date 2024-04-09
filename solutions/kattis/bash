@@ -208,6 +208,8 @@ https://open.kattis.com/problems/irrationaldivision/statistics (5)
     read a b;ruby -e"p $a%2*(~$b%2*($b<=>$a)+1)"
 https://open.kattis.com/problems/carddivisibility/statistics (5)
     read a b;ruby -e"p~($b-$a)*-($a+$b)/2%9"
+https://open.kattis.com/problems/rampantgrowth/statistics (5)
+    read a b;ruby -e"p $a*($a-1)**~-$b%998244353"
 https://open.kattis.com/problems/ladder/statistics (5)
     read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
 https://open.kattis.com/problems/eveningout1/statistics (5)
@@ -400,16 +402,18 @@ https://open.kattis.com/problems/bijele/statistics (5)
     ruby -e"[1,1,2,2,2,8].zip([`tr " " ,`]){|x,y|p x-y}"
 https://open.kattis.com/problems/colourwars/statistics (5)
     ruby -e"p [-`tr " \n" ,`].tally.sum{|x,y|y/~x*~x}"
-https://open.kattis.com/problems/cosmicpathoptimization/statistics (5)
-    ruby -e"x,*y=`tr " \n" ,`0;p y.sum/x"
 https://open.kattis.com/problems/mult/statistics (5)
     ruby -e"x=0;[-`tr "\n" ,`].map{|y|x<1?x=y:y%x>0?0:x=-p(y)}"
 https://open.kattis.com/problems/janitortroubles/statistics (5)
     ruby -e"x=`tr " " ,`;p x.map{|y|x.sum*0.5-y}.inject(:*)**0.5"
+https://open.kattis.com/problems/cosmicpathoptimization/statistics (5)
+    ruby -e"x,y=[`tr " \n" +,`];p y/x"
 https://open.kattis.com/problems/movingday/statistics (5)
     ruby -e"x,*y=1**`tr " \n" *,`0;p y.max-x"
 https://open.kattis.com/problems/socialrunning/statistics (5)
     ruby -e"x,*y=[`tr "\n" ,`];p (1..x).map{|z|y[-z]+y[2-z]}.min"
+https://open.kattis.com/problems/moderatepace/statistics (5)
+    ruby -e"x,*y=`tr " \n" ,`0;x.times{|z|p [y[z],y[z+=x],y[z+x]].sort[1]}"
 https://open.kattis.com/problems/grading/statistics (5)
     ruby -e"*x,y=[`tr " \n" ,`];putc 65+x.count{|z|z>y}"
 https://open.kattis.com/problems/kornislav/statistics (5)
@@ -430,6 +434,8 @@ https://open.kattis.com/problems/addingtrouble/statistics (5)
     ruby -e"puts `tr " " +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/divvyingup/statistics (5)
     ruby -e"puts (0*`tr " \n" +`0)%3>0?:no:'yes'"
+https://open.kattis.com/problems/eatingout/statistics (5)
+    ruby -e"puts'im'*(2*`tr " " -`)[99]+'possible'"
 https://open.kattis.com/problems/millifaersla/statistics (5)
     ruby -e"puts [`tr "\n" ,`].zip([:Monnei,:Fjee,:Dolladollabilljoll]).min[1]"
 https://open.kattis.com/problems/judgingmoose/statistics (5)
@@ -482,6 +488,8 @@ https://open.kattis.com/problems/ferskastajarmid/statistics (5)
     ruby -e"puts [`sed "1d;s/ /*/2;s/\(.*\) \(.*\)/[-\2,'\1'],/"`].min[1]"
 https://open.kattis.com/problems/prsteni/statistics (5)
     ruby -e"x=`sed "1d;s/ /r;puts x\//g"`"
+https://open.kattis.com/problems/ghostleg/statistics (5)
+    read a b;ruby -e"x=(1..$a).to_a;`sed "s/.*/x[&],x[&-1]=x[&-1,2]/"`;p *x"
 https://open.kattis.com/problems/sottkvi/statistics (5)
     read a b c;ruby -e"p `sed "s/.*/(&-$b-$c+13)[99]+/"`0"
 
