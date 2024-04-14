@@ -505,7 +505,7 @@ https://open.kattis.com/problems/cprnummer/statistics (5)
 https://open.kattis.com/problems/everywhere/statistics (5)
     ruby -e"gets.to_i.times{p gets.to_i.times.uniq{gets}.size}"
 https://open.kattis.com/problems/averagecharacter/statistics (5)
-    ruby -e"x=gets.chop;putc x.sum/x.size"
+    ruby -e"putc gets.chop.sum/~-\$_.size"
 https://open.kattis.com/problems/gangur/statistics (5)
     ruby -e"x=0;p gets.bytes.sum{_1>61?0*x+=1:_1>59?x:0}"
 https://open.kattis.com/problems/pokechat/statistics (5)
@@ -519,7 +519,7 @@ https://open.kattis.com/problems/reduplikation/statistics (5)
 https://open.kattis.com/problems/tripletexting/statistics (5)
     ruby -e"puts gets.chars.each_slice(\$_.size/3).sort[2]*''"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
-    ruby -e"x=gets.size/3*(gets.size/3);puts'S('*x+?0+?)*x"
+    ruby -e"x=1;ARGF.map{x*=_1.size/3};puts'S('*x+?0+?)*x"
 https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{_1[..1]};end"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
@@ -641,9 +641,9 @@ https://open.kattis.com/problems/ninetynine/statistics (6)
 https://open.kattis.com/problems/askmarilyn/statistics (6)
     ruby -e"1000.times{putc 65+x=_1/7%3;p;y,z,a=gets.bytes;putc y^-~x*(49-a);p;gets}"
 https://open.kattis.com/problems/guess/statistics (6)
-    ruby -e"x,y=0,-999;(0..).find{p x-y/=2;gets<?i?x-=y:0;\$_<?d}"
+    ruby -e"x,y=0,-999;(0..).find{p x-y/=2;gets>?i||x-=y;\$_<?d}"
 https://open.kattis.com/problems/julmust/statistics (6)
-    ruby -e"x,y=0,-gets.to_i;(1..).find{p _1.*x-y/=2;gets>?m?x-=y:0;\$_<?f}"
+    ruby -e"x,y=0,-gets.to_i;(1..).find{p _1.*x-y/=2;gets<?m||x-=y;\$_<?f}"
 
 encoded: python, math
 https://open.kattis.com/problems/addtwonumbers/statistics (5)
