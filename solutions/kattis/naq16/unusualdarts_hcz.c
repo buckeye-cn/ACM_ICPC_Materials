@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <unistd.h>
-
 int main() {
     int n;
     scanf("%d\n", &n);
