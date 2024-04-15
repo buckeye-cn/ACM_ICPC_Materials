@@ -11,16 +11,59 @@
 
 using namespace std;
 
-double w[50];
-double p[50][50];
-double t[50];
+double x[51][100];
+double y[51];
 
-double p_sum[50];
-double t_sum;
+void simplex(int n_equ, int n_var) {
+    while (true) {
+        int best_j = -1;
 
-double amount[50];
-double ap_sum[50];
-double speed[50];
+        for (int j = 0; j < n_var; ++j) {
+            if (x[0][j] > 0) {
+                best_j = j;
+                break;
+            }
+        }
+
+        if (best_j < 0) {
+            break;
+        }
+
+        int best_i = -1;
+        double best_v = INFINITY;
+
+        for (int i = 1; i < n_equ; ++i) {
+            if (x[i][best_j] > 0 && best_v > y[i] / x[i][best_j]) {
+                best_i = i;
+                best_v = y[i] / x[i][best_j];
+            }
+        }
+
+        for (int i = 0; i < n_equ; ++i) {
+            if (i == best_i) {
+                double factor = x[best_i][best_j];
+
+                for (int j = 0; j < n_var; ++j) {
+                    x[i][j] /= factor;
+                }
+
+                y[i] /= factor;
+            } else {
+                double factor = x[i][best_j] / x[best_i][best_j];
+
+                for (int j = 0; j < n_var; ++j) {
+                    x[i][j] -= x[best_i][j] * factor;
+
+                    if (abs(x[i][j]) < 1e-9) {
+                        x[i][j] = 0;
+                    }
+                }
+
+                y[i] -= y[best_i] * factor;
+            }
+        }
+    }
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -30,56 +73,25 @@ int main() {
     int n, m;
     cin >> n >> m;
 
+    for (int i = 1; i <= n; ++i) {
+        cin >> y[i];
+    }
+
     for (int i = 0; i < n; ++i) {
-        cin >> w[i];
+        x[i + 1][i] = 1;
     }
 
-    for (int j = 0; j < m; ++j) {
-        for (int i = 0; i < n; ++i) {
-            cin >> p[j][i];
-            p[j][i] /= 100;
-            p_sum[i] += p[j][i];
+    for (int j = n; j < n + m; ++j) {
+        for (int i = 1; i <= n; ++i) {
+            cin >> x[i][j];
+            x[i][j] /= 100;
         }
 
-        cin >> t[j];
-        t_sum += t[j];
+        cin >> x[0][j];
     }
 
-    for (int iter = 0; iter < 200000; ++iter) {
-        for (int i = 0; i < n; ++i) {
-            ap_sum[i] = 0;
-
-            for (int j = 0; j < m; ++j) {
-                ap_sum[i] += amount[j] * p[j][i];
-            }
-        }
-
-        double delta = 0.01 * exp((100000 - iter) * 0.0001);
-
-        for (int j = 0; j < m; ++j) {
-            double d = t[j] / t_sum;
-
-            for (int i = 0; i < n; ++i) {
-                if (ap_sum[i] > w[i]) {
-                    d -= 6 * p[j][i] / p_sum[i];
-                }
-            }
-
-            speed[j] = 0.95 * speed[j] + 0.05 * d;
-            amount[j] += delta * speed[j];
-
-            if (amount[j] < 0) {
-                amount[j] = 0;
-            }
-        }
-    }
-
-    double result = 0;
-    for (int j = 0; j < m; ++j) {
-        result += amount[j] * t[j];
-    }
-
-    printf("%.2f\n", result);
+    simplex(n + 1, n + m);
+    printf("%.2f\n", -y[0]);
 
     return 0;
 }
