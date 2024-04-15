@@ -1,5 +1,4 @@
 // https://open.kattis.com/problems/cheeseifyouplease
-// not AC yet
 
 #include <cstdlib>
 #include <cstdint>
