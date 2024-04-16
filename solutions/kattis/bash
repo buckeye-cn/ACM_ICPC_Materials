@@ -175,7 +175,7 @@ https://open.kattis.com/problems/timeloop/statistics (5)
 https://open.kattis.com/problems/bossbattle/statistics (5)
     (xargs seq 4;echo)|wc -l
 https://open.kattis.com/problems/lostlineup/statistics (5)
-    xargs -n1|sed 1c0|nl|sort -nk +2|cut -f1
+    xargs -n1|sed 1c0|nl|sort -nk2|cut -f1
 https://open.kattis.com/problems/classfieldtrip/statistics (5)
     fold -w1|sort|tr -d "\n"
 https://open.kattis.com/problems/peragrams/statistics (5)
@@ -188,6 +188,8 @@ https://open.kattis.com/problems/basketballoneonone/statistics (5)
     rev|cut -b2
 https://open.kattis.com/problems/filip/statistics (5)
     rev|fold -w4|sort|sed 1d
+https://open.kattis.com/problems/bestagjofin/statistics (5)
+    sort -rnk2|xargs -n1|head -1
 https://open.kattis.com/problems/coursescheduling/statistics (5)
     sort -u|sed "1d;s/.* //"|sort -r|uniq -c|tac -s" "
 https://open.kattis.com/problems/ofugsnuid/statistics (5)
@@ -510,6 +512,8 @@ https://open.kattis.com/problems/simplicity/statistics (5)
     ruby -e"p gets.bytes.tally.values.sort[1..-3].sum"
 https://open.kattis.com/problems/yinyangstones/statistics (5)
     ruby -e"p 128[gets.bytes.sum{8-_1/9}]"
+https://open.kattis.com/problems/kinahvisl/statistics (5)
+    ruby -e"p gets.chars.count{_1!=$<.getc}+1"
 https://open.kattis.com/problems/cprnummer/statistics (5)
     ruby -e"p'FEDIHGGFEDCB'.bytes.zip(gets.bytes).sum{_1*_2}%11/10"
 https://open.kattis.com/problems/everywhere/statistics (5)
@@ -669,7 +673,7 @@ https://open.kattis.com/problems/jackolanternjuxtaposition/statistics (5)
 
 encoded: python, multiline
 https://open.kattis.com/problems/pet/statistics (5)
-    tr " " +|python3 -i|nl|sort -rnk +2|head -1
+    tr " " +|python3 -i|nl|sort -rnk2|head -1
 https://open.kattis.com/problems/different/statistics (5)
     tr " " -|python3 -i|tr -d -
 https://open.kattis.com/problems/chanukah/statistics (5)
@@ -700,6 +704,7 @@ https://open.kattis.com/problems/velkomin/statistics (4)
     sed syVyVELKOMINy V!>sz
 https://open.kattis.com/problems/hello/statistics (5)
 https://open.kattis.com/problems/hipphipp/statistics (5)
+https://open.kattis.com/problems/tilhamingju/statistics (5)
 
 expr
 https://open.kattis.com/problems/buka/statistics (5)
@@ -732,6 +737,9 @@ https://open.kattis.com/problems/ovissa/statistics (5)
 https://open.kattis.com/problems/autori/statistics (5)
     t*|s*
     tr tsa-z- tt sed sztzzg
+https://open.kattis.com/problems/fyrirtaekjanafn/statistics (5)
+    t*|s*
+    tr tsBCDFGHJ-NP-TVWXZbcdfghj-np-tvwxz tt sed sztzzg
 https://open.kattis.com/problems/echoechoecho/statistics (5)
     t*;*t
     tee tft tgt cat
