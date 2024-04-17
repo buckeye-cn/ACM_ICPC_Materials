@@ -13,27 +13,27 @@
 
 using namespace std;
 
-long size;
-int k;
 long x[120];
 long y[120];
 long b[120];
-vector<pair<pair<long, long>, pair<long, long>>> rect;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.precision(10);
 
+    long size;
+    int k;
     cin >> size >> k;
 
     for (int i = 0; i < k; ++i) {
         cin >> x[i] >> y[i] >> b[i];
     }
 
-    rect.push_back({{0, 0}, {size, size}});
-
     long tot = 0;
+    vector<pair<pair<long, long>, pair<long, long>>> rect;
+
+    rect.push_back({{0, 0}, {size, size}});
 
     while (!rect.empty()) {
         pair<pair<long, long>, pair<long, long>> item = rect.back();
