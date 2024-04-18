@@ -158,6 +158,8 @@ https://open.kattis.com/problems/ullendullendoff2/statistics (5)
     read a;sed "1x;`expr 13 % $a`G"||tac
 https://open.kattis.com/problems/reversiblecyclic/statistics (5)
     read a;echo $a$a|rev|grep $a|wc -l
+https://open.kattis.com/problems/hipphipphurra/statistics (5)
+    read a;seq `cat`|sed "cHipp hipp hurra, $a!"
 https://open.kattis.com/problems/carrots/statistics (5)
     read a b;echo $b
 https://open.kattis.com/problems/zoom/statistics (5)
