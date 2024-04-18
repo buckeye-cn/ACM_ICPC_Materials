@@ -26,7 +26,7 @@ bool collide(
 
     double distance = sqrt(sqr(x - vx) + sqr(y - vy));
 
-    return distance <= 2 * r && vy > min(y1, y2) && vy < max(y1, y2);
+    return dot > 0 && dot < d_sqr && distance <= 2 * r;
 }
 
 int main() {
