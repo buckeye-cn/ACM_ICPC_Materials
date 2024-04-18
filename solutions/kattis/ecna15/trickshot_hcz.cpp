@@ -14,19 +14,20 @@ const double PI = acos(-1);
 
 using namespace std;
 
-bool collide(
-    double x1, double y1, double x2, double y2,
-    double x, double y, double r
+double distance(
+    double x, double y,
+    double x1, double y1, double x2, double y2
 ) {
-    double d_sqr = sqr(x2 - x1) + sqr(y2 - y1);
-    double dot = (x - x1) * (x2 - x1) + (y - y1) * (y2 - y1);
+    double projection = ((x - x1) * (x2 - x1) + (y - y1) * (y2 - y1))
+        / (sqr(x2 - x1) + sqr(y2 - y1));
 
-    double vx = x1 + (x2 - x1) * dot / d_sqr;
-    double vy = y1 + (y2 - y1) * dot / d_sqr;
+    if (projection < 0) projection = 0;
+    if (projection > 1) projection = 1;
 
-    double distance = sqrt(sqr(x - vx) + sqr(y - vy));
+    double vx = x1 + (x2 - x1) * projection;
+    double vy = y1 + (y2 - y1) * projection;
 
-    return dot > 0 && dot < d_sqr && distance <= 2 * r;
+    return sqrt(sqr(x - vx) + sqr(y - vy));
 }
 
 int main() {
@@ -66,10 +67,7 @@ int main() {
     if (
         x0 > r && x0 < w - r && angle01 > 0
         && dot01 > 0 && dot02 > 0 && dot13 > 0
-        && !collide(x0, y0, x01, y01, x2, y2, r)
-        // && !collide(x0, y0, x01, y01, x3, y3, r)
-        // && !collide(x1, y1, x13, y13, x2, y2, r)
-        // && !collide(x01, y01, x02, y02, x3, y3, r)
+        && distance(x2, y2, x0, y0, x01, y01) > 2 * r
     ) {
         printf("%.2f %.2f\n", x0, angle01 * 180 / PI);
     } else {
