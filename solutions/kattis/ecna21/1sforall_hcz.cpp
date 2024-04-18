@@ -38,7 +38,7 @@ int main() {
         if (i / 1000 >= 1 && i % 1000 >= 100) dp[i] = min(dp[i], dp[i / 1000] + dp[i % 1000]);
         if (i / 10000 >= 1 && i % 10000 >= 1000) dp[i] = min(dp[i], dp[i / 10000] + dp[i % 10000]);
     }
-    for(int i = 1; i <= n; ++i) cout << char('a' + dp[i]);
+
     cout << dp[n] << endl;
 
     return 0;
