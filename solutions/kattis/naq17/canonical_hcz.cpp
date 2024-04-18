@@ -10,8 +10,6 @@
 
 using namespace std;
 
-int n;
-int coin[128];
 int dp[2000000];
 
 int main() {
@@ -19,37 +17,31 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
+    int n;
     cin >> n;
+
+    int coin[n];
 
     for (int i = 0; i < n; ++i) {
         cin >> coin[i];
     }
 
-    dp[0] = 0;
     for (int i = 1; i < 2000000; ++i) {
         dp[i] = 1 << 30;
     }
 
     for (int i = 0; i < n; ++i) {
         for (int j = coin[i]; j < 2000000; ++j) {
-            int a = dp[j - coin[i]] + 1;
-
-            if (dp[j] > a) {
-                dp[j] = a;
-            }
+            dp[j] = min(dp[j], dp[j - coin[i]] + 1);
         }
     }
 
-    for (int i = 1; i < 2000000; ++i) {
-        int v = 0;
-        int remain = i;
+    int i = 0;
 
-        for (int j = n - 1; j >= 0; --j) {
-            v += remain / coin[j];
-            remain -= remain / coin[j] * coin[j];
-        }
+    for (int j = 1; j < 2000000; ++j) {
+        i += i + 1 < n && coin[i + 1] <= j;
 
-        if (dp[i] != v) {
+        if (dp[j] <= dp[j - coin[i]]) {
             cout << "non-canonical" << endl;
 
             return 0;
