@@ -51,6 +51,8 @@ https://open.kattis.com/problems/apaxianparent/statistics (5)
     sed "s/[aeiou] \|ex \| /ex/"
 https://open.kattis.com/problems/takkfyrirmig/statistics (5)
     sed "1d;iTakk"
+https://open.kattis.com/problems/afjormun/statistics (5)
+    sed "1d;s/.*/\L\u&/"
 https://open.kattis.com/problems/storafmaeli/statistics (5)
     sed "s/.*0$/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/fyi/statistics (5)
@@ -91,8 +93,6 @@ https://open.kattis.com/problems/cats/statistics (5)
     sed "s/1/yes/;s/6/yes no no yes yes yes/;q"
 https://open.kattis.com/problems/piglatin/statistics (5)
     sed "s/\([^aeiouy ]*\)\(\w*\)/\2:\1ay/g;s/:a/ya/g;s/://g"
-https://open.kattis.com/problems/afjormun/statistics (5)
-    sed "1d;s/.*/\L&/;s/./\U&/"
 https://open.kattis.com/problems/avian/statistics (5)
     sed "2!d;s/^/iunty23v7itdhugh3c/"
 https://open.kattis.com/problems/blandadbest/statistics (5)
@@ -103,6 +103,8 @@ https://open.kattis.com/problems/headguard/statistics (5)
     sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/aaah/statistics (5)
     read a;sed "s/.*a$a/no/;t;cgo"
+https://open.kattis.com/problems/forcedchoice/statistics (5)
+    read a b c;sed "s/.* $b\b.*/KEEP/;t;cREMOVE"
 
 encoded: string combined
 https://open.kattis.com/problems/cold/statistics (5)
@@ -332,6 +334,8 @@ https://open.kattis.com/problems/bootstrappingnumber/statistics (5)
     ruby -e"x=1;$\".map{x=(x*`cat`**(1/x))**0.5};p x"
 https://open.kattis.com/problems/hailstone/statistics (5)
     ruby -e"x=`cat`;p x+(0..999).sum{x=x<2?0:x%2>0?3*x+1:x/2}"
+https://open.kattis.com/problems/hailstone2/statistics (5)
+    ruby -e"x=`cat`*2;p (1..).find{2>x=x%2>0?3*x+1:x/2}"
 https://open.kattis.com/problems/catalansquare/statistics (5)
     ruby -e"x=`cat`+2;p (x..x*2-2).inject(:*)/(1..x).inject(:*)"
 https://open.kattis.com/problems/harshadnumbers/statistics (5)
@@ -548,6 +552,8 @@ https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{_1[..1]};end"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"x=$<.to_a;x.tally.sort.map{puts _1,1e2*_2/x.size}"
+https://open.kattis.com/problems/keyboardd/statistics (5)
+    ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&putc(_1)};puts"
 https://open.kattis.com/problems/kikiboba/statistics (5)
     ruby -e"x,y=gets.count(?b),\$_.count(?k);puts x+y<1?:none:%w(boki boba kiki)[x<=>y]"
 https://open.kattis.com/problems/recount/statistics (5)
@@ -564,6 +570,8 @@ https://open.kattis.com/problems/skener/statistics (5)
     read a b c d;ruby -e"$a.times{puts gets.each_char.map{_1*$d}*''*$c}"
 
 encoded: ruby + cat/tr/sed, string
+https://open.kattis.com/problems/skolvagen/statistics (5)
+    ruby -e"x='S`cat`S';p x.count(?B)+x.scan(/NB*S|SB*N/).size"
 https://open.kattis.com/problems/sevenwonders/statistics (5)
     ruby -e"x='`cat`TCG'.bytes.tally.values;p x.sum{(_1-1)**2}+x.min*7-7"
 https://open.kattis.com/problems/keysphonewallet/statistics (5)
@@ -629,7 +637,7 @@ https://open.kattis.com/problems/owlandfox/statistics (5)
 https://open.kattis.com/problems/batteries/statistics (5)
     sed "s/.*/p (0..).find{_1*-~_1>&*2-3}/;x"|ruby
 https://open.kattis.com/problems/heartrate/statistics (5)
-    sed "1d;s/.* /(&-1..&+1).map{p _1*60\//;a}"|ruby
+    sed "1d;s/.* /&.upto(&+2){p ~-_1*60\//;a}"|ruby
 https://open.kattis.com/problems/estimatingtheareaofacircle/statistics (5)
     sed "$ d;s/ .* /**2;p 3.1416*x,4.0*x\/&*/;ix="|ruby
 https://open.kattis.com/problems/irepeatmyself/statistics (5)
@@ -639,7 +647,7 @@ https://open.kattis.com/problems/nine/statistics (5)
 https://open.kattis.com/problems/oddgnome/statistics (5)
     sed "1d;y/ /,/;s/.*/x=&;p (2..).find{y=x[1..._1]+x[_1+1..];y==y.sort}/"|ruby
 https://open.kattis.com/problems/sumsquareddigits/statistics (5)
-    sed "1d;y/ /,/;s/.*/x,y,z=&;p x,(0..99).sum{(z-y*z\/=y)**2}/"|ruby
+    sed "1d;y/ /,/;s/.*/x,y,z=&;p x,$\".sum{(z-y*z\/=y)**2}/"|ruby
 https://open.kattis.com/problems/oddmanout/statistics (5)
     sed "y/ /^/;2~2s/.*/puts'Case #%d:'%$.+=1,/"|ruby
 https://open.kattis.com/problems/shortlex/statistics (5)
