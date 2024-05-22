@@ -366,6 +366,12 @@ https://open.kattis.com/problems/shortestcompositesum/statistics (5)
     ruby -e"x=`cat`;p 2,y=4+x%2*5,x-y"
 https://open.kattis.com/problems/temperatureconfusion/statistics (5)
     ruby -e"$><<(`cat`r*5-160)/9"
+https://open.kattis.com/problems/sretan/statistics (5)
+    ruby -e"$><<('%b'%-~`cat`)[1..]"|tr 01 47
+https://open.kattis.com/problems/subtractionplusplus/statistics (5)
+    ruby -e"$><<[:NO,:YES][(3..).find{`cat`<=$.+=_1/2}&1]"
+https://open.kattis.com/problems/subtractionplusplusplus/statistics (5)
+    ruby -e"$><<[:NO,:YES][(3..).find{`cat`<=$.+=_1/2}&1]"
 https://open.kattis.com/problems/pinnifraendi/statistics (5)
     ruby -e"puts'0.%0`cat`d'%1"
 https://open.kattis.com/problems/peachpowderpolygon/statistics (5)
@@ -374,14 +380,8 @@ https://open.kattis.com/problems/marswindow/statistics (5)
     ruby -e"puts (`cat`*12-2)%26<12?:yes:'no'"
 https://open.kattis.com/problems/oktalni/statistics (5)
     ruby -e"puts'%o'%0b`cat`"
-https://open.kattis.com/problems/sretan/statistics (5)
-    ruby -e"$><<('%b'%-~`cat`)[1..]"|tr 01 47
 https://open.kattis.com/problems/klockan2/statistics (5)
     ruby -e"x=`cat`/5;puts'%02d:%02d'%[131*x/60%12,11*x%60]"
-https://open.kattis.com/problems/subtractionplusplus/statistics (5)
-    ruby -e"$><<[:NO,:YES][(3..).find{`cat`<=$.+=_1/2}&1]"
-https://open.kattis.com/problems/subtractionplusplusplus/statistics (5)
-    ruby -e"$><<[:NO,:YES][(3..).find{`cat`<=$.+=_1/2}&1]"
 https://open.kattis.com/problems/fleytitala/statistics (5)
     read a;ruby -e"p $a*(2-2.0**-`cat`)"
 https://open.kattis.com/problems/pallatolur/statistics (5)
@@ -440,8 +440,6 @@ https://open.kattis.com/problems/movingday/statistics (5)
     ruby -e"x,*y=1**`tr " \n" *,`0;p y.max-x"
 https://open.kattis.com/problems/socialrunning/statistics (5)
     ruby -e"x,*y=[`tr "\n" ,`];p (1..x).map{y[-_1]+y[2-_1]}.min"
-https://open.kattis.com/problems/grading/statistics (5)
-    ruby -e"*x,y=[`tr " \n" ,`];putc 65+x.count{_1>y}"
 https://open.kattis.com/problems/moderatepace/statistics (5)
     ruby -e"x,*y=`tr " \n" ,`0;x.times{|z|p [y[z],y[z+=x],y[z+x]].sort[1]}"
 https://open.kattis.com/problems/kornislav/statistics (5)
@@ -464,12 +462,14 @@ https://open.kattis.com/problems/divvyingup/statistics (5)
     ruby -e"puts (0*`tr " \n" +`0)%3>0?:no:'yes'"
 https://open.kattis.com/problems/eatingout/statistics (5)
     ruby -e"puts'im'*(2*`tr " " -`)[99]+'possible'"
-https://open.kattis.com/problems/moscowdream/statistics (5)
-    ruby -e"*x,y=`tr " " ,`;puts x.min>0&&x.sum>y&&y>2?:YES:'NO'"
-https://open.kattis.com/problems/judgingmoose/statistics (5)
-    ruby -e"x,y=[`tr " " ,`].sort;y>0?puts(x==y ?:Even:'Odd',y*2):$><<'Not a moose'"
 https://open.kattis.com/problems/dicegame/statistics (5)
     ruby -e"x,y=[`tr " \n" +,`];$><<%w(Tie Gunnar Emma)[x<=>y]"
+https://open.kattis.com/problems/grading/statistics (5)
+    ruby -e"*x,y=[`tr " \n" ,`];putc 65+x.count{_1>y}"
+https://open.kattis.com/problems/judgingmoose/statistics (5)
+    ruby -e"x,y=[`tr " " ,`].sort;y>0?puts(x==y ?:Even:'Odd',y*2):$><<'Not a moose'"
+https://open.kattis.com/problems/moscowdream/statistics (5)
+    ruby -e"*x,y=`tr " " ,`;puts x.min>0&&x.sum>y&&y>2?:YES:'NO'"
 https://open.kattis.com/problems/internationaldates/statistics (5)
     ruby -e"x,y,z=`tr /89 ,7`;puts x>12?:EU:y>12?:US:'either'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
@@ -536,14 +536,8 @@ https://open.kattis.com/problems/cprnummer/statistics (5)
     ruby -e"p'FEDIHGGFEDCB'.bytes.zip(gets.bytes).sum{_1*_2}%11/10"
 https://open.kattis.com/problems/everywhere/statistics (5)
     ruby -e"gets.to_i.times{p gets.to_i.times.uniq{gets}.size}"
-https://open.kattis.com/problems/averagecharacter/statistics (5)
-    ruby -e"putc gets.chop.sum/~-\$_.size"
 https://open.kattis.com/problems/gangur/statistics (5)
     ruby -e"x=0;p gets.bytes.sum{_1>61?0*x+=1:_1>59?x:0}"
-https://open.kattis.com/problems/pokechat/statistics (5)
-    ruby -e"x=gets;gets.scan(/.../){putc x[_1.to_i-1]}"
-https://open.kattis.com/problems/encodedmessage/statistics (5)
-    ruby -e"gets.to_i.times{x=gets.size;x.times{putc\$_[((x-1)**0.5*_1-1)%x]}}"
 https://open.kattis.com/problems/doublepassword/statistics (5)
     ruby -e"x=gets;gets;p 2**(0..3).count{x[_1]!=\$_[_1]}"
 https://open.kattis.com/problems/reduplikation/statistics (5)
@@ -552,6 +546,12 @@ https://open.kattis.com/problems/millifaersla/statistics (5)
     ruby -e"$><<%w(Monnei Fjee Dolladollabilljoll).min_by{gets.to_i}"
 https://open.kattis.com/problems/tripletexting/statistics (5)
     ruby -e"$><<gets.chars.each_slice(\$_.size/3).sort[2]*''"
+https://open.kattis.com/problems/averagecharacter/statistics (5)
+    ruby -e"putc gets.chop.sum/~-\$_.size"
+https://open.kattis.com/problems/pokechat/statistics (5)
+    ruby -e"x=gets;gets.scan(/.../){$><<x[_1.to_i-1]}"
+https://open.kattis.com/problems/encodedmessage/statistics (5)
+    ruby -e"gets.to_i.times{x=gets.size;x.times{$><<\$_[((x-1)**0.5*_1-1)%x]}}"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
     ruby -e"x=1;$<.map{x*=_1.size/3};puts'S('*x+?0+?)*x"
 https://open.kattis.com/problems/sortofsorting/statistics (5)
@@ -559,7 +559,7 @@ https://open.kattis.com/problems/sortofsorting/statistics (5)
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"x=$<.to_a;x.tally.sort.map{puts _1,1e2*_2/x.size}"
 https://open.kattis.com/problems/keyboardd/statistics (5)
-    ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&putc(_1)};puts"
+    ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&$><<_1};puts"
 https://open.kattis.com/problems/kikiboba/statistics (5)
     ruby -e"x,y=gets.count(?b),\$_.count(?k);puts x+y<1?:none:%w(boki boba kiki)[x<=>y]"
 https://open.kattis.com/problems/recount/statistics (5)
@@ -587,7 +587,7 @@ https://open.kattis.com/problems/raggedright/statistics (5)
 
 encoded: ruby, large input
 https://open.kattis.com/problems/backspace/statistics (5)
-    rev|ruby -e"x=0;gets.bytes{x+=_1>60?x<1?putc(_1)*0:-1:1}"|rev
+    rev|ruby -e"x=0;gets.chars{_1>?<?x<1?$><<_1:x-=1:x+=1}"|rev
 https://open.kattis.com/problems/sequencereduction/statistics (5)
     ruby -e"x=0;p $<.map{[x,x=_1.to_i].max}[2..].sum"
 https://open.kattis.com/problems/shatteredcake/statistics (5)
