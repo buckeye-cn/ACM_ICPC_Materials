@@ -547,7 +547,7 @@ https://open.kattis.com/problems/millifaersla/statistics (5)
 https://open.kattis.com/problems/tripletexting/statistics (5)
     ruby -e"$><<gets.chars.each_slice(\$_.size/3).sort[2]*''"
 https://open.kattis.com/problems/averagecharacter/statistics (5)
-    ruby -e"putc gets.chop.sum/~-\$_.size"
+    ruby -e"putc~(9-gets.sum)/~-\$_.size"
 https://open.kattis.com/problems/pokechat/statistics (5)
     ruby -e"x=gets;gets.scan(/.../){$><<x[_1.to_i-1]}"
 https://open.kattis.com/problems/encodedmessage/statistics (5)
