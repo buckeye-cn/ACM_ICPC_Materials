@@ -333,7 +333,7 @@ https://open.kattis.com/problems/tetration/statistics (5)
 https://open.kattis.com/problems/character/statistics (5)
     ruby -e"x=`cat`;p 2**x+~x"
 https://open.kattis.com/problems/busskortet/statistics (5)
-    ruby -e"x=-(`cat`/-100);p x/5+x%5/2+x%5%2"
+    ruby -e"x=0-`cat`/-100;p x/5+x%5/2+x%5%2"
 https://open.kattis.com/problems/pyramids/statistics (5)
     ruby -e"x=(6*`cat`)**3**-1;p (x/2+0.2/x).to_i"
 https://open.kattis.com/problems/bootstrappingnumber/statistics (5)
@@ -598,6 +598,8 @@ https://open.kattis.com/problems/spritt/statistics (5)
 encoded: ruby + cat/tr/sed, large input
 https://open.kattis.com/problems/arithmetic/statistics (5)
     echo "puts'%X'%0`cat`"|ruby
+https://open.kattis.com/problems/kakor/statistics (5)
+    echo "p 0*`tr " \n" +`0"|ruby
 https://open.kattis.com/problems/pvbg/statistics (5)
     echo "p [9e`tr " \n" ,`].min+1"|ruby
 https://open.kattis.com/problems/tornbygge/statistics (5)
