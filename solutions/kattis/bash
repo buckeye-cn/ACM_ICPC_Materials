@@ -532,14 +532,14 @@ https://open.kattis.com/problems/yinyangstones/statistics (5)
     ruby -e"p 128[gets.bytes.sum{8-_1/9}]"
 https://open.kattis.com/problems/kinahvisl/statistics (5)
     ruby -e"p gets.chars.count{_1!=$<.getc}+1"
+https://open.kattis.com/problems/doublepassword/statistics (5)
+    ruby -e"p 2**gets.chars.count{_1!=$<.getc}"
 https://open.kattis.com/problems/cprnummer/statistics (5)
-    ruby -e"p'FEDIHGGFEDCB'.bytes.zip(gets.bytes).sum{_1*_2}%11/10"
+    ruby -e"p'FEDIHGGFEDCB'.bytes.sum{_1*$<.getc.ord}%11/10"
 https://open.kattis.com/problems/everywhere/statistics (5)
-    ruby -e"gets.to_i.times{p gets.to_i.times.uniq{gets}.size}"
+    ruby -e"gets.to_i.times{p (1..gets.to_i).uniq{gets}.size}"
 https://open.kattis.com/problems/gangur/statistics (5)
     ruby -e"x=0;p gets.bytes.sum{_1>61?0*x+=1:_1>59?x:0}"
-https://open.kattis.com/problems/doublepassword/statistics (5)
-    ruby -e"x=gets;gets;p 2**(0..3).count{x[_1]!=\$_[_1]}"
 https://open.kattis.com/problems/reduplikation/statistics (5)
     ruby -e"$><<gets.chop*gets.to_i"
 https://open.kattis.com/problems/millifaersla/statistics (5)
@@ -550,14 +550,14 @@ https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -e"putc~(9-gets.sum)/~-\$_.size"
 https://open.kattis.com/problems/pokechat/statistics (5)
     ruby -e"x=gets;gets.scan(/.../){$><<x[_1.to_i-1]}"
-https://open.kattis.com/problems/encodedmessage/statistics (5)
-    ruby -e"gets.to_i.times{x=gets.size;x.times{$><<\$_[((x-1)**0.5*_1-1)%x]}}"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
     ruby -e"x=1;$<.map{x*=_1.size/3};puts'S('*x+?0+?)*x"
 https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -e"while 0<x=gets.to_i;puts (1..x).map{gets}.sort_by{_1[..1]};end"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"x=$<.to_a;x.tally.sort.map{puts _1,1e2*_2/x.size}"
+https://open.kattis.com/problems/encodedmessage/statistics (5)
+    ruby -e"gets;$<.map{|x|y=x.size;y.times{$><<x[((y-1)**0.5*_1-1)%y]}}"
 https://open.kattis.com/problems/keyboardd/statistics (5)
     ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&$><<_1};puts"
 https://open.kattis.com/problems/kikiboba/statistics (5)
@@ -569,11 +569,11 @@ https://open.kattis.com/problems/exam/statistics (5)
 https://open.kattis.com/problems/asciikassi/statistics (5)
     read a;ruby -e"puts x=?++?-*$a+?+,(1..$a).map{?|+' '*$a+?|},x"
 https://open.kattis.com/problems/pencilcrayons/statistics (5)
-    read a b;ruby -e"p (1..$a).sum{$b-gets.split.uniq.size}"
+    read a b;ruby -e"p$<.sum{$b-_1.split.uniq.size}"
 https://open.kattis.com/problems/abc/statistics (5)
     read a b c;ruby -e"gets.bytes{puts [$a,$b,$c].sort[_1-65]}"
 https://open.kattis.com/problems/skener/statistics (5)
-    read a b c d;ruby -e"$a.times{$><<gets.each_char.map{_1*$d}*''*$c}"
+    read a b c d;ruby -e"$<.map{|x|(x*$c).chars.map{$><<_1*$d}}"
 
 encoded: ruby + cat, string
 https://open.kattis.com/problems/skolvagen/statistics (5)
