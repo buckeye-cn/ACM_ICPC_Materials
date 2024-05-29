@@ -137,9 +137,6 @@ https://open.kattis.com/problems/lastfactorialdigit/statistics (5)
     sed 1d\;/../c0|tr 35-9 60
 https://open.kattis.com/problems/icpcawards/statistics (5)
     sed "1d;s/.* /mkdir &\&\&echo &/"|sh|head -12
-https://open.kattis.com/problems/trik/statistics (5)
-    sed $(cat|sed `ls s*|tr _ ";"`)<<<1
-    sxAxyz12z21z_xg_sxBxyz23z32z_xg_sxCxyz31z13z_xg
 https://open.kattis.com/problems/spacerace/statistics (5)
     sed "1,2d;y/ /\t/"|sort -nk3|head -1|cut -f1
 https://open.kattis.com/problems/headguard/statistics (5)
@@ -542,12 +539,14 @@ https://open.kattis.com/problems/doublepassword/statistics (5)
     ruby -e"p 2**gets.chars.count{_1!=$<.getc}"
 https://open.kattis.com/problems/cprnummer/statistics (5)
     ruby -e"p'FEDIHGGFEDCB'.bytes.sum{_1*$<.getc.ord}%11/10"
+https://open.kattis.com/problems/gangur/statistics (5)
+    ruby -e"p gets.bytes.sum{_1%7%3*~-$.+=_1/62}"
 https://open.kattis.com/problems/everywhere/statistics (5)
     ruby -e"gets;$<.map{p$<.take(_1.to_i).uniq.size}"
+https://open.kattis.com/problems/trik/statistics (5)
+    ruby -e"x=0;gets.bytes{x+=x-_1};p 3-x%3"
 https://open.kattis.com/problems/raggedright/statistics (5)
     ruby -e"x=$<.map &:size;p x[..-2].sum{(x.max-_1)**2}"
-https://open.kattis.com/problems/gangur/statistics (5)
-    ruby -e"x=0;p gets.bytes.sum{_1>61?0*x+=1:_1>59?x:0}"
 https://open.kattis.com/problems/bela/statistics (5)
     ruby -e"x=gets[-2];p$<.sum{(x==_1[1]?:AAO_D__KUEL:'AAA_D__KCEL')[_1[0].sum%11].sum-65}"
 https://open.kattis.com/problems/reduplikation/statistics (5)
