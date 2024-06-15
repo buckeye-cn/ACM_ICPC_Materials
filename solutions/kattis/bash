@@ -352,7 +352,7 @@ https://open.kattis.com/problems/reversebinary/statistics (5)
 https://open.kattis.com/problems/meowfactor/statistics (5)
     ruby -e"p -(-128..).find{`cat`%_1**9==0}"
 https://open.kattis.com/problems/sequence/statistics (5)
-    ruby -e"p(`cat`.to_s(2).size).times{p 1<<_1}"
+    ruby -e"p(('%b'%`cat`).size).times{p 1<<_1}"
 https://open.kattis.com/problems/popkorn/statistics (5)
     ruby -e"p (-4+x=`cat`)*x/8+4"
 https://open.kattis.com/problems/sjecista/statistics (5)
@@ -512,7 +512,7 @@ https://open.kattis.com/problems/locustlocus/statistics (5)
 https://open.kattis.com/problems/kafkaesque/statistics (5)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
 https://open.kattis.com/problems/overdraft/statistics (5)
-    ruby -e"p -[0*`sed "s/$/,$.+=/"`0].min"
+    ruby -e"p -[0*`sed s/$/,$.+=/`0].min"
 https://open.kattis.com/problems/cinema2/statistics (5)
     ruby -e"p (x=`sed "1s/ .*/-/;s/ /)[9]+(x-=/g"`)[9]"
 https://open.kattis.com/problems/associationofmyths/statistics (5)
@@ -703,6 +703,8 @@ https://open.kattis.com/problems/oddmanout/statistics (5)
     sed "y/ /^/;n;cputs'Case #%d:'%$.+=1,"|ruby
 https://open.kattis.com/problems/shortlex/statistics (5)
     sed "1!s/.*/puts ('%b'%-~&)[1..]/"|ruby
+https://open.kattis.com/problems/beautifulprimes/statistics (5)
+    sed "1!s/.*/puts ([2,31,7,23]*999)[...&]*' '/"|ruby
 https://open.kattis.com/problems/helpaphd/statistics (5)
     sed "s/^/puts /;1cNP=:skipped"|ruby
 https://open.kattis.com/problems/catmouse/statistics (5)
