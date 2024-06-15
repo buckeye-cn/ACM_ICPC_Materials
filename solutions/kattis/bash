@@ -508,11 +508,11 @@ encoded: ruby + sed, math
 https://open.kattis.com/problems/pot/statistics (5)
     ruby -e"p 0`sed s/.$/**\&+/`0"
 https://open.kattis.com/problems/locustlocus/statistics (5)
-    ruby -e"p [`sed "1d;s/ /+/;s/ /.lcm(/;a),"`].min"
+    ruby -e"p [`sed "1d;s/ .* /+&.lcm(/;a),"`].min"
 https://open.kattis.com/problems/kafkaesque/statistics (5)
     ruby -e"p (`sed "1d;s/.*/&?0:1)+(&</"`=>0)"
 https://open.kattis.com/problems/overdraft/statistics (5)
-    ruby -e"p -[`sed "1d;s/.*/$.+=&,/"`0].min"
+    ruby -e"p -[0*`sed "s/$/,$.+=/"`0].min"
 https://open.kattis.com/problems/cinema2/statistics (5)
     ruby -e"p (x=`sed "1s/ .*/-/;s/ /)[9]+(x-=/g"`)[9]"
 https://open.kattis.com/problems/associationofmyths/statistics (5)
@@ -532,7 +532,7 @@ https://open.kattis.com/problems/ferskastajarmid/statistics (5)
 https://open.kattis.com/problems/prsteni/statistics (5)
     sed "s/ /r;puts x\//g;1cx="|ruby
 https://open.kattis.com/problems/stopwatch/statistics (5)
-    read a;sed "s/.*/$.=&-$./;$ a$><<[$.,'still running'][$a%2]"|ruby
+    read a;sed "s/^/$.=-$.+/;$ a$><<[$.,'still running'][$a%2]"|ruby
 https://open.kattis.com/problems/ghostleg/statistics (5)
     read a b;ruby -e"x=*1..$a;`sed "s/.*/x[&],x[&-1]=x[&-1,2]/"`;p *x"
 https://open.kattis.com/problems/sottkvi/statistics (5)
@@ -666,57 +666,57 @@ https://open.kattis.com/problems/bishops/statistics (5)
 https://open.kattis.com/problems/smallestmultiple/statistics (5)
     sed "s/ /.lcm /g;s/^/p /"|ruby
 https://open.kattis.com/problems/bus/statistics (5)
-    sed 1d\;ip~-2**|ruby
+    sed 1!ip~-2**|ruby
 https://open.kattis.com/problems/soylent/statistics (5)
-    sed "1d;s/.*/p~-&\/400+1/"|ruby
+    sed "1!s/.*/p~-&\/400+1/"|ruby
 https://open.kattis.com/problems/mult/statistics (5)
-    sed "1d;s/.*/$.<1?$.=&:&%$.>0||$.=-p(&)/"|ruby
+    sed "1!s/.*/$.<1?$.=&:&%$.>0||$.=-p(&)/"|ruby
 https://open.kattis.com/problems/sumoftheothers/statistics (5)
     sed "y/ /+/;s/^/p (/;a)/2"|ruby
 https://open.kattis.com/problems/electricaloutlets/statistics (5)
-    sed "1d;y/ /+/;ip 1-"|ruby
+    sed "y/ /+/;1!ip 1-"|ruby
 https://open.kattis.com/problems/owlandfox/statistics (5)
-    sed "1d;s/^/p /;s/0*$/&-1&/"|ruby
+    sed "s/0*$/&-1&/;1!ip~~"|ruby
 https://open.kattis.com/problems/chanukah/statistics (5)
-    sed "1d;s/ .*/;p &*(&+3)\/2/"|ruby|nl
+    sed "s/ .*/;p &*(&+3)\/2/"|ruby|nl
 https://open.kattis.com/problems/parking2/statistics (5)
-    sed "1d;n;y/ /,/;s/.*/p 2*([&].max-[&].min)/"|ruby
+    sed "y/ /,/;3~2s/.*/p 2*([&].max-[&].min)/"|ruby
 https://open.kattis.com/problems/batteries/statistics (5)
     sed "s/.*/p (0..).find{_1*-~_1>&*2-3}/;x"|ruby
 https://open.kattis.com/problems/heartrate/statistics (5)
-    sed "1d;s/.* /&.upto(&+2){p ~-_1*60\//;a}"|ruby
+    sed "s/.* /&.upto(&+2){p ~-_1*60\//;1!a}"|ruby
 https://open.kattis.com/problems/zanzibar/statistics (5)
-    sed "1d;y/ /,/;s/.*/p~[&].sum{[$.*2-$.=_1,0].min}/"|ruby
+    sed "y/ /,/;1!s/.*/p~[&].sum{[$.*2-$.=_1,0].min}/"|ruby
 https://open.kattis.com/problems/estimatingtheareaofacircle/statistics (5)
     sed "x;s/ .* /**2;p 3.1416*x,4.0*x\/&*/;ix="|ruby
 https://open.kattis.com/problems/babylonian/statistics (5)
-    sed "1d;s/\</;x+=/g;s/,/;x*=60/g;s/^/x=0/;ap x"|ruby
+    sed "s/\</;x+=/g;s/,/;x*=60/g;s/^/x=0/;1!ap x"|ruby
 https://open.kattis.com/problems/oddgnome/statistics (5)
-    sed "1d;y/ /,/;s/^/x=/;ap (2..).find{x.shift;x[1]=x[0];x==x.sort}"|ruby
+    sed "y/ /,/;s/^/x=/;1!ap (2..).find{x.shift;x[1]=x[0];x==x.sort}"|ruby
 https://open.kattis.com/problems/limbo1/statistics (5)
-    sed "1d;s/.* /x=&+y=/;ap x*-~x/2+y+1"|ruby
+    sed "s/.* /x=&+y=/;1!ap x*-~x/2+y+1"|ruby
 https://open.kattis.com/problems/nine/statistics (5)
-    sed "1d;s/.*/x,y=8,9;99.times{x=x*y**(&-1)[_1]%z=10**9+7;y*=y%z};p x/"|ruby
+    sed "1!s/.*/x,y=8,9;99.times{x=x*y**(&-1)[_1]%z=10**9+7;y*=y%z};p x/"|ruby
 https://open.kattis.com/problems/sumsquareddigits/statistics (5)
-    sed "1d;y/ /,/;s/^/x,y,z=/;ap x,$\".sum{(z-y*z/=y)**2}"|ruby
+    sed "y/ /,/;s/^/x,y,z=/;1!ap x,$\".sum{(z-y*z/=y)**2}"|ruby
 https://open.kattis.com/problems/oddmanout/statistics (5)
     sed "y/ /^/;n;cputs'Case #%d:'%$.+=1,"|ruby
 https://open.kattis.com/problems/shortlex/statistics (5)
-    sed "1d;s/.*/puts ('%b'%-~&)[1..]/"|ruby
+    sed "1!s/.*/puts ('%b'%-~&)[1..]/"|ruby
 https://open.kattis.com/problems/helpaphd/statistics (5)
     sed "s/^/puts /;1cNP=:skipped"|ruby
 https://open.kattis.com/problems/catmouse/statistics (5)
-    sed "1d;s/ .* /;puts&*4.603339>/;s/$/?:YES:'NO'/"|ruby
+    sed "s/ .* /;puts&*4.603339>/;s/$/?:YES:'NO'/"|ruby
 https://open.kattis.com/problems/nastyhacks/statistics (5)
-    sed "1d;s/ .* /<=>&-/;s/.*/puts ['does not matter','do not '+x='advertise',x][&]/"|ruby
+    sed "s/ .* /<=>&-/;1!s/.*/puts ['does not matter','do not '+x='advertise',x][&]/"|ruby
 https://open.kattis.com/problems/mixedfractions/statistics (5)
-    sed "y/ /,/;s/^/x,y=/;$ !aputs x/y,x%y,'/',y"|ruby
+    sed "y/ /,/;s/^/x,y=/;1!iputs x/y,x%y,'/',y"|ruby
 https://open.kattis.com/problems/simplefactoring/statistics (5)
-    sed "1d;y/ /,/;s/^/x,y,z=/;ax=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?:YES:'NO'"|ruby
+    sed "y/ /,/;s/^/x,y,z=/;1!ax=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?:YES:'NO'"|ruby
 https://open.kattis.com/problems/parsinghex/statistics (5)
     grep -oi 0x[0-9a-f]*|sed "s/.*/puts'&',&/"|ruby
 https://open.kattis.com/problems/vedurheidar/statistics (5)
-    read a;sed "1d;s/ .*/',&<$a?:lokud:'opin'/;iputs'"|ruby
+    read a;sed "s/ .*/',&<$a?:lokud:'opin'/;1!iputs'"|ruby
 https://open.kattis.com/problems/scalingrecipe/statistics (5)
     read a b c;sed "s/.*/p &*$c\/$b/"|ruby
 https://open.kattis.com/problems/sibice/statistics (5)
