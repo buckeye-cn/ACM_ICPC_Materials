@@ -416,7 +416,7 @@ https://open.kattis.com/problems/oktalni/statistics (5)
 https://open.kattis.com/problems/klockan2/statistics (5)
     ruby -e"x=`cat`/5;puts'%02d:%02d'%[131*x/60%12,11*x%60]"
 https://open.kattis.com/problems/fleytitala/statistics (5)
-    read a;ruby -e"p $a*(2-2.0**-`cat`)"
+    read a;ruby -e"p $a.*2-2.0**-`cat`"
 https://open.kattis.com/problems/pallatolur/statistics (5)
     read a;ruby -e"puts $a<3&&`cat`>1?'1 2':':('"
 https://open.kattis.com/problems/upprodun/statistics (5)
@@ -461,6 +461,8 @@ https://open.kattis.com/problems/movingday/statistics (5)
     ruby -e"x,*y=1**`tr " \n" *,`0;p y.max-x"
 https://open.kattis.com/problems/socialrunning/statistics (5)
     ruby -e"x,*y=[`tr "\n" ,`];p (1..x).map{y[-_1]+y[2-_1]}.min"
+https://open.kattis.com/problems/fromatob/statistics (5)
+    ruby -e"x,y=-`tr \  ,`;p$\".sum{x+y<0?1+x-2*x/=2:0}+y+x"
 https://open.kattis.com/problems/moderatepace/statistics (5)
     ruby -e"x,*y=`tr " \n" ,`0;x.times{p [y[x+x],y[x],y.shift].sort[1]}"
 https://open.kattis.com/problems/kornislav/statistics (5)
@@ -518,7 +520,7 @@ https://open.kattis.com/problems/cinema2/statistics (5)
 https://open.kattis.com/problems/associationofmyths/statistics (5)
     sed "s/ /;x=/g;3ap x*x/Math::PI/Math::E-1.0/~x"|ruby
 https://open.kattis.com/problems/mixtapemanagement/statistics (5)
-    sed "s/^\| /;p (x+=1)*10**/g;1cx=100"|ruby
+    sed "s/^\| /;p (x+=1)*10**/g;1cx=99"|ruby
 https://open.kattis.com/problems/skruop/statistics (5)
     ruby -e"x=8;`sed "s/.*p!/x+=10<=>x;/;t;cx+=0<=>x;"`p x"
 https://open.kattis.com/problems/invokereasy/statistics (5)
@@ -706,7 +708,7 @@ https://open.kattis.com/problems/oddmanout/statistics (5)
 https://open.kattis.com/problems/shortlex/statistics (5)
     sed "1!s/.*/puts ('%b'%-~&)[1..]/"|ruby
 https://open.kattis.com/problems/beautifulprimes/statistics (5)
-    sed "1!s/.*/puts ([2,31,7,23]*999)[...&]*' '/"|ruby
+    sed "1!s/.*/puts ([2,31,7,23]*&)[...&]*' '/"|ruby
 https://open.kattis.com/problems/helpaphd/statistics (5)
     sed "s/^/puts /;1cNP=:skipped"|ruby
 https://open.kattis.com/problems/catmouse/statistics (5)
