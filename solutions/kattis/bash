@@ -1,8 +1,12 @@
-encoded: cat, math
+encoded: bash expr
+https://open.kattis.com/problems/faktor/statistics (5)
+    read a b;echo $[a*~-b+1]
+
+encoded: bash expr + cat
 https://open.kattis.com/problems/tolvunarfraedingartelja/statistics (5)
     echo $[`cat`-1]
 
-encoded: tr, math
+encoded: bash expr + tr
 https://open.kattis.com/problems/addtwonumbers/statistics (5)
     echo $[`tr \  +`]
 https://open.kattis.com/problems/twosum/statistics (5)
@@ -16,7 +20,7 @@ https://open.kattis.com/problems/nsum/statistics (5)
 https://open.kattis.com/problems/kakor/statistics (5)
     read;echo $[`tr \  +`]
 
-encoded: sed, math
+encoded: bash expr + sed
 https://open.kattis.com/problems/dragafra/statistics (5)
     echo $[`sed 1a-`]
 https://open.kattis.com/problems/flatbokuveisla/statistics (5)
@@ -28,11 +32,11 @@ https://open.kattis.com/problems/aleidibio/statistics (5)
 https://open.kattis.com/problems/tarifa/statistics (5)
     read a;echo $[a-a*`sed i-`]
 
-encoded: string combined, math
+encoded: bash expr + string combined
 https://open.kattis.com/problems/jobexpenses/statistics (5)
     echo $[`tr \ - "\n+"|grep +`]
 https://open.kattis.com/problems/shandy/statistics (5)
-    echo $[`sort -n|head -1`*2]
+    echo $[`sort -n|sed 2d`*2]
 https://open.kattis.com/problems/finalexam2/statistics (5)
     echo $[`tee _|wc -l`-`uniq _|wc -l`]
 
@@ -265,8 +269,6 @@ https://open.kattis.com/problems/gcd/statistics (5)
     read a b;ruby -e"p $a.gcd $b"
 https://open.kattis.com/problems/slatkisi/statistics (5)
     read a b;ruby -e"p $a.round -$b"
-https://open.kattis.com/problems/faktor/statistics (5)
-    read a b;ruby -e"p~-$b*$a+1"
 https://open.kattis.com/problems/distributingpoffins/statistics (5)
     read a b;ruby -e"p $b%$a<=>0"
 https://open.kattis.com/problems/babypanda/statistics (5)
