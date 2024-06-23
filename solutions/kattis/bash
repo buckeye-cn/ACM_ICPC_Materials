@@ -263,6 +263,8 @@ https://open.kattis.com/problems/fizzbuzz/statistics (5)
     read a b c;seq $c|sed "$b~$b s/.*/Buzz/;$a~$a s/[0-9]*/Fizz/"
 https://open.kattis.com/problems/ekkidaudi/statistics (5)
     IFS=, read a b c d< <(tr "\n|" ,);echo $a$c $b$d
+https://open.kattis.com/problems/decimaldeletion/statistics (5)
+    xargs printf %.f
 https://open.kattis.com/problems/sorttwonumbers/statistics (5)
     xargs -n1|sort -n
 https://open.kattis.com/problems/namegeneration/statistics (5)
@@ -293,6 +295,8 @@ https://open.kattis.com/problems/fodelsedagsmemorisering/statistics (5)
     sort -k3 -k2nr|uniq -f2|sed "1d;s/ .*//">_;wc -l<_;sort _
 https://open.kattis.com/problems/ofugsnuid/statistics (5)
     tac|sed x
+https://open.kattis.com/problems/inputscandal/statistics (5)
+    tee _|wc -l;cat _
 https://open.kattis.com/problems/vefthjonatjon/statistics (5)
     (tee _|grep -c ^J;grep -c .J. _;grep -c J$ _)|sort -n|head -1
 
@@ -339,8 +343,6 @@ https://open.kattis.com/problems/dasblinkenlights/statistics (5)
     read a b c;ruby -e"puts $a.lcm($b)>$c?:no:'yes'"
 https://open.kattis.com/problems/freecell/statistics (5)
     read a b c;ruby -e"puts~$a*2**$b>-$c?:no:'yes'"
-https://open.kattis.com/problems/simplearithmetic/statistics (5)
-    read a b c;ruby -e"x=10**6;y=$a*$b*x/$c;puts'%d.%06d'%[y/x,y%x]"
 https://open.kattis.com/problems/bottleflip/statistics (5)
     read a b c d;ruby -e"p $a./1+($d.0/$c)**0.5"
 https://open.kattis.com/problems/rectanglearea/statistics (5)
@@ -495,6 +497,8 @@ https://open.kattis.com/problems/server/statistics (5)
     ruby -e"x,y,*z=[`tr " \n" ,`];p z.count{0<=y-=_1}"
 https://open.kattis.com/problems/gcvwr/statistics (5)
     ruby -e"x,y,z,*a=`tr " \n" ,`0;p (x-y)*9/10-a.sum"
+https://open.kattis.com/problems/simplearithmetic/statistics (5)
+    ruby -e"puts'%f'.%`tr \  \*`**-1"
 https://open.kattis.com/problems/squarepeg/statistics (5)
     ruby -e"puts `tr \  \>`*1.414?:nope:'fits'"
 https://open.kattis.com/problems/addingtrouble/statistics (5)
