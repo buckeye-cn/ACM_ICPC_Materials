@@ -91,10 +91,16 @@ https://open.kattis.com/problems/kafkaesque/statistics (5)
     echo $[(0*`sed "1d;s/.*/&)+(&>=/"`0)]
 https://open.kattis.com/problems/cinema2/statistics (5)
     echo $[((a=`sed "1s/ .*/-/;s/ /)<0)+((a-=/g"`)<0)]
+https://open.kattis.com/problems/skruop/statistics (5)
+    echo $[a=8`sed "s/.*p!/,a+=a<10/;t;c,a-=a>0"`]
+https://open.kattis.com/problems/cetvrta/statistics (5)
+    echo $[a=b=0`sed "s/ /,b^=/;i,a^="`,a] $b
 https://open.kattis.com/problems/tarifa/statistics (5)
     read a;echo $[a-a*`sed i-`]
 https://open.kattis.com/problems/server/statistics (5)
     read a b;echo $[`sed "s/\w*/+((b-=&)>=0)/g"`]
+https://open.kattis.com/problems/sottkvi/statistics (5)
+    read a b c;echo $[`sed "s/.*/+(&-$b-$c+13<0)/"`]
 
 encoded: bash expr + string combined
 https://open.kattis.com/problems/jobexpenses/statistics (5)
@@ -263,6 +269,8 @@ https://open.kattis.com/problems/skammstofun/statistics (5)
     grep -o \\b[A-Z]|tr -d \\n
 https://open.kattis.com/problems/smil/statistics (5)
     grep -ob "[:;]-\?)"|sed s/:.*//
+https://open.kattis.com/problems/champernowneverification/statistics (5)
+    grep -o ^`cat`<<<123456789|wc -L|sed s/0/-1/
 https://open.kattis.com/problems/avion/statistics (5)
     (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
 https://open.kattis.com/problems/liquidassets/statistics (5)
@@ -272,7 +280,7 @@ https://open.kattis.com/problems/keywords/statistics (5)
 https://open.kattis.com/problems/mumblerap/statistics (5)
     read;tr -c 0-9 \\n|sort -n|tail -1
 https://open.kattis.com/problems/reversiblecyclic/statistics (5)
-    read a;echo $a$a|rev|grep $a|wc -l
+    read a;rev<<<$a$a|grep $a|wc -l
 https://open.kattis.com/problems/ullendullendoff2/statistics (5)
     read a;sed 1x\;$[1+12%a]G
 https://open.kattis.com/problems/ullendullendoff/statistics (5)
@@ -331,8 +339,6 @@ https://open.kattis.com/problems/modulo/statistics (5)
     ruby -e"p$<.uniq{_1.to_i%42}.size"
 https://open.kattis.com/problems/millifaersla/statistics (5)
     ruby -e"$><<%w(Monnei Fjee Dolladollabilljoll).min_by{gets.to_i}"
-https://open.kattis.com/problems/champernowneverification/statistics (5)
-    read a;ruby -e"p'123456789'.match(/^$a/)?$a%10:-1"
 https://open.kattis.com/problems/gcd/statistics (5)
     read a b;ruby -e"p $a.gcd $b"
 https://open.kattis.com/problems/slatkisi/statistics (5)
@@ -545,12 +551,8 @@ https://open.kattis.com/problems/associationofmyths/statistics (5)
     sed "s/ /;x=/g;3ap x*x/Math::PI/Math::E-1.0/~x"|ruby
 https://open.kattis.com/problems/mixtapemanagement/statistics (5)
     sed "s/^\| /;p (x+=1)*10**/g;1cx=99"|ruby
-https://open.kattis.com/problems/skruop/statistics (5)
-    ruby -e"x=8;`sed "s/.*p!/x+=10<=>x;/;t;cx+=0<=>x;"`p x"
 https://open.kattis.com/problems/invokereasy/statistics (5)
     ruby -e"x=`sed "s/ /.0i-/;1ax/="`;p x.real,x.imag"
-https://open.kattis.com/problems/cetvrta/statistics (5)
-    ruby -e"x=0;`sed "s/ /;$.^=/;ix^="`;p x,$."
 https://open.kattis.com/problems/sith/statistics (5)
     ruby -e"$><<['VEIT EKKI',:SITH,:JEDI][(`sed "1d;2s/$/-/;3a)[9]+"`[9]]"
 https://open.kattis.com/problems/ferskastajarmid/statistics (5)
@@ -563,8 +565,6 @@ https://open.kattis.com/problems/sequentialmanufacturing/statistics (5)
     read a b;ruby -e"x=`sed "x;y/ /,/"`;p~-$b*x.max+x.sum"
 https://open.kattis.com/problems/ghostleg/statistics (5)
     read a b;ruby -e"x=*1..$a;`sed "s/.*/x[&],x[&-1]=x[&-1,2]/"`;p *x"
-https://open.kattis.com/problems/sottkvi/statistics (5)
-    read a b c;ruby -e"p `sed "s/.*/(&-$b-$c+13)[99]+/"`0"
 
 encoded: ruby + string combined, math
 https://open.kattis.com/problems/sretan/statistics (5)
@@ -656,29 +656,29 @@ https://open.kattis.com/problems/spritt/statistics (5)
 
 encoded: ruby + cat, large input
 https://open.kattis.com/problems/arithmetic/statistics (5)
-    echo "puts'%X'%0`cat`"|ruby
+    ruby<<<"puts'%X'%0`cat`"
 
 encoded: ruby + tr, large input
 https://open.kattis.com/problems/umferd/statistics (5)
     tr -dc .#|ruby -e"p gets.count(?.)*1.0/\$_.size"
 https://open.kattis.com/problems/pvbg/statistics (5)
-    echo "p [9e`tr " \n" ,`].min+1"|ruby
+    ruby<<<"p [9e`tr " \n" ,`].min+1"
 https://open.kattis.com/problems/tornbygge/statistics (5)
-    echo "p [99`tr " \n" ,`].count{$.<$.=_1}"|ruby
+    ruby<<<"p [99`tr " \n" ,`].count{$.<$.=_1}"
 https://open.kattis.com/problems/pripreme/statistics (5)
-    echo "x=0*`tr " \n" ,`0;p [x.max*2,x.sum].max"|ruby
+    ruby<<<"x=0*`tr " \n" ,`0;p [x.max*2,x.sum].max"
 https://open.kattis.com/problems/tram/statistics (5)
-    echo "x,*y=`tr " \n" -,`0.0;p -y.sum/x"|ruby
+    ruby<<<"x,*y=`tr " \n" -,`0.0;p -y.sum/x"
 https://open.kattis.com/problems/training/statistics (5)
-    echo "x,y,*z=`tr " \n" ,`0;x.times{y<z.shift||y>z.shift||y+=1};p y"|ruby
+    ruby<<<"x,y,*z=`tr " \n" ,`0;x.times{y<z.shift||y>z.shift||y+=1};p y"
 https://open.kattis.com/problems/prjonamynstur/statistics (5)
     read;tr ".A^v\n/\\" YhJ[E^|ruby -e"p gets.bytes.sum{_1-69}"
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
-    read;echo "x=`tr \  ,`;p x.index(x.min)"|ruby
+    read;ruby<<<"x=`tr \  ,`;p x.index(x.min)"
 https://open.kattis.com/problems/buildinghighways/statistics (5)
-    read a;echo "x=[`tr \  ,`];p x.min*($a-2)+x.sum"|ruby
+    read a;ruby<<<"x=[`tr \  ,`];p x.min*($a-2)+x.sum"
 https://open.kattis.com/problems/waterworld/statistics (5)
-    read a b;echo "p [`tr " \n" ,`].sum/$a.0/$b"|ruby
+    read a b;ruby<<<"p [`tr " \n" ,`].sum/$a.0/$b"
 
 encoded: ruby + sed, large input
 https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
