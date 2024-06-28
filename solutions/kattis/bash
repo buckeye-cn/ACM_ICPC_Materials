@@ -205,10 +205,6 @@ https://open.kattis.com/problems/breakingbranches/statistics (5)
     sed "s/.*[13579]$/Bob/;t;cAlice 1"
 https://open.kattis.com/problems/knightpacking/statistics (5)
     sed "s/.*[13579]$/first/;t;csecond"
-https://open.kattis.com/problems/railroad2/statistics (5)
-    sed "s/.*[13579]$/impossible/;t;cpossible"
-https://open.kattis.com/problems/chocolatedivision/statistics (5)
-    sed "s/.*[13579] .*[13579]$/Beata/;t;cAlf"
 https://open.kattis.com/problems/oddities/statistics (5)
     sed "1d;s/[13579]$/& is odd/;t;ais even"
 https://open.kattis.com/problems/somesum/statistics (5)
@@ -227,8 +223,12 @@ https://open.kattis.com/problems/piglatin/statistics (5)
     sed -E "s/([^aeiouy ]*)(\w*)/\2:\1ay/g;s/:a/ya/g;s/://g"
 https://open.kattis.com/problems/battlesimulation/statistics (5)
     sed -E "s/RBL|RLB|BRL|BLR|LRB|LBR/C/g;y/RBL/SKH/"
+https://open.kattis.com/problems/railroad2/statistics (5)
+    a=possible;sed "s/.*[13579]$/im$a/;t;c$a"
+https://open.kattis.com/problems/chocolatedivision/statistics (5)
+    a=.*[13579];sed "s/$a $a$/Beata/;t;cAlf"
 https://open.kattis.com/problems/mylla2/statistics (5)
-    sed -Ez "s/.*O(O|..O..|...O...|....O....)O.*/Jebb/;t;cNeibb"
+    a=..O..;sed -Ez "s/.*O(O|$a|.$a.|..$a..)O.*/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/aaah/statistics (5)
     read a;sed "s/.*a$a/no/;t;cgo"
 https://open.kattis.com/problems/forcedchoice/statistics (5)
@@ -255,8 +255,6 @@ https://open.kattis.com/problems/magictrick/statistics (5)
     sed "/\(.\).*\1/d"|wc -l
 https://open.kattis.com/problems/cyaniderivers/statistics (5)
     sed s/00/0/g|tr 1 \\n|wc -L
-https://open.kattis.com/problems/coffeecupcombo/statistics (5)
-    sed "1d;s/10/11/g;s/10/11/g;s/0//g"|wc -L
 https://open.kattis.com/problems/lastfactorialdigit/statistics (5)
     sed 1d\;/../c0|tr 35-9 60
 https://open.kattis.com/problems/icpcawards/statistics (5)
@@ -283,8 +281,6 @@ https://open.kattis.com/problems/champernowneverification/statistics (5)
     grep -o ^`cat`<<<123456789|wc -L|sed s/0/-1/
 https://open.kattis.com/problems/avion/statistics (5)
     (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
-https://open.kattis.com/problems/ekkidaudi/statistics (5)
-    IFS=, read a b c d< <(tr "\n|" ,);echo $a$c $b$d
 https://open.kattis.com/problems/pinnifraendi/statistics (5)
     printf 0.%0`cat`d 1
 https://open.kattis.com/problems/klockan2/statistics (5)
@@ -323,8 +319,12 @@ https://open.kattis.com/problems/ofugsnuid/statistics (5)
     tac|sed x
 https://open.kattis.com/problems/inputscandal/statistics (5)
     tee _|wc -l;cat _
+https://open.kattis.com/problems/antipalindrome/statistics (5)
+    a=alindrome;tr -dc A-Za-z|sed "s/.*\(.\).\?\1.*/P$a/i;t;cAnti-p$a"
+https://open.kattis.com/problems/coffeecupcombo/statistics (5)
+    a=s/10/11/g;sed "1d;$a;$a;s/0//g"|wc -L
 https://open.kattis.com/problems/vefthjonatjon/statistics (5)
-    (tee _|grep -c ^J;grep -c .J. _;grep -c J$ _)|sort -n|head -1
+    a=grep\ -c;(tee _|$a ^J;$a .J. _;$a J$ _)|sort -n|head -1
 https://open.kattis.com/problems/liquidassets/statistics (5)
     read;tr -sc _|sed "s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/keywords/statistics (5)
@@ -347,6 +347,8 @@ https://open.kattis.com/problems/bookingaroom/statistics (5)
     read a b;(seq $a;cat;echo too late)|sort|uniq -u|head -1
 https://open.kattis.com/problems/fizzbuzz/statistics (5)
     read a b c;seq $c|sed "$b~$b s/.*/Buzz/;$a~$a s/[0-9]*/Fizz/"
+https://open.kattis.com/problems/ekkidaudi/statistics (5)
+    IFS=, read a b c d< <(tr "\n|" ,);echo $a$c $b$d
 
 encoded: ruby, math
 https://open.kattis.com/problems/modulo/statistics (5)
