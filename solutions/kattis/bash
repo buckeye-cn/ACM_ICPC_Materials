@@ -287,6 +287,8 @@ https://open.kattis.com/problems/ekkidaudi/statistics (5)
     IFS=, read a b c d< <(tr "\n|" ,);echo $a$c $b$d
 https://open.kattis.com/problems/pinnifraendi/statistics (5)
     printf 0.%0`cat`d 1
+https://open.kattis.com/problems/klockan2/statistics (5)
+    printf %02d:%02d $[a=131*`cat`/5,a/60%12] $[a%60]
 https://open.kattis.com/problems/decimaldeletion/statistics (5)
     xargs printf %.f
 https://open.kattis.com/problems/sorttwonumbers/statistics (5)
@@ -421,6 +423,10 @@ https://open.kattis.com/problems/meowfactor/statistics (5)
     ruby -e"p -(-128..).find{`cat`%_1**9==0}"
 https://open.kattis.com/problems/sequence/statistics (5)
     ruby -e"p(('%b'%`cat`).size).times{p 1<<_1}"
+https://open.kattis.com/problems/jazzitup/statistics (5)
+    ruby -e"p (2..).find{`cat`.gcd(_1)<2}"
+https://open.kattis.com/problems/treirad/statistics (5)
+    ruby -e"p (1..).find{~-_1*_1*-~_1>=`cat`}-2"
 https://open.kattis.com/problems/popkorn/statistics (5)
     ruby -e"p~(3-x=`cat`)*x/8+4"
 https://open.kattis.com/problems/betting/statistics (5)
@@ -431,6 +437,8 @@ https://open.kattis.com/problems/houseofcards/statistics (5)
     ruby -e"p (5-x=`cat`)%8%5+x"
 https://open.kattis.com/problems/tetration/statistics (5)
     ruby -e"p (x=1/`cat`)**-x"
+https://open.kattis.com/problems/harshadnumbers/statistics (5)
+    ruby -e"p (`cat`..).find{|x|x%(0..9).sum{x/10**_1%10}<1}"
 https://open.kattis.com/problems/busskortet/statistics (5)
     ruby -e"x=0-`cat`/-100;p x/5-x%5/-2"
 https://open.kattis.com/problems/pyramids/statistics (5)
@@ -443,12 +451,6 @@ https://open.kattis.com/problems/hailstone2/statistics (5)
     ruby -e"x=`cat`*2;p (1..).find{2>x=x%2>0?3*x+1:x/2}"
 https://open.kattis.com/problems/catalansquare/statistics (5)
     ruby -e"x=`cat`+2;p (x..x*2-2).inject(:*)/(1..x).inject(:*)"
-https://open.kattis.com/problems/harshadnumbers/statistics (5)
-    ruby -e"p (`cat`..).find{|x|x%(0..9).sum{x/10**_1%10}<1}"
-https://open.kattis.com/problems/jazzitup/statistics (5)
-    ruby -e"x=`cat`;p (2..).find{x.gcd(_1)<2}"
-https://open.kattis.com/problems/treirad/statistics (5)
-    ruby -e"x=`cat`;p (1..).find{~-_1*_1*-~_1>=x}-2"
 https://open.kattis.com/problems/pascal/statistics (5)
     ruby -e"x=`cat`;p x-x/((2..x**0.5).find{x%_1<1}||x)"
 https://open.kattis.com/problems/eulersnumber/statistics (5)
@@ -465,16 +467,12 @@ https://open.kattis.com/problems/subtractionplusplus/statistics (5)
     ruby -e"$><<[:NO,:YES][(3..).find{`cat`<=$.+=_1/2}&1]"
 https://open.kattis.com/problems/subtractionplusplusplus/statistics (5)
     ruby -e"$><<[:NO,:YES][(3..).find{`cat`<=$.+=_1/2}&1]"
-https://open.kattis.com/problems/pinnifraendi/statistics (5)
-    ruby -e"puts'0.%0`cat`d'%1"
 https://open.kattis.com/problems/peachpowderpolygon/statistics (5)
     ruby -e"puts `cat`%4>0?:Yes:'No'"
 https://open.kattis.com/problems/marswindow/statistics (5)
     ruby -e"puts (`cat`*12-2)%26<12?:yes:'no'"
 https://open.kattis.com/problems/oktalni/statistics (5)
     ruby -e"puts'%o'%0b`cat`"
-https://open.kattis.com/problems/klockan2/statistics (5)
-    ruby -e"x=`cat`/5;puts'%02d:%02d'%[131*x/60%12,11*x%60]"
 https://open.kattis.com/problems/fleytitala/statistics (5)
     read a;ruby -e"p $a.*2-2.0**-`cat`"
 https://open.kattis.com/problems/pallatolur/statistics (5)
@@ -512,7 +510,7 @@ https://open.kattis.com/problems/movingday/statistics (5)
 https://open.kattis.com/problems/socialrunning/statistics (5)
     ruby -e"x,*y=[`tr "\n" ,`];p (1..x).map{y[-_1]+y[2-_1]}.min"
 https://open.kattis.com/problems/fromatob/statistics (5)
-    ruby -e"x,y=-`tr \  ,`;p$\".sum{x+y<0?1+x-2*x/=2:0}+y+x"
+    ruby -e"x,y=-`tr \  ,`;p$\".sum{x+y<0?1+x-2*x/=2:0}+x+y"
 https://open.kattis.com/problems/moderatepace/statistics (5)
     ruby -e"x,*y=`tr " \n" ,`0;x.times{p [y[x+x],y[x],y.shift].sort[1]}"
 https://open.kattis.com/problems/kornislav/statistics (5)
@@ -572,7 +570,7 @@ https://open.kattis.com/problems/sequentialmanufacturing/statistics (5)
 https://open.kattis.com/problems/ghostleg/statistics (5)
     read a b;ruby -e"x=*1..$a;`sed "s/.*/x[&],x[&-1]=x[&-1,2]/"`;p *x"
 https://open.kattis.com/problems/ratingproblems/statistics (5)
-    read a b;ruby -e"x=$[`sed i+`];p (x-y=($a-$b)*3.0)/$a,(x+y)/$a"
+    read a b;ruby -e"x=$[`sed i+`];p (x-y=$[a-b]*3.0)/$a,(x+y)/$a"
 https://open.kattis.com/problems/spritt/statistics (5)
     read a b;ruby -e"puts $b<$[`sed i+`]?:Neibb:'Jebb'"
 
@@ -754,9 +752,17 @@ https://open.kattis.com/problems/vedurheidar/statistics (5)
 https://open.kattis.com/problems/scalingrecipe/statistics (5)
     read a b c;sed "s/.*/p &*$c\/$b/"|ruby
 https://open.kattis.com/problems/sibice/statistics (5)
-    read a b c;sed "s/.*/puts &*&>$b*$b+$c*$c?:NE:'DA'/"|ruby
+    read a b c;sed "s/.*/puts &*&>$[b*b+c*c]?:NE:'DA'/"|ruby
 
-encoded: ruby, interactive
+encoded: python, multiline
+https://open.kattis.com/problems/pet/statistics (5)
+    tr \  +|python3 -i|nl|sort -rnk2|head -1
+https://open.kattis.com/problems/different/statistics (5)
+    tr \  -|python3 -i|tr -d -
+https://open.kattis.com/problems/calculator/statistics (5)
+    printf %.2f\\n `python3 -i`
+
+encoded: interactive
 https://open.kattis.com/problems/ninetynine/statistics (6)
     ruby -e"p 2;$<.find{x=_1.to_i;p(x%3%2-~x)>98}"
 https://open.kattis.com/problems/askmarilyn/statistics (6)
@@ -766,15 +772,7 @@ https://open.kattis.com/problems/guess/statistics (6)
 https://open.kattis.com/problems/julmust/statistics (6)
     ruby -e"x,y=0,-gets.to_i;(1..).find{p _1.*x-y/=2;gets<?m||x-=y;\$_<?f}"
 https://open.kattis.com/problems/gullpeningastaflar/statistics (6)
-    read a;echo \? `seq $a`;read b;echo ! `ruby -e"p $b-$a*$a*-~$a/2"`
-
-encoded: python, multiline
-https://open.kattis.com/problems/pet/statistics (5)
-    tr \  +|python3 -i|nl|sort -rnk2|head -1
-https://open.kattis.com/problems/different/statistics (5)
-    tr \  -|python3 -i|tr -d -
-https://open.kattis.com/problems/calculator/statistics (5)
-    printf %.2f\\n `python3 -i`
+    read a;echo \? `seq $a`;read b;echo ! $[b-a*a*-~a/2]
 
 empty
 https://open.kattis.com/problems/flytibaka/statistics (0)
