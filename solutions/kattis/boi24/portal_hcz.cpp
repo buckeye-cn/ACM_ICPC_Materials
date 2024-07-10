@@ -44,9 +44,9 @@ void parallelogram_gcd(long &x1, long &y1, long &x2, long &y2, long x3, long y3)
             break;
         }
 
-        long d = x1 * y2 - x2 * y1;
-        long k = (x2 * y3 - x3 * y2) / d;
-        long l = (x3 * y1 - x1 * y3) / d;
+        long area = x1 * y2 - x2 * y1;
+        long k = (x2 * y3 - x3 * y2) / area;
+        long l = (x3 * y1 - x1 * y3) / area;
 
         x3 += k * x1 + l * x2;
         y3 += k * y1 + l * y2;
