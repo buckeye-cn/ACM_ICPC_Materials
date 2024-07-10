@@ -35,14 +35,16 @@ void intersect(
 
 void reflect(
     double &x, double &y,
-    double px, double py,
-    double qx, double qy
+    double x1, double y1, double x2, double y2
 ) {
-    double pxqy = px * qy;
-    double pyqx = py * qx;
+    double dx = x2 - x1;
+    double dy = y2 - y1;
 
-    x = px - 2 * (pxqy - pyqx) * qy / (sqr(qx) + sqr(qy));
-    y = py - 2 * (pyqx - pxqy) * qx / (sqr(qx) + sqr(qy));
+    double xx = x - 2 * (x * dy - dx * y) * dy / (sqr(dx) + sqr(dy));
+    double yy = y - 2 * (y * dx - dy * x) * dx / (sqr(dx) + sqr(dy));
+
+    x = xx;
+    y = yy;
 }
 
 int n;
@@ -190,8 +192,7 @@ int main() {
             if (mq[j] > 0) {
                 reflect(
                     vx[i], vy[i],
-                    vx[i], vy[i],
-                    mx[j][k + 1] - mx[j][k], my[j][k + 1] - my[j][k]
+                    mx[j][k], my[j][k], mx[j][k + 1], my[j][k + 1]
                 );
             }
 
