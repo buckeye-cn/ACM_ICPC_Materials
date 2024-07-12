@@ -26,12 +26,12 @@ bool within(
     return d1 && d1 == d2 && d2 == d3;
 }
 
-double reldot(
+double project_len(
     double x, double y,
     double x1, double y1, double x2, double y2
 ) {
-    return ((x1 - x) * (x2 - x) + (y1 - y) * (y2 - y))
-        / sqrt(sqr(x2 - x) + sqr(y2 - y));
+    return ((x - x1) * (x2 - x1) + (y - y1) * (y2 - y1))
+        / sqrt(sqr(x2 - x1) + sqr(y2 - y1));
 }
 
 double angle(
@@ -107,9 +107,9 @@ int main() {
                     kx[k], ky[k], x, y, nx[i], ny[i]
                 )) continue;
 
-                double d = reldot(
-                    kx[k], ky[k],
-                    x, y, mx[j], my[j]
+                double d = project_len(
+                    x, y,
+                    kx[k], ky[k], mx[j], my[j]
                 );
 
                 if (best_dot < d) {
