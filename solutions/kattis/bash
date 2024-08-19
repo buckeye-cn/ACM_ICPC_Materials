@@ -360,7 +360,7 @@ https://open.kattis.com/problems/bookingaroom/statistics (5)
 https://open.kattis.com/problems/fizzbuzz/statistics (5)
     read a b c;seq $c|sed "$b~$b s/.*/Buzz/;$a~$a s/[0-9]*/Fizz/"
 https://open.kattis.com/problems/ekkidaudi/statistics (5)
-    IFS=, read a b c d< <(tr "\n|" ,);echo $a$c $b$d
+    IFS=\|;read a b;read c d;echo $a$c $b$d
 
 encoded: ruby, math
 https://open.kattis.com/problems/modulo/statistics (5)
@@ -569,6 +569,8 @@ https://open.kattis.com/problems/countdoubles/statistics (5)
     read a b;ruby -e"p [`tr \  ,`].each_cons($b).count{|x|x.sum{~_1%2}>1}"
 
 encoded: ruby + sed, math
+https://open.kattis.com/problems/bidendalausbid/statistics (5)
+    ruby -e"p (-(1`sed "s/:/*60+1/;2s/^/)+1/"`)%1440"
 https://open.kattis.com/problems/locustlocus/statistics (5)
     ruby -e"p [`sed "1d;s/ .* /+&.lcm(/;a),"`].min"
 https://open.kattis.com/problems/overdraft/statistics (5)
