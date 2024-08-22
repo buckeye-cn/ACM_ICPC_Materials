@@ -631,8 +631,6 @@ https://open.kattis.com/problems/bela/statistics (5)
     ruby -e"x=gets[-2];p$<.sum{(x==_1[1]?:AAO_D__KUEL:'AAA_D__KCEL')[_1[0].sum%11].sum-65}"
 https://open.kattis.com/problems/dihedralgroup/statistics (5)
     ruby -e"x,y,z=$<.map &:split;p (y*3*?_+y.reverse*3*?_).index(?_+z*?_+?_)?1:0"
-https://open.kattis.com/problems/tripletexting/statistics (5)
-    ruby -e"$><<gets.chars.each_slice(\$_.size/3).sort[2]*''"
 https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -e"putc~(9-gets.sum)/~-\$_.size"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
@@ -661,6 +659,8 @@ https://open.kattis.com/problems/nop/statistics (5)
     read a;ruby -e"'$a'.bytes{$.+=_1<96?4-$.%4:1};p$.-${#a}-3"
 https://open.kattis.com/problems/exam/statistics (5)
     read a;ruby -e"p~-gets.size-(~$a+\$_.chars.count{_1==$<.getc}).abs"
+https://open.kattis.com/problems/tripletexting/statistics (5)
+    read a;ruby -e"$><<'$a'.scan(/.{$[${#a}/3]}/).sort[1]"
 https://open.kattis.com/problems/asciikassi/statistics (5)
     read a;ruby -e"puts x=?++?-*$a+?+,(1..$a).map{?|+' '*$a+?|},x"
 https://open.kattis.com/problems/pencilcrayons/statistics (5)
