@@ -7,6 +7,8 @@ https://open.kattis.com/problems/sjecista/statistics (5)
     read a;echo $[(3-a)*(2-a)*~-a*a/24]
 https://open.kattis.com/problems/shortestcompositesum/statistics (5)
     read a;echo 2 $[b=a%2?9:4] $[a-b]
+https://open.kattis.com/problems/secondopinion/statistics (5)
+    read a;echo $[a/3600] : $[a/60%60] : $[a%60]
 https://open.kattis.com/problems/faktor/statistics (5)
     read a b;echo $[a*~-b+1]
 https://open.kattis.com/problems/distributingpoffins/statistics (5)
@@ -343,6 +345,8 @@ https://open.kattis.com/problems/keywords/statistics (5)
     read;tr - \ |sort -uf|wc -l
 https://open.kattis.com/problems/mumblerap/statistics (5)
     read;tr -c 0-9 \\n|sort -n|tail -1
+https://open.kattis.com/problems/hitastig/statistics (5)
+    read;xargs -n1|sort -rn|sed 1p\;N\;D
 https://open.kattis.com/problems/reversiblecyclic/statistics (5)
     read a;rev<<<$a$a|grep $a|wc -l
 https://open.kattis.com/problems/bannord/statistics (5)
@@ -539,6 +543,8 @@ https://open.kattis.com/problems/fromatob/statistics (5)
     ruby -e"x,y=-`tr \  ,`;p$\".sum{x+y<0?1+x-2*x/=2:0}+x+y"
 https://open.kattis.com/problems/moderatepace/statistics (5)
     ruby -e"x,*y=`tr " \n" ,`0;x.times{p [y[x+x],y[x],y.shift].sort[1]}"
+https://open.kattis.com/problems/klosettrod/statistics (5)
+    ruby -e"x,*y=`tr " \n" ,`0;x.times{p y.index(x-_1)+1}"
 https://open.kattis.com/problems/kornislav/statistics (5)
     ruby -e"x,y,z=[`tr \  ,`].sort;p x*z"
 https://open.kattis.com/problems/cornhusker/statistics (5)
@@ -653,6 +659,8 @@ https://open.kattis.com/problems/recount/statistics (5)
     ruby -e"(x,y),z=$<.tally.sort_by{-_2};puts y>z[1]?x:'Runoff!'"
 https://open.kattis.com/problems/babelfish/statistics (5)
     ruby -e"x={};$<.map{y,z=_1.split;x[z]=y;z||y&&puts(x[y]||:eh)}"
+https://open.kattis.com/problems/toktik/statistics (5)
+    ruby -e"x={};puts$<.max_by{y,z=_1.split;x[y]=x[y].to_i+z.to_i}.split[0]"
 https://open.kattis.com/problems/maeting/statistics (5)
     ruby -e"x,y,z=$<.map &:split;puts y.filter{z.index _1}"
 https://open.kattis.com/problems/nop/statistics (5)
@@ -689,6 +697,8 @@ https://open.kattis.com/problems/cups/statistics (5)
 encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
     ruby -e"p$<.map{[$.-1,$.=_1.to_i].max}[2..].sum"
+https://open.kattis.com/problems/revisionskontroll/statistics (5)
+    ruby -e"gets;x={};puts gets.split.map{x[_1]?0:x[_1]=1}"
 https://open.kattis.com/problems/flyingsafely/statistics (5)
     ruby -e"gets;$<.map{x,y=_1.split;p~-x.to_i;$<.take y.to_i}"
 
