@@ -561,6 +561,8 @@ https://open.kattis.com/problems/eatingout/statistics (5)
     ruby -e"puts'im'*(2*`tr \  -`)[99]+'possible'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
     ruby -e"puts [0*`tr " \n" ,+`1].all?{2>$.+=2-_1}&&$.>0?:YES:'NO'"
+https://open.kattis.com/problems/takkar/statistics (5)
+    ruby -e"$><<['WORLD WAR 3!','MAGA!','FAKE NEWS!'][`tr "\n" -`0<=>0]"
 https://open.kattis.com/problems/grading/statistics (5)
     ruby -e"x=`tr " \n" ,`0;putc 65+x.count{_1>x[5]}"
 https://open.kattis.com/problems/dicegame/statistics (5)
