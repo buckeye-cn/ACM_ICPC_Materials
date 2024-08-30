@@ -228,7 +228,7 @@ https://open.kattis.com/problems/cats/statistics (5)
 https://open.kattis.com/problems/avian/statistics (5)
     sed 2!d\;s/^/iunty23v7itdhugh3c/
 https://open.kattis.com/problems/blandadbest/statistics (5)
-    sed "$ !d;3cblandad best"
+    sed "N;2D;cblandad best"
 https://open.kattis.com/problems/digits/statistics (5)
     sed "x;s/[^1]/2/;s/.\{10,\}/4/;/../c3"
 https://open.kattis.com/problems/piglatin/statistics (5)
@@ -318,7 +318,7 @@ https://open.kattis.com/problems/peragrams/statistics (5)
 https://open.kattis.com/problems/pokerhand/statistics (5)
     fold -w3|sort|uniq -cw1|sort -r|cut -zc7
 https://open.kattis.com/problems/conundrum/statistics (5)
-    fold -w1|sed "1~3s/P//;2~3s/E//;3~3s/R//"|wc -w
+    fold -w1|sed "s/P//;n;s/E//;n;s/R//"|wc -w
 https://open.kattis.com/problems/basketballoneonone/statistics (5)
     rev|cut -b2
 https://open.kattis.com/problems/filip/statistics (5)
@@ -346,7 +346,7 @@ https://open.kattis.com/problems/keywords/statistics (5)
 https://open.kattis.com/problems/mumblerap/statistics (5)
     read;tr -c 0-9 \\n|sort -n|tail -1
 https://open.kattis.com/problems/hitastig/statistics (5)
-    read;xargs -n1|sort -rn|sed 1p\;N\;D
+    read;xargs -n1|sort -rn|sed "1p;N;D"
 https://open.kattis.com/problems/reversiblecyclic/statistics (5)
     read a;rev<<<$a$a|grep $a|wc -l
 https://open.kattis.com/problems/bannord/statistics (5)
@@ -740,11 +740,11 @@ encoded: ruby, multiline
 https://open.kattis.com/problems/bishops/statistics (5)
     sed "s/.*/p &<2?1:&*2-2/"|ruby
 https://open.kattis.com/problems/smallestmultiple/statistics (5)
-    sed "s/ /.lcm /g;s/^/p /"|ruby
+    sed "s/\</.lcm /g;ip 1"|ruby
 https://open.kattis.com/problems/bus/statistics (5)
     sed 1!ip~-2**|ruby
 https://open.kattis.com/problems/deathstar/statistics (5)
-    sed "y/ /|/;1!s/^/p /"|ruby
+    sed "y/ /|/;1!ip~~"|ruby
 https://open.kattis.com/problems/soylent/statistics (5)
     sed "1!s/.*/p~-&\/400+1/"|ruby
 https://open.kattis.com/problems/mult/statistics (5)
