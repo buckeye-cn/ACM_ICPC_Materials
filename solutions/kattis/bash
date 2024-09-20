@@ -665,6 +665,8 @@ https://open.kattis.com/problems/toktik/statistics (5)
     ruby -e"x={};puts$<.map{y,z=_1.split;[x[y]=x[y].to_i+z.to_i,y]}.max[1]"
 https://open.kattis.com/problems/ferskastajarmid/statistics (5)
     ruby -e"gets;puts$<.map{x,y,z=_1.split;[-y.to_i*z.to_i,x]}.min[1]"
+https://open.kattis.com/problems/pubrunda/statistics (5)
+    ruby -e"puts$<.map{x,y,z=_1.split;[x,-~y.to_i*z.to_i]}.max_by{_1[1]}"
 https://open.kattis.com/problems/maeting/statistics (5)
     ruby -e"x,y,z=$<.map &:split;puts y.filter{z.index _1}"
 https://open.kattis.com/problems/nop/statistics (5)
@@ -704,7 +706,7 @@ https://open.kattis.com/problems/sequencereduction/statistics (5)
 https://open.kattis.com/problems/revisionskontroll/statistics (5)
     ruby -e"gets;x={};puts gets.split.map{x[_1]?0:x[_1]=1}"
 https://open.kattis.com/problems/flyingsafely/statistics (5)
-    ruby -e"gets;$<.map{x,y=_1.split;p~-x.to_i;$<.take y.to_i}"
+    ruby -e"gets;$<.map{p~-_1.to_i;$<.take _1.split[1].to_i}"
 
 encoded: ruby + cat, large input
 https://open.kattis.com/problems/abcstring/statistics (5)
