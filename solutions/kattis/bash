@@ -233,6 +233,8 @@ https://open.kattis.com/problems/digits/statistics (5)
     sed "x;s/[^1]/2/;s/.\{10,\}/4/;/../c3"
 https://open.kattis.com/problems/rimski/statistics (5)
     sed "s/LX/XL/;s/XI/IX/;s/VI$/IV/;s/XLX/LXX/"
+https://open.kattis.com/problems/mergjadmal/statistics (5)
+    sed -E "s/.*(69|420).*/Mergjad!/;t;cLeim!"
 https://open.kattis.com/problems/piglatin/statistics (5)
     sed -E "s/([^aeiouy ]*)(\w*)/\2:\1ay/g;s/:a/ya/g;s/://g"
 https://open.kattis.com/problems/battlesimulation/statistics (5)
