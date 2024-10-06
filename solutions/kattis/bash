@@ -93,6 +93,8 @@ https://open.kattis.com/problems/aleidibio/statistics (5)
     echo $[`sed i-`*-1]
 https://open.kattis.com/problems/compass/statistics (5)
     echo $[180-(540-`sed i-`)%360]
+https://open.kattis.com/problems/callforproblems/statistics (5)
+    echo $[0*`sed a%2+`0]
 https://open.kattis.com/problems/pot/statistics (5)
     echo $[0`sed s/.$/**\&+/`0]
 https://open.kattis.com/problems/kafkaesque/statistics (5)
