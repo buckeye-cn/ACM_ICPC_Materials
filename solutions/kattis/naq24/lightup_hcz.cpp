@@ -26,7 +26,7 @@ int main() {
         }
     }
 
-    int valid = 1;
+    bool valid = 1;
 
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= n; ++j) {
