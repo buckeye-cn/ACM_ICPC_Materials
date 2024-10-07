@@ -22,8 +22,8 @@ int main() {
 
     int mask = 0;
 
-    for (int i = 0; i < s.size(); ++i) {
-        mask |= 1 << (s[i] - '0');
+    for (char c: s) {
+        mask |= 1 << (c - '0');
     }
 
     if (mask == 1023) {

@@ -26,11 +26,11 @@ int main() {
 
             bool inside = false;
 
-            for (int pos = 0; pos < s.size(); ++pos) {
-                if (inside && s[pos] == j) {
+            for (char c: s) {
+                if (inside && c == j) {
                     total += 1;
                     inside = false;
-                } else if (!inside && s[pos] == i) {
+                } else if (!inside && c == i) {
                     inside = true;
                 }
             }

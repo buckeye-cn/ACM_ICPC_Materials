@@ -23,8 +23,9 @@ int main() {
         cin >> s;
 
         int result = s.size();
-        for (int j = 0; j < s.size(); ++j) {
-            if (s[j] != '0') break;
+
+        for (char c: s) {
+            if (c != '0') break;
 
             result -= 1;
         }
