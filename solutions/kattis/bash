@@ -509,6 +509,8 @@ https://open.kattis.com/problems/marswindow/statistics (5)
     ruby -e"puts (`cat`*12-2)%26<12?:yes:'no'"
 https://open.kattis.com/problems/oktalni/statistics (5)
     ruby -e"puts'%o'%0b`cat`"
+https://open.kattis.com/problems/composedrhythms/statistics (5)
+    ruby -e"x=`cat`;puts y=x/2,2+x%2,[2]*~-y"
 https://open.kattis.com/problems/fleytitala/statistics (5)
     read a;ruby -e"p $a.*2-2.0**-`cat`"
 https://open.kattis.com/problems/pallatolur/statistics (5)
@@ -647,6 +649,8 @@ https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -e"putc~(9-gets.sum)/~-\$_.size"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"$<.tally.sort.map{puts _1,1e2*_2/$.}"
+https://open.kattis.com/problems/architecture/statistics (5)
+    ruby -e"gets;puts'im'*~-$<.uniq{_1.split.max}.size+'possible'"
 https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -e"$<.map{|x|puts$<.take(x.to_i).sort_by{_1[..1]}}"
 https://open.kattis.com/problems/detaileddifferences/statistics (5)
@@ -817,6 +821,8 @@ https://open.kattis.com/problems/pet/statistics (5)
     tr \  +|python3 -i|nl|sort -rnk2|head -1
 https://open.kattis.com/problems/different/statistics (5)
     tr \  -|python3 -i|tr -d -
+https://open.kattis.com/problems/freeforminput/statistics (5)
+    tr -d \ |tr , +|python3 -i
 https://open.kattis.com/problems/calculator/statistics (5)
     printf %.2f\\n `python3 -i`
 
