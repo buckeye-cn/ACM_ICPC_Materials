@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 using namespace std;
@@ -21,19 +20,20 @@ int main() {
 
     ll *= 5;
 
-    multiset<int> s;
+    int l[n];
 
     for (int i = 0; i < n; ++i) {
-        int l;
-        cin >> l;
+        cin >> l[i];
 
-        s.insert(l);
+        for (int j = i; j > 0; --j) {
+            if (l[j - 1] > l[j]) swap(l[j - 1], l[j]);
+        }
     }
 
     int m = 0;
 
-    for (int l: s) {
-        ll -= l;
+    for (int i = 0; i < n; ++i) {
+        ll -= l[i];
         m += ll >= 0;
     }
 
