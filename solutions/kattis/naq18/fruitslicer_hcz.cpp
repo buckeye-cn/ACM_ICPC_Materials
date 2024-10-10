@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 const double PI = acos(-1);
@@ -20,17 +19,21 @@ double y[100];
 pair<int, double> test(double rot) {
     int result = 0;
 
-    multiset<pair<double, bool>> range;
+    pair<double, bool> range[2 * n];
 
     for (int i = 0; i < n; ++i) {
-        range.insert({x[i] * sin(rot) - y[i] * cos(rot) - 1.000001, false});
-        range.insert({x[i] * sin(rot) - y[i] * cos(rot) + 1.000001, true});
+        range[2 * i].first = x[i] * sin(rot) - y[i] * cos(rot) - 1.000001;
+        range[2 * i].second = false;
+        range[2 * i + 1].first = x[i] * sin(rot) - y[i] * cos(rot) + 1.000001;
+        range[2 * i + 1].second = true;
     }
+
+    sort(range, range + 2 * n);
 
     int current = 0;
 
-    for (pair<double, bool> i: range) {
-        if (!i.second) {
+    for (int i = 0; i < 2 * n; ++i) {
+        if (!range[i].second) {
             current += 1;
         } else {
             current -= 1;
