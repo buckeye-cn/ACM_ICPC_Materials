@@ -6,10 +6,11 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 using namespace std;
+
+int x[100001];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -19,38 +20,35 @@ int main() {
     int n, s, k;
     cin >> n >> s >> k;
 
-    set<int> xs;
-
     for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-
-        xs.insert(x * 2);
+        cin >> x[i];
+        x[i] *= 2;
     }
 
     int tot = 0;
     int prev = -2e5;
     int r = 0;
 
-    xs.insert(2e9 + 2e5);
+    x[n] = 2e9 + 2e5;
+    sort(x, x + n);
 
-    for (int x: xs) {
-        if (x - prev < 2 * s) {
+    for (int i = 0; i <= n; ++i) {
+        if (x[i] - prev < 2 * s) {
             cout << -1 << endl;
 
             return 0;
         }
 
-        int r_new = max(min(x - prev - r, k), s);
+        int r_new = max(min(x[i] - prev - r, k), s);
 
-        if (x - prev - r >= k) {
+        if (x[i] - prev - r >= k) {
             tot += r;
         } else {
-            tot += x - prev - r_new;
+            tot += x[i] - prev - r_new;
         }
 
         r = r_new;
-        prev = x;
+        prev = x[i];
     }
 
     cout << tot << endl;
