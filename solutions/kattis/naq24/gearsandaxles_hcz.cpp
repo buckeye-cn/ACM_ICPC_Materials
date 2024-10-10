@@ -6,11 +6,11 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 using namespace std;
 
+pair<int, int> sc[100001];
 int v[100000];
 
 int main() {
@@ -21,33 +21,28 @@ int main() {
     int n;
     cin >> n;
 
-    multiset<pair<int, int>> gset;
-
     for (int i = 0; i < n; ++i) {
-        int s, c;
-        cin >> s >> c;
-
-        gset.insert({s, c});
+        cin >> sc[i].first >> sc[i].second;
     }
 
-    gset.insert({1000000, 0});
+    sc[n].first = 1000000;
+    sort(sc, sc + n);
 
     int vcount = 0;
     int prev = 0;
     double result = 0;
 
-    for (pair<int, int> p: gset) {
-        if (prev != p.first) {
+    for (int i = 0; i <= n; ++i) {
+        if (i && sc[i].first != sc[i - 1].first) {
             for (int i = 0; i < vcount / 2; ++i) {
                 result -= log(v[i]);
                 result += log(v[vcount - 1 - i]);
             }
 
             vcount = 0;
-            prev = p.first;
         }
 
-        v[vcount++] = p.second;
+        v[vcount++] = sc[i].second;
     }
 
     cout << result << endl;
