@@ -6,10 +6,11 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 using namespace std;
+
+int s[500000];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -19,23 +20,20 @@ int main() {
     int n;
     cin >> n;
 
-    multiset<int> sset;
-
     for (int i = 0; i < n; ++i) {
-        int s;
-        cin >> s;
-
-        sset.insert(-s);
+        cin >> s[i];
     }
+
+    sort(s, s + n);
 
     int n_curr = 0;
     long tot_curr = 0;
     int n_next = 0;
     long tot_next = 0;
 
-    for (int s: sset) {
+    for (int i = n - 1; i >= 0; --i) {
         n_next += 1;
-        tot_next -= s;
+        tot_next += s[i];
 
         if (tot_next >= tot_curr) {
             n_curr += n_next;
