@@ -28,30 +28,30 @@ int main() {
     int n;
 
     while (cin >> n) {
-        set<pair<int, int>> all;
+        pair<int, int> v[n];
         bool removed[n];
 
         for (int i = 0; i < n; ++i) {
-            int v;
-            cin >> v;
-
-            all.insert({v, i});
+            cin >> v[i].first;
+            v[i].second = i;
             removed[i] = false;
         }
 
-        for (auto i = all.rbegin(); i != all.rend(); ++i) {
-            if (removed[i->second]) continue;
+        sort(v, v + n);
 
-            for (auto j = all.begin(); j != all.end(); ++j) {
-                if (*i != *j && gcd(i->first, j->first) > 1) {
-                    removed[i->second] = true;
-                    removed[j->second] = true;
+        for (int i = n - 1; i >= 0; --i) {
+            if (removed[v[i].second]) continue;
+
+            for (int j = 0; j < n; ++j) {
+                if (i != j && gcd(v[i].first, v[j].first) > 1) {
+                    removed[v[i].second] = true;
+                    removed[v[j].second] = true;
                     break;
                 }
             }
 
-            if (!removed[i->second]) {
-                cout << i->first << endl;
+            if (!removed[v[i].second]) {
+                cout << v[i].first << endl;
                 break;
             }
         }
