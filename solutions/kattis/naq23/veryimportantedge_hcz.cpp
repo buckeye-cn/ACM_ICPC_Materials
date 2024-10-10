@@ -7,14 +7,13 @@
 #include <cstring>
 #include <string>
 #include <vector>
-#include <set>
 #include <iostream>
 
 using namespace std;
 
 int a[1000000];
 int b[1000000];
-int w[1000000];
+pair<int, int> w[1000000];
 
 int group[100000];
 bool used[1000000];
@@ -62,15 +61,14 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    set<pair<int, int>> s;
-
     for (int i = 0; i < m; ++i) {
-        cin >> a[i] >> b[i] >> w[i];
+        cin >> a[i] >> b[i] >> w[i].first;
         a[i] -= 1;
         b[i] -= 1;
-
-        s.insert({w[i], i});
+        w[i].second = i;
     }
+
+    sort(w, w + m);
 
     for (int i = 0; i < n; ++i) {
         group[i] = i;
@@ -78,16 +76,16 @@ int main() {
 
     long mst = 0;
 
-    for (pair<int, int> p: s) {
-        int g1 = find(a[p.second]);
-        int g2 = find(b[p.second]);
+    for (int i = 0; i < m; ++i) {
+        int g1 = find(a[w[i].second]);
+        int g2 = find(b[w[i].second]);
 
         if (g1 != g2) {
-            used[p.second] = true;
+            used[w[i].second] = true;
             group[max(g1, g2)] = min(g1, g2);
-            to[a[p.second]].push_back({b[p.second], p.first});
-            to[b[p.second]].push_back({a[p.second], p.first});
-            mst += p.first;
+            to[a[w[i].second]].push_back({b[w[i].second], w[i].first});
+            to[b[w[i].second]].push_back({a[w[i].second], w[i].first});
+            mst += w[i].first;
         }
     }
 
@@ -95,10 +93,10 @@ int main() {
 
     int gap = 0;
 
-    for (pair<int, int> p: s) {
-        if (!used[p.second]) {
-            int pa = a[p.second];
-            int pb = b[p.second];
+    for (int i = 0; i < m; ++i) {
+        if (!used[w[i].second]) {
+            int pa = a[w[i].second];
+            int pb = b[w[i].second];
 
             while (pa != pb) {
                 if (level[pa] > level[pb]) {
@@ -108,23 +106,23 @@ int main() {
                 }
             }
 
-            int curr = a[p.second];
+            int curr = a[w[i].second];
 
             while (curr != pa) {
                 int prev = curr;
 
-                gap = max(gap, p.first - weight[prev]);
+                gap = max(gap, w[i].first - weight[prev]);
                 curr = parent[prev];
                 parent[prev] = pa;
                 weight[prev] = 1000000;
             }
 
-            curr = b[p.second];
+            curr = b[w[i].second];
 
             while (curr != pb) {
                 int prev = curr;
 
-                gap = max(gap, p.first - weight[prev]);
+                gap = max(gap, w[i].first - weight[prev]);
                 curr = parent[prev];
                 parent[prev] = pb;
                 weight[prev] = 1000000;
