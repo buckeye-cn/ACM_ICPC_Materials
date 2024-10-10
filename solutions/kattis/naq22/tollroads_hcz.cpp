@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 using namespace std;
@@ -14,7 +13,7 @@ using namespace std;
 int n, m, q;
 int u[200000];
 int v[200000];
-int t[200000];
+pair<int, int> t[200000];
 
 int group[400000];
 int tree_l[200000];
@@ -80,36 +79,31 @@ int main() {
         group[i] = i;
     }
 
-    set<pair<int, int>> s;
-
     for (int i = 0; i < m; ++i) {
-        cin >> u[i] >> v[i] >> t[i];
-
-        s.insert({t[i], i});
+        cin >> u[i] >> v[i] >> t[i].first;
+        t[i].second = i;
     }
+
+    sort(t, t + m);
 
     int k = 1;
 
-    for (pair<int, int> p: s) {
-        int g1 = find(u[p.second]);
-        int g2 = find(v[p.second]);
+    for (int i = 0; i < m; ++i) {
+        int g1 = find(u[t[i].second]);
+        int g2 = find(v[t[i].second]);
 
         if (g1 != g2) {
             group[g1] = n + k;
             group[g2] = n + k;
             tree_l[k] = g1;
             tree_r[k] = g2;
-            tree_tmax[k] = p.first;
+            tree_tmax[k] = t[i].first;
             tree_count[k] = (g1 <= n ? 1 : tree_count[g1 - n]) + (g2 <= n ? 1 : tree_count[g2 - n]);
             k += 1;
         }
     }
 
     dfs(2 * n - 1, -1, -1);
-
-    // for (int i = 524288; i < seg_n; ++i) {
-    //     cerr << i << '\t' << seg_i[i] << '\t' << seg_tmax[i] << ' ' << seg_count[i] << endl;
-    // }
 
     for (int i = 262144; i > 0; i >>= 1) {
         for (int j = i; j < 2 * i; ++j) {
