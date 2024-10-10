@@ -6,13 +6,13 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 #define sqr(x) ((x) * (x))
 
 using namespace std;
 
+double xs[2000];
 double cumsum1[2001];
 double cumsum2[2001];
 double dp[2001][101];
@@ -26,20 +26,17 @@ int main() {
     double s;
     cin >> m >> n >> ap >> s;
 
-    multiset<double> xs;
-
     for (int i = 0; i < m + n; ++i) {
-        double x;
-        cin >> x;
-
-        xs.insert(x);
+        cin >> xs[i];
     }
+
+    sort(xs, xs + m + n);
 
     int pos = 0;
 
-    for (double x: xs) {
-        cumsum1[pos + 1] = cumsum1[pos] + x;
-        cumsum2[pos + 1] = cumsum2[pos] + x * x;
+    for (int i = 0; i < m + n; ++i) {
+        cumsum1[pos + 1] = cumsum1[pos] + xs[i];
+        cumsum2[pos + 1] = cumsum2[pos] + xs[i] * xs[i];
         pos += 1;
     }
 
