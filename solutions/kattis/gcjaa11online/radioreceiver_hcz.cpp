@@ -6,13 +6,11 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 using namespace std;
 
-int pp[1000];
-int tt[1000];
+pair<int, int> tp[1000];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -28,36 +26,25 @@ int main() {
         int n;
         cin >> n;
 
-        set<pair<int, int>> s;
-
         for (int i = 0; i < n; ++i) {
-            int p, t;
-            cin >> p >> t;
-
-            s.insert({t, p});
+            cin >> tp[i].second >> tp[i].first;
         }
 
-        int i = 0;
-
-        for (pair<int, int> p: s) {
-            pp[i] = p.second;
-            tt[i] = p.first;
-            i += 1;
-        }
+        sort(tp, tp + n);
 
         double l = 0;
         double r = 5e8;
 
         while (r - l > max(1e-9, 5e-10 * l)) {
             double m = (l + r) / 2;
-            double pl = pp[0] - m;
-            double pr = pp[0] + m;
-            int t = tt[0];
+            double pl = tp[0].second - m;
+            double pr = tp[0].second + m;
+            int t = tp[0].first;
 
             for (int i = 1; i < n; ++i) {
-                pl = max(pl - tt[i] + t, pp[i] - m);
-                pr = min(pr + tt[i] - t, pp[i] + m);
-                t = tt[i];
+                pl = max(pl - tp[i].first + t, tp[i].second - m);
+                pr = min(pr + tp[i].first - t, tp[i].second + m);
+                t = tp[i].first;
 
                 if (pl > pr) {
                     break;
