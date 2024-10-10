@@ -6,12 +6,11 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <set>
 #include <iostream>
 
 using namespace std;
 
-int nums[2500];
+int nums[2501];
 int grid[50][50];
 
 int main() {
@@ -22,24 +21,20 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    set<int> s;
+    int tot = 0;
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
             cin >> grid[i][j];
 
             if (grid[i][j] > 0) {
-                s.insert(grid[i][j]);
+                nums[tot++] = grid[i][j];
             }
         }
     }
 
-    int tot = 0;
-
-    for (int i: s) {
-        nums[tot++] = i;
-    }
     nums[tot] = 2147483647;
+    sort(nums, nums + tot);
 
     int best = n * m;
 
