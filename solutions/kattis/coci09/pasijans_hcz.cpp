@@ -11,7 +11,6 @@
 
 using namespace std;
 
-int n;
 int tot[1024];
 int seqdata[1024][1024];
 int cache[1024][1024][2][32];
@@ -86,6 +85,7 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
+    int n;
     cin >> n;
 
     set<int, Comp> compset;
