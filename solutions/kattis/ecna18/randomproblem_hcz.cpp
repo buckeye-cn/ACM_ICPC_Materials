@@ -10,11 +10,6 @@
 
 using namespace std;
 
-int v[1000];
-
-int count[10][10][10];
-int first[10][10][10];
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -23,6 +18,7 @@ int main() {
     int p;
     cin >> p;
 
+    int v[p];
     for (int i = 0; i < p; ++i) {
         cin >> v[i];
     }
@@ -33,6 +29,9 @@ int main() {
 
     for (int n = 1; n < p; ++n) {
         for (int m = 1; n + m < p; ++m) {
+            int count[10][10][10];
+            int first[10][10][10];
+
             memset(count, 0, sizeof(count));
             memset(first, 0, sizeof(first));
 

@@ -14,9 +14,8 @@ const int CAP = BASE * BASE;
 using namespace std;
 
 int ii[CAP];
-long value[CAP];
-long count[2][CAP];
-int tot;
+long xy_value[CAP];
+long dp[2][CAP];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -26,36 +25,37 @@ int main() {
     int n;
     cin >> n;
 
-    value[0] = CAP / 2;
-    count[0][0] = 1;
-    tot = 1;
+    xy_value[0] = CAP / 2;
+    dp[0][0] = 1;
+
+    int tot = 1;
 
     for (int i = 0; i < n; ++i) {
         int x, y;
         cin >> x >> y;
 
-        long *count_last = count[i & 1];
-        long *count_now = count[~i & 1];
         int delta = x * BASE + y;
         int old_tot = tot;
 
         for (int j = 0; j < old_tot; ++j) {
-            count_now[j] += count_last[j];
-            if (ii[value[j] + delta]) {
-                count_now[ii[value[j] + delta]] += count_last[j];
-            } else if (value[j] + delta == CAP / 2) {
-                count_now[0] += count_last[j];
+            dp[~i & 1][j] += dp[i & 1][j];
+
+            if (ii[xy_value[j] + delta]) {
+                dp[~i & 1][ii[xy_value[j] + delta]] += dp[i & 1][j];
+            } else if (xy_value[j] + delta == CAP / 2) {
+                dp[~i & 1][0] += dp[i & 1][j];
             } else {
-                value[tot] = value[j] + delta;
-                count_now[tot] += count_last[j];
-                ii[value[tot]] = tot;
+                xy_value[tot] = xy_value[j] + delta;
+                dp[~i & 1][tot] += dp[i & 1][j];
+                ii[xy_value[tot]] = tot;
                 tot += 1;
             }
-            count_last[j] = 0;
+
+            dp[i & 1][j] = 0;
         }
     }
 
-    cout << (count[n & 1][0] - 1) << endl;
+    cout << (dp[n & 1][0] - 1) << endl;
 
     return 0;
 }
