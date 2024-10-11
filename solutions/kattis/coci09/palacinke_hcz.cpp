@@ -12,7 +12,6 @@
 
 using namespace std;
 
-int n, m, t;
 int item[30][30];
 int dp_mat[2][60][60];
 int dp[2][60];
@@ -23,6 +22,7 @@ int main() {
     cin.tie(nullptr);
     cout.precision(10);
 
+    int n, m;
     cin >> n >> m;
 
     for (int i = 0; i < m; ++i) {
@@ -51,6 +51,7 @@ int main() {
         item[a - 1][b - 1] = bitmap;
     }
 
+    int t;
     cin >> t;
     t += 1;
 
