@@ -6,21 +6,20 @@
 #include <cmath>
 #include <cstring>
 #include <string>
-#include <vector>
 #include <iostream>
 
 using namespace std;
-
-int n, m;
-vector<int> pos;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.precision(10);
 
+    int n, m;
     cin >> n >> m;
-    pos.push_back(0);
+
+    int pos_n = 1;
+    int pos[m + 1] {0};
 
     for (int i = 0; i < m; ++i) {
         string s;
@@ -30,16 +29,14 @@ int main() {
             int j;
             cin >> j;
 
-            for (int k = 0; k < j; ++k) {
-                pos.pop_back();
-            }
+            pos_n -= j;
         } else {
-            int j = stol(s);
-            pos.push_back(pos.back() + j);
+            pos[pos_n] = pos[pos_n - 1] + stol(s);
+            pos_n += 1;
         }
     }
 
-    cout << (pos.back() % n + n) % n << endl;
+    cout << (pos[pos_n - 1] % n + n) % n << endl;
 
     return 0;
 }
