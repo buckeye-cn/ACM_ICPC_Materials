@@ -21,15 +21,6 @@ int main() {
 
         if (!n && !m) return 0;
 
-        // hack
-        if (nn == 3) {
-            cout << 0 << endl;
-            cout << 1000000 << endl;
-            cout << 124680 << endl;
-            cout << 98 << endl;
-            return 0;
-        }
-
         int tot = 0;
 
         int a[n + 1];
