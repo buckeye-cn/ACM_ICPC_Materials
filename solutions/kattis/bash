@@ -597,6 +597,8 @@ https://open.kattis.com/problems/countdoubles/statistics (5)
     read a b;ruby -e"p [`tr \  ,`].each_cons($b).count{|x|x.sum{~_1%2}>1}"
 
 encoded: ruby + sed, math
+https://open.kattis.com/problems/numbersquistem/statistics (5)
+    sed s/.]:=/0/g\;1cp~~|ruby|sed s/0/\<]:=/g
 https://open.kattis.com/problems/locustlocus/statistics (5)
     ruby -e"p [`sed "1d;s/ .* /+&.lcm(/;a),"`].min"
 https://open.kattis.com/problems/overdraft/statistics (5)
@@ -735,6 +737,8 @@ https://open.kattis.com/problems/pvbg/statistics (5)
     read;ruby<<<"p [`tr \  ,`].min+1"
 https://open.kattis.com/problems/prjonamynstur/statistics (5)
     read;ruby<<<"p'`tr ".A^v\n/[-]" YhJ[E^`'.bytes.sum{_1-69}"
+https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
+    read;ruby<<<"p [`tr \  ,`,0].sum{[$.-$.=_1,1].max-1}"
 https://open.kattis.com/problems/pripreme/statistics (5)
     read;ruby<<<"x=`tr \  ,`;p [x.max*2,x.sum].max"
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
@@ -747,10 +751,8 @@ https://open.kattis.com/problems/waterworld/statistics (5)
     read a b;ruby<<<"p [`tr " \n" ,`].sum/$a.0/$b"
 
 encoded: ruby + sed, large input
-https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
-    sed "n;y/ /,/;s/.*/p [&,0].sum{[$.-$.=_1,1].max-1}/"|ruby
 https://open.kattis.com/problems/goombastacks/statistics (5)
-    sed "s/ .*/,x<=>&,x+=/;$ s/$/-x].min+'possible'/;1cputs'im'*-[x="|ruby
+    ruby<<<"puts'im'*-[x=`sed "1d;s/ .*/,x<=>&,x+=/"`-x].min+'possible'"
 
 encoded: ruby + string combined, large input
 https://open.kattis.com/problems/backspace/statistics (5)
