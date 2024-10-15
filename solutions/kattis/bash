@@ -4,13 +4,15 @@ https://open.kattis.com/problems/bossbattle/statistics (5)
 https://open.kattis.com/problems/character/statistics (5)
     read a;echo $[~a+2**a]
 https://open.kattis.com/problems/sjecista/statistics (5)
-    read a;echo $[(3-a)*(2-a)*~-a*a/24]
-https://open.kattis.com/problems/shortestcompositesum/statistics (5)
-    read a;echo 2 $[b=a%2?9:4] $[a-b]
+    read a;echo $[a*--a*--a*--a/24]
 https://open.kattis.com/problems/secondopinion/statistics (5)
     read a;echo $[a/3600] : $[a/60%60] : $[a%60]
+https://open.kattis.com/problems/shortestcompositesum/statistics (5)
+    read a;echo 2 $[b=a%2?9:4] $[a-b]
+https://open.kattis.com/problems/thendaysofchristmas/statistics (5)
+    read a;echo $[b=a*++a/2] $[b*++a/3]
 https://open.kattis.com/problems/faktor/statistics (5)
-    read a b;echo $[a*~-b+1]
+    read a b;echo $[a*--b+1]
 https://open.kattis.com/problems/distributingpoffins/statistics (5)
     read a b;echo $[b%a>0]
 https://open.kattis.com/problems/carddivisibility/statistics (5)
@@ -20,7 +22,7 @@ https://open.kattis.com/problems/knittingpattern/statistics (5)
 https://open.kattis.com/problems/irrationaldivision/statistics (5)
     read a b;echo $[a&b&1?1:a&b>a?2:0]
 https://open.kattis.com/problems/emergency/statistics (5)
-    read a b;echo $[a<2*b?a-1:~-a%b-~b]
+    read a b;echo $[a--<2*b?a:a%b-~b]
 https://open.kattis.com/problems/powers/statistics (5)
     read a b;echo $[a&1?0:b<2|a&2?a/2:0]
 https://open.kattis.com/problems/eveningout1/statistics (5)
@@ -30,13 +32,13 @@ https://open.kattis.com/problems/trollhunt/statistics (5)
 https://open.kattis.com/problems/skocimis/statistics (5)
     read a b c;echo $[c-b>b-a?c+~b:b+~a]
 https://open.kattis.com/problems/sodaslurper/statistics (5)
-    read a b c;echo $[(a+b-(a||b))/~-c]
+    read a b c;echo $[(a+b-(a||b))/--c]
 https://open.kattis.com/problems/climbingworm/statistics (5)
     read a b c;echo $[~(b-c)%c/(a-b)+1]
 https://open.kattis.com/problems/pieceofcake2/statistics (5)
     read a b c;echo $[(b>a-b?b:a-b)*(c>a-c?c:a-c)*4]
 https://open.kattis.com/problems/makingameowth/statistics (5)
-    read a b c d;echo $[b*c+b/~-a*d]
+    read a b c d;echo $[b*c+b/--a*d]
 https://open.kattis.com/problems/laptopsticker/statistics (5)
     read a b c d;echo $[a>c+1&b>d+1]
 https://open.kattis.com/problems/savingforretirement/statistics (5)
@@ -412,7 +414,7 @@ https://open.kattis.com/problems/ordinaryordinals/statistics (5)
 https://open.kattis.com/problems/ghostleg/statistics (5)
     read a b;ruby -e"x=*1..$a;$<.map{y=_1.to_i;x[y],x[y-1]=x[y-1,2]};p *x"
 https://open.kattis.com/problems/countingclauses/statistics (5)
-    read a b;ruby -e"puts'un'*($a-8)[9]+'satisfactory'"
+    read a b;ruby -e"puts'un'*$[a<8]+'satisfactory'"
 https://open.kattis.com/problems/bestcompression/statistics (5)
     read a b;ruby -e"puts $a<2<<$b?:yes:'no'"
 https://open.kattis.com/problems/bordspil/statistics (5)
@@ -840,7 +842,7 @@ https://open.kattis.com/problems/guess/statistics (6)
 https://open.kattis.com/problems/julmust/statistics (6)
     ruby -e"x,y=0,-gets.to_i;(1..).find{p _1.*x-y/=2;gets<?m||x-=y;\$_<?f}"
 https://open.kattis.com/problems/gullpeningastaflar/statistics (6)
-    read a;echo \? `seq $a`;read b;echo ! $[b-a*a*-~a/2]
+    read a;echo \? `seq $a`;read b;echo ! $[b-a*a*++a/2]
 
 empty
 https://open.kattis.com/problems/flytibaka/statistics (0)
