@@ -574,7 +574,7 @@ https://open.kattis.com/problems/squarepeg/statistics (5)
 https://open.kattis.com/problems/addingtrouble/statistics (5)
     ruby -e"puts `tr \  +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/eatingout/statistics (5)
-    ruby -e"puts'im'*(2*`tr \  -`)[99]+'possible'"
+    ruby -e"puts'im'*$[2*`tr \  -`<0]+'possible'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
     ruby -e"puts [0*`tr " \n" ,+`1].all?{2>$.+=2-_1}&&$.>0?:YES:'NO'"
 https://open.kattis.com/problems/takkar/statistics (5)
