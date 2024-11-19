@@ -281,6 +281,8 @@ https://open.kattis.com/problems/magictrick/statistics (5)
     sed "/\(.\).*\1/d"|wc -l
 https://open.kattis.com/problems/cyaniderivers/statistics (5)
     sed s/00/0/g|tr 1 \\n|wc -L
+https://open.kattis.com/problems/trianglesofasquare/statistics (5)
+    sed "s/0\|2024//g"|wc -w
 https://open.kattis.com/problems/lastfactorialdigit/statistics (5)
     sed 1d\;/../c0|tr 35-9 60
 https://open.kattis.com/problems/icpcawards/statistics (5)
@@ -722,7 +724,7 @@ encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
     ruby -e"p$<.map{[$.-1,$.=_1.to_i].max}[2..].sum"
 https://open.kattis.com/problems/revisionskontroll/statistics (5)
-    ruby -e"gets;x={};puts gets.split.map{x[_1]?0:x[_1]=1}"
+    ruby -e"gets;x={};gets.split{puts x[_1]?0:x[_1]=1}"
 https://open.kattis.com/problems/flyingsafely/statistics (5)
     ruby -e"gets;$<.map{p~-_1.to_i;$<.take _1.split[1].to_i}"
 
