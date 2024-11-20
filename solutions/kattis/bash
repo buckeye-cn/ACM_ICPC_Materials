@@ -131,6 +131,8 @@ https://open.kattis.com/problems/sottkvi/statistics (5)
 encoded: bash expr + string combined
 https://open.kattis.com/problems/jobexpenses/statistics (5)
     echo $[`tr \ - "\n+"|grep +`]
+https://open.kattis.com/problems/triplesevens/statistics (5)
+    echo $[`grep -c 7`/3*777]
 https://open.kattis.com/problems/kcuddlanod/statistics (5)
     echo $[`rev|tr 25\  52\>`?2:1]
 https://open.kattis.com/problems/shandy/statistics (5)
@@ -267,36 +269,34 @@ https://open.kattis.com/problems/midi/statistics (5)
     tr -dc a-z|rev
 https://open.kattis.com/problems/titlecost/statistics (5)
     tr -d A-z|sed /93.7/c4
-https://open.kattis.com/problems/quadrant/statistics (5)
-    tr -d 0-9|sed 2p|wc -w|tr 012 124
 https://open.kattis.com/problems/compression2/statistics (5)
     tr -s 01|sed s/01//2g\;s/10//2g
 https://open.kattis.com/problems/isyavowel/statistics (5)
     tr -dc aeiouy>_;tr -d y<_|wc -L;wc -L<_
-https://open.kattis.com/problems/triplesevens/statistics (5)
-    tr -dc 7|grep -o 777||wc -l
 https://open.kattis.com/problems/deathknight/statistics (5)
     sed 1d\;/CD/d|wc -l
-https://open.kattis.com/problems/magictrick/statistics (5)
-    sed "/\(.\).*\1/d"|wc -l
 https://open.kattis.com/problems/cyaniderivers/statistics (5)
     sed s/00/0/g|tr 1 \\n|wc -L
 https://open.kattis.com/problems/trianglesofasquare/statistics (5)
     sed "s/0\|2024//g"|wc -w
 https://open.kattis.com/problems/lastfactorialdigit/statistics (5)
     sed 1d\;/../c0|tr 35-9 60
+https://open.kattis.com/problems/quadrant/statistics (5)
+    sed 2p|grep -c -|tr 012 124
+https://open.kattis.com/problems/headguard/statistics (5)
+    sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/icpcawards/statistics (5)
     sed "1d;s/.* /mkdir &\&\&echo &/"|sh|head -12
 https://open.kattis.com/problems/freefood/statistics (5)
     sed "1d;s/^/seq /e"|sort -u|wc -l
 https://open.kattis.com/problems/spacerace/statistics (5)
     sed "1,2d;y/ /\t/"|sort -nk3|head -1|cut -f1
-https://open.kattis.com/problems/headguard/statistics (5)
-    sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/quickestimate/statistics (5)
     awk "NR>1{print length}"
 https://open.kattis.com/problems/findingana/statistics (5)
     grep -o a.*
+https://open.kattis.com/problems/magictrick/statistics (5)
+    grep -Evc "(.).*\1";cd
 https://open.kattis.com/problems/fyi/statistics (5)
     grep ^555|wc -l
 https://open.kattis.com/problems/countthevowels/statistics (5)
@@ -347,6 +347,8 @@ https://open.kattis.com/problems/ofugsnuid/statistics (5)
     tac|sed x
 https://open.kattis.com/problems/inputscandal/statistics (5)
     tee _|wc -l;cat _
+https://open.kattis.com/problems/hairofthedog/statistics (5)
+    uniq|grep d|wc -l
 https://open.kattis.com/problems/antipalindrome/statistics (5)
     a=alindrome;tr -dc A-Za-z|sed "s/.*\(.\).\?\1.*/P$a/i;t;cAnti-p$a"
 https://open.kattis.com/problems/coffeecupcombo/statistics (5)
