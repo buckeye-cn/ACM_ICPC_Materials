@@ -361,6 +361,8 @@ https://open.kattis.com/problems/keywords/statistics (5)
     read;tr - \ |sort -uf|wc -l
 https://open.kattis.com/problems/mumblerap/statistics (5)
     read;tr -c 0-9 \\n|sort -n|tail -1
+https://open.kattis.com/problems/aldur/statistics (5)
+    read;sort -n|head -1
 https://open.kattis.com/problems/hitastig/statistics (5)
     read;xargs -n1|sort -rn|sed "1p;N;D"
 https://open.kattis.com/problems/reversiblecyclic/statistics (5)
@@ -393,26 +395,14 @@ https://open.kattis.com/problems/sistapizzan/statistics (5)
     ruby -e"puts$<.uniq{_1.to_i%2}[1]?:Ja:'Nej'"
 https://open.kattis.com/problems/millifaersla/statistics (5)
     ruby -e"$><<%w(Monnei Fjee Dolladollabilljoll).min_by{gets.to_i}"
-https://open.kattis.com/problems/gcd/statistics (5)
-    read a b;ruby -e"p $a.gcd $b"
-https://open.kattis.com/problems/slatkisi/statistics (5)
-    read a b;ruby -e"p $a.round -$b"
-https://open.kattis.com/problems/babypanda/statistics (5)
-    read a b;ruby -e"p ('%b'%$b).count ?1"
 https://open.kattis.com/problems/rampantgrowth/statistics (5)
     read a b;ruby -e"p $a*($a-1)**~-$b%998244353"
 https://open.kattis.com/problems/hahysi/statistics (5)
     read a b;ruby -e"p $a*~-$a*$b*~-$b/4%(10**9+7)"
 https://open.kattis.com/problems/ladder/statistics (5)
     read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
-https://open.kattis.com/problems/numbertree/statistics (5)
-    read a b;ruby -e"p eval'(2<<$a)-0b1$b'.tr('LR','01')"
 https://open.kattis.com/problems/lamps/statistics (5)
     read a b;ruby -e"p (1..).find{$a*~-_1/1000+98e-6*$a*$b*_1>11}"
-https://open.kattis.com/problems/dualdivisibility/statistics (5)
-    read a b;ruby -e"p (1..99).count{$a%($b*_1)<1}"
-https://open.kattis.com/problems/toys/statistics (5)
-    read a b;ruby -e"$a.times{$.+=$b;$.%=_1+1};p$."
 https://open.kattis.com/problems/diagonalcut/statistics (5)
     read a b;ruby -e"x=$a.gcd $b;p x.*$a/x&$b/x&1"
 https://open.kattis.com/problems/ordinaryordinals/statistics (5)
@@ -463,6 +453,8 @@ https://open.kattis.com/problems/combinatorialstanleycup/statistics (5)
     ruby -e"p 1<<('%b'%`cat`).count(?1)"
 https://open.kattis.com/problems/reversebinary/statistics (5)
     ruby -e"p ('%b'%`cat`).reverse.to_i 2"
+https://open.kattis.com/problems/champagneoverflow/statistics (5)
+    ruby -e"p (1..`cat`).sum{4**~-_1-_1*_1}"
 https://open.kattis.com/problems/meowfactor/statistics (5)
     ruby -e"p -(-128..).find{`cat`%_1**9==0}"
 https://open.kattis.com/problems/sequence/statistics (5)
@@ -603,6 +595,18 @@ https://open.kattis.com/problems/countdoubles/statistics (5)
     read a b;ruby -e"p [`tr \  ,`].each_cons($b).count{|x|x.sum{~_1%2}>1}"
 
 encoded: ruby + sed, math
+https://open.kattis.com/problems/gcd/statistics (5)
+    sed "s/.* /p &.gcd /"|ruby
+https://open.kattis.com/problems/slatkisi/statistics (5)
+    sed "s/.* /p &.round -/"|ruby
+https://open.kattis.com/problems/numbertree/statistics (5)
+    sed "s/.* /p eval'(2<<&)-0b1/;a'.tr('LR','01')"|ruby
+https://open.kattis.com/problems/dualdivisibility/statistics (5)
+    sed "s/.* /p (1..99).count{&%(_1*/;a)<1}"|ruby
+https://open.kattis.com/problems/babypanda/statistics (5)
+    sed "s/ /;p ('%b'%/;a).count ?1"|ruby
+https://open.kattis.com/problems/toys/statistics (5)
+    sed "s/ /.times{$.+=/;a;$.%=_1+1};p$."|ruby
 https://open.kattis.com/problems/numbersquistem/statistics (5)
     sed s/.]:=/0/g\;1cp~~|ruby|sed s/0/\<]:=/g
 https://open.kattis.com/problems/locustlocus/statistics (5)
@@ -617,6 +621,8 @@ https://open.kattis.com/problems/invokereasy/statistics (5)
     ruby -e"x=`sed "s/ /.0i-/;1ax/="`;p x.real,x.imag"
 https://open.kattis.com/problems/sith/statistics (5)
     ruby -e"$><<['VEIT EKKI',:SITH,:JEDI][(`sed "1d;2s/$/-/;3a)[9]+"`[9]]"
+https://open.kattis.com/problems/eldspytur/statistics (5)
+    ruby -e"puts `sed s/\ /%~/`<0?:Jebb:'Neibb'"
 https://open.kattis.com/problems/prsteni/statistics (5)
     sed "s/ /r;puts x\//g;1cx="|ruby
 https://open.kattis.com/problems/stopwatch/statistics (5)
@@ -876,10 +882,13 @@ https://open.kattis.com/problems/hello/statistics (5)
 https://open.kattis.com/problems/hipphipp/statistics (5)
 https://open.kattis.com/problems/tilhamingju/statistics (5)
 
-expr
+stdin as args
 https://open.kattis.com/problems/buka/statistics (5)
     x* e*
     xargs expr
+https://open.kattis.com/problems/telja/statistics (5)
+    x* s*
+    xargs seq
 
 sed
 https://open.kattis.com/problems/greetings2/statistics (2)
