@@ -39,6 +39,8 @@ https://open.kattis.com/problems/climbingworm/statistics (5)
     read a b c;echo $[~(b-c)%c/(a-b)+1]
 https://open.kattis.com/problems/pieceofcake2/statistics (5)
     read a b c;echo $[(b>a-b?b:a-b)*(c>a-c?c:a-c)*4]
+https://open.kattis.com/problems/hornrett/statistics (5)
+    read a b c;echo $[a*a+b*b==c*c?a*b/2:-1]
 https://open.kattis.com/problems/makingameowth/statistics (5)
     read a b c d;echo $[b*c+b/--a*d]
 https://open.kattis.com/problems/laptopsticker/statistics (5)
@@ -205,6 +207,8 @@ https://open.kattis.com/problems/afjormun/statistics (5)
     sed "1d;s/.*/\L\u&/"
 https://open.kattis.com/problems/storafmaeli/statistics (5)
     sed "s/.*0$/Jebb/;t;cNeibb"
+https://open.kattis.com/problems/mork/statistics (5)
+    sed "2d;s/^[02]$/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/quiteaproblem/statistics (5)
     sed "s/.*problem.*/yes/I;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (5)
@@ -525,6 +529,8 @@ https://open.kattis.com/problems/upprodun/statistics (5)
 encoded: ruby + tr, math
 https://open.kattis.com/problems/triarea/statistics (5)
     ruby -e"p `tr \  \*`/2.0"
+https://open.kattis.com/problems/meltingsnow/statistics (5)
+    ruby -e"p `tr \  /`e-2"
 https://open.kattis.com/problems/qaly/statistics (5)
     ruby -e"p 0*`tr " \n" *+`0"
 https://open.kattis.com/problems/pizza2/statistics (5)
