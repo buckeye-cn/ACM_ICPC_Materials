@@ -165,6 +165,8 @@ https://open.kattis.com/problems/shopaholic/statistics (5)
 encoded: factor
 https://open.kattis.com/problems/listgame/statistics (5)
     factor|tr -d 0-z|wc -L
+https://open.kattis.com/problems/bigfactoring/statistics (5)
+    factor|sed s/.*://
 https://open.kattis.com/problems/primality/statistics (5)
     factor|sed "s/.* .* .*/NO/;t;cYES"
 https://open.kattis.com/problems/crypto/statistics (5)
@@ -209,6 +211,8 @@ https://open.kattis.com/problems/storafmaeli/statistics (5)
     sed "s/.*0$/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/mork/statistics (5)
     sed "2d;s/^[02]$/Jebb/;t;cNeibb"
+https://open.kattis.com/problems/mylla/statistics (5)
+    sed "1d;s/.*A$/Hannes/;t;cArnar"
 https://open.kattis.com/problems/quiteaproblem/statistics (5)
     sed "s/.*problem.*/yes/I;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (5)
@@ -237,6 +241,8 @@ https://open.kattis.com/problems/somesum/statistics (5)
     sed "s/.\?[260]/Odd/;t;s/[48]/Even/;t;cEither"
 https://open.kattis.com/problems/stafur/statistics (5)
     sed "s/[AEIOU]/Jebb/;t;s/Y/Kannski/;t;cNeibb"
+https://open.kattis.com/problems/desiigner/statistics (5)
+    sed "s/brrr*[aeiouy]$/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/cats/statistics (5)
     sed "s/1/yes/;s/6/yes no no yes yes yes/;q"
 https://open.kattis.com/problems/avian/statistics (5)
@@ -261,6 +267,8 @@ https://open.kattis.com/problems/mylla2/statistics (5)
     a=..O..;sed -Ez "s/.*O(O|$a|.$a.|..$a..)O.*/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/aaah/statistics (5)
     read a;sed "s/.*a$a/no/;t;cgo"
+https://open.kattis.com/problems/heysata/statistics (5)
+    read;a=Unnar\ fann\ hana;sed -Ez "s/^(.).*\1.*/$a!/;t;c$a ekki!"
 https://open.kattis.com/problems/forcedchoice/statistics (5)
     read a b c;sed "s/.* $b\b.*/KEEP/;t;cREMOVE"
 
@@ -363,6 +371,8 @@ https://open.kattis.com/problems/liquidassets/statistics (5)
     read;tr -sc _|sed "s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/keywords/statistics (5)
     read;tr - \ |sort -uf|wc -l
+https://open.kattis.com/problems/ball/statistics (5)
+    read;tr \  \\n|sort -n|uniq -d
 https://open.kattis.com/problems/mumblerap/statistics (5)
     read;tr -c 0-9 \\n|sort -n|tail -1
 https://open.kattis.com/problems/aldur/statistics (5)
@@ -419,6 +429,8 @@ https://open.kattis.com/problems/bestcompression/statistics (5)
     read a b;ruby -e"puts $a<2<<$b?:yes:'no'"
 https://open.kattis.com/problems/bordspil/statistics (5)
     read a b;ruby -e"puts~-$b*3>2*$a?:Unnar:'Arnar'"
+https://open.kattis.com/problems/binaryexponentiation/statistics (5)
+    read a b c;ruby -e"p $a.pow($b,$c)"
 https://open.kattis.com/problems/bladra2/statistics (5)
     read a b c;ruby -e"p ($a+$b*$c/2.0)*$c"
 https://open.kattis.com/problems/climbingstairs/statistics (5)
@@ -457,6 +469,12 @@ https://open.kattis.com/problems/combinatorialstanleycup/statistics (5)
     ruby -e"p 1<<('%b'%`cat`).count(?1)"
 https://open.kattis.com/problems/reversebinary/statistics (5)
     ruby -e"p ('%b'%`cat`).reverse.to_i 2"
+https://open.kattis.com/problems/egelskahann/statistics (5)
+    ruby -e"p ('%b'%`cat`)[1..].to_i(2)*2+1"
+https://open.kattis.com/problems/egelskahann2/statistics (5)
+    ruby -e"p ('%b'%`cat`)[1..].to_i(2)*2+1"
+https://open.kattis.com/problems/einfalt/statistics (5)
+    ruby -e"p ((1..`cat`).inject:*)||1"
 https://open.kattis.com/problems/champagneoverflow/statistics (5)
     ruby -e"p (1..`cat`).sum{4**~-_1-_1*_1}"
 https://open.kattis.com/problems/meowfactor/statistics (5)
@@ -477,8 +495,12 @@ https://open.kattis.com/problems/houseofcards/statistics (5)
     ruby -e"p (5-x=`cat`)%8%5+x"
 https://open.kattis.com/problems/tetration/statistics (5)
     ruby -e"p (x=1/`cat`)**-x"
+https://open.kattis.com/problems/heiltolusumma/statistics (5)
+    ruby -e"p~(1-x=`cat`).abs*~x/2"
 https://open.kattis.com/problems/harshadnumbers/statistics (5)
     ruby -e"p (`cat`..).find{|x|x%(0..9).sum{x/10**_1%10}<1}"
+https://open.kattis.com/problems/gatnamot/statistics (5)
+    ruby -e"p (0..x=`cat`).sum{((x*x-_1*_1)**0.5).to_i}*4+1"
 https://open.kattis.com/problems/busskortet/statistics (5)
     ruby -e"x=0-`cat`/-100;p x/5-x%5/-2"
 https://open.kattis.com/problems/pyramids/statistics (5)
@@ -513,10 +535,14 @@ https://open.kattis.com/problems/subtractionplusplusplus/statistics (5)
     ruby -e"$><<[:NO,:YES][(3..).find{`cat`<=$.+=_1/2}&1]"
 https://open.kattis.com/problems/peachpowderpolygon/statistics (5)
     ruby -e"puts `cat`%4>0?:Yes:'No'"
+https://open.kattis.com/problems/lidaskipting/statistics (5)
+    ruby -e"puts `cat`%3<1?:Jebb:'Neibb'"
 https://open.kattis.com/problems/marswindow/statistics (5)
     ruby -e"puts (`cat`*12-2)%26<12?:yes:'no'"
 https://open.kattis.com/problems/oktalni/statistics (5)
     ruby -e"puts'%o'%0b`cat`"
+https://open.kattis.com/problems/xorsist/statistics (5)
+    ruby -e"$><<[x=`cat`,1,:Gunnar,:Enginn][x%4]"
 https://open.kattis.com/problems/composedrhythms/statistics (5)
     ruby -e"x=`cat`;puts y=x/2,2+x%2,[2]*~-y"
 https://open.kattis.com/problems/fleytitala/statistics (5)
@@ -603,6 +629,8 @@ https://open.kattis.com/problems/countdoubles/statistics (5)
 encoded: ruby + sed, math
 https://open.kattis.com/problems/gcd/statistics (5)
     sed "s/.* /p &.gcd /"|ruby
+https://open.kattis.com/problems/euclidsalgorithm/statistics (5)
+    sed "s/.* /p &.gcd /"|ruby
 https://open.kattis.com/problems/slatkisi/statistics (5)
     sed "s/.* /p &.round -/"|ruby
 https://open.kattis.com/problems/numbertree/statistics (5)
@@ -683,6 +711,8 @@ https://open.kattis.com/problems/detaileddifferences/statistics (5)
     ruby -e"gets;$<.map{|x|puts x,gets,(0..x.size-2).map{x[_1]==\$_[_1]??.:?*}*''}"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
     ruby -e"x=1;$<.map{x*=_1.size/3};puts'S('*x+?0+?)*x"
+https://open.kattis.com/problems/heimilisverk/statistics (5)
+    ruby -e"gets;x={};$<.map{x[_1]||=$><<_1}"
 https://open.kattis.com/problems/encodedmessage/statistics (5)
     ruby -e"gets;$<.map{|x|y=x.size;y.times{$><<x[((y-1)**0.5*_1-1)%y]}}"
 https://open.kattis.com/problems/pokechat/statistics (5)
@@ -881,12 +911,16 @@ https://open.kattis.com/problems/vidsnuningur/statistics (2)
     rev
 
 print
+https://open.kattis.com/problems/giskadu/statistics (2)
+    s*
+    sed sy..y273y sz.sh
 https://open.kattis.com/problems/velkomin/statistics (4)
     s*
     sed syVyVELKOMINy V!>sz
 https://open.kattis.com/problems/hello/statistics (5)
 https://open.kattis.com/problems/hipphipp/statistics (5)
 https://open.kattis.com/problems/tilhamingju/statistics (5)
+https://open.kattis.com/problems/frumtolur/statistics (5)
 
 stdin as args
 https://open.kattis.com/problems/buka/statistics (5)
