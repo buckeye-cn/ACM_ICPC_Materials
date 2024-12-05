@@ -119,6 +119,8 @@ https://open.kattis.com/problems/tarifa/statistics (5)
     read a;echo $[a-a*`sed i-`]
 https://open.kattis.com/problems/dfyrirdreki/statistics (5)
     read a;echo $[b=`sed 1a**2-4*`*a,(b>0)+(b>=0)]
+https://open.kattis.com/problems/cinema/statistics (5)
+    read a b;echo $[`sed "s/\w*/+(a<&||0*(a-=&))/g"`]
 https://open.kattis.com/problems/cinema2/statistics (5)
     read a b;echo $[`sed "s/\w*/+((a-=&)<0)/g"`]
 https://open.kattis.com/problems/server/statistics (5)
@@ -474,9 +476,9 @@ https://open.kattis.com/problems/combinatorialstanleycup/statistics (5)
 https://open.kattis.com/problems/reversebinary/statistics (5)
     ruby -e"p ('%b'%`cat`).reverse.to_i 2"
 https://open.kattis.com/problems/egelskahann/statistics (5)
-    ruby -e"p ('%b'%`cat`)[1..].to_i(2)*2+1"
+    ruby -e"p ('%b1'%`cat`)[1..].to_i 2"
 https://open.kattis.com/problems/egelskahann2/statistics (5)
-    ruby -e"p ('%b'%`cat`)[1..].to_i(2)*2+1"
+    ruby -e"p ('%b1'%`cat`)[1..].to_i 2"
 https://open.kattis.com/problems/einfalt/statistics (5)
     ruby -e"p ((1..`cat`).inject:*)||1"
 https://open.kattis.com/problems/champagneoverflow/statistics (5)
@@ -484,7 +486,7 @@ https://open.kattis.com/problems/champagneoverflow/statistics (5)
 https://open.kattis.com/problems/meowfactor/statistics (5)
     ruby -e"p -(-128..).find{`cat`%_1**9==0}"
 https://open.kattis.com/problems/sequence/statistics (5)
-    ruby -e"p(cat.bit_length).times{p 1<<_1}"
+    ruby -e"p(`cat`.bit_length).times{p 1<<_1}"
 https://open.kattis.com/problems/jazzitup/statistics (5)
     ruby -e"p (2..).find{`cat`.gcd(_1)<2}"
 https://open.kattis.com/problems/treirad/statistics (5)
@@ -651,6 +653,8 @@ https://open.kattis.com/problems/locustlocus/statistics (5)
     ruby -e"p [`sed "1d;s/ .* /+&.lcm(/;a),"`].min"
 https://open.kattis.com/problems/overdraft/statistics (5)
     ruby -e"p [0*`sed s/$/,$.-=/`0].max"
+https://open.kattis.com/problems/snowfall/statistics (5)
+    ruby -e"`sed "s/^0/$.+=/;s/^1/$.-=/;a$.>0||$.=0"`;p$."
 https://open.kattis.com/problems/associationofmyths/statistics (5)
     sed "s/ /;x=/g;3ap x*x/Math::PI/Math::E-1.0/~x"|ruby
 https://open.kattis.com/problems/mixtapemanagement/statistics (5)
@@ -705,6 +709,8 @@ https://open.kattis.com/problems/dihedralgroup/statistics (5)
     ruby -e"x,y,z=$<.map &:split;p (y*3*?_+y.reverse*3*?_).index(?_+z*?_+?_)?1:0"
 https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -e"putc~(9-gets.sum)/~-\$_.size"
+https://open.kattis.com/problems/akureyri/statistics (5)
+    ruby -e"gets;puts$<.map{gets.chop}.tally.map{_1*' '}"
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"$<.tally.sort.map{puts _1,1e2*_2/$.}"
 https://open.kattis.com/problems/architecture/statistics (5)
@@ -947,6 +953,9 @@ https://open.kattis.com/problems/bitteeinbit/statistics (2)
 https://open.kattis.com/problems/lubbilaerir/statistics (2)
     s*
     sed sz.zz2g
+https://open.kattis.com/problems/chardonnay/statistics (2)
+    *d
+    sed yd01234567d02345677d
 https://open.kattis.com/problems/simonsays/statistics (5)
     s* -n
     sed szSimon.says.zzp
