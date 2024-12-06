@@ -171,6 +171,8 @@ https://open.kattis.com/problems/listgame/statistics (5)
     factor|tr -d 0-z|wc -L
 https://open.kattis.com/problems/bigfactoring/statistics (5)
     factor|sed s/.*://
+https://open.kattis.com/problems/largestfactor/statistics (5)
+    factor|sed s/.*\ //
 https://open.kattis.com/problems/primality/statistics (5)
     factor|sed "s/.* .* .*/NO/;t;cYES"
 https://open.kattis.com/problems/crypto/statistics (5)
@@ -551,8 +553,6 @@ https://open.kattis.com/problems/xorsist/statistics (5)
     ruby -e"$><<[x=`cat`,1,:Gunnar,:Enginn][x%4]"
 https://open.kattis.com/problems/composedrhythms/statistics (5)
     ruby -e"x=`cat`;puts y=x/2,2+x%2,[2]*~-y"
-https://open.kattis.com/problems/fleytitala/statistics (5)
-    read a;ruby -e"p $a.*2-2.0**-`cat`"
 https://open.kattis.com/problems/pallatolur/statistics (5)
     read a;ruby -e"puts $a<3&&`cat`>1?'1 2':':('"
 https://open.kattis.com/problems/upprodun/statistics (5)
@@ -639,6 +639,10 @@ https://open.kattis.com/problems/euclidsalgorithm/statistics (5)
     sed "s/.* /p &.gcd /"|ruby
 https://open.kattis.com/problems/slatkisi/statistics (5)
     sed "s/.* /p &.round -/"|ruby
+https://open.kattis.com/problems/cascadecentrality/statistics (5)
+    sed "1!d;ip 3-2.0/"|ruby
+https://open.kattis.com/problems/fleytitala/statistics (5)
+    sed "1s/.*/p &.*2-2.0**-/"|ruby
 https://open.kattis.com/problems/numbertree/statistics (5)
     sed "s/.* /p eval'(2<<&)-0b1/;a'.tr('LR','01')"|ruby
 https://open.kattis.com/problems/dualdivisibility/statistics (5)
@@ -767,12 +771,14 @@ https://open.kattis.com/problems/sevenwonders/statistics (5)
     ruby -e"x=%w(T C G).map{'`cat`'.count _1};p x.sum{_1*_1}+x.min*7"
 https://open.kattis.com/problems/keysphonewallet/statistics (5)
     ruby -e"x=%w(keys phone wallet)-%w(`cat`);puts x==[]?:ready:x"
-https://open.kattis.com/problems/reduplikation/statistics (5)
-    read a;ruby -e"$><<'$a'*`cat`"
 
 encoded: ruby + tr, string
 https://open.kattis.com/problems/cups/statistics (5)
     ruby -e"puts$<.sort_by{_1.to_i/2+_1.split[1].to_i}"|tr -d 0-9
+
+encoded: ruby + sed, string
+https://open.kattis.com/problems/reduplikation/statistics (5)
+    sed "1s/.*/$><<'&'*/"|ruby
 
 encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
