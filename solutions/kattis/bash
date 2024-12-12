@@ -457,12 +457,6 @@ https://open.kattis.com/problems/bizzfuzz/statistics (5)
     read a b c d;ruby -e"x=$c.lcm $d;p $b/x-~-$a/x"
 
 encoded: ruby + cat, math
-https://open.kattis.com/problems/sanic/statistics (5)
-    ruby -e"p `cat`-1"
-https://open.kattis.com/problems/metronome/statistics (5)
-    ruby -e"p `cat`/4.0"
-https://open.kattis.com/problems/ameriskur/statistics (5)
-    ruby -e"p `cat`*0.09144"
 https://open.kattis.com/problems/areal/statistics (5)
     ruby -e"p `cat`**0.5*4"
 https://open.kattis.com/problems/lidaskipting2/statistics (5)
@@ -633,6 +627,12 @@ https://open.kattis.com/problems/countdoubles/statistics (5)
     read a b;ruby -e"p [`tr \  ,`].each_cons($b).count{|x|x.sum{~_1%2}>1}"
 
 encoded: ruby + sed, math
+https://open.kattis.com/problems/sanic/statistics (5)
+    sed ip~0+|ruby
+https://open.kattis.com/problems/metronome/statistics (5)
+    sed ip\ 0.25*|ruby
+https://open.kattis.com/problems/ameriskur/statistics (5)
+    sed ip\ 0.09144*|ruby
 https://open.kattis.com/problems/gcd/statistics (5)
     sed "s/.* /p &.gcd /"|ruby
 https://open.kattis.com/problems/euclidsalgorithm/statistics (5)
@@ -710,7 +710,7 @@ https://open.kattis.com/problems/raggedright/statistics (5)
 https://open.kattis.com/problems/bela/statistics (5)
     ruby -e"x=gets[-2];p$<.sum{(x==_1[1]?:AAO_D__KUEL:'AAA_D__KCEL')[_1[0].sum%11].sum-65}"
 https://open.kattis.com/problems/dihedralgroup/statistics (5)
-    ruby -e"x,y,z=$<.map &:split;p (y*3*?_+y.reverse*3*?_).index(?_+z*?_+?_)?1:0"
+    ruby -e"x,y,z=$<.map &:split;p (y*3*?_+y.reverse*3*?_)[?_+z*?_+?_]?1:0"
 https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -e"putc~(9-gets.sum)/~-\$_.size"
 https://open.kattis.com/problems/akureyri/statistics (5)
