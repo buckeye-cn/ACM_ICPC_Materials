@@ -363,16 +363,16 @@ https://open.kattis.com/problems/fodelsedagsmemorisering/statistics (5)
     sort -k3 -k2nr|uniq -f2|sed "1d;s/ .*//">_;wc -l<_;sort _
 https://open.kattis.com/problems/ofugsnuid/statistics (5)
     tac|sed x
-https://open.kattis.com/problems/inputscandal/statistics (5)
-    tee _|wc -l;cat _
 https://open.kattis.com/problems/hairofthedog/statistics (5)
     uniq|grep d|wc -l
+https://open.kattis.com/problems/inputscandal/statistics (5)
+    wc -l;tac|tac
 https://open.kattis.com/problems/antipalindrome/statistics (5)
     a=alindrome;sed -E "s/.*(.).? ?\1.*/P$a/i;t;cAnti-p$a"
 https://open.kattis.com/problems/coffeecupcombo/statistics (5)
     a=s/10/11/g;sed "1d;$a;$a;s/0//g"|wc -L
 https://open.kattis.com/problems/vefthjonatjon/statistics (5)
-    a=grep\ -c;(tee _|$a ^J;$a .J. _;$a J$ _)|sort -n|head -1
+    a=grep\ -c;($a ^J;tac|$a .J.;tac|$a J$)|sort -n|head -1
 https://open.kattis.com/problems/liquidassets/statistics (5)
     read;tr -sc _|sed "s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/keywords/statistics (5)
@@ -545,6 +545,8 @@ https://open.kattis.com/problems/oktalni/statistics (5)
     ruby -e"puts'%o'%0b`cat`"
 https://open.kattis.com/problems/xorsist/statistics (5)
     ruby -e"$><<[x=`cat`,1,:Gunnar,:Enginn][x%4]"
+https://open.kattis.com/problems/appelspelet/statistics (5)
+    ruby -e"x=`cat`;puts x%69&35==3||x%2<1?:beata:'alf'"
 https://open.kattis.com/problems/composedrhythms/statistics (5)
     ruby -e"x=`cat`;puts y=x/2,2+x%2,[2]*~-y"
 https://open.kattis.com/problems/pallatolur/statistics (5)
@@ -961,7 +963,7 @@ https://open.kattis.com/problems/lubbilaerir/statistics (2)
     sed sz.zz2g
 https://open.kattis.com/problems/chardonnay/statistics (2)
     *d
-    sed yd01234567d02345677d
+    sed yd123456d234567d
 https://open.kattis.com/problems/simonsays/statistics (5)
     s* -n
     sed szSimon.says.zzp
