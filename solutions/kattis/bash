@@ -443,6 +443,8 @@ https://open.kattis.com/problems/bladra2/statistics (5)
     read a b c;ruby -e"p ($a+$b*$c/2.0)*$c"
 https://open.kattis.com/problems/climbingstairs/statistics (5)
     read a b c;ruby -e"p 2*[$[a-~b]/2,$b,$c].max"
+https://open.kattis.com/problems/generalizedfizzbuzz/statistics (5)
+    read a b c;ruby -e"x=$a./$b.lcm $c;p $a/$b-x,$a/$c-x,x"
 https://open.kattis.com/problems/expectedearnings/statistics (5)
     read a b c;ruby -e"puts'spela'.+$a*$c<$b?'':' inte!'"
 https://open.kattis.com/problems/dasblinkenlights/statistics (5)
@@ -721,6 +723,8 @@ https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"$<.tally.sort.map{puts _1,1e2*_2/$.}"
 https://open.kattis.com/problems/architecture/statistics (5)
     ruby -e"gets;puts'im'*~-$<.uniq{_1.split.max}.size+'possible'"
+https://open.kattis.com/problems/alphabeticalaristocrats/statistics (5)
+    ruby -e"gets;puts$<.sort_by{_1[/[A-Z].*/]}"
 https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -e"$<.map{|x|puts$<.take(x.to_i).sort_by{_1[..1]}}"
 https://open.kattis.com/problems/detaileddifferences/statistics (5)
@@ -803,6 +807,8 @@ https://open.kattis.com/problems/umferd/statistics (5)
     tr -dc .#|ruby -e"p gets.count(?.)*1.0/\$_.size"
 https://open.kattis.com/problems/pvbg/statistics (5)
     read;ruby<<<"p [`tr \  ,`].min+1"
+https://open.kattis.com/problems/dansgolf/statistics (5)
+    read;ruby<<<"p [`tr " \n" -,`].uniq.size"
 https://open.kattis.com/problems/prjonamynstur/statistics (5)
     read;ruby<<<"p'`tr ".A^v\n/[-]" YhJ[E^`'.bytes.sum{_1-69}"
 https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
