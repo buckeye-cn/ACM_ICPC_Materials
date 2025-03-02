@@ -707,10 +707,6 @@ https://open.kattis.com/problems/cprnummer/statistics (5)
     ruby -e"p'FEDIHGGFEDCB'.bytes.sum{_1*$<.getc.ord}%11/10"
 https://open.kattis.com/problems/gangur/statistics (5)
     ruby -e"p gets.bytes.sum{_1%7%3*~-$.+=_1/62}"
-https://open.kattis.com/problems/everywhere/statistics (5)
-    ruby -e"$<.max{p$<.take(_1.to_i).uniq.size}"
-https://open.kattis.com/problems/irepeatmyself/statistics (5)
-    ruby -e"$<.max{|x|p (1..).find{1>x.index(x[_1..-2])}}"
 https://open.kattis.com/problems/trik/statistics (5)
     ruby -e"x=0;gets.bytes{x+=x-_1};p 3-x%3"
 https://open.kattis.com/problems/raggedright/statistics (5)
@@ -729,16 +725,10 @@ https://open.kattis.com/problems/architecture/statistics (5)
     ruby -e"gets;puts'im'*~-$<.uniq{_1.split.max}.size+'possible'"
 https://open.kattis.com/problems/alphabeticalaristocrats/statistics (5)
     ruby -e"gets;puts$<.sort_by{_1[/[A-Z].*/]}"
-https://open.kattis.com/problems/sortofsorting/statistics (5)
-    ruby -e"$<.map{|x|puts$<.take(x.to_i).sort_by{_1[..1]}}"
-https://open.kattis.com/problems/detaileddifferences/statistics (5)
-    ruby -e"gets;$<.map{|x|puts x,gets,(0..x.size-2).map{x[_1]==\$_[_1]??.:?*}*''}"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
     ruby -e"x=1;$<.map{x*=_1.size/3};puts'S('*x+?0+?)*x"
 https://open.kattis.com/problems/heimilisverk/statistics (5)
     ruby -e"gets;x={};$<.map{x[_1]||=$><<_1}"
-https://open.kattis.com/problems/encodedmessage/statistics (5)
-    ruby -e"$<.max{|x|y=x.size;y.times{$><<x[((y-1)**0.5*_1-1)%y]}}"
 https://open.kattis.com/problems/pokechat/statistics (5)
     ruby -e"x,y=*$<;y.scan(/.../){$><<x[_1.to_i-1]}"
 https://open.kattis.com/problems/keyboardd/statistics (5)
@@ -771,8 +761,6 @@ https://open.kattis.com/problems/pencilcrayons/statistics (5)
     read a b;ruby -e"p$<.sum{$b-_1.split.uniq.size}"
 https://open.kattis.com/problems/abc/statistics (5)
     read a b c;ruby -e"gets.bytes{puts [$a,$b,$c].sort[_1-65]}"
-https://open.kattis.com/problems/skener/statistics (5)
-    read a b c d;ruby -e"$<.map{|x|(x*$c).chars.map{$><<_1*$d}}"
 
 encoded: ruby + cat, string
 https://open.kattis.com/problems/skak/statistics (5)
@@ -795,8 +783,6 @@ https://open.kattis.com/problems/reduplikation/statistics (5)
 encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
     ruby -e"p$<.map{[$.-1,$.=_1.to_i].max}[2..].sum"
-https://open.kattis.com/problems/flyingsafely/statistics (5)
-    ruby -e"gets;$<.map{p~-_1.to_i;$<.take _1.split[1].to_i}"
 https://open.kattis.com/problems/revisionskontroll/statistics (5)
     ruby -e"gets;x={};gets.split{puts x[_1]?0:x[_1]=1}"
 https://open.kattis.com/problems/backspace/statistics (5)
@@ -836,9 +822,27 @@ https://open.kattis.com/problems/busassignment/statistics (5)
 https://open.kattis.com/problems/goombastacks/statistics (5)
     ruby<<<"puts'im'*-[x=`sed "1d;s/ .*/,x<=>&,x+=/"`-x].min+'possible'"
 
-encoded: ruby, multiline
+encoded: ruby, multi cases, math
 https://open.kattis.com/problems/leynitolur/statistics (5)
     ruby -ne"p (\$_.to_i-68431307)*881051043651%2**64"
+https://open.kattis.com/problems/flyingsafely/statistics (5)
+    read;ruby -ne"p~-\$_.to_i;$<.take\$_.split[1].to_i"
+
+encoded: ruby, multi cases, string
+https://open.kattis.com/problems/sortofsorting/statistics (5)
+    ruby -ne"puts$<.take(\$_.to_i).sort_by{_1[..1]}"
+https://open.kattis.com/problems/everywhere/statistics (5)
+    read;ruby -ne"p$<.take(\$_.to_i).uniq.size"
+https://open.kattis.com/problems/irepeatmyself/statistics (5)
+    read;ruby -ne"p (1..).find{1>\$_.index(\$_[_1..-2])}"
+https://open.kattis.com/problems/detaileddifferences/statistics (5)
+    read;ruby -ne"puts x=\$_,gets,(0..x.size-2).map{x[_1]==\$_[_1]??.:?*}*''"
+https://open.kattis.com/problems/encodedmessage/statistics (5)
+    read;ruby -ne"x=\$_.size;x.times{$><<\$_[((x-1)**0.5*_1-1)%x]}"
+https://open.kattis.com/problems/skener/statistics (5)
+    read a b c d;ruby -ne"(\$_*$c).chars.map{$><<_1*$d}"
+
+encoded: ruby, multiline
 https://open.kattis.com/problems/bishops/statistics (5)
     sed "s/.*/p &<2?1:&*2-2/"|ruby
 https://open.kattis.com/problems/smallestmultiple/statistics (5)
