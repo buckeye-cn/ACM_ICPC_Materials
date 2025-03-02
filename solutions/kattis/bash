@@ -134,7 +134,7 @@ https://open.kattis.com/problems/elevatingtheprank/statistics (5)
 https://open.kattis.com/problems/sottkvi/statistics (5)
     read a b c;echo $[`sed "s/.*/+(&-$b-$c+13<0)/"`]
 
-encoded: bash expr + string combined
+encoded: bash expr + string utils
 https://open.kattis.com/problems/jobexpenses/statistics (5)
     echo $[`tr \ - "\n+"|grep +`]
 https://open.kattis.com/problems/triplesevens/statistics (5)
@@ -162,7 +162,7 @@ https://open.kattis.com/problems/fifa/statistics (5)
 https://open.kattis.com/problems/jumbojavelin/statistics (5)
     expr 1 - `sed i+`
 
-encoded: expr + string combined
+encoded: expr + string utils
 https://open.kattis.com/problems/akcija/statistics (5)
     read;expr `sort -rn|sed 3~3d\;i+`
 https://open.kattis.com/problems/shopaholic/statistics (5)
@@ -282,7 +282,7 @@ https://open.kattis.com/problems/heysata/statistics (5)
 https://open.kattis.com/problems/forcedchoice/statistics (5)
     read a b c;sed "s/.* $b\b.*/KEEP/;t;cREMOVE"
 
-encoded: string combined
+encoded: string utils
 https://open.kattis.com/problems/cold/statistics (5)
     tr -dc -|wc -L
 https://open.kattis.com/problems/fjoldibokstafa/statistics (5)
@@ -688,7 +688,7 @@ https://open.kattis.com/problems/ratingproblems/statistics (5)
 https://open.kattis.com/problems/spritt/statistics (5)
     read a b;ruby -e"puts $b<$[`sed i+`]?:Neibb:'Jebb'"
 
-encoded: ruby + string combined, math
+encoded: ruby + string utils, math
 https://open.kattis.com/problems/sretan/statistics (5)
     ruby -e"$><<('%b'%-~`cat`)[1..]"|tr 01 47
 
@@ -822,27 +822,35 @@ https://open.kattis.com/problems/busassignment/statistics (5)
 https://open.kattis.com/problems/goombastacks/statistics (5)
     ruby<<<"puts'im'*-[x=`sed "1d;s/ .*/,x<=>&,x+=/"`-x].min+'possible'"
 
-encoded: ruby, multi cases, math
+encoded: ruby, math, multi cases
 https://open.kattis.com/problems/leynitolur/statistics (5)
-    ruby -ne"p (\$_.to_i-68431307)*881051043651%2**64"
+    ruby -ne'p ($_.to_i-68431307)*881051043651%2**64'
 https://open.kattis.com/problems/flyingsafely/statistics (5)
-    read;ruby -ne"p~-\$_.to_i;$<.take\$_.split[1].to_i"
+    read;ruby -ne'p~-$_.to_i;$<.take$_.split[1].to_i'
+https://open.kattis.com/problems/scalingrecipe/statistics (5)
+    read a b c;ruby -ne"p\$_.to_i*$c/$b"
+https://open.kattis.com/problems/sibice/statistics (5)
+    read a b c;ruby -ne"puts\$_.to_i**2>$[b*b+c*c]?:NE:'DA'"
 
-encoded: ruby, multi cases, string
+encoded: ruby + grep, math, multi cases
+https://open.kattis.com/problems/parsinghex/statistics (5)
+    grep -oi 0x[0-9a-f]*|ruby -ne'puts$_,eval($_)'
+
+encoded: ruby, string, multi cases
 https://open.kattis.com/problems/sortofsorting/statistics (5)
-    ruby -ne"puts$<.take(\$_.to_i).sort_by{_1[..1]}"
+    ruby -ne'puts$<.take(eval$_).sort_by{_1[..1]}'
 https://open.kattis.com/problems/everywhere/statistics (5)
-    read;ruby -ne"p$<.take(\$_.to_i).uniq.size"
+    read;ruby -ne'p$<.take(eval$_).uniq.size'
 https://open.kattis.com/problems/irepeatmyself/statistics (5)
-    read;ruby -ne"p (1..).find{1>\$_.index(\$_[_1..-2])}"
+    read;ruby -ne'p (1..).find{1>$_.index($_[_1..-2])}'
 https://open.kattis.com/problems/detaileddifferences/statistics (5)
-    read;ruby -ne"puts x=\$_,gets,(0..x.size-2).map{x[_1]==\$_[_1]??.:?*}*''"
+    read;ruby -ne'puts x=$_,gets,(0..x.size-2).map{x[_1]==$_[_1]??.:?*}*""'
 https://open.kattis.com/problems/encodedmessage/statistics (5)
-    read;ruby -ne"x=\$_.size;x.times{$><<\$_[((x-1)**0.5*_1-1)%x]}"
+    read;ruby -ne'x=$_.size;x.times{$><<$_[((x-1)**0.5*_1-1)%x]}'
 https://open.kattis.com/problems/skener/statistics (5)
     read a b c d;ruby -ne"(\$_*$c).chars.map{$><<_1*$d}"
 
-encoded: ruby, multiline
+encoded: ruby + sed, math, multiline
 https://open.kattis.com/problems/bishops/statistics (5)
     sed "s/.*/p &<2?1:&*2-2/"|ruby
 https://open.kattis.com/problems/smallestmultiple/statistics (5)
@@ -901,16 +909,12 @@ https://open.kattis.com/problems/mixedfractions/statistics (5)
     sed "y/ /,/;s/^/x,y=/;1!iputs x/y,x%y,'/',y"|ruby
 https://open.kattis.com/problems/simplefactoring/statistics (5)
     sed "y/ /,/;s/^/x,y,z=/;1!ax=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?:YES:'NO'"|ruby
-https://open.kattis.com/problems/parsinghex/statistics (5)
-    grep -oi 0x[0-9a-f]*|sed "s/.*/puts'&',&/"|ruby
+
+encoded: ruby + sed, string, multiline
 https://open.kattis.com/problems/vedurheidar/statistics (5)
     read a;sed "s/ .*/',&<$a?:lokud:'opin'/;1!iputs'"|ruby
-https://open.kattis.com/problems/scalingrecipe/statistics (5)
-    read a b c;sed "s/.*/p &*$c\/$b/"|ruby
-https://open.kattis.com/problems/sibice/statistics (5)
-    read a b c;sed "s/.*/puts &*&>$[b*b+c*c]?:NE:'DA'/"|ruby
 
-encoded: python, multiline
+encoded: python + string utils, math, multiline
 https://open.kattis.com/problems/pet/statistics (5)
     tr \  +|python3 -i|nl|sort -rnk2|head -1
 https://open.kattis.com/problems/different/statistics (5)
@@ -922,13 +926,13 @@ https://open.kattis.com/problems/calculator/statistics (5)
 
 encoded: interactive
 https://open.kattis.com/problems/ninetynine/statistics (6)
-    ruby -e"p 2;$<.find{x=_1.to_i;p(x%3%2-~x)>98}"
+    ruby -e'p 2;$<.find{x=_1.to_i;p(x%3%2-~x)>98}'
 https://open.kattis.com/problems/askmarilyn/statistics (6)
-    ruby -e"1000.times{putc 65+x=_1/7%3;p;y,z,a=gets.bytes;putc y^-~x*(49-a);p;gets}"
+    ruby -e'1000.times{putc 65+x=_1/7%3;p;y,z,a=gets.bytes;putc y^-~x*(49-a);p;gets}'
 https://open.kattis.com/problems/guess/statistics (6)
-    ruby -e"x,y=0,-999;(0..).find{p x-y/=2;gets>?i||x-=y;\$_<?d}"
+    ruby -e'x,y=0,-999;(0..).find{p x-y/=2;gets>?i||x-=y;$_<?d}'
 https://open.kattis.com/problems/julmust/statistics (6)
-    ruby -e"x,y=0,-gets.to_i;(1..).find{p _1.*x-y/=2;gets<?m||x-=y;\$_<?f}"
+    ruby -e'x,y=0,-gets.to_i;(1..).find{p _1.*x-y/=2;gets<?m||x-=y;$_<?f}'
 https://open.kattis.com/problems/gullpeningastaflar/statistics (6)
     read a;echo \? `seq $a`;read b;echo ! $[b-a*a*++a/2]
 
@@ -991,7 +995,7 @@ https://open.kattis.com/problems/simon/statistics (5)
     s* -n
     sed szsimon.says.zzp
 
-string combined
+string utils
 https://open.kattis.com/problems/ovissa/statistics (5)
     wc -L
 https://open.kattis.com/problems/autori/statistics (5)
