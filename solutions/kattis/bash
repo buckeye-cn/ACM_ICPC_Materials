@@ -195,6 +195,8 @@ https://open.kattis.com/problems/biladlyklabord/statistics (5)
     tr -sc _
 https://open.kattis.com/problems/leynithjonusta/statistics (5)
     tr -d " "
+https://open.kattis.com/problems/skeytasaman/statistics (5)
+    tr -d \\n
 https://open.kattis.com/problems/meddelande/statistics (5)
     tr -dc a-z
 https://open.kattis.com/problems/soundex/statistics (5)
@@ -205,6 +207,8 @@ https://open.kattis.com/problems/kvedja/statistics (5)
     sed iKvedja,
 https://open.kattis.com/problems/oddecho/statistics (5)
     sed 1~2d
+https://open.kattis.com/problems/nafnauki/statistics (5)
+    sed s/.*\\././
 https://open.kattis.com/problems/thelastproblem/statistics (5)
     sed "s/$/, and farewell!/;iThank you,"
 https://open.kattis.com/problems/kemija08/statistics (5)
@@ -661,6 +665,8 @@ https://open.kattis.com/problems/toys/statistics (5)
     sed "s/ /.times{$.+=/;a;$.%=_1+1};p$."|ruby
 https://open.kattis.com/problems/numbersquistem/statistics (5)
     sed s/.]:=/0/g\;1cp~~|ruby|sed s/0/\<]:=/g
+https://open.kattis.com/problems/grafaholur/statistics (5)
+    ruby -e"p `sed "s/$/*/;3,4i1.0/"`1"
 https://open.kattis.com/problems/locustlocus/statistics (5)
     ruby -e"p [`sed "1d;s/ .* /+&.lcm(/;a),"`].min"
 https://open.kattis.com/problems/overdraft/statistics (5)
@@ -714,7 +720,7 @@ https://open.kattis.com/problems/raggedright/statistics (5)
 https://open.kattis.com/problems/bela/statistics (5)
     ruby -ne'x=$_[-2];p$<.sum{(x==_1[1]?:AAO_D__KUEL:"AAA_D__KCEL")[_1[0].sum%11].sum-65}'
 https://open.kattis.com/problems/dihedralgroup/statistics (5)
-    ruby -e"x,y,z=$<.map &:split;p (y*3*?_+y.reverse*3*?_)[?_+z*?_+?_]?1:0"
+    ruby -ne'x,y=$<.map &:split;p (x*3*?_+x.reverse*3*?_)[?_+y*?_+?_]?1:0'
 https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -ne'putc~(9-$_.sum)/~-$_.size'
 https://open.kattis.com/problems/akureyri/statistics (5)
@@ -722,7 +728,7 @@ https://open.kattis.com/problems/akureyri/statistics (5)
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
     ruby -e"$<.tally.sort.map{puts _1,1e2*_2/$.}"
 https://open.kattis.com/problems/architecture/statistics (5)
-    ruby -ne'puts"im"*~-$<.uniq{_1.split.max}.size+"possible"'
+    ruby -pe'$_="im"*~-$<.uniq{_1.split.max}.size+"possible"'
 https://open.kattis.com/problems/alphabeticalaristocrats/statistics (5)
     ruby -ne'puts$<.sort_by{_1[/[A-Z].*/]}'
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
@@ -734,7 +740,7 @@ https://open.kattis.com/problems/pokechat/statistics (5)
 https://open.kattis.com/problems/keyboardd/statistics (5)
     ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&$><<_1};puts"
 https://open.kattis.com/problems/kikiboba/statistics (5)
-    ruby -ne'x=$_.count"b";y=$_.count"k";puts x+y<1?:none:%w(boki boba kiki)[x<=>y]'
+    ruby -pe'x=$_.count"b";y=$_.count"k";$_=x+y<1?:none:%w(boki boba kiki)[x<=>y]'
 https://open.kattis.com/problems/recount/statistics (5)
     ruby -e"(x,y),z=$<.tally.sort_by{-_2};puts y>z[1]?x:'Runoff!'"
 https://open.kattis.com/problems/babelfish/statistics (5)
@@ -742,13 +748,13 @@ https://open.kattis.com/problems/babelfish/statistics (5)
 https://open.kattis.com/problems/toktik/statistics (5)
     ruby -e"x={};puts$<.map{y,z=_1.split;[x[y]=x[y].to_i+z.to_i,y]}.max[1]"
 https://open.kattis.com/problems/ferskastajarmid/statistics (5)
-    ruby -ne'puts$<.map{x,y,z=_1.split;[-y.to_i*z.to_i,x]}.min[1]'
+    ruby -pe'$_=$<.map{x,y,z=_1.split;[-y.to_i*z.to_i,x]}.min[1]'
 https://open.kattis.com/problems/pubrunda/statistics (5)
     ruby -e"puts$<.map{x,y,z=_1.split;[x,-~y.to_i*z.to_i]}.max_by{_1[1]}"
 https://open.kattis.com/problems/maeting/statistics (5)
-    ruby -e"x,y,z=$<.map &:split;puts y.filter{z.index _1}"
+    ruby -ne'x,y=$<.map &:split;puts x.filter{y.index _1}'
 https://open.kattis.com/problems/virus3/statistics (5)
-    ruby -e"x,y=$<.to_a;puts x.chars.all?{|z|y.sub! /.*?#{z}/,''}?:Ja:'Nej'"
+    ruby -e"x,y=*$<;puts x.chars.all?{|z|y.sub! /.*?#{z}/,''}?:Ja:'Nej'"
 https://open.kattis.com/problems/nop/statistics (5)
     read a;ruby -e"'$a'.bytes{$.+=_1<96?4-$.%4:1};p$.-${#a}-3"
 https://open.kattis.com/problems/exam/statistics (5)
@@ -786,7 +792,7 @@ https://open.kattis.com/problems/sequencereduction/statistics (5)
 https://open.kattis.com/problems/revisionskontroll/statistics (5)
     ruby -ne'x={};gets.split{puts x[_1]?0:x[_1]=1}'
 https://open.kattis.com/problems/backspace/statistics (5)
-    ruby -ne'x="";$_.chars{_1!=?<?x<<_1:x.chop!};$><<x'
+    ruby -pe'x="";$_.chars{_1!=?<?x<<_1:x.chop!};$_=x'
 
 encoded: ruby + cat, large input
 https://open.kattis.com/problems/abcstring/statistics (5)
@@ -955,6 +961,9 @@ https://open.kattis.com/problems/vidsnuningur/statistics (2)
     rev
 
 print
+https://open.kattis.com/problems/andmal/statistics(2)
+    e*
+    echo ed
 https://open.kattis.com/problems/giskadu/statistics (2)
     s*
     sed sy..y273y sz.sh
@@ -962,8 +971,9 @@ https://open.kattis.com/problems/velkomin/statistics (4)
     s*
     sed syVyVELKOMINy V!>sz
 https://open.kattis.com/problems/hello/statistics (5)
-https://open.kattis.com/problems/hipphipp/statistics (5)
+https://open.kattis.com/problems/verditheradgodu/statistics (5)
 https://open.kattis.com/problems/tilhamingju/statistics (5)
+https://open.kattis.com/problems/hipphipp/statistics (5)
 https://open.kattis.com/problems/frumtolur/statistics (5)
 
 stdin as args
