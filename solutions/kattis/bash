@@ -363,6 +363,8 @@ https://open.kattis.com/problems/basketballoneonone/statistics (5)
     rev|cut -b2
 https://open.kattis.com/problems/filip/statistics (5)
     rev|fold -w4|sort|sed 1d
+https://open.kattis.com/problems/inputmaxxing/statistics (5)
+    sort -n|tail -1
 https://open.kattis.com/problems/bestagjofin/statistics (5)
     sort -rnk2|xargs -n1|head -1
 https://open.kattis.com/problems/coursescheduling/statistics (5)
@@ -587,6 +589,8 @@ https://open.kattis.com/problems/bijele/statistics (5)
     ruby -e"[1,1,2,2,2,8].zip([`tr \  ,`]){p _1-_2}"
 https://open.kattis.com/problems/colourwars/statistics (5)
     ruby -e"p [-`tr " \n" ,`].tally.sum{_2/~_1*~_1}"
+https://open.kattis.com/problems/gufustrokur/statistics (5)
+    ruby -e"p [x=(`tr "\n" -`0).abs,360-x].min"
 https://open.kattis.com/problems/dicecup/statistics (5)
     ruby -e"x=1+`tr \  ,`+1;p *x.min..x.max"
 https://open.kattis.com/problems/batterup/statistics (5)
@@ -619,8 +623,12 @@ https://open.kattis.com/problems/eatingout/statistics (5)
     ruby -e"puts'im'*$[2*`tr \  -`<0]+'possible'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
     ruby -e"puts [0*`tr " \n" ,+`1].all?{2>$.+=2-_1}&&$.>0?:YES:'NO'"
+https://open.kattis.com/problems/goggi/statistics (5)
+    ruby -e"$><<['Goggi svangur!',?>,?<][`tr ? -`<=>0]"
 https://open.kattis.com/problems/takkar/statistics (5)
     ruby -e"$><<['WORLD WAR 3!','MAGA!','FAKE NEWS!'][`tr "\n" -`0<=>0]"
+https://open.kattis.com/problems/dufuskuffur/statistics (5)
+    ruby -e"puts:Dufur,:passa,[:fullkomlega,:ekki,''][`tr "\n" -`0<=>0]"
 https://open.kattis.com/problems/grading/statistics (5)
     ruby -e"x=`tr " \n" ,`0;putc 65+x.count{_1>x[5]}"
 https://open.kattis.com/problems/dicegame/statistics (5)
