@@ -87,6 +87,8 @@ https://open.kattis.com/problems/nsum/statistics (5)
     read;echo $[`tr \  +`]
 https://open.kattis.com/problems/kakor/statistics (5)
     read;echo $[`tr \  +`]
+https://open.kattis.com/problems/aterriblefortress/statistics (6)
+    read;echo $[`tr "\n" +`0]
 https://open.kattis.com/problems/cosmicpathoptimization/statistics (5)
     read a;echo $[(`tr \  +`)/a]
 https://open.kattis.com/problems/shatteredcake/statistics (5)
@@ -890,7 +892,9 @@ https://open.kattis.com/problems/electricaloutlets/statistics (5)
 https://open.kattis.com/problems/owlandfox/statistics (5)
     sed "s/0*$/&-1&/;1!ip~~"|ruby
 https://open.kattis.com/problems/chanukah/statistics (5)
-    sed "s/ .*/;p &*(&+3)\/2/"|ruby|nl
+    sed "s/ .*/;p&*(&+3)\/2/"|ruby|nl
+https://open.kattis.com/problems/sumkindofproblem/statistics (5)
+    sed "s/ .*/,&*-~&\/2,&*&,&*-~&/;1!ip~~"|ruby
 https://open.kattis.com/problems/parking2/statistics (5)
     sed "y/ /,/;3~2s/.*/p 2*([&].max-[&].min)/"|ruby
 https://open.kattis.com/problems/batteries/statistics (5)
