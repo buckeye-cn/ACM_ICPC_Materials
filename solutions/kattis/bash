@@ -313,8 +313,6 @@ https://open.kattis.com/problems/quadrant/statistics (5)
     sed 2p|grep -c -|tr 012 124
 https://open.kattis.com/problems/headguard/statistics (5)
     sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
-https://open.kattis.com/problems/icpcawards/statistics (5)
-    sed "1d;s/.* /mkdir &\&\&echo &/"|sh|head -12
 https://open.kattis.com/problems/freefood/statistics (5)
     sed "1d;s/^/seq /e"|sort -u|wc -l
 https://open.kattis.com/problems/spacerace/statistics (5)
@@ -741,8 +739,14 @@ https://open.kattis.com/problems/architecture/statistics (5)
     ruby -pe'$_="im"*~-$<.uniq{_1.split.max}.size+"possible"'
 https://open.kattis.com/problems/alphabeticalaristocrats/statistics (5)
     ruby -ne'puts$<.sort_by{_1[/[A-Z].*/]}'
+https://open.kattis.com/problems/icpcawards/statistics (5)
+    ruby -e"puts$<.uniq{_1[/.* /]}[1..12]"
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
     ruby -e"x=1;$<.map{x*=_1.size/3};puts'S('*x+?0+?)*x"
+https://open.kattis.com/problems/shoppinglist/statistics (5)
+    ruby -e"gets;x=$<.map(&:split).reduce:&;puts x.size,x.sort"
+https://open.kattis.com/problems/shoppinglisteasy/statistics (5)
+    ruby -e"gets;x=$<.map(&:split).reduce:&;puts x.size,x.sort"
 https://open.kattis.com/problems/heimilisverk/statistics (5)
     ruby -ne'x={};$<.map{x[_1]||=$><<_1}'
 https://open.kattis.com/problems/pokechat/statistics (5)
@@ -790,7 +794,7 @@ https://open.kattis.com/problems/keysphonewallet/statistics (5)
 
 encoded: ruby + tr, string
 https://open.kattis.com/problems/cups/statistics (5)
-    ruby -e"puts$<.sort_by{_1.to_i/2+_1.split[1].to_i}"|tr -d 0-9
+    ruby -e"puts$<.sort_by{_1.to_i/2+_1[/ .*/].to_i}"|tr -d 0-9
 
 encoded: ruby + sed, string
 https://open.kattis.com/problems/reduplikation/statistics (5)
@@ -842,7 +846,7 @@ encoded: ruby, math, multi cases
 https://open.kattis.com/problems/leynitolur/statistics (5)
     ruby -ne'p ($_.to_i-68431307)*881051043651%2**64'
 https://open.kattis.com/problems/flyingsafely/statistics (5)
-    read;ruby -ne'p~-$_.to_i;$<.take$_.split[1].to_i'
+    read;ruby -ne'p~-$_.to_i;$<.take$_[/ .*/].to_i'
 https://open.kattis.com/problems/zanzibar/statistics (5)
     read;ruby -ne'p$_.split.sum{[-2*$.+$.=_1.to_i,0].max}'
 https://open.kattis.com/problems/scalingrecipe/statistics (5)
@@ -946,7 +950,7 @@ https://open.kattis.com/problems/calculator/statistics (5)
 
 encoded: interactive
 https://open.kattis.com/problems/ninetynine/statistics (6)
-    echo 2;ruby -ne'x=$_.to_i;p x%3%2-~x'
+    echo 2;ruby -ne'x=eval$_;p x%3%2-~x'
 https://open.kattis.com/problems/askmarilyn/statistics (6)
     ruby -e'1000.times{putc 65+x=_1/7%3;p;y,z,a=gets.bytes;putc y^-~x*(49-a);p;gets}'
 https://open.kattis.com/problems/guess/statistics (6)
