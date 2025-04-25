@@ -467,6 +467,8 @@ https://open.kattis.com/problems/rectanglearea/statistics (5)
     read a b c d;ruby -e"p (($c-$a)*($d-$b)).abs"
 https://open.kattis.com/problems/bizzfuzz/statistics (5)
     read a b c d;ruby -e"x=$c.lcm $d;p $b/x-~-$a/x"
+https://open.kattis.com/problems/remotegetaway/statistics (5)
+    read a b c d;ruby -e"puts $c**4>($b*$d)**2-2*$a*$c*$c*$d?:YES:'NO'"
 
 encoded: ruby + cat, math
 https://open.kattis.com/problems/areal/statistics (5)
@@ -491,6 +493,8 @@ https://open.kattis.com/problems/einfalt/statistics (5)
     ruby -e"p ((1..`cat`).inject:*)||1"
 https://open.kattis.com/problems/champagneoverflow/statistics (5)
     ruby -e"p (1..`cat`).sum{4**~-_1-_1*_1}"
+https://open.kattis.com/problems/weneedtogodeeper/statistics (5)
+    ruby -e"p (6..25).sum{(`cat`/2-_1).clamp(0,19)}"
 https://open.kattis.com/problems/meowfactor/statistics (5)
     ruby -e"p -(-128..).find{`cat`%_1**9==0}"
 https://open.kattis.com/problems/sequence/statistics (5)
@@ -615,6 +619,8 @@ https://open.kattis.com/problems/linesperhour/statistics (5)
     ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{0>y-=_1}"
 https://open.kattis.com/problems/simplearithmetic/statistics (5)
     ruby -e"puts'%f'.%`tr \  \*`**-1"
+https://open.kattis.com/problems/stayingfrosty/statistics (6)
+    ruby -e"puts `tr \  \>`*360?:NO:'YES'"
 https://open.kattis.com/problems/squarepeg/statistics (5)
     ruby -e"puts `tr \  \>`*1.414?:nope:'fits'"
 https://open.kattis.com/problems/addingtrouble/statistics (5)
@@ -731,6 +737,8 @@ https://open.kattis.com/problems/dihedralgroup/statistics (5)
     ruby -ne'x,y=$<.map &:split;p (x*3*?_+x.reverse*3*?_)[?_+y*?_+?_]?1:0'
 https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -ne'putc~(9-$_.sum)/~-$_.size'
+https://open.kattis.com/problems/gettingwood/statistics (5)
+    ruby -pe'$_=$_.index("tree")||"no trees here"'
 https://open.kattis.com/problems/akureyri/statistics (5)
     ruby -ne'puts$<.map{gets.chop}.tally.map{_1*" "}'
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
