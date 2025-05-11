@@ -231,6 +231,8 @@ https://open.kattis.com/problems/mylla/statistics (5)
     sed "1d;s/.*A$/Hannes/;t;cArnar"
 https://open.kattis.com/problems/quiteaproblem/statistics (5)
     sed "s/.*problem.*/yes/I;t;cno"
+https://open.kattis.com/problems/blackthorn/statistics (5)
+    sed "s/.*kth.*/yes/;t;cno"
 https://open.kattis.com/problems/hissingmicrophone/statistics (5)
     sed "s/.*ss.*/hiss/;t;cno hiss"
 https://open.kattis.com/problems/hradgreining/statistics (5)
