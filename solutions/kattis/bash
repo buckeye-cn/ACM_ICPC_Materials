@@ -654,6 +654,10 @@ https://open.kattis.com/problems/grassseed/statistics (5)
 https://open.kattis.com/problems/countdoubles/statistics (5)
     read a b;ruby -e"p [`tr \  ,`].each_cons($b).count{|x|x.sum{~_1%2}>1}"
 
+encoded: ruby + tr (postprocess), math
+https://open.kattis.com/problems/sretan/statistics (5)
+    ruby -e"$><<('%b'%-~`cat`)[1..]"|tr 01 47
+
 encoded: ruby + sed, math
 https://open.kattis.com/problems/sanic/statistics (5)
     sed ip~0+|ruby
@@ -710,10 +714,6 @@ https://open.kattis.com/problems/ratingproblems/statistics (5)
 https://open.kattis.com/problems/spritt/statistics (5)
     read a b;ruby -e"puts $b<$[`sed i+`]?:Neibb:'Jebb'"
 
-encoded: ruby + string utils, math
-https://open.kattis.com/problems/sretan/statistics (5)
-    ruby -e"$><<('%b'%-~`cat`)[1..]"|tr 01 47
-
 encoded: ruby, string
 https://open.kattis.com/problems/finalexam2/statistics (5)
     ruby -e"p$<.count{$/==$/=_1}"
@@ -754,9 +754,9 @@ https://open.kattis.com/problems/icpcawards/statistics (5)
 https://open.kattis.com/problems/methodicmultiplication/statistics (5)
     ruby -e"x=1;$<.map{x*=_1.size/3};puts'S('*x+?0+?)*x"
 https://open.kattis.com/problems/shoppinglist/statistics (5)
-    ruby -e"gets;x=$<.map(&:split).reduce:&;puts x.size,x.sort"
+    ruby -ne"x=$<.map(&:split).reduce:&;puts x.size,x.sort"
 https://open.kattis.com/problems/shoppinglisteasy/statistics (5)
-    ruby -e"gets;x=$<.map(&:split).reduce:&;puts x.size,x.sort"
+    ruby -ne"x=$<.map(&:split).reduce:&;puts x.size,x.sort"
 https://open.kattis.com/problems/heimilisverk/statistics (5)
     ruby -ne'x={};$<.map{x[_1]||=$><<_1}'
 https://open.kattis.com/problems/pokechat/statistics (5)
@@ -859,32 +859,14 @@ https://open.kattis.com/problems/flyingsafely/statistics (5)
     read;ruby -ne'p~-$_.to_i;$<.take$_[/ .*/].to_i'
 https://open.kattis.com/problems/zanzibar/statistics (5)
     read;ruby -ne'p$_.split.sum{[-2*$.+$.=_1.to_i,0].max}'
+https://open.kattis.com/problems/cheaterdetection/statistics (5)
+    read;ruby -ne'puts$_.to_r*100%3<2?:VALID:"IMPOSSIBLE"'
 https://open.kattis.com/problems/scalingrecipe/statistics (5)
     read a b c;ruby -ne"p\$_.to_i*$c/$b"
 https://open.kattis.com/problems/sibice/statistics (5)
     read a b c;ruby -ne"puts\$_.to_i**2>$[b*b+c*c]?:NE:'DA'"
 
-encoded: ruby + grep, math, multi cases
-https://open.kattis.com/problems/parsinghex/statistics (5)
-    grep -oi 0x[0-9a-f]*|ruby -ne'puts$_,eval($_)'
-
-encoded: ruby, string, multi cases
-https://open.kattis.com/problems/sortofsorting/statistics (5)
-    ruby -ne'puts$<.take(eval$_).sort_by{_1[..1]}'
-https://open.kattis.com/problems/everywhere/statistics (5)
-    read;ruby -ne'p$<.take(eval$_).uniq.size'
-https://open.kattis.com/problems/irepeatmyself/statistics (5)
-    read;ruby -ne'p (1..).find{1>$_.index($_[_1..-2])}'
-https://open.kattis.com/problems/detaileddifferences/statistics (5)
-    read;ruby -ne'puts x=$_,gets,(0..x.size-2).map{x[_1]==$_[_1]??.:?*}*""'
-https://open.kattis.com/problems/intuitiveelements/statistics (5)
-    read;ruby -ne'x=$_;puts gets.chars.all?{x[_1]}?:YES:"NO"'
-https://open.kattis.com/problems/encodedmessage/statistics (5)
-    read;ruby -ne'x=$_.size;x.times{$><<$_[((x-1)**0.5*_1-1)%x]}'
-https://open.kattis.com/problems/skener/statistics (5)
-    read a b c d;ruby -ne"(\$_*$c).chars.map{$><<_1*$d}"
-
-encoded: ruby + sed, math, multiline
+encoded: ruby + sed, math, multi cases
 https://open.kattis.com/problems/bishops/statistics (5)
     sed "s/.*/p &<2?1:&*2-2/"|ruby
 https://open.kattis.com/problems/smallestmultiple/statistics (5)
@@ -943,12 +925,30 @@ https://open.kattis.com/problems/mixedfractions/statistics (5)
     sed "y/ /,/;s/^/x,y=/;1!iputs x/y,x%y,'/',y"|ruby
 https://open.kattis.com/problems/simplefactoring/statistics (5)
     sed "y/ /,/;s/^/x,y,z=/;1!ax=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?:YES:'NO'"|ruby
-
-encoded: ruby + sed, string, multiline
 https://open.kattis.com/problems/vedurheidar/statistics (5)
     read a;sed "s/ .*/',&<$a?:lokud:'opin'/;1!iputs'"|ruby
 
-encoded: python + string utils, math, multiline
+encoded: ruby + grep, math, multi cases
+https://open.kattis.com/problems/parsinghex/statistics (5)
+    grep -oi 0x[0-9a-f]*|ruby -ne'puts$_,eval($_)'
+
+encoded: ruby, string, multi cases
+https://open.kattis.com/problems/sortofsorting/statistics (5)
+    ruby -ne'puts$<.take(eval$_).sort_by{_1[..1]}'
+https://open.kattis.com/problems/everywhere/statistics (5)
+    read;ruby -ne'p$<.take(eval$_).uniq.size'
+https://open.kattis.com/problems/irepeatmyself/statistics (5)
+    read;ruby -ne'p (1..).find{1>$_.index($_[_1..-2])}'
+https://open.kattis.com/problems/detaileddifferences/statistics (5)
+    read;ruby -ne'puts x=$_,gets,(0..x.size-2).map{x[_1]==$_[_1]??.:?*}*""'
+https://open.kattis.com/problems/intuitiveelements/statistics (5)
+    read;ruby -ne'x=$_;puts gets.chars.all?{x[_1]}?:YES:"NO"'
+https://open.kattis.com/problems/encodedmessage/statistics (5)
+    read;ruby -ne'x=$_.size;x.times{$><<$_[((x-1)**0.5*_1-1)%x]}'
+https://open.kattis.com/problems/skener/statistics (5)
+    read a b c d;ruby -ne"(\$_*$c).chars.map{$><<_1*$d}"
+
+encoded: python + string utils, math, multi cases
 https://open.kattis.com/problems/pet/statistics (5)
     tr \  +|python3 -i|nl|sort -rnk2|head -1
 https://open.kattis.com/problems/different/statistics (5)
