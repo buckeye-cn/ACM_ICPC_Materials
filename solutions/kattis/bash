@@ -201,6 +201,8 @@ https://open.kattis.com/problems/skeytasaman/statistics (5)
     tr -d \\n
 https://open.kattis.com/problems/meddelande/statistics (5)
     tr -dc a-z
+https://open.kattis.com/problems/vandalism/statistics (5)
+    tr -d `cat`<<<UAPC
 https://open.kattis.com/problems/soundex/statistics (5)
     tr -s A-Z _123_12__22455_12623_1_2_2|tr -d _
 
@@ -253,6 +255,8 @@ https://open.kattis.com/problems/breakingbranches/statistics (5)
     sed "s/.*[13579]$/Bob/;t;cAlice 1"
 https://open.kattis.com/problems/knightpacking/statistics (5)
     sed "s/.*[13579]$/first/;t;csecond"
+https://open.kattis.com/problems/miraclescreated/statistics (5)
+    sed "s/.*[13579]$/NO/;t;cYES"
 https://open.kattis.com/problems/oddities/statistics (5)
     sed "1d;s/[13579]$/& is odd/;t;ais even"
 https://open.kattis.com/problems/somesum/statistics (5)
@@ -314,7 +318,7 @@ https://open.kattis.com/problems/lastfactorialdigit/statistics (5)
 https://open.kattis.com/problems/quadrant/statistics (5)
     sed 2p|grep -c -|tr 012 124
 https://open.kattis.com/problems/headguard/statistics (5)
-    sed "s/.*/echo &|grep -o .|uniq -c|tr -d ' \t\n'/e"
+    sed "s/.*/echo &|fold -w1|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/freefood/statistics (5)
     sed "1d;s/^/seq /e"|sort -u|wc -l
 https://open.kattis.com/problems/spacerace/statistics (5)
@@ -477,6 +481,8 @@ https://open.kattis.com/problems/areal/statistics (5)
     ruby -e"p `cat`**0.5*4"
 https://open.kattis.com/problems/lidaskipting2/statistics (5)
     ruby -e"p 0-p(`cat`)/-3"
+https://open.kattis.com/problems/antidiagonalgame/statistics (5)
+    ruby -e"p (3.<<~-`cat`&~1)%1000003233"
 https://open.kattis.com/problems/romans/statistics (5)
     ruby -e"p (`cat`*88e4/809).round"
 https://open.kattis.com/problems/alloys/statistics (5)
