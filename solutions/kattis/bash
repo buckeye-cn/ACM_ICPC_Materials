@@ -41,6 +41,8 @@ https://open.kattis.com/problems/sodaslurper/statistics (5)
     read a b c;echo $[(a+b-(a||b))/--c]
 https://open.kattis.com/problems/climbingworm/statistics (5)
     read a b c;echo $[~(b-c)%c/(a-b)+1]
+https://open.kattis.com/problems/posters/statistics (5)
+    read a b c;echo $[a>b?(c-b)/a:(c-a)/b]
 https://open.kattis.com/problems/pieceofcake2/statistics (5)
     read a b c;echo $[(b>a-b?b:a-b)*(c>a-c?c:a-c)*4]
 https://open.kattis.com/problems/hornrett/statistics (5)
@@ -437,6 +439,8 @@ https://open.kattis.com/problems/rampantgrowth/statistics (5)
     read a b;ruby -e"p $a*($a-1)**~-$b%998244353"
 https://open.kattis.com/problems/hahysi/statistics (5)
     read a b;ruby -e"p $a*~-$a*$b*~-$b/4%(10**9+7)"
+https://open.kattis.com/problems/ofinthecoldfoodofouthoteatthefood/statistics (5)
+    read a b;ruby -e"p 2*$a>$b?$a+$b.0/2:$[2*a*b]**0.5"
 https://open.kattis.com/problems/ladder/statistics (5)
     read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
 https://open.kattis.com/problems/ordinaryordinals/statistics (5)
@@ -483,6 +487,8 @@ https://open.kattis.com/problems/lidaskipting2/statistics (5)
     ruby -e"p 0-p(`cat`)/-3"
 https://open.kattis.com/problems/antidiagonalgame/statistics (5)
     ruby -e"p (3.<<~-`cat`&~1)%1000003233"
+https://open.kattis.com/problems/slodafinnandi/statistics (5)
+    ruby -e"p (4+8*x=`cat`/5)*-~x/3+x*x%3"
 https://open.kattis.com/problems/romans/statistics (5)
     ruby -e"p (`cat`*88e4/809).round"
 https://open.kattis.com/problems/alloys/statistics (5)
@@ -625,6 +631,8 @@ https://open.kattis.com/problems/cornhusker/statistics (5)
     ruby -e"*x,y,z=[`tr " \n" ,`];p (0..4).sum{x.pop*x.pop}/5*y/z"
 https://open.kattis.com/problems/linesperhour/statistics (5)
     ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{0>y-=_1}"
+https://open.kattis.com/problems/oothaderkominnott/statistics (5)
+    ruby -e"x,y,z,a=[`tr "\n" ,`];p (2-y)*(2-z||=y)*(1-a||=3)+y*z*a"
 https://open.kattis.com/problems/simplearithmetic/statistics (5)
     ruby -e"puts'%f'.%`tr \  \*`**-1"
 https://open.kattis.com/problems/stayingfrosty/statistics (6)
@@ -711,6 +719,8 @@ https://open.kattis.com/problems/eldspytur/statistics (5)
     ruby -e"puts `sed s/\ /%~/`<0?:Jebb:'Neibb'"
 https://open.kattis.com/problems/prsteni/statistics (5)
     sed "s/ /r;puts x\//g;1cx="|ruby
+https://open.kattis.com/problems/solidus/statistics (5)
+    ruby -e"x=`sed 2cy=`;puts x%y==0?x/y:x.to_r/y"
 https://open.kattis.com/problems/stopwatch/statistics (5)
     read a;sed "s/^/$.=-$.+/;$ a$><<[$.,'still running'][$a%2]"|ruby
 https://open.kattis.com/problems/sequentialmanufacturing/statistics (5)
