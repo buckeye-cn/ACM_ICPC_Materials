@@ -645,12 +645,16 @@ https://open.kattis.com/problems/eatingout/statistics (5)
     ruby -e"puts'im'*$[2*`tr \  -`<0]+'possible'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
     ruby -e"puts [0*`tr " \n" ,+`1].all?{2>$.+=2-_1}&&$.>0?:YES:'NO'"
+https://open.kattis.com/problems/triangelfabriken/statistics (5)
+    ruby -e"$><<%w(Ratvinkl Trubb Spets)[[`tr "\n" ,`].max<=>90]<<'ig Triangel'"
+https://open.kattis.com/problems/pobudget/statistics (5)
+    ruby -e"$><<%w(Lagom Usch,\ vinst Nekad)[0*`tr "\nA-z" +`0<=>0]"
 https://open.kattis.com/problems/goggi/statistics (5)
-    ruby -e"$><<['Goggi svangur!',?>,?<][`tr ? -`<=>0]"
+    ruby -e"$><<%w(Goggi\ svangur! > <)[`tr ? -`<=>0]"
 https://open.kattis.com/problems/takkar/statistics (5)
-    ruby -e"$><<['WORLD WAR 3!','MAGA!','FAKE NEWS!'][`tr "\n" -`0<=>0]"
+    ruby -e"$><<%w(WORLD\ WAR\ 3! MAGA! FAKE\ NEWS!)[`tr "\n" -`0<=>0]"
 https://open.kattis.com/problems/dufuskuffur/statistics (5)
-    ruby -e"puts:Dufur,:passa,[:fullkomlega,:ekki,''][`tr "\n" -`0<=>0]"
+    ruby -e"puts:Dufur,:passa,%w(fullkomlega ekki \ )[`tr "\n" -`0<=>0]"
 https://open.kattis.com/problems/grading/statistics (5)
     ruby -e"x=`tr " \n" ,`0;putc 65+x.count{_1>x[5]}"
 https://open.kattis.com/problems/dicegame/statistics (5)
@@ -714,7 +718,7 @@ https://open.kattis.com/problems/mixtapemanagement/statistics (5)
 https://open.kattis.com/problems/invokereasy/statistics (5)
     ruby -e"x=`sed "s/ /.0i-/;1ax/="`;p x.real,x.imag"
 https://open.kattis.com/problems/sith/statistics (5)
-    ruby -e"$><<['VEIT EKKI',:SITH,:JEDI][(`sed "1d;2s/$/-/;3a)[9]+"`[9]]"
+    ruby -e"$><<%w(VEIT\ EKKI SITH JEDI)[(`sed "1d;2s/$/-/;3a)[9]+"`[9]]"
 https://open.kattis.com/problems/eldspytur/statistics (5)
     ruby -e"puts `sed s/\ /%~/`<0?:Jebb:'Neibb'"
 https://open.kattis.com/problems/prsteni/statistics (5)
