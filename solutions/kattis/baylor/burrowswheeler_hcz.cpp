@@ -11,7 +11,7 @@
 
 using namespace std;
 
-pair<long, int> dp[18][100000];
+long dp[18][100000];
 
 int main() {
     ios_base::sync_with_stdio(false);
@@ -24,23 +24,24 @@ int main() {
         memset(dp, 0, sizeof(dp));
 
         for (int i = 0; i < s.size(); ++i) {
-            dp[0][i] = {s[i], i};
+            dp[0][i] = (s[i] << 20) + i;
         }
 
         for (int i = 0; i < 17; ++i) {
             sort(dp[i], dp[i] + s.size());
 
-            long pos = 0;
+            long rank = 0;
 
             for (int j = 0; j < s.size(); ++j) {
-                pos += j && dp[i][j - 1].first < dp[i][j].first;
-                dp[i + 1][dp[i][j].second].first += pos << 32;
-                dp[i + 1][dp[i][j].second].second = dp[i][j].second;
+                int k = dp[i][j] & 1048575;
 
-                if (dp[i][j].second >= 1 << i) {
-                    dp[i + 1][dp[i][j].second - (1 << i)].first += pos;
+                rank += j && dp[i][j - 1] >> 20 < dp[i][j] >> 20;
+                dp[i + 1][k] += (rank << 40) + k;
+
+                if ((dp[i][j] & 1048575) >= 1 << i) {
+                    dp[i + 1][k - (1 << i)] += rank << 20;
                 } else {
-                    dp[i + 1][dp[i][j].second + s.size() - (1 << i)].first += pos;
+                    dp[i + 1][k + s.size() - (1 << i)] += rank << 20;
                 }
             }
         }
@@ -48,8 +49,10 @@ int main() {
         sort(dp[17], dp[17] + s.size());
 
         for (int i = 0; i < s.size(); ++i) {
-            if (dp[17][i].second) {
-                cout << s[dp[17][i].second - 1];
+            int k = dp[17][i] & 1048575;
+
+            if (k) {
+                cout << s[k - 1];
             } else {
                 cout << s[s.size() - 1];
             }
