@@ -209,6 +209,8 @@ https://open.kattis.com/problems/vandalism/statistics (5)
     tr -d `cat`<<<UAPC
 https://open.kattis.com/problems/soundex/statistics (5)
     tr -s A-Z _123_12__22455_12623_1_2_2|tr -d _
+https://open.kattis.com/problems/bradspelet/statistics (5)
+    read a b;tr 01 AB<<<$[(a&-a)==(b&-b)]
 
 encoded: sed
 https://open.kattis.com/problems/kvedja/statistics (5)
@@ -431,6 +433,8 @@ https://open.kattis.com/problems/ekkidaudi/statistics (5)
 encoded: ruby, math
 https://open.kattis.com/problems/modulo/statistics (5)
     ruby -e"p$<.uniq{_1.to_i%42}.size"
+https://open.kattis.com/problems/password/statistics (5)
+    ruby -ne"p$<.map{_1.split[1].to_f}.sort.sum{_1*$.-=1}"
 https://open.kattis.com/problems/socialrunning/statistics (5)
     ruby -e"x,*y=$<.map &:to_i;p (1..x).map{y[-_1]+y[2-_1]}.min"
 https://open.kattis.com/problems/sistapizzan/statistics (5)
@@ -449,6 +453,8 @@ https://open.kattis.com/problems/ordinaryordinals/statistics (5)
     read a b;ruby -e"p~-($a>0?5*2.pow($a-1,$b):3)%$b"
 https://open.kattis.com/problems/lamps/statistics (5)
     read a b;ruby -e"p (1..).find{$a*~-_1/1000+98e-6*$a*$b*_1>11}"
+https://open.kattis.com/problems/isiteven/statistics (5)
+    read a b;ruby -e"p$<.sum{('%b'%_1.to_i).count ?0}<$b?0:1"
 https://open.kattis.com/problems/diagonalcut/statistics (5)
     read a b;ruby -e"x=$a.gcd $b;p x.*$a/x&$b/x&1"
 https://open.kattis.com/problems/ghostleg/statistics (5)
@@ -879,6 +885,8 @@ https://open.kattis.com/problems/waterworld/statistics (5)
 encoded: ruby + sed, large input
 https://open.kattis.com/problems/busassignment/statistics (5)
     ruby<<<"p [`sed "s/ /-/;s/$/,$.-=/"`0].max"
+https://open.kattis.com/problems/epigdanceoff/statistics (5)
+    ruby<<<"p ('%b'%(`sed "1d;y/_$/01/;s/.*/0b&|/"`0)).count(?0)+1"
 https://open.kattis.com/problems/goombastacks/statistics (5)
     ruby<<<"puts'im'*-[x=`sed "1d;s/ .*/,x<=>&,x+=/"`-x].min+'possible'"
 
