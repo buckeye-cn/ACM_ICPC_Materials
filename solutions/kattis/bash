@@ -783,6 +783,8 @@ https://open.kattis.com/problems/averagecharacter/statistics (5)
     ruby -ne'putc~(9-$_.sum)/~/$/'
 https://open.kattis.com/problems/gettingwood/statistics (5)
     ruby -pe'$_=$_.index("tree")||"no trees here"'
+https://open.kattis.com/problems/undeadoralive/statistics (5)
+    ruby -pe'$_=%w(machine alive undead double\ agent)[(~/:\)/?1:0)+(~/:\(/?2:0)]'
 https://open.kattis.com/problems/akureyri/statistics (5)
     ruby -ne'puts$<.map{gets.chop}.tally.map{_1*" "}'
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
@@ -941,6 +943,8 @@ https://open.kattis.com/problems/batteries/statistics (5)
     sed "s/.*/p (0..).find{_1*-~_1>&*2-3}/;x"|ruby
 https://open.kattis.com/problems/heartrate/statistics (5)
     sed "s/.* /&.upto(&+2){p~-_1*60\//;1!a}"|ruby
+https://open.kattis.com/problems/curvespeed/statistics (5)
+    sed "s/  */*(1/;s/.*/p ((&%1+0.16)\/0.067)**0.5).round/"|ruby
 https://open.kattis.com/problems/estimatingtheareaofacircle/statistics (5)
     sed "x;s/ .* /**2;p 3.1416*x,4.0*x\/&*/;ix="|ruby
 https://open.kattis.com/problems/babylonian/statistics (5)
@@ -990,7 +994,7 @@ https://open.kattis.com/problems/detaileddifferences/statistics (5)
 https://open.kattis.com/problems/intuitiveelements/statistics (5)
     read;ruby -ne'x=$_;puts gets.chars.all?{x[_1]}?:YES:"NO"'
 https://open.kattis.com/problems/encodedmessage/statistics (5)
-    read;ruby -ne'(1..1+x= ~/$/).map{$><<$_[(x**0.5*_1-1)%-~x]}'
+    read;ruby -ne'(1+x= ~/$/).times{$><<$_[(x**0.5*_1-1)%-~x]}'
 https://open.kattis.com/problems/skener/statistics (5)
     read a b c d;ruby -ne"(\$_*$c).chars.map{$><<_1*$d}"
 
