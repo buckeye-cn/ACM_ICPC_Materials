@@ -189,6 +189,8 @@ https://open.kattis.com/problems/crypto/statistics (5)
 encoded: date
 https://open.kattis.com/problems/parentgap/statistics (5)
     date -d`cat`/5/1|sed "s/[FS].*/6 weeks/;t;c5 weeks"
+https://open.kattis.com/problems/vegabrefadagsetningar/statistics (5)
+    sed "s/ .*\// /"|date -I -f-
 https://open.kattis.com/problems/datum/statistics (5)
     read a b;date -d$b/$a/09 +%A
 
@@ -454,7 +456,7 @@ https://open.kattis.com/problems/ordinaryordinals/statistics (5)
 https://open.kattis.com/problems/lamps/statistics (5)
     read a b;ruby -e"p (1..).find{$a*~-_1/1000+98e-6*$a*$b*_1>11}"
 https://open.kattis.com/problems/isiteven/statistics (5)
-    read a b;ruby -e"p$<.sum{('%b'%_1.to_i).count ?0}<$b?0:1"
+    read a b;ruby -e"p$<.sum{x=_1.to_i;Math.log2(x&-x)}<$b?0:1"
 https://open.kattis.com/problems/diagonalcut/statistics (5)
     read a b;ruby -e"x=$a.gcd $b;p x.*$a/x&$b/x&1"
 https://open.kattis.com/problems/ghostleg/statistics (5)
@@ -864,13 +866,15 @@ encoded: ruby + tr, large input
 https://open.kattis.com/problems/umferd/statistics (5)
     tr -dc .#|ruby -ne'p$_.count(?.)*1.0/~/$/'
 https://open.kattis.com/problems/pvbg/statistics (5)
-    read;ruby<<<"p [`tr \  ,`].min+1"
+    ruby<<<"p [9e`tr " \n" ,`].min+1"
 https://open.kattis.com/problems/dansgolf/statistics (5)
-    read;ruby<<<"p [`tr " \n" -,`].uniq.size"
+    ruby<<<"p [-`tr " \n" -,`].uniq.size-1"
+https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
+    ruby<<<"p [0*`tr " \n" ,`0].sum{[$.-$.=_1,1].max-1}"
+https://open.kattis.com/problems/slatomography/statistics (5)
+    ruby<<<"p [0*`tr "\n" ,`].sum{x=$.-$.=_1;x<0?1-x:0}+1"
 https://open.kattis.com/problems/prjonamynstur/statistics (5)
     read;ruby<<<"p'`tr ".A^v\n/[-]" YhJ[E^`'.bytes.sum{_1-69}"
-https://open.kattis.com/problems/dontfalldownstairs/statistics (5)
-    read;ruby<<<"p [`tr \  ,`,0].sum{[$.-$.=_1,1].max-1}"
 https://open.kattis.com/problems/pripreme/statistics (5)
     read;ruby<<<"x=`tr \  ,`;p [x.max*2,x.sum].max"
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
