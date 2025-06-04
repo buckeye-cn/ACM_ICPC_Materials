@@ -467,6 +467,8 @@ https://open.kattis.com/problems/bestcompression/statistics (5)
     read a b;ruby -e"puts $a<2<<$b?:yes:'no'"
 https://open.kattis.com/problems/bordspil/statistics (5)
     read a b;ruby -e"puts~-$b*3>2*$a?:Unnar:'Arnar'"
+https://open.kattis.com/problems/blueberrywaffle/statistics (5)
+    read a b;ruby -e"puts $[a/2+b]/$a%2<1?:up:'down'"
 https://open.kattis.com/problems/binaryexponentiation/statistics (5)
     read a b c;ruby -e"p $a.pow($b,$c)"
 https://open.kattis.com/problems/bladra2/statistics (5)
@@ -945,6 +947,8 @@ https://open.kattis.com/problems/babylonian/statistics (5)
     sed "s/\</;x+=/g;s/,/;x*=60/g;s/^/x=0/;1!ap x"|ruby
 https://open.kattis.com/problems/nine/statistics (5)
     sed "1!s/.*/p 8*9.pow(&-1,x=10**9+7)%x/"|ruby
+https://open.kattis.com/problems/geneblock/statistics (5)
+    sed "1!s/.*/x=10--&*3%10;p &<x*7?-1:x/"|ruby
 https://open.kattis.com/problems/oddgnome/statistics (5)
     sed "y/ /,/;s/^/x=/;1!ap (2..).find{x.shift;x[1]=x[0];x==x.sort}"|ruby
 https://open.kattis.com/problems/limbo1/statistics (5)
