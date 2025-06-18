@@ -83,6 +83,8 @@ https://open.kattis.com/problems/whichisgreater/statistics (5)
     echo $[`tr \  \>`]
 https://open.kattis.com/problems/r2/statistics (5)
     echo $[-`tr \  +`*2]
+https://open.kattis.com/problems/aterriblefortress/statistics (6)
+    echo $[0*`tr "\n" +`0]
 https://open.kattis.com/problems/knotknowledge/statistics (5)
     echo $[0*`tr " \n" ^`0]
 https://open.kattis.com/problems/spavanac/statistics (5)
@@ -91,8 +93,6 @@ https://open.kattis.com/problems/nsum/statistics (5)
     read;echo $[`tr \  +`]
 https://open.kattis.com/problems/kakor/statistics (5)
     read;echo $[`tr \  +`]
-https://open.kattis.com/problems/aterriblefortress/statistics (6)
-    read;echo $[`tr "\n" +`0]
 https://open.kattis.com/problems/cosmicpathoptimization/statistics (5)
     read a;echo $[(`tr \  +`)/a]
 https://open.kattis.com/problems/shatteredcake/statistics (5)
@@ -313,6 +313,10 @@ https://open.kattis.com/problems/titlecost/statistics (5)
     tr -d A-z|sed /93.7/c4
 https://open.kattis.com/problems/compression2/statistics (5)
     tr -s 01|sed s/01//2g\;s/10//2g
+https://open.kattis.com/problems/liquidassets/statistics (5)
+    tr -sc _|sed "1d;s/\B[aeiou]\B//g"
+https://open.kattis.com/problems/thirstycow/statistics (5)
+    tr \  \\n|sort -n|tail -1
 https://open.kattis.com/problems/isyavowel/statistics (5)
     tr -dc aeiouy>_;tr -d y<_|wc -L;wc -L<_
 https://open.kattis.com/problems/deathknight/statistics (5)
@@ -397,8 +401,6 @@ https://open.kattis.com/problems/coffeecupcombo/statistics (5)
     a=s/10/11/g;sed "1d;$a;$a;s/0//g"|wc -L
 https://open.kattis.com/problems/vefthjonatjon/statistics (5)
     a=grep\ -c;($a ^J;tac|$a .J.;tac|$a J$)|sort -n|head -1
-https://open.kattis.com/problems/liquidassets/statistics (5)
-    read;tr -sc _|sed "s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/keywords/statistics (5)
     read;tr - \ |sort -uf|wc -l
 https://open.kattis.com/problems/ball/statistics (5)
@@ -517,6 +519,8 @@ https://open.kattis.com/problems/egelskahann/statistics (5)
     ruby -e"p ('%b1'%`cat`)[1..].to_i 2"
 https://open.kattis.com/problems/egelskahann2/statistics (5)
     ruby -e"p ('%b1'%`cat`)[1..].to_i 2"
+https://open.kattis.com/problems/battlebots/statistics (5)
+    ruby -e"p (`cat`*2-1).bit_length"
 https://open.kattis.com/problems/einfalt/statistics (5)
     ruby -e"p ((1..`cat`).inject:*)||1"
 https://open.kattis.com/problems/champagneoverflow/statistics (5)
