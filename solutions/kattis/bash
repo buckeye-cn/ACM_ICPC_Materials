@@ -347,6 +347,8 @@ https://open.kattis.com/problems/countthevowels/statistics (5)
     grep -oi [aeiou]|wc -l
 https://open.kattis.com/problems/skammstofun/statistics (5)
     grep -o \\b[A-Z]|tr -d \\n
+https://open.kattis.com/problems/lvable/statistics (5)
+    grep -Eo l?v?|wc -L|tr 02 20
 https://open.kattis.com/problems/smil/statistics (5)
     grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/champernowneverification/statistics (5)
