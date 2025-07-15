@@ -46,13 +46,15 @@ https://open.kattis.com/problems/posters/statistics (5)
 https://open.kattis.com/problems/pieceofcake2/statistics (5)
     read a b c;echo $[(b>a-b?b:a-b)*(c>a-c?c:a-c)*4]
 https://open.kattis.com/problems/hornrett/statistics (5)
-    read a b c;echo $[a*a+b*b==c*c?a*b/2:-1]
+    read a b c;echo $[a*a+b*b-c*c?-1:a*b/2]
 https://open.kattis.com/problems/makingameowth/statistics (5)
     read a b c d;echo $[b*c+b/--a*d]
 https://open.kattis.com/problems/laptopsticker/statistics (5)
     read a b c d;echo $[a>c+1&b>d+1]
 https://open.kattis.com/problems/politicaldistance/statistics (5)
     read a b;read c d;echo $[(a-c)**2+(b-d)**2]
+https://open.kattis.com/problems/rgb/statistics (5)
+    read a b c d;echo $[b+c?a+d:d>1?a+d-2:a]
 https://open.kattis.com/problems/savingforretirement/statistics (5)
     read a b c d e;echo $[(b*c-a*c)/e-~d]
 
@@ -899,6 +901,8 @@ https://open.kattis.com/problems/waterworld/statistics (5)
 encoded: ruby + sed, large input
 https://open.kattis.com/problems/busassignment/statistics (5)
     ruby<<<"p [`sed "s/ /-/;s/$/,$.-=/"`0].max"
+https://open.kattis.com/problems/testingleds/statistics (5)
+    ruby<<<"p [`sed -n s/\ 0/,/p`].min||-1"
 https://open.kattis.com/problems/epigdanceoff/statistics (5)
     ruby<<<"p ('%b'%(`sed "1d;y/_$/01/;s/.*/0b&|/"`0)).count(?0)+1"
 https://open.kattis.com/problems/goombastacks/statistics (5)
