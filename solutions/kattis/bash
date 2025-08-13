@@ -65,6 +65,8 @@ https://open.kattis.com/problems/shortcuttowhat/statistics (5)
     echo $[`cat`*3+5]
 https://open.kattis.com/problems/crne/statistics (5)
     echo $[~-~`cat`**2/4]
+https://open.kattis.com/problems/dannebrog/statistics (5)
+    echo $[`cat`**2*45/49]
 https://open.kattis.com/problems/planina/statistics (5)
     echo $[~(2**`cat`)**2]
 https://open.kattis.com/problems/99problems/statistics (5)
@@ -95,6 +97,8 @@ https://open.kattis.com/problems/nsum/statistics (5)
     read;echo $[`tr \  +`]
 https://open.kattis.com/problems/kakor/statistics (5)
     read;echo $[`tr \  +`]
+https://open.kattis.com/problems/waterslidewasteeasy/statistics (5)
+    read;echo $[`tr \  +`]
 https://open.kattis.com/problems/cosmicpathoptimization/statistics (5)
     read a;echo $[(`tr \  +`)/a]
 https://open.kattis.com/problems/shatteredcake/statistics (5)
@@ -105,10 +109,16 @@ https://open.kattis.com/problems/gcvwr/statistics (5)
 encoded: bash expr + sed
 https://open.kattis.com/problems/dragafra/statistics (5)
     echo $[`sed 1a-`]
+https://open.kattis.com/problems/classphoto/statistics (5)
+    echo $[`sed 1a*`]
 https://open.kattis.com/problems/flatbokuveisla/statistics (5)
     echo $[`sed 1a%`]
+https://open.kattis.com/problems/parkingpandemonium/statistics (5)
+    echo $[`sed 2c*`]
 https://open.kattis.com/problems/aleidibio/statistics (5)
     echo $[`sed i-`*-1]
+https://open.kattis.com/problems/mclimbroad/statistics (5)
+    echo $[5280*`sed 1a/`]
 https://open.kattis.com/problems/compass/statistics (5)
     echo $[180-(540-`sed i-`)%360]
 https://open.kattis.com/problems/callforproblems/statistics (5)
@@ -223,6 +233,10 @@ https://open.kattis.com/problems/oddecho/statistics (5)
     sed 1~2d
 https://open.kattis.com/problems/nafnauki/statistics (5)
     sed s/.*\\././
+https://open.kattis.com/problems/brentering/statistics (5)
+    sed s/[^aeiou]*$/ntry/
+https://open.kattis.com/problems/monamonamona/statistics (5)
+    sed "s/ .*//;p;p"
 https://open.kattis.com/problems/thelastproblem/statistics (5)
     sed "s/$/, and farewell!/;iThank you,"
 https://open.kattis.com/problems/kemija08/statistics (5)
@@ -307,6 +321,8 @@ https://open.kattis.com/problems/forcedchoice/statistics (5)
 encoded: string utils
 https://open.kattis.com/problems/cold/statistics (5)
     tr -dc -|wc -L
+https://open.kattis.com/problems/popcount/statistics (5)
+    tr -dc 1|wc -L
 https://open.kattis.com/problems/fjoldibokstafa/statistics (5)
     tr -dc A-Za-z|wc -L
 https://open.kattis.com/problems/midi/statistics (5)
@@ -321,6 +337,8 @@ https://open.kattis.com/problems/thirstycow/statistics (5)
     tr \  \\n|sort -n|tail -1
 https://open.kattis.com/problems/isyavowel/statistics (5)
     tr -dc aeiouy>_;tr -d y<_|wc -L;wc -L<_
+https://open.kattis.com/problems/attemptedalphabet/statistics (5)
+    tr -d `cat`<<<abcdefghijklmnopqrstuvwxyz|grep .||echo Good job!
 https://open.kattis.com/problems/deathknight/statistics (5)
     sed 1d\;/CD/d|wc -l
 https://open.kattis.com/problems/cyaniderivers/statistics (5)
@@ -347,6 +365,8 @@ https://open.kattis.com/problems/fyi/statistics (5)
     grep ^555|wc -l
 https://open.kattis.com/problems/countthevowels/statistics (5)
     grep -oi [aeiou]|wc -l
+https://open.kattis.com/problems/certainly/statistics (5)
+    grep -o certainly|wc -l
 https://open.kattis.com/problems/skammstofun/statistics (5)
     grep -o \\b[A-Z]|tr -d \\n
 https://open.kattis.com/problems/lvable/statistics (5)
@@ -423,6 +443,8 @@ https://open.kattis.com/problems/ullendullendoff2/statistics (5)
     read a;sed 1x\;$[1+12%a]G
 https://open.kattis.com/problems/fargrobot/statistics (5)
     read a;sed -E "s/[GB]*(R)|[RB]*(G)|[RG]*(B)/\1\2\3/g"|cut -c-$a
+https://open.kattis.com/problems/counting/statistics (5)
+    read a;seq $a $a $[12*a]
 https://open.kattis.com/problems/ullendullendoff/statistics (5)
     read a;xargs -n1|sed $[1+12%a]!d
 https://open.kattis.com/problems/hipphipphurra/statistics (5)
@@ -533,6 +555,10 @@ https://open.kattis.com/problems/weneedtogodeeper/statistics (5)
     ruby -e"p (6..25).sum{(`cat`/2-_1).clamp(0,19)}"
 https://open.kattis.com/problems/meowfactor/statistics (5)
     ruby -e"p -(-128..).find{`cat`%_1**9==0}"
+https://open.kattis.com/problems/humanpyramid/statistics (5)
+    ruby -e"p~-(1..).find{_1*-~_1>2*`cat`}"
+https://open.kattis.com/problems/hexaphobicsquare/statistics (5)
+    ruby -e"p (`cat`+1..).find{!(_1*_1).to_s[?6]}"
 https://open.kattis.com/problems/sequence/statistics (5)
     ruby -e"p(`cat`.bit_length).times{p 1<<_1}"
 https://open.kattis.com/problems/jazzitup/statistics (5)
@@ -721,6 +747,8 @@ https://open.kattis.com/problems/cascadecentrality/statistics (5)
     sed "1!d;ip 3-2.0/"|ruby
 https://open.kattis.com/problems/fleytitala/statistics (5)
     sed "1s/.*/p &.*2-2.0**-/"|ruby
+https://open.kattis.com/problems/lamppostrace/statistics (5)
+    sed "s/\w*/+($.-$.=&).abs()/g;1cp~~"|ruby
 https://open.kattis.com/problems/numbertree/statistics (5)
     sed "s/.* /p eval'(2<<&)-0b1/;a'.tr('LR','01')"|ruby
 https://open.kattis.com/problems/dualdivisibility/statistics (5)
@@ -859,6 +887,8 @@ https://open.kattis.com/problems/cups/statistics (5)
 encoded: ruby + sed, string
 https://open.kattis.com/problems/reduplikation/statistics (5)
     sed "1s/.*/$><<'&'*/"|ruby
+https://open.kattis.com/problems/engineeringenglish/statistics (5)
+    sed "s/\w*/puts x[y='&'.upcase]??.:x[y]=:&;/g;1ix={}"|ruby
 
 encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
@@ -891,6 +921,8 @@ https://open.kattis.com/problems/pripreme/statistics (5)
     read;ruby<<<"x=`tr \  ,`;p [x.max*2,x.sum].max"
 https://open.kattis.com/problems/licensetolaunch/statistics (5)
     read;ruby<<<"x=`tr \  ,`;p x.index(x.min)"
+https://open.kattis.com/problems/findingforks/statistics (5)
+    read;ruby<<<"x,y=[`tr \  ,`].sort;p x+y"
 https://open.kattis.com/problems/tram/statistics (5)
     read a;ruby<<<"p -(`tr " \n" -+`0.0)/$a"
 https://open.kattis.com/problems/buildinghighways/statistics (5)
@@ -1037,6 +1069,9 @@ single command
 https://open.kattis.com/problems/discdistrict/statistics (2)
     nl
 https://open.kattis.com/problems/bergmal/statistics (2)
+    c*
+    cat
+https://open.kattis.com/problems/sumoftheyear/statistics (2)
     c*
     cat
 https://open.kattis.com/problems/digitswap/statistics (2)
