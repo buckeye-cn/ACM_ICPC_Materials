@@ -611,6 +611,8 @@ https://open.kattis.com/problems/hailstone/statistics (5)
     ruby -e"x=`cat`;p x+(0..999).sum{x=x<2?0:x%2>0?3*x+1:x/2}"
 https://open.kattis.com/problems/hailstone2/statistics (5)
     ruby -e"x=`cat`*2;p (1..).find{2>x=x%2>0?3*x+1:x/2}"
+https://open.kattis.com/problems/numberreduction/statistics (5)
+    ruby -e"x=`cat`*2;p (0..).find{2>x=x%2>0?3*x+1:x/2}"
 https://open.kattis.com/problems/deildgodsagnanna/statistics (5)
     ruby -e"x=`cat`;p (x-19..x).inject(:*)/8%(10**9+7)"
 https://open.kattis.com/problems/catalansquare/statistics (5)
@@ -715,6 +717,8 @@ https://open.kattis.com/problems/squarepeg/statistics (5)
     ruby -e"puts `tr \  \>`*1.414?:nope:'fits'"
 https://open.kattis.com/problems/addingtrouble/statistics (5)
     ruby -e"puts `tr \  +`*-1==0?'correct!':'wrong!'"
+https://open.kattis.com/problems/kingarthur/statistics (5)
+    ruby -e"puts `tr "\n" /`1>0.31831?:YES:'NO'"
 https://open.kattis.com/problems/eatingout/statistics (5)
     ruby -e"puts'im'*$[2*`tr \  -`<0]+'possible'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
@@ -881,6 +885,8 @@ https://open.kattis.com/problems/maeting/statistics (5)
     ruby -ne'x,y=$<.map &:split;puts x.filter{y.index _1}'
 https://open.kattis.com/problems/virus3/statistics (5)
     ruby -e"x,y=*$<;puts x.chars.all?{|z|y.sub! /.*?#{z}/,''}?:Ja:'Nej'"
+https://open.kattis.com/problems/recessrocks/statistics (5)
+    read a;ruby -e"p $a-gets.split.uniq.size"
 https://open.kattis.com/problems/nop/statistics (5)
     read a;ruby -e"'$a'.bytes{$.+=_1<96?4-$.%4:1};p$.-${#a}-3"
 https://open.kattis.com/problems/tripletexting/statistics (5)
@@ -915,6 +921,8 @@ https://open.kattis.com/problems/engineeringenglish/statistics (5)
 encoded: ruby, large input
 https://open.kattis.com/problems/sequencereduction/statistics (5)
     ruby -e"p$<.map{[$.-1,$.=_1.to_i].max}[2..].sum"
+https://open.kattis.com/problems/gameparty/statistics (5)
+    ruby -ne"p (1+gets.split.map(&:to_i).sum)%3"
 https://open.kattis.com/problems/revisionskontroll/statistics (5)
     ruby -ne'x={};gets.split{puts x[_1]?0:x[_1]=1}'
 https://open.kattis.com/problems/backspace/statistics (5)
