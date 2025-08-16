@@ -1,4 +1,6 @@
 encoded: bash expr
+https://open.kattis.com/problems/edays/statistics (5)
+    read a;echo $[2*a]
 https://open.kattis.com/problems/bossbattle/statistics (5)
     read a;echo $[a-2+2/a]
 https://open.kattis.com/problems/character/statistics (5)
@@ -87,6 +89,8 @@ https://open.kattis.com/problems/whichisgreater/statistics (5)
     echo $[`tr \  \>`]
 https://open.kattis.com/problems/r2/statistics (5)
     echo $[-`tr \  +`*2]
+https://open.kattis.com/problems/cattoys/statistics (5)
+    echo $[~-`tr \  /`+1]
 https://open.kattis.com/problems/aterriblefortress/statistics (6)
     echo $[0*`tr "\n" +`0]
 https://open.kattis.com/problems/knotknowledge/statistics (5)
@@ -115,10 +119,18 @@ https://open.kattis.com/problems/flatbokuveisla/statistics (5)
     echo $[`sed 1a%`]
 https://open.kattis.com/problems/parkingpandemonium/statistics (5)
     echo $[`sed 2c*`]
+https://open.kattis.com/problems/hackaholics/statistics (5)
+    echo $[`sed 2c*`]
 https://open.kattis.com/problems/aleidibio/statistics (5)
     echo $[`sed i-`*-1]
+https://open.kattis.com/problems/flatterland/statistics (5)
+    echo $[~-`sed 1a*`]
 https://open.kattis.com/problems/mclimbroad/statistics (5)
     echo $[5280*`sed 1a/`]
+https://open.kattis.com/problems/mclimb/statistics (5)
+    echo $[`sed a*`*0]
+https://open.kattis.com/problems/blastersdash/statistics (5)
+    echo $[2*`sed 2!d`+40]
 https://open.kattis.com/problems/compass/statistics (5)
     echo $[180-(540-`sed i-`)%360]
 https://open.kattis.com/problems/callforproblems/statistics (5)
@@ -355,8 +367,6 @@ https://open.kattis.com/problems/freefood/statistics (5)
     sed "1d;s/^/seq /e"|sort -u|wc -l
 https://open.kattis.com/problems/spacerace/statistics (5)
     sed "1,2d;y/ /\t/"|sort -nk3|head -1|cut -f1
-https://open.kattis.com/problems/quickestimate/statistics (5)
-    awk "NR>1{print length}"
 https://open.kattis.com/problems/findingana/statistics (5)
     grep -o a.*
 https://open.kattis.com/problems/magictrick/statistics (5)
@@ -381,18 +391,10 @@ https://open.kattis.com/problems/pinnifraendi/statistics (5)
     printf 0.%0`cat`d 1
 https://open.kattis.com/problems/klockan2/statistics (5)
     printf %02d:%02d $[a=131*`cat`/5,a/60%12] $[a%60]
-https://open.kattis.com/problems/decimaldeletion/statistics (5)
-    xargs printf %.f
-https://open.kattis.com/problems/sorttwonumbers/statistics (5)
-    xargs -n1|sort -n
-https://open.kattis.com/problems/namegeneration/statistics (5)
-    xargs seq|tr 0-9 a-j|sed s/./\&ab/g
-https://open.kattis.com/problems/timeloop/statistics (5)
-    xargs seq|sed aAbracadabra
-https://open.kattis.com/problems/lostlineup/statistics (5)
-    xargs -n1|sed 1c0|nl|sort -nk2|cut -f1
-https://open.kattis.com/problems/compoundwords/statistics (5)
-    xargs -n1>_;join -j2 _ _|sed "s/\b\(.*\) \1\b//"|sort -u
+https://open.kattis.com/problems/quickestimate/statistics (5)
+    awk "NR>1{print length}"
+https://open.kattis.com/problems/fairgrading/statistics (5)
+    cut -c$[(`tr \  +`*2)/40]<<<FFFFFDCBA
 https://open.kattis.com/problems/classfieldtrip/statistics (5)
     fold -w1|sort|tr -d \\n
 https://open.kattis.com/problems/peragrams/statistics (5)
@@ -419,6 +421,18 @@ https://open.kattis.com/problems/hairofthedog/statistics (5)
     uniq|grep d|wc -l
 https://open.kattis.com/problems/inputscandal/statistics (5)
     wc -l;tac|tac
+https://open.kattis.com/problems/decimaldeletion/statistics (5)
+    xargs printf %.f
+https://open.kattis.com/problems/sorttwonumbers/statistics (5)
+    xargs -n1|sort -n
+https://open.kattis.com/problems/namegeneration/statistics (5)
+    xargs seq|tr 0-9 a-j|sed s/./\&ab/g
+https://open.kattis.com/problems/timeloop/statistics (5)
+    xargs seq|sed aAbracadabra
+https://open.kattis.com/problems/lostlineup/statistics (5)
+    xargs -n1|sed 1c0|nl|sort -nk2|cut -f1
+https://open.kattis.com/problems/compoundwords/statistics (5)
+    xargs -n1>_;join -j2 _ _|sed "s/\b\(.*\) \1\b//"|sort -u
 https://open.kattis.com/problems/antipalindrome/statistics (5)
     a=alindrome;sed -E "s/.*(.).? ?\1.*/P$a/i;t;cAnti-p$a"
 https://open.kattis.com/problems/coffeecupcombo/statistics (5)
@@ -521,6 +535,8 @@ https://open.kattis.com/problems/remotegetaway/statistics (5)
     read a b c d;ruby -e"puts $c**4>($b*$d)**2-2*$a*$c*$c*$d?:YES:'NO'"
 
 encoded: ruby + cat, math
+https://open.kattis.com/problems/abovesealevel/statistics (5)
+    ruby -e"p `cat`-0.3"
 https://open.kattis.com/problems/areal/statistics (5)
     ruby -e"p `cat`**0.5*4"
 https://open.kattis.com/problems/approvalarea/statistics (5)
@@ -537,6 +553,8 @@ https://open.kattis.com/problems/alloys/statistics (5)
     ruby -e"p [`cat`,1.0].min**2/4"
 https://open.kattis.com/problems/3dprinter/statistics (5)
     ruby -e"p Math.log(`cat`*2,2).ceil"
+https://open.kattis.com/problems/goingnuts/statistics (5)
+    ruby -e"p ('%b'%`cat`).count ?1"
 https://open.kattis.com/problems/combinatorialstanleycup/statistics (5)
     ruby -e"p 1<<('%b'%`cat`).count(?1)"
 https://open.kattis.com/problems/reversebinary/statistics (5)
@@ -685,6 +703,8 @@ https://open.kattis.com/problems/cornhusker/statistics (5)
     ruby -e"*x,y,z=[`tr " \n" ,`];p (0..4).sum{x.pop*x.pop}/5*y/z"
 https://open.kattis.com/problems/linesperhour/statistics (5)
     ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{0>y-=_1}"
+https://open.kattis.com/problems/milkmystery/statistics (5)
+    ruby -e"x,y,*z=`tr " \n" ,`0;p (0..x).map{z[_1..._1+y].sum}.max"
 https://open.kattis.com/problems/oothaderkominnott/statistics (5)
     ruby -e"x,y,z,a=[`tr "\n" ,`];p (2-y)*(2-z||=y)*(1-a||=3)+y*z*a"
 https://open.kattis.com/problems/simplearithmetic/statistics (5)
@@ -737,6 +757,8 @@ https://open.kattis.com/problems/metronome/statistics (5)
     sed ip\ 0.25*|ruby
 https://open.kattis.com/problems/ameriskur/statistics (5)
     sed ip\ 0.09144*|ruby
+https://open.kattis.com/problems/hydropotential/statistics (5)
+    sed "1~2s/.*/p &0*/"|ruby
 https://open.kattis.com/problems/gcd/statistics (5)
     sed "s/.* /p &.gcd /"|ruby
 https://open.kattis.com/problems/euclidsalgorithm/statistics (5)
