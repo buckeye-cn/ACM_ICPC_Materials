@@ -13,6 +13,8 @@ https://open.kattis.com/problems/shortestcompositesum/statistics (5)
     read a;echo 2 $[b=a%2?9:4] $[a-b]
 https://open.kattis.com/problems/thendaysofchristmas/statistics (5)
     read a;echo $[b=a*++a/2] $[b*++a/3]
+https://open.kattis.com/problems/facultyforest/statistics (5)
+    read a b;echo $[a-b]
 https://open.kattis.com/problems/faktor/statistics (5)
     read a b;echo $[a*--b+1]
 https://open.kattis.com/problems/distributingpoffins/statistics (5)
@@ -65,6 +67,10 @@ https://open.kattis.com/problems/tolvunarfraedingartelja/statistics (5)
     echo $[`cat`-1]
 https://open.kattis.com/problems/shortcuttowhat/statistics (5)
     echo $[`cat`*3+5]
+https://open.kattis.com/problems/hardrocksandatomicclocks/statistics (5)
+    echo $[60-`cat`/60%60]
+https://open.kattis.com/problems/cookiemonsterconcussion/statistics (5)
+    echo $[~-`cat`%9+1]
 https://open.kattis.com/problems/crne/statistics (5)
     echo $[~-~`cat`**2/4]
 https://open.kattis.com/problems/dannebrog/statistics (5)
@@ -247,6 +253,8 @@ https://open.kattis.com/problems/nafnauki/statistics (5)
     sed s/.*\\././
 https://open.kattis.com/problems/brentering/statistics (5)
     sed s/[^aeiou]*$/ntry/
+https://open.kattis.com/problems/navigationnightmare/statistics (5)
+    sed "s/B/(ooo)/g"
 https://open.kattis.com/problems/monamonamona/statistics (5)
     sed "s/ .*//;p;p"
 https://open.kattis.com/problems/thelastproblem/statistics (5)
@@ -365,8 +373,12 @@ https://open.kattis.com/problems/headguard/statistics (5)
     sed "s/.*/echo &|fold -w1|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/freefood/statistics (5)
     sed "1d;s/^/seq /e"|sort -u|wc -l
+https://open.kattis.com/problems/vaeltetskorsten/statistics (5)
+    sed -n s/nej//p|sort -n|tail -1
 https://open.kattis.com/problems/spacerace/statistics (5)
     sed "1,2d;y/ /\t/"|sort -nk3|head -1|cut -f1
+https://open.kattis.com/problems/fouledfiles/statistics (5)
+    sed "1d;s/\(.\)./\1/g"|cut -c-40
 https://open.kattis.com/problems/findingana/statistics (5)
     grep -o a.*
 https://open.kattis.com/problems/magictrick/statistics (5)
@@ -669,10 +681,14 @@ https://open.kattis.com/problems/pizza2/statistics (5)
     ruby -e"p (10-1e1/`tr \  \*`)**2"
 https://open.kattis.com/problems/multiplications/statistics (5)
     ruby -e"p 1**`tr "\n" \*`1%(10**9+7)"
+https://open.kattis.com/problems/workfromhome/statistics (5)
+    ruby -e"p (`tr "\n" \*`1/6e6).ceil"
 https://open.kattis.com/problems/zebrasocelots/statistics (5)
     ruby -e"p 0b`tr "ZO\n0-9" 01_0`0/2"
 https://open.kattis.com/problems/maximumchoice/statistics (5)
     ruby -e"p 1+Math.log(`tr \  ,`+1).to_i"
+https://open.kattis.com/problems/penultimateicecream/statistics (5)
+    ruby -e"p [-`tr " \n" ,`].sort[-2]"
 https://open.kattis.com/problems/heimavinna/statistics (5)
     ruby -e"p [`tr \; ,`].sum{_1<0?1-_1:1}"
 https://open.kattis.com/problems/monopol/statistics (5)
@@ -719,6 +735,8 @@ https://open.kattis.com/problems/addingtrouble/statistics (5)
     ruby -e"puts `tr \  +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/kingarthur/statistics (5)
     ruby -e"puts `tr "\n" /`1>0.31831?:YES:'NO'"
+https://open.kattis.com/problems/tallenough/statistics (5)
+    ruby -e"puts [9`tr "\n" ,`].min<48?:False:'True'"
 https://open.kattis.com/problems/eatingout/statistics (5)
     ruby -e"puts'im'*$[2*`tr \  -`<0]+'possible'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
@@ -773,6 +791,8 @@ https://open.kattis.com/problems/cascadecentrality/statistics (5)
     sed "1!d;ip 3-2.0/"|ruby
 https://open.kattis.com/problems/fleytitala/statistics (5)
     sed "1s/.*/p &.*2-2.0**-/"|ruby
+https://open.kattis.com/problems/rollingthedice/statistics (5)
+    sed "s/d/*-~/;ip 0.5*"|ruby
 https://open.kattis.com/problems/lamppostrace/statistics (5)
     sed "s/\w*/+($.-$.=&).abs()/g;1cp~~"|ruby
 https://open.kattis.com/problems/numbertree/statistics (5)
