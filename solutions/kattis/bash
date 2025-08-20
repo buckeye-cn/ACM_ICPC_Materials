@@ -7,6 +7,8 @@ https://open.kattis.com/problems/character/statistics (5)
     read a;echo $[~a+2**a]
 https://open.kattis.com/problems/sjecista/statistics (5)
     read a;echo $[a*--a*--a*--a/24]
+https://open.kattis.com/problems/13floors/statistics (5)
+    read a;echo $[a+(a>12)]
 https://open.kattis.com/problems/secondopinion/statistics (5)
     read a;echo $[a/3600] : $[a/60%60] : $[a%60]
 https://open.kattis.com/problems/shortestcompositesum/statistics (5)
@@ -97,7 +99,7 @@ https://open.kattis.com/problems/r2/statistics (5)
     echo $[-`tr \  +`*2]
 https://open.kattis.com/problems/cattoys/statistics (5)
     echo $[~-`tr \  /`+1]
-https://open.kattis.com/problems/aterriblefortress/statistics (6)
+https://open.kattis.com/problems/aterriblefortress/statistics (5)
     echo $[0*`tr "\n" +`0]
 https://open.kattis.com/problems/knotknowledge/statistics (5)
     echo $[0*`tr " \n" ^`0]
@@ -741,7 +743,7 @@ https://open.kattis.com/problems/oothaderkominnott/statistics (5)
     ruby -e"x,y,z,a=[`tr "\n" ,`];p (2-y)*(2-z||=y)*(1-a||=3)+y*z*a"
 https://open.kattis.com/problems/simplearithmetic/statistics (5)
     ruby -e"puts'%f'.%`tr \  \*`**-1"
-https://open.kattis.com/problems/stayingfrosty/statistics (6)
+https://open.kattis.com/problems/stayingfrosty/statistics (5)
     ruby -e"puts `tr \  \>`*360?:NO:'YES'"
 https://open.kattis.com/problems/squarepeg/statistics (5)
     ruby -e"puts `tr \  \>`*1.414?:nope:'fits'"
@@ -1123,7 +1125,7 @@ https://open.kattis.com/problems/guess/statistics (6)
     ruby -e'x,y=0,-999;(0..).find{p x-y/=2;gets>?i||x-=y;$_<?d}'
 https://open.kattis.com/problems/julmust/statistics (6)
     ruby -e'x,y=0,-gets.to_i;(1..).find{p _1.*x-y/=2;gets<?m||x-=y;$_<?f}'
-https://open.kattis.com/problems/duckydebugging/statistics (5)
+https://open.kattis.com/problems/duckydebugging/statistics (6)
     ruby -e'(0..).find{p;x=gets[-2];x<?%||puts(x<?/?"*Nod*":"Quack!")}'
 https://open.kattis.com/problems/askmarilyn/statistics (6)
     ruby -e'1000.times{putc 65+x=_1/7%3;p;y,z,a=gets.bytes;putc y^-~x*(49-a);p;gets}'
