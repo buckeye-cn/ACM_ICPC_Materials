@@ -733,6 +733,8 @@ https://open.kattis.com/problems/elevators/statistics (5)
     ruby -e"x,y=`tr \ a-z ,4_71`;p y<2?0:0-y/-(x%9)"
 https://open.kattis.com/problems/fromatob/statistics (5)
     ruby -e"x,y=-`tr \  ,`;p$\".sum{x+y<0?1+x-2*x/=2:0}+x+y"
+https://open.kattis.com/problems/weathernodes/statistics (5)
+    ruby -e"x,*y=[`tr "\n" ,`];p y.count{(_1-y.sum/x).abs>10}"
 https://open.kattis.com/problems/binaryseating/statistics (5)
     ruby -e"x,*y=[`tr " \n" ,`];p y.sort.sum{_1*2.0**~x-=1}"
 https://open.kattis.com/problems/moderatepace/statistics (5)
@@ -759,6 +761,8 @@ https://open.kattis.com/problems/divvyingup/statistics (5)
     ruby -e"puts((`tr \  +`)%3>0?:no:'yes')"
 https://open.kattis.com/problems/addingtrouble/statistics (5)
     ruby -e"puts `tr \  +`*-1==0?'correct!':'wrong!'"
+https://open.kattis.com/problems/drivingdilemma/statistics (5)
+    ruby -e"puts 6.2/`tr "\n" \*`*-1<9?'MADE IT':'FAILED TEST'"
 https://open.kattis.com/problems/kingarthur/statistics (5)
     ruby -e"puts `tr "\n" /`1>0.31831?:YES:'NO'"
 https://open.kattis.com/problems/tallenough/statistics (5)
@@ -833,10 +837,14 @@ https://open.kattis.com/problems/numbersquistem/statistics (5)
     sed s/.]:=/0/g\;1cp~~|ruby|sed s/0/\<]:=/g
 https://open.kattis.com/problems/grafaholur/statistics (5)
     ruby -e"p `sed "s/$/*/;3,4i1.0/"`1"
+https://open.kattis.com/problems/danielsdebuggingdisaster/statistics (5)
+    ruby -e"p(1-(1-(1-`sed a\)**`1"
 https://open.kattis.com/problems/locustlocus/statistics (5)
     ruby -e"p [`sed "1d;s/ .* /+&.lcm(/;a),"`].min"
 https://open.kattis.com/problems/overdraft/statistics (5)
     ruby -e"p [0*`sed s/$/,$.-=/`0].max"
+https://open.kattis.com/problems/tollbooths/statistics (5)
+    ruby -e"p [`sed "1d;y/GT /-+=/;s/.*/$.&,/"`0].max"
 https://open.kattis.com/problems/snowfall/statistics (5)
     ruby -e"`sed "s/^0/$.+=/;s/^1/$.-=/;a$.>0||$.=0"`;p$."
 https://open.kattis.com/problems/associationofmyths/statistics (5)
@@ -899,6 +907,8 @@ https://open.kattis.com/problems/undeadoralive/statistics (5)
     ruby -pe'$_=%w(machine alive undead double\ agent)[(~/:\)/?1:0)+(~/:\(/?2:0)]'
 https://open.kattis.com/problems/architecture/statistics (5)
     ruby -pe'$_="im"*~-$<.uniq{_1.split.max}.size+"possible"'
+https://open.kattis.com/problems/mircipher/statistics (5)
+    ruby -ne'$_.split[1].bytes{putc (_1+2**($.+=1)/4+13)%26+65}'
 https://open.kattis.com/problems/akureyri/statistics (5)
     ruby -ne'puts$<.map{gets.chop}.tally.map{_1*" "}'
 https://open.kattis.com/problems/hardwoodspecies/statistics (5)
@@ -1009,6 +1019,8 @@ https://open.kattis.com/problems/buildinghighways/statistics (5)
     read a;ruby<<<"x=[`tr \  ,`];p x.min*($a-2)+x.sum"
 https://open.kattis.com/problems/waterworld/statistics (5)
     read a b;ruby<<<"p [`tr " \n" ,`].sum/$a.0/$b"
+https://open.kattis.com/problems/hillclimbracing/statistics (5)
+    read a b;ruby<<<"puts [`tr \  ,`].find{$.+$b<$.=_1}?'BUG REPORT':'POSSIBLE'"
 
 encoded: ruby + sed, large input
 https://open.kattis.com/problems/outlets/statistics (5)
