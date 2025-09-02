@@ -53,6 +53,8 @@ https://open.kattis.com/problems/pieceofcake2/statistics (5)
     read a b c;echo $[(b>a-b?b:a-b)*(c>a-c?c:a-c)*4]
 https://open.kattis.com/problems/hornrett/statistics (5)
     read a b c;echo $[a*a+b*b-c*c?-1:a*b/2]
+https://open.kattis.com/problems/oldwomenwholivedinashoe/statistics (5)
+    read a;read b;read c;echo $[a/c*(b/c)/2]
 https://open.kattis.com/problems/makingameowth/statistics (5)
     read a b c d;echo $[b*c+b/--a*d]
 https://open.kattis.com/problems/laptopsticker/statistics (5)
@@ -387,6 +389,8 @@ https://open.kattis.com/problems/fouledfiles/statistics (5)
     sed "1d;s/\(.\)./\1/g"|cut -c-40
 https://open.kattis.com/problems/findingana/statistics (5)
     grep -o a.*
+https://open.kattis.com/problems/phonebook/statistics (5)
+    grep -Ec \\+39.{9}
 https://open.kattis.com/problems/magictrick/statistics (5)
     grep -Evc "(.).*\1";cd
 https://open.kattis.com/problems/fyi/statistics (5)
@@ -395,6 +399,8 @@ https://open.kattis.com/problems/countthevowels/statistics (5)
     grep -oi [aeiou]|wc -l
 https://open.kattis.com/problems/certainly/statistics (5)
     grep -o certainly|wc -l
+https://open.kattis.com/problems/cultureshock/statistics (5)
+    grep -Eo "\b(s?her?|him)\b"|wc -l
 https://open.kattis.com/problems/skammstofun/statistics (5)
     grep -o \\b[A-Z]|tr -d \\n
 https://open.kattis.com/problems/lvable/statistics (5)
@@ -733,6 +739,8 @@ https://open.kattis.com/problems/elevators/statistics (5)
     ruby -e"x,y=`tr \ a-z ,4_71`;p y<2?0:0-y/-(x%9)"
 https://open.kattis.com/problems/fromatob/statistics (5)
     ruby -e"x,y=-`tr \  ,`;p$\".sum{x+y<0?1+x-2*x/=2:0}+x+y"
+https://open.kattis.com/problems/treeskiing/statistics (5)
+    ruby -e"x,y=`tr " \nNW" +,01`0;p y<x&&y>0?(y+1..x).inject(:*)/(1..x-y).inject(:*)-1:0"
 https://open.kattis.com/problems/weathernodes/statistics (5)
     ruby -e"x,*y=[`tr "\n" ,`];p y.count{(_1-y.sum/x).abs>10}"
 https://open.kattis.com/problems/binaryseating/statistics (5)
@@ -1037,14 +1045,14 @@ https://open.kattis.com/problems/goombastacks/statistics (5)
 encoded: ruby, math, multi cases
 https://open.kattis.com/problems/leynitolur/statistics (5)
     ruby -ne'p ($_.to_i-68431307)*881051043651%2**64'
+https://open.kattis.com/problems/baddirections/statistics (5)
+    ruby -ne'x,y,*z,a=$_.bytes;puts z.map{(x+_1+4)%10}*""'
 https://open.kattis.com/problems/flyingsafely/statistics (5)
     read;ruby -ne'p~-$_.to_i;$<.take$_[/ .*/].to_i'
 https://open.kattis.com/problems/zanzibar/statistics (5)
     read;ruby -ne'p$_.split.sum{[-2*$.+$.=_1.to_i,0].max}'
 https://open.kattis.com/problems/cheaterdetection/statistics (5)
     read;ruby -ne'puts$_.to_r*100%3<2?:VALID:"IMPOSSIBLE"'
-https://open.kattis.com/problems/baddirections/statistics (5)
-    read;ruby -ne'x,y,*z,a=$_.bytes;puts z.map{(x+_1+4)%10}*""'
 https://open.kattis.com/problems/scalingrecipe/statistics (5)
     read a b c;ruby -ne"p\$_.to_i*$c/$b"
 https://open.kattis.com/problems/sibice/statistics (5)
@@ -1125,6 +1133,8 @@ https://open.kattis.com/problems/parsinghex/statistics (5)
 encoded: ruby, string, multi cases
 https://open.kattis.com/problems/sortofsorting/statistics (5)
     ruby -ne'puts$<.take(eval$_).sort_by{_1[..1]}'
+https://open.kattis.com/problems/sarahssandwichshop/statistics (5)
+    ruby -ne'$_.bytes{x=_1%32;putc _1>64?(x+5-x/19-x/26)/3%10+48:10}'
 https://open.kattis.com/problems/everywhere/statistics (5)
     read;ruby -ne'p$<.take(eval$_).uniq.size'
 https://open.kattis.com/problems/irepeatmyself/statistics (5)
