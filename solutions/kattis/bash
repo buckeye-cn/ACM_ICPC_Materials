@@ -226,7 +226,9 @@ https://open.kattis.com/problems/crypto/statistics (5)
 
 encoded: date
 https://open.kattis.com/problems/parentgap/statistics (5)
-    date -d`cat`/5/1|sed "s/[FS].*/6 weeks/;t;c5 weeks"
+    date -d`cat`/5/1|cut -c1|tr FSMTW 665;echo weeks
+https://open.kattis.com/problems/latelarry/statistics (5)
+    date -d"`sed a-`min" +%l:%M\ %p
 https://open.kattis.com/problems/vegabrefadagsetningar/statistics (5)
     sed "s/ .*\// /"|date -I -f-
 https://open.kattis.com/problems/datum/statistics (5)
@@ -328,7 +330,7 @@ https://open.kattis.com/problems/digits/statistics (5)
 https://open.kattis.com/problems/rimski/statistics (5)
     sed "s/LX/XL/;s/XI/IX/;s/VI$/IV/;s/XLX/LXX/"
 https://open.kattis.com/problems/mergjadmal/statistics (5)
-    sed -E "s/.*(69|420).*/Mergjad!/;t;cLeim!"
+    sed "/69\|420/s/.*/Mergjad!/;t;cLeim!"
 https://open.kattis.com/problems/piglatin/statistics (5)
     sed -E "s/([^aeiouy ]*)(\w*)/\2:\1ay/g;s/:a/ya/g;s/://g"
 https://open.kattis.com/problems/battlesimulation/statistics (5)
@@ -361,6 +363,8 @@ https://open.kattis.com/problems/compression2/statistics (5)
     tr -s 01|sed s/01//2g\;s/10//2g
 https://open.kattis.com/problems/liquidassets/statistics (5)
     tr -sc _|sed "1d;s/\B[aeiou]\B//g"
+https://open.kattis.com/problems/dickensiandictionary/statistics (5)
+    tr qwertasdfgzxcvb %|sed "/%%\|\w\w/s/.*/no/;t;cyes"
 https://open.kattis.com/problems/thirstycow/statistics (5)
     tr \  \\n|sort -n|tail -1
 https://open.kattis.com/problems/isyavowel/statistics (5)
@@ -431,6 +435,8 @@ https://open.kattis.com/problems/basketballoneonone/statistics (5)
     rev|cut -b2
 https://open.kattis.com/problems/filip/statistics (5)
     rev|fold -w4|sort|sed 1d
+https://open.kattis.com/problems/generatingcoolpasswordscompany/statistics (5)
+    seq 10 $[`cat`+9]|sed s/.*/Aa__\&\&/
 https://open.kattis.com/problems/inputmaxxing/statistics (5)
     sort -n|tail -1
 https://open.kattis.com/problems/bestagjofin/statistics (5)
@@ -779,6 +785,8 @@ https://open.kattis.com/problems/eatingout/statistics (5)
     ruby -e"puts'im'*$[2*`tr \  -`<0]+'possible'"
 https://open.kattis.com/problems/cuchitunnels/statistics (5)
     ruby -e"puts [0*`tr " \n" ,+`1].all?{2>$.+=2-_1}&&$.>0?:YES:'NO'"
+https://open.kattis.com/problems/jumbledscoreboards/statistics (5)
+    ruby -e"puts [-`tr " \n" ,`].each_cons(3).find{_1>_3}?:no:'yes'"
 https://open.kattis.com/problems/triangelfabriken/statistics (5)
     ruby -e"$><<%w(Ratvinkl Trubb Spets)[[`tr "\n" ,`].max<=>90]<<'ig Triangel'"
 https://open.kattis.com/problems/pobudget/statistics (5)
@@ -933,6 +941,8 @@ https://open.kattis.com/problems/shoppinglisteasy/statistics (5)
     ruby -ne'x=$<.map(&:split).reduce:&;puts x.size,x.sort'
 https://open.kattis.com/problems/heimilisverk/statistics (5)
     ruby -ne'x={};$<.map{x[_1]||=$><<_1}'
+https://open.kattis.com/problems/appy/statistics (5)
+    ruby -ne'x={};$<.map{|y|puts y.split[1..].find{x[_1]!=x[_1]=1}}'
 https://open.kattis.com/problems/pokechat/statistics (5)
     ruby -e"x,y=*$<;y.scan(/.../){$><<x[_1.to_i-1]}"
 https://open.kattis.com/problems/keyboardd/statistics (5)
@@ -1037,6 +1047,8 @@ https://open.kattis.com/problems/busassignment/statistics (5)
     ruby<<<"p [`sed "s/ /-/;s/$/,$.-=/"`0].max"
 https://open.kattis.com/problems/testingleds/statistics (5)
     ruby<<<"p [`sed -n s/\ 0/,/p`].min||-1"
+https://open.kattis.com/problems/winstreak/statistics (5)
+    ruby<<<"p [`sed "1d;s/ .*/>&?$.+=1:$.=0,/"`].max"
 https://open.kattis.com/problems/epigdanceoff/statistics (5)
     ruby<<<"p ('%b'%(`sed "1d;y/_$/01/;s/.*/0b&|/"`0)).count(?0)+1"
 https://open.kattis.com/problems/goombastacks/statistics (5)
@@ -1216,6 +1228,11 @@ https://open.kattis.com/problems/buka/statistics (5)
 https://open.kattis.com/problems/telja/statistics (5)
     x* s*
     xargs seq
+
+tr
+https://open.kattis.com/problems/qwerty/statistics (5)
+    r*;t*
+    read tr tsa-z ttqwertyuiopasdfghjklzxcvbnm
 
 sed
 https://open.kattis.com/problems/greetings2/statistics (2)
