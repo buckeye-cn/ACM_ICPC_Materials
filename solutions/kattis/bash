@@ -244,12 +244,6 @@ https://open.kattis.com/problems/smil
     grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/champernowneverification
     grep -o ^`dd`<<<123456789|wc -L|sed s/0/-1/
-https://open.kattis.com/problems/avion
-    (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
-https://open.kattis.com/problems/pinnifraendi
-    printf 0.%0`dd`d 1
-https://open.kattis.com/problems/klockan2
-    printf %02d:%02d $[a=131*`dd`/5,a/60%12] $[a%60]
 https://open.kattis.com/problems/quickestimate
     awk "NR>1{print length}"
 https://open.kattis.com/problems/bitteeinbit
@@ -266,12 +260,24 @@ https://open.kattis.com/problems/pokerhand
     fold -w3|sort|uniq -cw1|sort -r|cut -zc7
 https://open.kattis.com/problems/conundrum
     fold -w1|sed "s/P//;n;s/E//;n;s/R//"|wc -w
+https://open.kattis.com/problems/avion
+    (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
+https://open.kattis.com/problems/decimaldeletion
+    printf %.f `dd`
+https://open.kattis.com/problems/pinnifraendi
+    printf 0.%0`dd`d 1
+https://open.kattis.com/problems/klockan2
+    printf %02d:%02d $[a=131*`dd`/5,a/60%12] $[a%60]
 https://open.kattis.com/problems/basketballoneonone
     rev|cut -b2
 https://open.kattis.com/problems/filip
     rev|fold -w4|sort|sed 1d
 https://open.kattis.com/problems/telja
     seq `dd`
+https://open.kattis.com/problems/namegeneration
+    seq `dd`|tr 0-9 a-j|sed s/./\&ab/g
+https://open.kattis.com/problems/timeloop
+    seq `dd`|sed aAbracadabra
 https://open.kattis.com/problems/generatingcoolpasswordscompany
     seq 10 $[`dd`+9]|sed s/.*/Aa__\&\&/
 https://open.kattis.com/problems/inputmaxxing
@@ -294,14 +300,8 @@ https://open.kattis.com/problems/inputscandal
     wc -l;tac|tac
 https://open.kattis.com/problems/buka
     xargs expr
-https://open.kattis.com/problems/decimaldeletion
-    xargs printf %.f
 https://open.kattis.com/problems/sorttwonumbers
     xargs -n1|sort -n
-https://open.kattis.com/problems/namegeneration
-    xargs seq|tr 0-9 a-j|sed s/./\&ab/g
-https://open.kattis.com/problems/timeloop
-    xargs seq|sed aAbracadabra
 https://open.kattis.com/problems/lostlineup
     xargs -n1|sed 1c0|nl|sort -nk2|cut -f1
 https://open.kattis.com/problems/compoundwords
@@ -326,20 +326,20 @@ https://open.kattis.com/problems/aldur
     read;sort -n|head -1
 https://open.kattis.com/problems/hitastig
     read;xargs -n1|sort -rn|sed "1p;N;D"
-https://open.kattis.com/problems/reversiblecyclic
-    read a;rev<<<$a$a|grep $a|wc -l
 https://open.kattis.com/problems/bannord
     read a;tr \  \\n|sed "/[$a]/s/./*/g"
 https://open.kattis.com/problems/ullendullendoff2
     read a;sed 1x\;$[1+12%a]G
 https://open.kattis.com/problems/fargrobot
     read a;sed -E "s/[GB]*(R)|[RB]*(G)|[RG]*(B)/\1\2\3/g"|cut -c-$a
+https://open.kattis.com/problems/reversiblecyclic
+    read a;rev<<<$a$a|grep $a|wc -l
 https://open.kattis.com/problems/counting
     read a;seq $a $a $[12*a]
+https://open.kattis.com/problems/hipphipphurra
+    read a;seq `dd`|sed "cHipp hipp hurra, $a!"
 https://open.kattis.com/problems/ullendullendoff
     read a;xargs -n1|sed $[1+12%a]!d
-https://open.kattis.com/problems/hipphipphurra
-    read a;xargs seq|sed "cHipp hipp hurra, $a!"
 https://open.kattis.com/problems/carrots
     read a b;echo $b
 https://open.kattis.com/problems/zoom
