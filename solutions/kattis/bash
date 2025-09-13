@@ -23,222 +23,6 @@ https://open.kattis.com/problems/digitswap
 https://open.kattis.com/problems/vidsnuningur
     rev
 
-# bash expr
-https://open.kattis.com/problems/edays
-    read a;echo $[2*a]
-https://open.kattis.com/problems/bossbattle
-    read a;echo $[a-2+2/a]
-https://open.kattis.com/problems/character
-    read a;echo $[~a+2**a]
-https://open.kattis.com/problems/sjecista
-    read a;echo $[a*--a*--a*--a/24]
-https://open.kattis.com/problems/13floors
-    read a;echo $[a+(a>12)]
-https://open.kattis.com/problems/secondopinion
-    read a;echo $[a/3600] : $[a/60%60] : $[a%60]
-https://open.kattis.com/problems/shortestcompositesum
-    read a;echo 2 $[b=a%2?9:4] $[a-b]
-https://open.kattis.com/problems/thendaysofchristmas
-    read a;echo $[b=a*++a/2] $[b*++a/3]
-https://open.kattis.com/problems/facultyforest
-    read a b;echo $[a-b]
-https://open.kattis.com/problems/faktor
-    read a b;echo $[a*--b+1]
-https://open.kattis.com/problems/distributingpoffins
-    read a b;echo $[b%a>0]
-https://open.kattis.com/problems/astackofgold
-    read a b;echo $[a/110+133*b*~b]
-https://open.kattis.com/problems/carddivisibility
-    read a b;echo $[(a+b)%18*(b-a+1)/2%9]
-https://open.kattis.com/problems/knittingpattern
-    read a b;echo $[a%b?(a-b)%(2*b):0]
-https://open.kattis.com/problems/irrationaldivision
-    read a b;echo $[a&b&1?1:a&b>a?2:0]
-https://open.kattis.com/problems/emergency
-    read a b;echo $[a--<2*b?a:a%b-~b]
-https://open.kattis.com/problems/powers
-    read a b;echo $[a&1?0:b<2|a&2?a/2:0]
-https://open.kattis.com/problems/eveningout1
-    read a b;echo $[(a%=b)*2<b?a:b-a]
-https://open.kattis.com/problems/herbmixing
-    read a b;echo $[(a+=a>b?b+b:a+a)/3*5+a*5/3]
-https://open.kattis.com/problems/roomba1
-    read a b;echo $[c=a*b,a+b>c?2*c-2:c+c%2]
-https://open.kattis.com/problems/trollhunt
-    read a b c;echo $[(a-2)/(b/c)+1]
-https://open.kattis.com/problems/skocimis
-    read a b c;echo $[c-b>b-a?c+~b:b+~a]
-https://open.kattis.com/problems/sodaslurper
-    read a b c;echo $[(a+b-(a||b))/--c]
-https://open.kattis.com/problems/climbingworm
-    read a b c;echo $[~(b-c)%c/(a-b)+1]
-https://open.kattis.com/problems/posters
-    read a b c;echo $[a>b?(c-b)/a:(c-a)/b]
-https://open.kattis.com/problems/pieceofcake2
-    read a b c;echo $[(b>a-b?b:a-b)*(c>a-c?c:a-c)*4]
-https://open.kattis.com/problems/hornrett
-    read a b c;echo $[a*a+b*b-c*c?-1:a*b/2]
-https://open.kattis.com/problems/oldwomenwholivedinashoe
-    read a;read b;read c;echo $[a/c*(b/c)/2]
-https://open.kattis.com/problems/makingameowth
-    read a b c d;echo $[b*c+b/--a*d]
-https://open.kattis.com/problems/laptopsticker
-    read a b c d;echo $[a>c+1&b>d+1]
-https://open.kattis.com/problems/rgb
-    read a b c d;echo $[b+c?a+d:d>1?a+d-2:a]
-https://open.kattis.com/problems/politicaldistance
-    read a b;read c d;echo $[(a-c)**2+(b-d)**2]
-https://open.kattis.com/problems/savingforretirement
-    read a b c d e;echo $[(b*c-a*c)/e-~d]
-
-# bash expr + cat
-https://open.kattis.com/problems/tolvunarfraedingartelja
-    echo $[`cat`-1]
-https://open.kattis.com/problems/shortcuttowhat
-    echo $[`cat`*3+5]
-https://open.kattis.com/problems/hardrocksandatomicclocks
-    echo $[60-`cat`/60%60]
-https://open.kattis.com/problems/cookiemonsterconcussion
-    echo $[~-`cat`%9+1]
-https://open.kattis.com/problems/crne
-    echo $[~-~`cat`**2/4]
-https://open.kattis.com/problems/dannebrog
-    echo $[`cat`**2*45/49]
-https://open.kattis.com/problems/planina
-    echo $[~(2**`cat`)**2]
-https://open.kattis.com/problems/99problems
-    echo $[(`cat`-49)/100*10+9]9
-https://open.kattis.com/problems/dagatal
-    echo $[62648012/4**`cat`%4+28]
-https://open.kattis.com/problems/fimmtudagstilbod
-    echo $[(a=`cat`-2010)>10?a:10]00
-
-# bash expr + tr
-https://open.kattis.com/problems/addtwonumbers
-    echo $[`tr \  +`]
-https://open.kattis.com/problems/twosum
-    echo $[`tr \  +`]
-https://open.kattis.com/problems/jackolanternjuxtaposition
-    echo $[`tr \  \*`]
-https://open.kattis.com/problems/whichisgreater
-    echo $[`tr \  \>`]
-https://open.kattis.com/problems/r2
-    echo $[-`tr \  +`*2]
-https://open.kattis.com/problems/cattoys
-    echo $[~-`tr \  /`+1]
-https://open.kattis.com/problems/aterriblefortress
-    echo $[0*`tr "\n" +`0]
-https://open.kattis.com/problems/knotknowledge
-    echo $[0*`tr " \n" ^`0]
-https://open.kattis.com/problems/spavanac
-    echo $[(a=60*`tr \  +`+1395)/60%24] $[a%60]
-https://open.kattis.com/problems/nsum
-    read;echo $[`tr \  +`]
-https://open.kattis.com/problems/kakor
-    read;echo $[`tr \  +`]
-https://open.kattis.com/problems/waterslidewasteeasy
-    read;echo $[`tr \  +`]
-https://open.kattis.com/problems/cosmicpathoptimization
-    read a;echo $[(`tr \  +`)/a]
-https://open.kattis.com/problems/shatteredcake
-    read a;echo $[(0*`tr " \n" *+`0)/a]
-https://open.kattis.com/problems/partialtransmission
-    read a;read b;echo $[(a+b+b-1)*a/2-`tr \  -`]
-https://open.kattis.com/problems/gcvwr
-    read a b c;echo $[(a-b)*9/10-`tr \  -`]
-
-# bash expr + sed
-https://open.kattis.com/problems/dragafra
-    echo $[`sed 1a-`]
-https://open.kattis.com/problems/classphoto
-    echo $[`sed 1a*`]
-https://open.kattis.com/problems/flatbokuveisla
-    echo $[`sed 1a%`]
-https://open.kattis.com/problems/parkingpandemonium
-    echo $[`sed 2c*`]
-https://open.kattis.com/problems/hackaholics
-    echo $[`sed 2c*`]
-https://open.kattis.com/problems/aleidibio
-    echo $[`sed i-`*-1]
-https://open.kattis.com/problems/flatterland
-    echo $[~-`sed 1a*`]
-https://open.kattis.com/problems/mclimbroad
-    echo $[5280*`sed 1a/`]
-https://open.kattis.com/problems/mclimb
-    echo $[`sed a*`*0]
-https://open.kattis.com/problems/blastersdash
-    echo $[2*`sed 2!d`+40]
-https://open.kattis.com/problems/compass
-    echo $[180-(540-`sed i-`)%360]
-https://open.kattis.com/problems/callforproblems
-    echo $[0*`sed a%2+`0]
-https://open.kattis.com/problems/pot
-    echo $[0`sed s/.$/**\&+/`0]
-https://open.kattis.com/problems/mathinanotheruniverse
-    echo $[8*(`sed "s/[*/]/)&(/g"`)/8]
-https://open.kattis.com/problems/kafkaesque
-    echo $[(0*`sed "1d;s/.*/&)+(&>=/"`0)]
-https://open.kattis.com/problems/tornbygge
-    echo $[(0`sed "1d;s/\w*/<&)+(&/g"`*0)]
-https://open.kattis.com/problems/bidendalausbid
-    echo $[(1440`sed "s/^/-(1/;s/:/*60+1/"`)))%1440]
-https://open.kattis.com/problems/skruop
-    echo $[a=8`sed "s/.*p!/,a+=a<10/;t;c,a-=a>0"`]
-https://open.kattis.com/problems/cetvrta
-    echo $[a=b=0`sed "s/ /,b^=/;i,a^="`,a] $b
-https://open.kattis.com/problems/tarifa
-    read a;echo $[a-a*`sed i-`]
-https://open.kattis.com/problems/dfyrirdreki
-    read a;echo $[b=`sed 1a**2-4*`*a,(b>0)+(b>=0)]
-https://open.kattis.com/problems/cinema
-    read a b;echo $[`sed "s/\w*/+(a<&||0*(a-=&))/g"`]
-https://open.kattis.com/problems/cinema2
-    read a b;echo $[`sed "s/\w*/+((a-=&)<0)/g"`]
-https://open.kattis.com/problems/server
-    read a b;echo $[`sed "s/\w*/+((b-=&)>=0)/g"`]
-https://open.kattis.com/problems/training
-    read a b;echo $[`sed "s/ />b||b>/;a||(b+=1),"`b]
-https://open.kattis.com/problems/elevatingtheprank
-    read a b;echo $[0*`sed "s/.*/10*((&-a)*(&-b)<0)+/"`4*(a>b?a-b:b-a)]
-https://open.kattis.com/problems/sottkvi
-    read a b c;echo $[`sed "s/.*/+(&-$b-$c+13<0)/"`]
-
-# bash expr + string utils
-https://open.kattis.com/problems/jobexpenses
-    echo $[`tr \ - "\n+"|grep +`]
-https://open.kattis.com/problems/triplesevens
-    echo $[`grep -c 7`/3*777]
-https://open.kattis.com/problems/kcuddlanod
-    echo $[`rev|tr 25\  52\>`?2:1]
-https://open.kattis.com/problems/shandy
-    echo $[`sort -n|sed 2d`*2]
-https://open.kattis.com/problems/hangingout
-    read a b;echo $[`tr va-t -+|sed "s/.*/a-&<0||(a-=&,b-=1),/"`b]
-https://open.kattis.com/problems/memorygame
-    read a b;echo $[b-=`tr \  "\n"|sort -u|wc -w`,b>a-2?a:b]
-
-# expr + cat
-https://open.kattis.com/problems/buka
-    expr `cat`
-https://open.kattis.com/problems/longestprimesum
-    expr `cat` / 2
-
-# expr + sed
-https://open.kattis.com/problems/simpleaddition
-    expr `sed i+`
-https://open.kattis.com/problems/leggjasaman
-    expr `sed i+`
-https://open.kattis.com/problems/fifa
-    expr 2022 + `sed 1a/`
-https://open.kattis.com/problems/jumbojavelin
-    expr 1 - `sed i+`
-
-# expr + string utils
-https://open.kattis.com/problems/akcija
-    read;expr `sort -rn|sed 3~3d\;i+`
-https://open.kattis.com/problems/shopaholic
-    read;expr `tr \  "\n"|sort -rn|sed 3~3!d\;i+`
-
 # factor
 https://open.kattis.com/problems/listgame
     factor|tr -d 0-z|wc -L
@@ -562,6 +346,222 @@ https://open.kattis.com/problems/fizzbuzz
     read a b c;seq $c|sed "$b~$b s/.*/Buzz/;$a~$a s/[0-9]*/Fizz/"
 https://open.kattis.com/problems/ekkidaudi
     IFS=\|;read a b;read c d;echo $a$c $b$d
+
+# bash expr
+https://open.kattis.com/problems/edays
+    read a;echo $[2*a]
+https://open.kattis.com/problems/bossbattle
+    read a;echo $[a-2+2/a]
+https://open.kattis.com/problems/character
+    read a;echo $[~a+2**a]
+https://open.kattis.com/problems/sjecista
+    read a;echo $[a*--a*--a*--a/24]
+https://open.kattis.com/problems/13floors
+    read a;echo $[a+(a>12)]
+https://open.kattis.com/problems/secondopinion
+    read a;echo $[a/3600] : $[a/60%60] : $[a%60]
+https://open.kattis.com/problems/shortestcompositesum
+    read a;echo 2 $[b=a%2?9:4] $[a-b]
+https://open.kattis.com/problems/thendaysofchristmas
+    read a;echo $[b=a*++a/2] $[b*++a/3]
+https://open.kattis.com/problems/facultyforest
+    read a b;echo $[a-b]
+https://open.kattis.com/problems/faktor
+    read a b;echo $[a*--b+1]
+https://open.kattis.com/problems/distributingpoffins
+    read a b;echo $[b%a>0]
+https://open.kattis.com/problems/astackofgold
+    read a b;echo $[a/110+133*b*~b]
+https://open.kattis.com/problems/carddivisibility
+    read a b;echo $[(a+b)%18*(b-a+1)/2%9]
+https://open.kattis.com/problems/knittingpattern
+    read a b;echo $[a%b?(a-b)%(2*b):0]
+https://open.kattis.com/problems/irrationaldivision
+    read a b;echo $[a&b&1?1:a&b>a?2:0]
+https://open.kattis.com/problems/emergency
+    read a b;echo $[a--<2*b?a:a%b-~b]
+https://open.kattis.com/problems/powers
+    read a b;echo $[a&1?0:b<2|a&2?a/2:0]
+https://open.kattis.com/problems/eveningout1
+    read a b;echo $[(a%=b)*2<b?a:b-a]
+https://open.kattis.com/problems/herbmixing
+    read a b;echo $[(a+=a>b?b+b:a+a)/3*5+a*5/3]
+https://open.kattis.com/problems/roomba1
+    read a b;echo $[c=a*b,a+b>c?2*c-2:c+c%2]
+https://open.kattis.com/problems/trollhunt
+    read a b c;echo $[(a-2)/(b/c)+1]
+https://open.kattis.com/problems/skocimis
+    read a b c;echo $[c-b>b-a?c+~b:b+~a]
+https://open.kattis.com/problems/sodaslurper
+    read a b c;echo $[(a+b-(a||b))/--c]
+https://open.kattis.com/problems/climbingworm
+    read a b c;echo $[~(b-c)%c/(a-b)+1]
+https://open.kattis.com/problems/posters
+    read a b c;echo $[a>b?(c-b)/a:(c-a)/b]
+https://open.kattis.com/problems/pieceofcake2
+    read a b c;echo $[(b>a-b?b:a-b)*(c>a-c?c:a-c)*4]
+https://open.kattis.com/problems/hornrett
+    read a b c;echo $[a*a+b*b-c*c?-1:a*b/2]
+https://open.kattis.com/problems/oldwomenwholivedinashoe
+    read a;read b;read c;echo $[a/c*(b/c)/2]
+https://open.kattis.com/problems/makingameowth
+    read a b c d;echo $[b*c+b/--a*d]
+https://open.kattis.com/problems/laptopsticker
+    read a b c d;echo $[a>c+1&b>d+1]
+https://open.kattis.com/problems/rgb
+    read a b c d;echo $[b+c?a+d:d>1?a+d-2:a]
+https://open.kattis.com/problems/politicaldistance
+    read a b;read c d;echo $[(a-c)**2+(b-d)**2]
+https://open.kattis.com/problems/savingforretirement
+    read a b c d e;echo $[(b*c-a*c)/e-~d]
+
+# bash expr + cat
+https://open.kattis.com/problems/tolvunarfraedingartelja
+    echo $[`cat`-1]
+https://open.kattis.com/problems/shortcuttowhat
+    echo $[`cat`*3+5]
+https://open.kattis.com/problems/hardrocksandatomicclocks
+    echo $[60-`cat`/60%60]
+https://open.kattis.com/problems/cookiemonsterconcussion
+    echo $[~-`cat`%9+1]
+https://open.kattis.com/problems/crne
+    echo $[~-~`cat`**2/4]
+https://open.kattis.com/problems/dannebrog
+    echo $[`cat`**2*45/49]
+https://open.kattis.com/problems/planina
+    echo $[~(2**`cat`)**2]
+https://open.kattis.com/problems/99problems
+    echo $[(`cat`-49)/100*10+9]9
+https://open.kattis.com/problems/dagatal
+    echo $[62648012/4**`cat`%4+28]
+https://open.kattis.com/problems/fimmtudagstilbod
+    echo $[(a=`cat`-2010)>10?a:10]00
+
+# bash expr + tr
+https://open.kattis.com/problems/addtwonumbers
+    echo $[`tr \  +`]
+https://open.kattis.com/problems/twosum
+    echo $[`tr \  +`]
+https://open.kattis.com/problems/jackolanternjuxtaposition
+    echo $[`tr \  \*`]
+https://open.kattis.com/problems/whichisgreater
+    echo $[`tr \  \>`]
+https://open.kattis.com/problems/r2
+    echo $[-`tr \  +`*2]
+https://open.kattis.com/problems/cattoys
+    echo $[~-`tr \  /`+1]
+https://open.kattis.com/problems/aterriblefortress
+    echo $[0*`tr "\n" +`0]
+https://open.kattis.com/problems/knotknowledge
+    echo $[0*`tr " \n" ^`0]
+https://open.kattis.com/problems/spavanac
+    echo $[(a=60*`tr \  +`+1395)/60%24] $[a%60]
+https://open.kattis.com/problems/nsum
+    read;echo $[`tr \  +`]
+https://open.kattis.com/problems/kakor
+    read;echo $[`tr \  +`]
+https://open.kattis.com/problems/waterslidewasteeasy
+    read;echo $[`tr \  +`]
+https://open.kattis.com/problems/cosmicpathoptimization
+    read a;echo $[(`tr \  +`)/a]
+https://open.kattis.com/problems/shatteredcake
+    read a;echo $[(0*`tr " \n" *+`0)/a]
+https://open.kattis.com/problems/partialtransmission
+    read a;read b;echo $[(a+b+b-1)*a/2-`tr \  -`]
+https://open.kattis.com/problems/gcvwr
+    read a b c;echo $[(a-b)*9/10-`tr \  -`]
+
+# bash expr + sed
+https://open.kattis.com/problems/dragafra
+    echo $[`sed 1a-`]
+https://open.kattis.com/problems/classphoto
+    echo $[`sed 1a*`]
+https://open.kattis.com/problems/flatbokuveisla
+    echo $[`sed 1a%`]
+https://open.kattis.com/problems/parkingpandemonium
+    echo $[`sed 2c*`]
+https://open.kattis.com/problems/hackaholics
+    echo $[`sed 2c*`]
+https://open.kattis.com/problems/aleidibio
+    echo $[`sed i-`*-1]
+https://open.kattis.com/problems/flatterland
+    echo $[~-`sed 1a*`]
+https://open.kattis.com/problems/mclimbroad
+    echo $[5280*`sed 1a/`]
+https://open.kattis.com/problems/mclimb
+    echo $[`sed a*`*0]
+https://open.kattis.com/problems/blastersdash
+    echo $[2*`sed 2!d`+40]
+https://open.kattis.com/problems/compass
+    echo $[180-(540-`sed i-`)%360]
+https://open.kattis.com/problems/callforproblems
+    echo $[0*`sed a%2+`0]
+https://open.kattis.com/problems/pot
+    echo $[0`sed s/.$/**\&+/`0]
+https://open.kattis.com/problems/mathinanotheruniverse
+    echo $[8*(`sed "s/[*/]/)&(/g"`)/8]
+https://open.kattis.com/problems/kafkaesque
+    echo $[(0*`sed "1d;s/.*/&)+(&>=/"`0)]
+https://open.kattis.com/problems/tornbygge
+    echo $[(0`sed "1d;s/\w*/<&)+(&/g"`*0)]
+https://open.kattis.com/problems/bidendalausbid
+    echo $[(1440`sed "s/^/-(1/;s/:/*60+1/"`)))%1440]
+https://open.kattis.com/problems/skruop
+    echo $[a=8`sed "s/.*p!/,a+=a<10/;t;c,a-=a>0"`]
+https://open.kattis.com/problems/cetvrta
+    echo $[a=b=0`sed "s/ /,b^=/;i,a^="`,a] $b
+https://open.kattis.com/problems/tarifa
+    read a;echo $[a-a*`sed i-`]
+https://open.kattis.com/problems/dfyrirdreki
+    read a;echo $[b=`sed 1a**2-4*`*a,(b>0)+(b>=0)]
+https://open.kattis.com/problems/cinema
+    read a b;echo $[`sed "s/\w*/+(a<&||0*(a-=&))/g"`]
+https://open.kattis.com/problems/cinema2
+    read a b;echo $[`sed "s/\w*/+((a-=&)<0)/g"`]
+https://open.kattis.com/problems/server
+    read a b;echo $[`sed "s/\w*/+((b-=&)>=0)/g"`]
+https://open.kattis.com/problems/training
+    read a b;echo $[`sed "s/ />b||b>/;a||(b+=1),"`b]
+https://open.kattis.com/problems/elevatingtheprank
+    read a b;echo $[0*`sed "s/.*/10*((&-a)*(&-b)<0)+/"`4*(a>b?a-b:b-a)]
+https://open.kattis.com/problems/sottkvi
+    read a b c;echo $[`sed "s/.*/+(&-$b-$c+13<0)/"`]
+
+# bash expr + string utils
+https://open.kattis.com/problems/jobexpenses
+    echo $[`tr \ - "\n+"|grep +`]
+https://open.kattis.com/problems/triplesevens
+    echo $[`grep -c 7`/3*777]
+https://open.kattis.com/problems/kcuddlanod
+    echo $[`rev|tr 25\  52\>`?2:1]
+https://open.kattis.com/problems/shandy
+    echo $[`sort -n|sed 2d`*2]
+https://open.kattis.com/problems/hangingout
+    read a b;echo $[`tr va-t -+|sed "s/.*/a-&<0||(a-=&,b-=1),/"`b]
+https://open.kattis.com/problems/memorygame
+    read a b;echo $[b-=`tr \  "\n"|sort -u|wc -w`,b>a-2?a:b]
+
+# expr + cat
+https://open.kattis.com/problems/buka
+    expr `cat`
+https://open.kattis.com/problems/longestprimesum
+    expr `cat` / 2
+
+# expr + sed
+https://open.kattis.com/problems/simpleaddition
+    expr `sed i+`
+https://open.kattis.com/problems/leggjasaman
+    expr `sed i+`
+https://open.kattis.com/problems/fifa
+    expr 2022 + `sed 1a/`
+https://open.kattis.com/problems/jumbojavelin
+    expr 1 - `sed i+`
+
+# expr + string utils
+https://open.kattis.com/problems/akcija
+    read;expr `sort -rn|sed 3~3d\;i+`
+https://open.kattis.com/problems/shopaholic
+    read;expr `tr \  "\n"|sort -rn|sed 3~3!d\;i+`
 
 # ruby, math
 https://open.kattis.com/problems/modulo
