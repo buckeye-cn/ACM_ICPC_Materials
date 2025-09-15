@@ -48,6 +48,8 @@ https://open.kattis.com/problems/datum
 # tr
 https://open.kattis.com/problems/chardonnay
     tr 1-6 2-7
+https://open.kattis.com/problems/howl
+    tr \\n O
 https://open.kattis.com/problems/apaxiaaans
     tr -sc _
 https://open.kattis.com/problems/stickykeys
@@ -76,8 +78,6 @@ https://open.kattis.com/problems/bradspelet
 # sed
 https://open.kattis.com/problems/greetings2
     sed s/e/ee/g
-https://open.kattis.com/problems/howl
-    sed s/A/AA/
 https://open.kattis.com/problems/kvedja
     sed iKvedja,
 https://open.kattis.com/problems/oddecho
@@ -280,6 +280,8 @@ https://open.kattis.com/problems/timeloop
     seq `dd`|sed aAbracadabra
 https://open.kattis.com/problems/generatingcoolpasswordscompany
     seq 10 $[`dd`+9]|sed s/.*/Aa__\&\&/
+https://open.kattis.com/problems/gottacatchemtwice
+    sort -u|wc -l
 https://open.kattis.com/problems/inputmaxxing
     sort -n|tail -1
 https://open.kattis.com/problems/bestagjofin
@@ -324,6 +326,8 @@ https://open.kattis.com/problems/mumblerap
     read;tr -c 0-9 \\n|sort -n|tail -1
 https://open.kattis.com/problems/aldur
     read;sort -n|head -1
+https://open.kattis.com/problems/korokphrases
+    read;sort -u|wc -l
 https://open.kattis.com/problems/hitastig
     read;xargs -n1|sort -rn|sed "1p;N;D"
 https://open.kattis.com/problems/bannord
@@ -378,6 +382,8 @@ https://open.kattis.com/problems/astackofgold
     read a b;echo $[a/110+133*b*~b]
 https://open.kattis.com/problems/carddivisibility
     read a b;echo $[(a+b)%18*(b-a+1)/2%9]
+https://open.kattis.com/problems/jampacked
+    read a b;echo $[a/(--a/b+1)]
 https://open.kattis.com/problems/knittingpattern
     read a b;echo $[a%b?(a-b)%(2*b):0]
 https://open.kattis.com/problems/irrationaldivision
