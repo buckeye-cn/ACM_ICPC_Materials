@@ -186,6 +186,8 @@ https://open.kattis.com/problems/phonebook
     grep -Ec \\b39.{9}
 https://open.kattis.com/problems/magictrick
     grep -Evc "(.).*\1";cd
+https://open.kattis.com/problems/deathknight
+    read;grep CD -vc;cd
 
 # string utils
 https://open.kattis.com/problems/cold
@@ -210,8 +212,6 @@ https://open.kattis.com/problems/isyavowel
     tr -dc aeiouy>_;tr -d y<_|wc -L;wc -L<_
 https://open.kattis.com/problems/attemptedalphabet
     tr -d `dd`<<<abcdefghijklmnopqrstuvwxyz|grep .||echo Good job!
-https://open.kattis.com/problems/deathknight
-    sed 1d\;/CD/d|wc -l
 https://open.kattis.com/problems/cyaniderivers
     sed s/00/0/g|tr 1 \\n|wc -L
 https://open.kattis.com/problems/trianglesofasquare
@@ -648,8 +648,6 @@ https://open.kattis.com/problems/lidaskipting2
     ruby -e"p 0-p(`dd`)/-3"
 https://open.kattis.com/problems/antidiagonalgame
     ruby -e"p (3.<<~-`dd`&~1)%1000003233"
-https://open.kattis.com/problems/slodafinnandi
-    ruby -e"p (4+8*x=`dd`/5)*-~x/3+x*x%3"
 https://open.kattis.com/problems/romans
     ruby -e"p (`dd`*88e4/809).round"
 https://open.kattis.com/problems/alloys
@@ -700,6 +698,8 @@ https://open.kattis.com/problems/tetration
     ruby -e"p (x=1/`dd`)**-x"
 https://open.kattis.com/problems/heiltolusumma
     ruby -e"p~(1-x=`dd`).abs*~x/2"
+https://open.kattis.com/problems/slodafinnandi
+    ruby -e"p (4+8*x=`dd`/5)*-~x/3+x*x%3"
 https://open.kattis.com/problems/harshadnumbers
     ruby -e"p (`dd`..).find{|x|x%(0..9).sum{x/10**_1%10}<1}"
 https://open.kattis.com/problems/gatnamot
@@ -1162,6 +1162,8 @@ https://open.kattis.com/problems/hiptobesquare
     sed "1!s/.*/p~-((&+1)**0.5).to_i\/2/"|ruby
 https://open.kattis.com/problems/mult
     sed "1!s/.*/$.<1?$.=&:&%$.>0||$.=-p(&)/"|ruby
+https://open.kattis.com/problems/stocksmania
+    sed "s/\w*/-([$.,&].min-$.=&)/g;1cp 0*"|ruby
 https://open.kattis.com/problems/sumoftheothers
     sed "y/ /+/;s/^/p (/;a)/2"|ruby
 https://open.kattis.com/problems/electricaloutlets
