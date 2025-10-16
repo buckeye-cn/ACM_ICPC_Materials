@@ -26,12 +26,16 @@ https://open.kattis.com/problems/vidsnuningur
 # factor
 https://open.kattis.com/problems/listgame
     factor|tr -d 0-z|wc -L
-https://open.kattis.com/problems/bigfactoring
-    factor|sed s/.*://
 https://open.kattis.com/problems/largestfactor
     factor|sed s/.*\ //
 https://open.kattis.com/problems/primality
     factor|sed "s/.* .* .*/NO/;t;cYES"
+https://open.kattis.com/problems/bigfactoring
+    factor|cut -f2 -d:
+https://open.kattis.com/problems/subcommittees
+    factor|wc -w
+https://open.kattis.com/problems/olderbrother
+    factor|xargs -n1|uniq|wc -l|sed "s/2/yes/;t;cno"
 https://open.kattis.com/problems/crypto
     factor|xargs -n1|uniq -c|sort -k1,1r -k2n|head -1|cut -c9-
 
@@ -296,6 +300,8 @@ https://open.kattis.com/problems/ofugsnuid
     tac|sed x
 https://open.kattis.com/problems/haughtycuisine
     tail -1
+https://open.kattis.com/problems/tenplayerbingo
+    tail -c2|sed s/0/10/
 https://open.kattis.com/problems/hairofthedog
     uniq|grep d|wc -l
 https://open.kattis.com/problems/ovissa
@@ -368,6 +374,8 @@ https://open.kattis.com/problems/13floors
     read a;echo $[a+(a>12)]
 https://open.kattis.com/problems/secondopinion
     read a;echo $[a/3600] : $[a/60%60] : $[a%60]
+https://open.kattis.com/problems/arithmeticadaptation
+    read a;echo $[b=a^97] $[a-b]
 https://open.kattis.com/problems/shortestcompositesum
     read a;echo 2 $[b=a%2?9:4] $[a-b]
 https://open.kattis.com/problems/thendaysofchristmas
@@ -896,6 +904,8 @@ https://open.kattis.com/problems/overdraft
     ruby -e"p [0*`sed s/$/,$.-=/`0].max"
 https://open.kattis.com/problems/tollbooths
     ruby -e"p [`sed "1d;y/GT /-+=/;s/.*/$.&,/"`0].max"
+https://open.kattis.com/problems/receptet
+    ruby -e"p -`sed "1d;s/ .* /-&,0].min*/;s/.*/[&-/"`0"
 https://open.kattis.com/problems/snowfall
     ruby -e"`sed "s/^0/$.+=/;s/^1/$.-=/;a$.>0||$.=0"`;p$."
 https://open.kattis.com/problems/invokereasy
@@ -984,6 +994,8 @@ https://open.kattis.com/problems/bela
     ruby -ne'x=$_[-2];p$<.sum{(x==_1[1]?:AAO_D__KUEL:"AAA_D__KCEL")[_1[0].sum%11].sum-65}'
 https://open.kattis.com/problems/dihedralgroup
     ruby -ne'x,y=$<.map &:split;p (x*3*?_+x.reverse*3*?_)[?_+y*?_+?_]?1:0'
+https://open.kattis.com/problems/bidrod
+    ruby -ne"puts gets.split.uniq"
 https://open.kattis.com/problems/averagecharacter
     ruby -ne'putc~(9-$_.sum)/~/$/'
 https://open.kattis.com/problems/gettingwood
@@ -1044,6 +1056,8 @@ https://open.kattis.com/problems/asciikassi
     read a;ruby -e"puts x=?++?-*$a+?+,(1..$a).map{?|+' '*$a+?|},x"
 https://open.kattis.com/problems/pencilcrayons
     read a b;ruby -e"p$<.sum{$b-_1.split.uniq.size}"
+https://open.kattis.com/problems/callforproblemsround2
+    read a b;ruby -e"p [$b,$<.uniq.size].min"
 https://open.kattis.com/problems/abc
     read a b c;ruby -e"gets.bytes{puts [$a,$b,$c].sort[_1-65]}"
 
