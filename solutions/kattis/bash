@@ -586,6 +586,8 @@ https://open.kattis.com/problems/modulo
     ruby -e"p$<.uniq{_1.to_i%42}.size"
 https://open.kattis.com/problems/password
     ruby -ne'p$<.map{_1.split[1].to_f}.sort.sum{_1*$.-=1}'
+https://open.kattis.com/problems/kmh
+    ruby -ne"x=0;$<.map{x=[x,~y=_1.to_i].min;p y>0?y:x%10-x}"
 https://open.kattis.com/problems/socialrunning
     ruby -e"x,*y=$<.map &:to_i;p (1..x).map{y[-_1]+y[2-_1]}.min"
 https://open.kattis.com/problems/sistapizzan
@@ -748,6 +750,8 @@ https://open.kattis.com/problems/rootofminusone
     ruby -e"x=`dd`;(2..).find{y=_1.pow(x/4,x);-y*y%x<2&&p(y)}"
 https://open.kattis.com/problems/threesandfives
     ruby -e"x=-`dd`;p (~(y=x/15)*y*15-~(y=x/3)*y*3-~(y=x/5)*y*5)/2"
+https://open.kattis.com/problems/divisordetective
+    ruby -e"x=`dd`;y=1;p (0..1e6).sum{z=x/y;z.*z>0?-y+y=x/z+1:0}"
 https://open.kattis.com/problems/temperatureconfusion
     ruby -e"$><<(`dd`r*5-160)/9"
 https://open.kattis.com/problems/subtractionplusplus
@@ -1054,10 +1058,10 @@ https://open.kattis.com/problems/tripletexting
     read a;ruby -e"$><<'$a'.scan(/.{$[${#a}/3]}/).sort[1]"
 https://open.kattis.com/problems/asciikassi
     read a;ruby -e"puts x=?++?-*$a+?+,(1..$a).map{?|+' '*$a+?|},x"
-https://open.kattis.com/problems/pencilcrayons
-    read a b;ruby -e"p$<.sum{$b-_1.split.uniq.size}"
 https://open.kattis.com/problems/callforproblemsround2
     read a b;ruby -e"p [$b,$<.uniq.size].min"
+https://open.kattis.com/problems/pencilcrayons
+    read a b;ruby -e"p$<.sum{$b-_1.split.uniq.size}"
 https://open.kattis.com/problems/abc
     read a b c;ruby -e"gets.bytes{puts [$a,$b,$c].sort[_1-65]}"
 
