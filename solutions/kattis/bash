@@ -386,6 +386,8 @@ https://open.kattis.com/problems/faktor
     read a b;echo $[a*--b+1]
 https://open.kattis.com/problems/distributingpoffins
     read a b;echo $[b%a>0]
+https://open.kattis.com/problems/memoriesofpassportcontrol
+    read a b;echo $[b/a+b%a]
 https://open.kattis.com/problems/astackofgold
     read a b;echo $[a/110+133*b*~b]
 https://open.kattis.com/problems/carddivisibility
@@ -842,6 +844,8 @@ https://open.kattis.com/problems/milkmystery
     ruby -e"x,y,*z=`tr " \n" ,`0;p (0..x).map{z[_1..._1+y].sum}.max"
 https://open.kattis.com/problems/oothaderkominnott
     ruby -e"x,y,z,a=[`tr "\n" ,`];p (2-y)*(2-z||=y)*(1-a||=3)+y*z*a"
+https://open.kattis.com/problems/triplejump
+    ruby -e"x,y,z,*a,b=[`tr " \n" ,`];p y/3,z-y+y/3,b/3"
 https://open.kattis.com/problems/simplearithmetic
     ruby -e"puts'%f'.%`tr \  \*`**-1"
 https://open.kattis.com/problems/stayingfrosty
@@ -988,6 +992,8 @@ https://open.kattis.com/problems/cprnummer
     ruby -e"p'FEDIHGGFEDCB'.bytes.sum{_1*$<.getc.ord}%11/10"
 https://open.kattis.com/problems/gangur
     ruby -ne'p$_.bytes.sum{_1%7%3*~-$.+=_1/62}'
+https://open.kattis.com/problems/morsenumbers
+    ruby -ne"p gets.bytes.sum{((_1-53).abs*2+12)%50}-51"
 https://open.kattis.com/problems/trik
     ruby -ne'x=0;$_.bytes{x+=x-_1};p 3-x%3'
 https://open.kattis.com/problems/raggedright
