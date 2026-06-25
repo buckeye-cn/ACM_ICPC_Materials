@@ -159,6 +159,8 @@ https://open.kattis.com/problems/desiigner
     sed "s/brrr*[aeiouy]$/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/cats
     sed "s/1/yes/;s/6/yes no no yes yes yes/;q"
+https://open.kattis.com/problems/hverternetfangid
+    sed "1!d;s/.*://;s/+.*@/@/"
 https://open.kattis.com/problems/avian
     sed 2!d\;s/^/iunty23v7itdhugh3c/
 https://open.kattis.com/problems/blandadbest
@@ -263,6 +265,8 @@ https://open.kattis.com/problems/smil
     grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/champernowneverification
     grep -o ^`dd`<<<123456789|wc -L|sed s/0/-1/
+https://open.kattis.com/problems/staerstiferningurinn
+    grep -E "^(.*) \1$"|sort -n|tail -1
 https://open.kattis.com/problems/quickestimate
     awk "NR>1{print length}"
 https://open.kattis.com/problems/bitteeinbit
@@ -435,6 +439,10 @@ https://open.kattis.com/problems/sodaslurper
     read a b c;echo $[(a+b-(a||b))/--c]
 https://open.kattis.com/problems/climbingworm
     read a b c;echo $[~(b-c)%c/(a-b)+1]
+https://open.kattis.com/problems/medicinedrug
+    read a b c;echo $[(a*b-1)/c+1]
+https://open.kattis.com/problems/sourcetosink
+    read a b c;echo $[(a*b-1)/c*4+3]
 https://open.kattis.com/problems/posters
     read a b c;echo $[a>b?(c-b)/a:(c-a)/b]
 https://open.kattis.com/problems/pieceofcake2
@@ -635,6 +643,8 @@ https://open.kattis.com/problems/ladder
     read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
 https://open.kattis.com/problems/ordinaryordinals
     read a b;ruby -e"p~-($a>0?5*2.pow($a-1,$b):3)%$b"
+https://open.kattis.com/problems/powerups
+    read a b;ruby -e"p [*2..$a+$b].combination($b).size"
 https://open.kattis.com/problems/lamps
     read a b;ruby -e"p (1..).find{$a*~-_1/1000+98e-6*$a*$b*_1>11}"
 https://open.kattis.com/problems/isiteven
@@ -858,7 +868,7 @@ https://open.kattis.com/problems/elevators
 https://open.kattis.com/problems/fromatob
     ruby -e"x,y=-`tr \  ,`;p$\".sum{x+y<0?1+x-2*x/=2:0}+x+y"
 https://open.kattis.com/problems/treeskiing
-    ruby -e"x,y=`tr " \nNW" +,01`0;p y<x&&y>0?(y+1..x).inject(:*)/(1..x-y).inject(:*)-1:0"
+    ruby -e"x,y=`tr " \nNW" +,01`0;p y<x&&y>0?[*1..x].combination(y).size-1:0"
 https://open.kattis.com/problems/weathernodes
     ruby -e"x,*y=[`tr "\n" ,`];p y.count{(_1-y.sum/x).abs>10}"
 https://open.kattis.com/problems/binaryseating
@@ -947,6 +957,8 @@ https://open.kattis.com/problems/tollbooths
     ruby -e"p [`sed "1d;y/GT /-+=/;s/.*/$.&,/"`0].max"
 https://open.kattis.com/problems/receptet
     ruby -e"p -`sed "1d;s/ .* /-&,0].min*/;s/.*/[&-/"`0"
+https://open.kattis.com/problems/suspiciousactivity
+    ruby -e"p `sed "1d;s/ .*/%8\/-9*(&>10000||&<1?-1:0)+/"`0"
 https://open.kattis.com/problems/snowfall
     ruby -e"`sed "s/^0/$.+=/;s/^1/$.-=/;a$.>0||$.=0"`;p$."
 https://open.kattis.com/problems/invokereasy
