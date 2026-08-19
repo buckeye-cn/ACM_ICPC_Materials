@@ -73,6 +73,8 @@ https://open.kattis.com/problems/autori
     tr -d a-z-
 https://open.kattis.com/problems/fyrirtaekjanafn
     tr -dc AEIOUYaeiouy
+https://open.kattis.com/problems/inversecase
+    tr A-Za-z a-zA-Z
 https://open.kattis.com/problems/vandalism
     tr -d `dd`<<<UAPC
 https://open.kattis.com/problems/soundex
@@ -387,6 +389,8 @@ https://open.kattis.com/problems/ekkidaudi
 # bash expr
 https://open.kattis.com/problems/edays
     read a;echo $[2*a]
+https://open.kattis.com/problems/cube
+    read a;echo $[a*a*a]
 https://open.kattis.com/problems/bossbattle
     read a;echo $[a-2+2/a]
 https://open.kattis.com/problems/character
@@ -511,6 +515,8 @@ https://open.kattis.com/problems/kakor
     read;echo $[`tr \  +`]
 https://open.kattis.com/problems/waterslidewasteeasy
     read;echo $[`tr \  +`]
+https://open.kattis.com/problems/hackenbushbamboo
+    read;echo *$[`tr \  ^`]
 https://open.kattis.com/problems/cosmicpathoptimization
     read a;echo $[(`tr \  +`)/a]
 https://open.kattis.com/problems/shatteredcake
@@ -526,6 +532,8 @@ https://open.kattis.com/problems/dragafra
 https://open.kattis.com/problems/classphoto
     echo $[`sed 1a*`]
 https://open.kattis.com/problems/margfoldun
+    echo $[`sed 1a*`]
+https://open.kattis.com/problems/fancymultiplication
     echo $[`sed 1a*`]
 https://open.kattis.com/problems/flatbokuveisla
     echo $[`sed 1a%`]
