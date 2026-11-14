@@ -303,6 +303,8 @@ https://open.kattis.com/problems/lubbilaerir
     cut -c1
 https://open.kattis.com/problems/fairgrading
     cut -c$[(`tr \  +`*2)/40]<<<FFFFFDCBA
+https://open.kattis.com/problems/tresortering
+    fmt -1|sort -n
 https://open.kattis.com/problems/classfieldtrip
     fold -w1|sort|tr -d \\n
 https://open.kattis.com/problems/peragrams
@@ -1411,6 +1413,9 @@ https://open.kattis.com/problems/calculator
 # interactive
 https://open.kattis.com/problems/ninetynine
     echo 2;ruby -ne'x=eval$_;p x%3%2-~x'
+
+https://open.kattis.com/problems/equationextrapolation
+    echo \? 10;echo ! `sed q|fold -1|tac`
 https://open.kattis.com/problems/guess
     ruby -e'x,y=0,-999;(0..).find{p x-y/=2;gets>?i||x-=y;$_<?d}'
 https://open.kattis.com/problems/julmust
