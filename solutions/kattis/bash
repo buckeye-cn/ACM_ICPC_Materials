@@ -196,17 +196,15 @@ https://open.kattis.com/problems/heysata
 https://open.kattis.com/problems/forcedchoice
     read a b c;sed "s/.* $b\b.*/KEEP/;t;cREMOVE"
 
-# awk
-https://open.kattis.com/problems/quickestimate
-    awk 'NR>1{print length}'
-https://open.kattis.com/problems/revisionskontroll
-    awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
-https://open.kattis.com/problems/chokladkartongen
-    awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
+# printf
+https://open.kattis.com/problems/decimaldeletion
+    printf %.f `dd`
+https://open.kattis.com/problems/pinnifraendi
+    printf 0.%0`dd`d 1
 https://open.kattis.com/problems/formatting
-    awk '{printf"%12.2f\n",$0}'
-https://open.kattis.com/problems/bergur
-    awk 'NR>1{for(i=NF;i;i--)s+=m=m&&m<$i?m:$i;print s}'
+    printf %12.2f\\n `dd`
+https://open.kattis.com/problems/klockan2
+    printf %02d:%02d $[a=131*`dd`/5,a/60%12] $[a%60]
 
 # grep
 https://open.kattis.com/problems/findingana
@@ -223,6 +221,16 @@ https://open.kattis.com/problems/magictrick
     grep -Evc "(.).*\1";:
 https://open.kattis.com/problems/deathknight
     read;grep CD -vc;:
+
+# awk
+https://open.kattis.com/problems/quickestimate
+    awk 'NR>1{print length}'
+https://open.kattis.com/problems/revisionskontroll
+    awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
+https://open.kattis.com/problems/chokladkartongen
+    awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
+https://open.kattis.com/problems/bergur
+    awk 'NR>1{for(i=NF;i;i--)s+=m=m&&m<$i?m:$i;print s}'
 
 # string utils
 https://open.kattis.com/problems/cold
@@ -299,12 +307,6 @@ https://open.kattis.com/problems/conundrum
     fold -w1|sed "s/P//;n;s/E//;n;s/R//"|wc -w
 https://open.kattis.com/problems/avion
     (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
-https://open.kattis.com/problems/decimaldeletion
-    printf %.f `dd`
-https://open.kattis.com/problems/pinnifraendi
-    printf 0.%0`dd`d 1
-https://open.kattis.com/problems/klockan2
-    printf %02d:%02d $[a=131*`dd`/5,a/60%12] $[a%60]
 https://open.kattis.com/problems/basketballoneonone
     rev|cut -b2
 https://open.kattis.com/problems/filip
@@ -601,6 +603,8 @@ https://open.kattis.com/problems/tarifa
     read a;echo $[a-a*`sed i-`]
 https://open.kattis.com/problems/dfyrirdreki
     read a;echo $[b=`sed 1a**2-4*`*a,(b>0)+(b>=0)]
+https://open.kattis.com/problems/splitthebill
+    read a b;echo $[(`sed i+`)%a<1]
 https://open.kattis.com/problems/cinema
     read a b;echo $[`sed "s/\w*/+(a<&||0*(a-=&))/g"`]
 https://open.kattis.com/problems/cinema2
@@ -625,8 +629,6 @@ https://open.kattis.com/problems/kcuddlanod
     echo $[`rev|tr 25\  52\>`?2:1]
 https://open.kattis.com/problems/shandy
     echo $[`sort -n|sed 2d`*2]
-https://open.kattis.com/problems/splitthebill
-    read a b;echo $[(`paste -sd+`)%a<1]
 https://open.kattis.com/problems/hangingout
     read a b;echo $[`tr va-t -+|sed "s/.*/a-&<0||(a-=&,b-=1),/"`b]
 https://open.kattis.com/problems/memorygame
@@ -678,7 +680,7 @@ https://open.kattis.com/problems/sistapizzan
 https://open.kattis.com/problems/millifaersla
     ruby -e"$><<%w(Monnei Fjee Dolladollabilljoll).min_by{gets.to_i}"
 https://open.kattis.com/problems/hkio
-    ruby -ane'END{p i=$F.index($F.max_by &:hex),i}'
+    ruby -ane'END{p x=$F.index($F.max_by &:hex),x}'
 https://open.kattis.com/problems/babypanda
     read a b;ruby -e"p $b.digits(2).sum"
 https://open.kattis.com/problems/rampantgrowth
