@@ -225,10 +225,16 @@ https://open.kattis.com/problems/deathknight
 # awk
 https://open.kattis.com/problems/quickestimate
     awk 'NR>1{print length}'
-https://open.kattis.com/problems/revisionskontroll
-    awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
 https://open.kattis.com/problems/chokladkartongen
     awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
+https://open.kattis.com/problems/dividingsequence
+    awk '{for(;2^i<=$1;)$++NF=2^i++}$1=i'
+https://open.kattis.com/problems/pyramidbygge
+    awk '{while(4*i^3-i<=3*$1)i++}$0=i-1'
+https://open.kattis.com/problems/integerdivision
+    awk 'd{for(;i++<NF;)s+=a[$i-$i%d]++;print+s}{d=$2}'
+https://open.kattis.com/problems/revisionskontroll
+    awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
 https://open.kattis.com/problems/bergur
     awk 'NR>1{for(i=NF;i;i--)s+=m=m&&m<$i?m:$i;print s}'
 
@@ -401,6 +407,8 @@ https://open.kattis.com/problems/ullendullendoff
     read a;xargs -n1|sed $[1+12%a]!d
 https://open.kattis.com/problems/zoom
     read a b;tr \  \\n|sed $b~$b!d
+https://open.kattis.com/problems/planetaris
+    read a b;tr \  \\n|sort -n|awk "(s+=1+\$0)<=$b"|wc -l
 https://open.kattis.com/problems/bookingaroom
     read a b;(seq $a;dd;echo too late)|sort|uniq -u|sed q
 https://open.kattis.com/problems/fizzbuzz
@@ -451,6 +459,8 @@ https://open.kattis.com/problems/powers
     read a b;echo $[a&1?0:b<2|a&2?a/2:0]
 https://open.kattis.com/problems/eveningout1
     read a b;echo $[(a%=b)*2<b?a:b-a]
+https://open.kattis.com/problems/aroundthetable
+    read a b;echo $[(a+b)*(4-2/((a+~b)**2+1))/2]
 https://open.kattis.com/problems/herbmixing
     read a b;echo $[(a+=a>b?b+b:a+a)/3*5+a*5/3]
 https://open.kattis.com/problems/roomba1
@@ -675,6 +685,8 @@ https://open.kattis.com/problems/kmh
     ruby -ne'x=0;$<.map{x=[x,~y=_1.to_i].min;p y>0?y:x%10-x}'
 https://open.kattis.com/problems/socialrunning
     ruby -e"x,*y=$<.map &:to_i;p (1..x).map{y[-_1]+y[2-_1]}.min"
+https://open.kattis.com/problems/computercompute
+    ruby -e"x,y,z,a=$<.map &:to_i;p Math.hypot x-z,y-a"
 https://open.kattis.com/problems/sistapizzan
     ruby -e"puts$<.uniq{_1.to_i%2}[1]?:Ja:'Nej'"
 https://open.kattis.com/problems/millifaersla
@@ -1099,6 +1111,8 @@ https://open.kattis.com/problems/gangur
     ruby -ne'p$_.bytes.sum{_1%7%3*~-$.+=_1/62}'
 https://open.kattis.com/problems/morsenumbers
     ruby -ne'p gets.bytes.sum{((_1-53).abs*2+12)%50}-51'
+https://open.kattis.com/problems/justajoystick
+    ruby -ne'p gets.bytes.sum{((_1-$<.getbyte+13)%26-13).abs}'
 https://open.kattis.com/problems/snakeystring
     ruby -ne'$<.map(&:bytes).transpose.map{putc _1.max}'
 https://open.kattis.com/problems/minesmotorcompany
@@ -1379,6 +1393,8 @@ https://open.kattis.com/problems/countoccurences
     perl -nE's/\Q${\getc}/say@-/ego'
 https://open.kattis.com/problems/faraduvidstafrofid
     perl -pe"@a=/[aeiou]/gi;s//pop@a/ge"
+https://open.kattis.com/problems/dingdongditch
+    perl -anE'$.<3?@a=($c=0,map$c+=$_,sort{$a-$b}@F):say"@a[@F]"'
 https://open.kattis.com/problems/regarde
     read;perl -lpe'$_=sh.h x$_'
 
