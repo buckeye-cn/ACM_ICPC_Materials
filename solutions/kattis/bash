@@ -44,7 +44,7 @@ https://open.kattis.com/problems/logri
 
 # date
 https://open.kattis.com/problems/parentgap
-    date -d`dd`/5/1|cut -c1|tr FSMTW 665;echo weeks
+    echo $[`date -d$(dd)/5/1 +%u`/5+5] weeks
 https://open.kattis.com/problems/latelarry
     date -d"`sed a-`min" +%l:%M\ %p
 https://open.kattis.com/problems/vegabrefadagsetningar
@@ -241,14 +241,12 @@ https://open.kattis.com/problems/lastfactorialdigit
     sed 1d\;/../c0|tr 35-9 60
 https://open.kattis.com/problems/quadrant
     sed 2p|grep -c -|tr 012 124
-https://open.kattis.com/problems/headguard
-    sed "s/.*/echo &|fold -w1|uniq -c|tr -d ' \t\n'/e"
 https://open.kattis.com/problems/freefood
     sed "1d;s/^/seq /e"|sort -u|wc -l
 https://open.kattis.com/problems/vaeltetskorsten
     sed -n s/nej//p|sort -n|tail -1
 https://open.kattis.com/problems/spacerace
-    sed "1,2d;y/ /\t/"|sort -nk3|head -1|cut -f1
+    sed 1,2d|sort -nk3|sed q|cut -c-2
 https://open.kattis.com/problems/fouledfiles
     sed "1d;s/\(.\)./\1/g"|cut -c-40
 https://open.kattis.com/problems/fyi
@@ -265,12 +263,10 @@ https://open.kattis.com/problems/lvable
     grep -Eo l?v?|wc -L|tr 02 20
 https://open.kattis.com/problems/smil
     grep -ob "[:;]-\?)"|sed s/:.*//
-https://open.kattis.com/problems/champernowneverification
-    grep -o ^`dd`<<<123456789|wc -L|sed s/0/-1/
-https://open.kattis.com/problems/staerstiferningurinn
-    grep -E "^(.*) \1$"|sort -n|tail -1
 https://open.kattis.com/problems/quickestimate
     awk "NR>1{print length}"
+https://open.kattis.com/problems/staerstiferningurinn
+    awk '$1==$2'|sort -n|tail -1
 https://open.kattis.com/problems/bitteeinbit
     cut -c1
 https://open.kattis.com/problems/lubbilaerir
@@ -389,8 +385,6 @@ https://open.kattis.com/problems/ekkidaudi
 # bash expr
 https://open.kattis.com/problems/edays
     read a;echo $[2*a]
-https://open.kattis.com/problems/cube
-    read a;echo $[a*a*a]
 https://open.kattis.com/problems/bossbattle
     read a;echo $[a-2+2/a]
 https://open.kattis.com/problems/character
@@ -469,6 +463,8 @@ https://open.kattis.com/problems/savingforretirement
 # bash expr + dd
 https://open.kattis.com/problems/tolvunarfraedingartelja
     echo $[`dd`-1]
+https://open.kattis.com/problems/cube
+    echo $[`dd`**3]
 https://open.kattis.com/problems/shortcuttowhat
     echo $[`dd`*3+5]
 https://open.kattis.com/problems/hardrocksandatomicclocks
@@ -617,6 +613,8 @@ https://open.kattis.com/problems/jumbojavelin
     expr 1 - `sed i+`
 
 # expr + string utils
+https://open.kattis.com/problems/champernowneverification
+    expr 123456789 : `dd`|sed s/0/-1/
 https://open.kattis.com/problems/akcija
     read;expr `sort -rn|sed 3~3d\;i+`
 https://open.kattis.com/problems/shopaholic
@@ -816,7 +814,7 @@ https://open.kattis.com/problems/peachpowderpolygon
 https://open.kattis.com/problems/lidaskipting
     ruby -e"puts `dd`%3<1?:Jebb:'Neibb'"
 https://open.kattis.com/problems/marswindow
-    ruby -e"puts (`dd`*12-2)%26<12?:yes:'no'"
+    ruby -e"puts `dd`%13%2>0?:yes:'no'"
 https://open.kattis.com/problems/oktalni
     ruby -e"puts'%o'%0b`dd`"
 https://open.kattis.com/problems/xorsist
@@ -1029,6 +1027,8 @@ https://open.kattis.com/problems/abbysabsolutes
     read a b;sed "s/\w*/p ~-&*2<$a?1:$a;/g"|ruby
 
 # ruby, string
+https://open.kattis.com/problems/headguard
+    ruby -pe'gsub(/(.)\1*/){[$&.size,$1]*""}'
 https://open.kattis.com/problems/finalexam2
     ruby -e"p$<.count{$/==$/=_1}"
 https://open.kattis.com/problems/justabit
@@ -1061,6 +1061,8 @@ https://open.kattis.com/problems/bela
     ruby -ne'x=$_[-2];p$<.sum{(x==_1[1]?:AAO_D__KUEL:"AAA_D__KCEL")[_1[0].sum%11].sum-65}'
 https://open.kattis.com/problems/dihedralgroup
     ruby -ne'x,y=$<.map &:split;p (x*3*?_+x.reverse*3*?_)[?_+y*?_+?_]?1:0'
+https://open.kattis.com/problems/heimilisverk
+    ruby -e"puts$<.drop(1)|[]"
 https://open.kattis.com/problems/bidrod
     ruby -ne'puts gets.split.uniq'
 https://open.kattis.com/problems/averagecharacter
@@ -1087,8 +1089,6 @@ https://open.kattis.com/problems/shoppinglist
     ruby -ne'x=$<.map(&:split).reduce:&;puts x.size,x.sort'
 https://open.kattis.com/problems/shoppinglisteasy
     ruby -ne'x=$<.map(&:split).reduce:&;puts x.size,x.sort'
-https://open.kattis.com/problems/heimilisverk
-    ruby -ne'x={};$<.map{x[_1]||=$><<_1}'
 https://open.kattis.com/problems/appy
     ruby -ne'x={};$<.map{|y|puts y.split[1..].find{x[_1]!=x[_1]=1}}'
 https://open.kattis.com/problems/pokechat
