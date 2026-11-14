@@ -101,6 +101,8 @@ https://open.kattis.com/problems/monamonamona
     sed "s/ .*//;p;p"
 https://open.kattis.com/problems/kemija08
     sed "s/\([aeiou]\)p\1/\1/g"
+https://open.kattis.com/problems/kemija2
+    sed "s/\([aeiou]\)../\1/g"
 https://open.kattis.com/problems/apaxianparent
     sed "s/[aeiou] \|ex \| /ex/"
 https://open.kattis.com/problems/echoechoecho
@@ -194,6 +196,18 @@ https://open.kattis.com/problems/heysata
 https://open.kattis.com/problems/forcedchoice
     read a b c;sed "s/.* $b\b.*/KEEP/;t;cREMOVE"
 
+# awk
+https://open.kattis.com/problems/quickestimate
+    awk 'NR>1{print length}'
+https://open.kattis.com/problems/revisionskontroll
+    awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
+https://open.kattis.com/problems/chokladkartongen
+    awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
+https://open.kattis.com/problems/formatting
+    awk '{printf"%12.2f\n",$0}'
+https://open.kattis.com/problems/bergur
+    awk 'NR>1{for(i=NF;i;i--)s+=m=m&&m<$i?m:$i;print s}'
+
 # grep
 https://open.kattis.com/problems/findingana
     grep -o a.*
@@ -201,6 +215,8 @@ https://open.kattis.com/problems/carrots
     grep -Po \\d+$
 https://open.kattis.com/problems/fyi
     grep -c ^555;:
+https://open.kattis.com/problems/whatisicpc
+    grep -c "^I.* C.* P.* C";:
 https://open.kattis.com/problems/phonebook
     grep -Ec \\b39.{9}
 https://open.kattis.com/problems/magictrick
@@ -263,14 +279,10 @@ https://open.kattis.com/problems/lvable
     grep -Eo l?v?|wc -L|tr 02 20
 https://open.kattis.com/problems/smil
     grep -ob "[:;]-\?)"|sed s/:.*//
-https://open.kattis.com/problems/quickestimate
-    awk "NR>1{print length}"
-https://open.kattis.com/problems/revisionskontroll
-    awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
-https://open.kattis.com/problems/chokladkartongen
-    awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
 https://open.kattis.com/problems/staerstiferningurinn
     awk '$1==$2'|sort -n|tail -1
+https://open.kattis.com/problems/streamlag
+    awk '$2{print$1-$2}'|sort -nr|sed q
 https://open.kattis.com/problems/bitteeinbit
     cut -c1
 https://open.kattis.com/problems/lubbilaerir
@@ -312,6 +324,8 @@ https://open.kattis.com/problems/generatingcoolpasswordscompany
 https://open.kattis.com/problems/triangularnumbers
     seq `dd`|awk \$0=s+=NR
 https://open.kattis.com/problems/findmaximum
+    sort -rn|sed q
+https://open.kattis.com/problems/maximumnumber
     sort -rn|sed q
 https://open.kattis.com/problems/gottacatchemtwice
     sort -u|wc -l
@@ -483,6 +497,8 @@ https://open.kattis.com/problems/shortcuttowhat
     echo $[`dd`*3+5]
 https://open.kattis.com/problems/colorfuloutfits
     echo $[`dd`%2+2]
+https://open.kattis.com/problems/hugedeck
+    echo $[(`dd`+51)/52]
 https://open.kattis.com/problems/hardrocksandatomicclocks
     echo $[60-`dd`/60%60]
 https://open.kattis.com/problems/lasagne
@@ -528,6 +544,8 @@ https://open.kattis.com/problems/nsum
 https://open.kattis.com/problems/kakor
     read;echo $[`tr \  +`]
 https://open.kattis.com/problems/waterslidewasteeasy
+    read;echo $[`tr \  +`]
+https://open.kattis.com/problems/pitypoints
     read;echo $[`tr \  +`]
 https://open.kattis.com/problems/hackenbushbamboo
     read;echo *$[`tr \  ^`]
@@ -607,6 +625,8 @@ https://open.kattis.com/problems/kcuddlanod
     echo $[`rev|tr 25\  52\>`?2:1]
 https://open.kattis.com/problems/shandy
     echo $[`sort -n|sed 2d`*2]
+https://open.kattis.com/problems/splitthebill
+    read a b;echo $[(`paste -sd+`)%a<1]
 https://open.kattis.com/problems/hangingout
     read a b;echo $[`tr va-t -+|sed "s/.*/a-&<0||(a-=&,b-=1),/"`b]
 https://open.kattis.com/problems/memorygame
@@ -641,8 +661,12 @@ https://open.kattis.com/problems/shopaholic
 # ruby, math
 https://open.kattis.com/problems/modulo
     ruby -e"p$<.uniq{_1.to_i%42}.size"
+https://open.kattis.com/problems/jacobinumbers
+    ruby -pe'$_+=" 1"*$_.to_i'
 https://open.kattis.com/problems/password
     ruby -ne'p$<.map{_1.split[1].to_f}.sort.sum{_1*$.-=1}'
+https://open.kattis.com/problems/maptiles2
+    ruby -ne'p~/$/;%w[23 1-3].map{p$_.tr(_1,"01").to_i 2}'
 https://open.kattis.com/problems/photoencoding
     ruby -ne'p$<.tally.map{|x,y|x.to_i+y}.max/2+1'
 https://open.kattis.com/problems/kmh
@@ -653,6 +677,8 @@ https://open.kattis.com/problems/sistapizzan
     ruby -e"puts$<.uniq{_1.to_i%2}[1]?:Ja:'Nej'"
 https://open.kattis.com/problems/millifaersla
     ruby -e"$><<%w(Monnei Fjee Dolladollabilljoll).min_by{gets.to_i}"
+https://open.kattis.com/problems/hkio
+    ruby -ane'END{p i=$F.index($F.max_by &:hex),i}'
 https://open.kattis.com/problems/babypanda
     read a b;ruby -e"p $b.digits(2).sum"
 https://open.kattis.com/problems/rampantgrowth
@@ -1073,6 +1099,8 @@ https://open.kattis.com/problems/morsenumbers
     ruby -ne'p gets.bytes.sum{((_1-53).abs*2+12)%50}-51'
 https://open.kattis.com/problems/snakeystring
     ruby -ne'$<.map(&:bytes).transpose.map{putc _1.max}'
+https://open.kattis.com/problems/minesmotorcompany
+    ruby -ne'p$<.each_byte.each_cons(4).sum{(_1-_4).abs}'
 https://open.kattis.com/problems/trik
     ruby -ne'x=0;$_.bytes{x+=x-_1};p 3-x%3'
 https://open.kattis.com/problems/raggedright
@@ -1171,8 +1199,6 @@ https://open.kattis.com/problems/sequencereduction
     ruby -e"p$<.map{[$.-1,$.=_1.to_i].max}[2..].sum"
 https://open.kattis.com/problems/gameparty
     ruby -ne'p (1+gets.split.sum(&:to_i))%3'
-https://open.kattis.com/problems/revisionskontroll
-    ruby -ne'x={};gets.split{puts x[_1]?0:x[_1]=1}'
 https://open.kattis.com/problems/backspace
     ruby -pe'x="";$_.chars{_1!=?<?x<<_1:x.chop!};$_=x'
 https://open.kattis.com/problems/alphabetsoup
@@ -1345,8 +1371,14 @@ https://open.kattis.com/problems/skener
 # perl
 https://open.kattis.com/problems/everyotherletter
     perl -pes/.\\K.//g
+https://open.kattis.com/problems/snakehiss
+    perl -E"say+His,'s'x<>,'!'"
 https://open.kattis.com/problems/countoccurences
     perl -nE's/\Q${\getc}/say@-/ego'
+https://open.kattis.com/problems/faraduvidstafrofid
+    perl -pe"@a=/[aeiou]/gi;s//pop@a/ge"
+https://open.kattis.com/problems/regarde
+    read;perl -lpe'$_=sh.h x$_'
 
 # python + string utils, math, multi cases
 https://open.kattis.com/problems/pet
