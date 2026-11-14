@@ -265,6 +265,10 @@ https://open.kattis.com/problems/smil
     grep -ob "[:;]-\?)"|sed s/:.*//
 https://open.kattis.com/problems/quickestimate
     awk "NR>1{print length}"
+https://open.kattis.com/problems/revisionskontroll
+    awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
+https://open.kattis.com/problems/chokladkartongen
+    awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
 https://open.kattis.com/problems/staerstiferningurinn
     awk '$1==$2'|sort -n|tail -1
 https://open.kattis.com/problems/bitteeinbit
@@ -297,12 +301,18 @@ https://open.kattis.com/problems/numberwang
     seq 999
 https://open.kattis.com/problems/telja
     seq `dd`
+https://open.kattis.com/problems/countdown2
+    seq `dd`|tac
 https://open.kattis.com/problems/namegeneration
     seq `dd`|tr 0-9 a-j|sed s/./\&ab/g
 https://open.kattis.com/problems/timeloop
     seq `dd`|sed aAbracadabra
 https://open.kattis.com/problems/generatingcoolpasswordscompany
     seq 10 $[`dd`+9]|sed s/.*/Aa__\&\&/
+https://open.kattis.com/problems/triangularnumbers
+    seq `dd`|awk \$0=s+=NR
+https://open.kattis.com/problems/findmaximum
+    sort -rn|sed q
 https://open.kattis.com/problems/gottacatchemtwice
     sort -u|wc -l
 https://open.kattis.com/problems/inputmaxxing
@@ -463,12 +473,20 @@ https://open.kattis.com/problems/savingforretirement
 # bash expr + dd
 https://open.kattis.com/problems/tolvunarfraedingartelja
     echo $[`dd`-1]
+https://open.kattis.com/problems/howmanysecondsineternity
+    echo $[`dd`*144000]
+https://open.kattis.com/problems/commonknowledge
+    echo $[8**`dd`]
 https://open.kattis.com/problems/cube
     echo $[`dd`**3]
 https://open.kattis.com/problems/shortcuttowhat
     echo $[`dd`*3+5]
+https://open.kattis.com/problems/colorfuloutfits
+    echo $[`dd`%2+2]
 https://open.kattis.com/problems/hardrocksandatomicclocks
     echo $[60-`dd`/60%60]
+https://open.kattis.com/problems/lasagne
+    echo $[(`dd`*5+6)/9-18]
 https://open.kattis.com/problems/cookiemonsterconcussion
     echo $[~-`dd`%9+1]
 https://open.kattis.com/problems/crne
@@ -701,6 +719,8 @@ https://open.kattis.com/problems/skalagerd
     ruby -e"p `dd`*2**0.5"
 https://open.kattis.com/problems/approvalarea
     ruby -e"p `dd`*Math::PI"
+https://open.kattis.com/problems/anotherdimension
+    ruby -e"p `dd`**3/3.819718634"
 https://open.kattis.com/problems/flatarreikningar
     ruby -e"p `dd`**(2.0/3)*4.836"
 https://open.kattis.com/problems/lidaskipting2
@@ -1321,6 +1341,12 @@ https://open.kattis.com/problems/encodedmessage
     read;ruby -ne'(1+x= ~/$/).times{$><<$_[(x**0.5*_1-1)%-~x]}'
 https://open.kattis.com/problems/skener
     read a b c d;ruby -ne"(\$_*$c).chars.map{$><<_1*$d}"
+
+# perl
+https://open.kattis.com/problems/everyotherletter
+    perl -pes/.\\K.//g
+https://open.kattis.com/problems/countoccurences
+    perl -nE's/\Q${\getc}/say@-/ego'
 
 # python + string utils, math, multi cases
 https://open.kattis.com/problems/pet
