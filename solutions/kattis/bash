@@ -122,11 +122,11 @@ https://open.kattis.com/problems/mork
 https://open.kattis.com/problems/mylla
     sed "1d;s/.*A$/Hannes/;t;cArnar"
 https://open.kattis.com/problems/quiteaproblem
-    sed "s/.*problem.*/yes/I;t;cno"
+    sed $'/problem/Icyes\ncno'
 https://open.kattis.com/problems/blackthorn
-    sed "s/.*kth.*/yes/;t;cno"
+    sed $'/kth/cyes\ncno'
 https://open.kattis.com/problems/hissingmicrophone
-    sed "s/.*ss.*/hiss/;t;cno hiss"
+    sed $'/ss/chiss\ncno hiss'
 https://open.kattis.com/problems/hradgreining
     sed "s/.*COV.*/Veikur!/;t;cEkki veikur!"
 https://open.kattis.com/problems/canadianseh
@@ -154,7 +154,7 @@ https://open.kattis.com/problems/miraclescreated
 https://open.kattis.com/problems/oddities
     sed "1d;s/[13579]$/& is odd/;t;ais even"
 https://open.kattis.com/problems/somesum
-    sed "s/.\?[260]/Odd/;t;s/[48]/Even/;t;cEither"
+    sed $'/[026]/cOdd\n/[48]/cEven\ncEither'
 https://open.kattis.com/problems/stafur
     sed "s/[AEIOU]/Jebb/;t;s/Y/Kannski/;t;cNeibb"
 https://open.kattis.com/problems/desiigner
@@ -448,7 +448,7 @@ https://open.kattis.com/problems/pieceofcake2
 https://open.kattis.com/problems/hornrett
     read a b c;echo $[a*a+b*b-c*c?-1:a*b/2]
 https://open.kattis.com/problems/oldwomenwholivedinashoe
-    read a;read b;read c;echo $[a/c*(b/c)/2]
+    read -d '' a b c;echo $[a/c*(b/c)/2]
 https://open.kattis.com/problems/makingameowth
     read a b c d;echo $[b*c+b/--a*d]
 https://open.kattis.com/problems/laptopsticker
