@@ -123,8 +123,6 @@ https://open.kattis.com/problems/bokstaflega1984
     sed "s/1984/Literally &/;t;cNot 1984... yet"
 https://open.kattis.com/problems/eyeofsauron
     sed "s/^\(|*\)()\1$/correct/;t;cfix"
-https://open.kattis.com/problems/hvertskalmaeta
-    sed "s/.*[id]$\|.*ng/Akureyri/;t;cReykjavik"
 https://open.kattis.com/problems/breakingbranches
     sed "s/.*[13579]$/Bob/;t;cAlice 1"
 https://open.kattis.com/problems/oddities
@@ -157,6 +155,8 @@ https://open.kattis.com/problems/knightpacking
     sed -e/[13579]$/cfirst -ecsecond
 https://open.kattis.com/problems/miraclescreated
     sed -e/[13579]$/cNO -ecYES
+https://open.kattis.com/problems/hvertskalmaeta
+    sed -e"/[id]\b\|ng/cAkureyri" -ecReykjavik
 https://open.kattis.com/problems/hissingmicrophone
     sed $'/ss/chiss\ncno hiss'
 https://open.kattis.com/problems/somesum
@@ -367,8 +367,6 @@ https://open.kattis.com/problems/isyavowel
     tr -dc aeiouy>_;tr -d y<_|wc -L;wc -L<_
 https://open.kattis.com/problems/attemptedalphabet
     tr -d `dd`<<<$(printf %s {a..z})|grep .||echo Good job!
-https://open.kattis.com/problems/hamarksstokkun
-    sed 1d|tac -s" "
 https://open.kattis.com/problems/cyaniderivers
     sed s/00/0/g|tr 1 \\n|wc -L
 https://open.kattis.com/problems/trianglesofasquare
@@ -453,10 +451,10 @@ https://open.kattis.com/problems/findmaximum
     sort -rn|sed q
 https://open.kattis.com/problems/maximumnumber
     sort -rn|sed q
+https://open.kattis.com/problems/inputmaxxing
+    sort -rn|sed q
 https://open.kattis.com/problems/gottacatchemtwice
     sort -u|wc -l
-https://open.kattis.com/problems/inputmaxxing
-    sort -n|tail -1
 https://open.kattis.com/problems/trollbook
     sort -nk2|tr -d 0-9
 https://open.kattis.com/problems/bestagjofin
@@ -501,6 +499,8 @@ https://open.kattis.com/problems/aldur
     read;sort -n|sed q
 https://open.kattis.com/problems/korokphrases
     read;sort -u|wc -l
+https://open.kattis.com/problems/hamarksstokkun
+    read;fmt -1|tac
 https://open.kattis.com/problems/ball
     read;fmt -1|sort -n|uniq -d
 https://open.kattis.com/problems/hitastig
@@ -902,7 +902,7 @@ https://open.kattis.com/problems/busskortet
 https://open.kattis.com/problems/pyramids
     ruby -e"x=(6*`dd`)**3**-1;p (x/2+0.2/x).to_i"
 https://open.kattis.com/problems/exactchange
-    ruby -e"x=`dd`;p x%5,x/5%3,x/15%2,x/30%5,x/150"
+    ruby -e"x=`dd`;[5,3,2,5,9].map{p x%_1;x/=_1}"
 https://open.kattis.com/problems/trailingdigits2
     ruby -e"x=10**10;p (1..`dd`).sum{_1.pow(_1,x)}%x"
 https://open.kattis.com/problems/bootstrappingnumber
@@ -1251,12 +1251,12 @@ https://open.kattis.com/problems/engineeringenglish
     sed "s/\w*/puts x[y='&'.upcase]??.:x[y]=:&;/g;1ix={}"|ruby
 
 # ruby, large input
-https://open.kattis.com/problems/gameparty
-    ruby -ne'p (1+gets.split.sum(&:to_i))%3'
 https://open.kattis.com/problems/backspace
     ruby -pe'x="";$_.chars{_1!=?<?x<<_1:x.chop!};$_=x'
 https://open.kattis.com/problems/alphabetsoup
     ruby -pe'x=(?A..?Z).filter{!$_[_1]}*"";$_=x>""?x:"Alphabet Soup!"'
+https://open.kattis.com/problems/gameparty
+    read;ruby -ane'p (1+$F.sum(&:to_i))%3'
 
 # ruby + dd, large input
 https://open.kattis.com/problems/abcstring
