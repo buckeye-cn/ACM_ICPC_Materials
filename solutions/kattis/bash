@@ -255,10 +255,6 @@ https://open.kattis.com/problems/liquidassets
     tr -sc _|sed "1d;s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/dickensiandictionary
     tr qwertasdfgzxcvb %|sed "/%%\|\w\w/s/.*/no/;t;cyes"
-https://open.kattis.com/problems/thirstycow
-    tr \  \\n|sort -n|tail -1
-https://open.kattis.com/problems/babyshark
-    tr \  \\n|uniq -c|sort -srn|sed q|cut -c9-
 https://open.kattis.com/problems/isyavowel
     tr -dc aeiouy>_;tr -d y<_|wc -L;wc -L<_
 https://open.kattis.com/problems/attemptedalphabet
@@ -303,8 +299,18 @@ https://open.kattis.com/problems/lubbilaerir
     cut -c1
 https://open.kattis.com/problems/fairgrading
     cut -c$[(`tr \  +`*2)/40]<<<FFFFFDCBA
+https://open.kattis.com/problems/sorttwonumbers
+    fmt -1|sort -n
 https://open.kattis.com/problems/tresortering
     fmt -1|sort -n
+https://open.kattis.com/problems/thirstycow
+    fmt -1|sort -rn|sed q
+https://open.kattis.com/problems/lostlineup
+    fmt -1|sed 1c0|nl|sort -nk2|cut -f1
+https://open.kattis.com/problems/eclips
+    fmt -1|grep e||echo oh noes
+https://open.kattis.com/problems/babyshark
+    fmt -1|uniq -c|sort -srn|sed q|cut -c9-
 https://open.kattis.com/problems/classfieldtrip
     fold -w1|sort|tr -d \\n
 https://open.kattis.com/problems/peragrams
@@ -344,7 +350,7 @@ https://open.kattis.com/problems/inputmaxxing
 https://open.kattis.com/problems/trollbook
     sort -nk2|tr -d 0-9
 https://open.kattis.com/problems/bestagjofin
-    sort -rnk2|xargs -n1|head -1
+    sort -rnk2|fmt -1|sed q
 https://open.kattis.com/problems/coursescheduling
     sort -u|sed "1d;s/.* //"|sort -r|uniq -c|tac -s" "
 https://open.kattis.com/problems/fodelsedagsmemorisering
@@ -363,14 +369,8 @@ https://open.kattis.com/problems/inputscandal
     wc -l;tac|tac
 https://open.kattis.com/problems/buka
     xargs expr
-https://open.kattis.com/problems/sorttwonumbers
-    xargs -n1|sort -n
-https://open.kattis.com/problems/lostlineup
-    xargs -n1|sed 1c0|nl|sort -nk2|cut -f1
 https://open.kattis.com/problems/compoundwords
     xargs -n1>_;join -j2 _ _|sed "s/\b\(.*\) \1\b//"|sort -u
-https://open.kattis.com/problems/eclips
-    xargs -n1|grep e||echo oh noes
 https://open.kattis.com/problems/antipalindrome
     a=alindrome;sed -E "s/.*(.).? ?\1.*/P$a/i;t;cAnti-p$a"
 https://open.kattis.com/problems/coffeecupcombo
@@ -381,8 +381,6 @@ https://open.kattis.com/problems/keywords
     read;tr - \ |sort -uf|wc -l
 https://open.kattis.com/problems/upsidedown
     read;tr \  \\n|rev|sort -r
-https://open.kattis.com/problems/ball
-    read;tr \  \\n|sort -n|uniq -d
 https://open.kattis.com/problems/mumblerap
     read;tr -c 0-9 \\n|sort -n|tail -1
 https://open.kattis.com/problems/ncis
@@ -391,26 +389,28 @@ https://open.kattis.com/problems/aldur
     read;sort -n|head -1
 https://open.kattis.com/problems/korokphrases
     read;sort -u|wc -l
+https://open.kattis.com/problems/ball
+    read;fmt -1|sort -n|uniq -d
 https://open.kattis.com/problems/hitastig
     read;fmt -1|sort -rn|sed "1p;N;D"
-https://open.kattis.com/problems/bannord
-    read a;tr \  \\n|sed "/[$a]/s/./*/g"
 https://open.kattis.com/problems/ullendullendoff2
     read a;sed 1x\;$[1+12%a]G
 https://open.kattis.com/problems/fargrobot
     read a;sed -E "s/[GB]*(R)|[RB]*(G)|[RG]*(B)/\1\2\3/g"|cut -c-$a
+https://open.kattis.com/problems/bannord
+    read a;fmt -1|sed "/[$a]/s/./*/g"
+https://open.kattis.com/problems/ullendullendoff
+    read a;fmt -1|sed $[1+12%a]!d
 https://open.kattis.com/problems/reversiblecyclic
     read a;rev<<<$a$a|grep $a|wc -l
 https://open.kattis.com/problems/counting
     read a;seq $a $a $[12*a]
 https://open.kattis.com/problems/hipphipphurra
     read a;seq `dd`|sed "cHipp hipp hurra, $a!"
-https://open.kattis.com/problems/ullendullendoff
-    read a;xargs -n1|sed $[1+12%a]!d
 https://open.kattis.com/problems/zoom
-    read a b;tr \  \\n|sed $b~$b!d
+    read a b;fmt -1|sed $b~$b!d
 https://open.kattis.com/problems/planetaris
-    read a b;tr \  \\n|sort -n|awk "(s+=1+\$0)<=$b"|wc -l
+    read a b;fmt -1|sort -n|awk "(s+=1+\$0)<=$b"|wc -l
 https://open.kattis.com/problems/bookingaroom
     read a b;(seq $a;dd;echo too late)|sort|uniq -u|sed q
 https://open.kattis.com/problems/fizzbuzz
@@ -644,7 +644,7 @@ https://open.kattis.com/problems/shandy
 https://open.kattis.com/problems/hangingout
     read a b;echo $[`tr va-t -+|sed "s/.*/a-&<0||(a-=&,b-=1),/"`b]
 https://open.kattis.com/problems/memorygame
-    read a b;echo $[b-=`tr \  "\n"|sort -u|wc -w`,b>a-2?a:b]
+    read a b;echo $[b-=`fmt -1|sort -u|wc -w`,b>a-2?a:b]
 
 # expr + dd
 https://open.kattis.com/problems/longestprimesum
@@ -670,7 +670,7 @@ https://open.kattis.com/problems/champernowneverification
 https://open.kattis.com/problems/akcija
     read;expr `sort -rn|sed 3~3d\;i+`
 https://open.kattis.com/problems/shopaholic
-    read;expr `tr \  "\n"|sort -rn|sed 3~3!d\;i+`
+    read;expr `fmt -1|sort -rn|sed 3~3!d\;i+`
 
 # ruby, math
 https://open.kattis.com/problems/modulo
