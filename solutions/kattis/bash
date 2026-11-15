@@ -223,8 +223,18 @@ https://open.kattis.com/problems/deathknight
     read;grep CD -vc;:
 
 # awk
-https://open.kattis.com/problems/quickestimate
-    awk 'NR>1{print length}'
+https://open.kattis.com/problems/chanukah
+    awk '$2*=($2+3)/2'
+https://open.kattis.com/problems/sumkindofproblem
+    awk '$2=($4=($3=$2*$2)+$2)/2'
+https://open.kattis.com/problems/mixedfractions
+    awk '$1&&$1=int($1/$2)" "$1%$2" /"'
+https://open.kattis.com/problems/catmouse
+    awk '$3&&$0=$2*4.603339>$3?"YES":"NO"'
+https://open.kattis.com/problems/moreorless
+    awk '$1-$2&&$0=$1>$2?"More":"Less"'
+https://open.kattis.com/problems/sibice
+    awk '$0=d?$1^2>d?"NE":"DA":(d=$2^2+$3^2)<0'
 https://open.kattis.com/problems/chokladkartongen
     awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
 https://open.kattis.com/problems/dividingsequence
@@ -233,10 +243,18 @@ https://open.kattis.com/problems/pyramidbygge
     awk '{while(4*i^3-i<=3*$1)i++}$0=i-1'
 https://open.kattis.com/problems/integerdivision
     awk 'd{for(;i++<NF;)s+=a[$i-$i%d]++;print+s}{d=$2}'
+https://open.kattis.com/problems/quickestimate
+    awk 'NR>1{print length}'
 https://open.kattis.com/problems/revisionskontroll
     awk 'NR>1{for(;i++<NF;)print!a[$i]++}'
 https://open.kattis.com/problems/bergur
     awk 'NR>1{for(i=NF;i;i--)s+=m=m&&m<$i?m:$i;print s}'
+https://open.kattis.com/problems/vedurheidar
+    awk 'NR<2{a=$1}NR>2&&$2=$2<a?"lokud":"opin"'
+https://open.kattis.com/problems/geneblock
+    read;awk '$0=$1<7*(x=(3*$1-1)%10+1)?-1:x'
+https://open.kattis.com/problems/scalingrecipe
+    read a b c;awk \$0=\$0*$c/$b
 
 # string utils
 https://open.kattis.com/problems/cold
@@ -383,6 +401,8 @@ https://open.kattis.com/problems/upsidedown
     read;tr \  \\n|rev|sort -r
 https://open.kattis.com/problems/mumblerap
     read;tr -c 0-9 \\n|sort -n|tail -1
+https://open.kattis.com/problems/cheaterdetection
+    read;tr -d .|awk '$0=$1%3<2?"VALID":"IMPOSSIBLE"'
 https://open.kattis.com/problems/ncis
     read;sort|sort -fs
 https://open.kattis.com/problems/aldur
@@ -1285,12 +1305,6 @@ https://open.kattis.com/problems/flyingsafely
     read;ruby -ne'p~-$_.to_i;$<.take$_[/ .*/].to_i'
 https://open.kattis.com/problems/zanzibar
     read;ruby -ne'p$_.split.sum{[-2*$.+$.=_1.to_i,0].max}'
-https://open.kattis.com/problems/cheaterdetection
-    read;ruby -ne'puts$_.to_r*100%3<2?:VALID:"IMPOSSIBLE"'
-https://open.kattis.com/problems/scalingrecipe
-    read a b c;ruby -ne"p\$_.to_i*$c/$b"
-https://open.kattis.com/problems/sibice
-    read a b c;ruby -ne"puts\$_.to_i**2>$[b*b+c*c]?:NE:'DA'"
 
 # ruby + sed (preprocess), math, multi cases
 https://open.kattis.com/problems/bishops
@@ -1315,10 +1329,6 @@ https://open.kattis.com/problems/electricaloutlets
     sed "y/ /+/;1!ip 1-"|ruby
 https://open.kattis.com/problems/owlandfox
     sed "s/0*$/&-1&/;1!ip~~"|ruby
-https://open.kattis.com/problems/chanukah
-    sed "s/ .*/;p&*(&+3)\/2/"|ruby|nl
-https://open.kattis.com/problems/sumkindofproblem
-    sed "s/ .*/,&*-~&\/2,&*&,&*-~&/;1!ip~~"|ruby
 https://open.kattis.com/problems/parking2
     sed "y/ /,/;3~2s/.*/p 2*([&].max-[&].min)/"|ruby
 https://open.kattis.com/problems/batteries
@@ -1333,8 +1343,6 @@ https://open.kattis.com/problems/babylonian
     sed "s/\</;x+=/g;s/,/;x*=60/g;s/^/x=0/;1!ap x"|ruby
 https://open.kattis.com/problems/nine
     sed "1!s/.*/p 8*9.pow(&-1,x=10**9+7)%x/"|ruby
-https://open.kattis.com/problems/geneblock
-    sed "1!s/.*/x=10--&*3%10;p &<x*7?-1:x/"|ruby
 https://open.kattis.com/problems/oddgnome
     sed "y/ /,/;s/^/x=/;1!ap (2..).find{x.shift;x[1]=x[0];x==x.sort}"|ruby
 https://open.kattis.com/problems/limbo1
@@ -1349,18 +1357,10 @@ https://open.kattis.com/problems/beautifulprimes
     sed "1!s/.*/puts ([2,31,7,23]*&)[...&]*' '/"|ruby
 https://open.kattis.com/problems/helpaphd
     sed "s/^/puts /;1cNP=:skipped"|ruby
-https://open.kattis.com/problems/catmouse
-    sed "s/ .* /;puts&*4.603339>/;s/$/?:YES:'NO'/"|ruby
 https://open.kattis.com/problems/nastyhacks
     sed "s/ .* /<=>&-/;1!s/.*/puts ['does not matter','do not '+x='advertise',x][&]/"|ruby
-https://open.kattis.com/problems/moreorless
-    sed "x;s/ />/;s/.*/puts &? :More:'Less'/"|ruby
-https://open.kattis.com/problems/mixedfractions
-    sed "y/ /,/;s/^/x,y=/;1!iputs x/y,x%y,'/',y"|ruby
 https://open.kattis.com/problems/simplefactoring
     sed "y/ /,/;s/^/x,y,z=/;1!ax=y*y-4*x*z;puts (x.abs**0.5).to_i**2==x ?:YES:'NO'"|ruby
-https://open.kattis.com/problems/vedurheidar
-    read a;sed "s/ .*/',&<$a?:lokud:'opin'/;1!iputs'"|ruby
 
 # ruby + grep (preprocess), math, multi cases
 https://open.kattis.com/problems/parsinghex
