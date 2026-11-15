@@ -183,10 +183,6 @@ https://open.kattis.com/problems/piglatin
     sed -E "s/([^aeiouy ]*)(\w*)/\2:\1ay/g;s/:a/ya/g;s/://g"
 https://open.kattis.com/problems/battlesimulation
     sed -E "s/RBL|RLB|BRL|BLR|LRB|LBR/C/g;y/RBL/SKH/"
-https://open.kattis.com/problems/railroad2
-    a=possible;sed "s/.*[13579]$/im$a/;t;c$a"
-https://open.kattis.com/problems/chocolatedivision
-    a=.*[13579];sed "s/$a $a$/Beata/;t;cAlf"
 https://open.kattis.com/problems/mylla2
     a=..O..;sed -Ez "s/.*O(O|$a|.$a.|..$a..)O.*/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/aaah
@@ -229,12 +225,42 @@ https://open.kattis.com/problems/sumkindofproblem
     awk '$2=($4=($3=$2*$2)+$2)/2'
 https://open.kattis.com/problems/mixedfractions
     awk '$1&&$1=int($1/$2)" "$1%$2" /"'
+https://open.kattis.com/problems/ofinthecoldfoodofouthoteatthefood
+    awk '$0=$2<2*$1?$1+$2/2:sqrt(2*$1*$2)'
+https://open.kattis.com/problems/peachpowderpolygon
+    awk '$0=$1%4?"Yes":"No"'
+https://open.kattis.com/problems/marswindow
+    awk '$0=$1%13%2?"yes":"no"'
+https://open.kattis.com/problems/bestcompression
+    awk '$0=$1<2*2^$2?"yes":"no"'
 https://open.kattis.com/problems/catmouse
     awk '$3&&$0=$2*4.603339>$3?"YES":"NO"'
+https://open.kattis.com/problems/moscowdream
+    awk '$0=$1*$2*$3*($4>2)&&$4<$1+$2+$3?"YES":"NO"'
+https://open.kattis.com/problems/stayingfrosty
+    awk '$0=$2*360<$1?"NO":"YES"'
+https://open.kattis.com/problems/freecell
+    awk '$0=++$1*2^$2<$3?"no":"yes"'
+https://open.kattis.com/problems/squarepeg
+    awk '$0=$2*1.414<$1?"nope":"fits"'
 https://open.kattis.com/problems/moreorless
     awk '$1-$2&&$0=$1>$2?"More":"Less"'
+https://open.kattis.com/problems/chocolatedivision
+    awk '$0=$1*$2%2?"Beata":"Alf"'
+https://open.kattis.com/problems/addingtrouble
+    awk '$0=$1+$2-$3?"wrong!":"correct!"'
+https://open.kattis.com/problems/blueberrywaffle
+    awk '$0=($2/$1+.5)%2<1?"up":"down"'
+https://open.kattis.com/problems/bordspil
+    awk '$0=$1*2+3<3*$2?"Unnar":"Arnar"'
 https://open.kattis.com/problems/sibice
     awk '$0=d?$1^2>d?"NE":"DA":(d=$2^2+$3^2)<0'
+https://open.kattis.com/problems/expectedearnings
+    awk '$0="spela"($1*$3<$2?"":" inte!")'
+https://open.kattis.com/problems/railroad2
+    awk '$0=($2%2?"im":"")"possible"'
+https://open.kattis.com/problems/judgingmoose
+    awk '$0=$1+$2?($1-$2?"Odd":"Even")" "2*($1>$2?$1:$2):"Not a moose"'
 https://open.kattis.com/problems/chokladkartongen
     awk '{for(;i<NF;)s+=$i<$++i}END{print s}'
 https://open.kattis.com/problems/dividingsequence
@@ -725,8 +751,6 @@ https://open.kattis.com/problems/cuttingcorners2
     read a b;ruby -e"p $a+$b-$[a*a+b*b]**0.5"
 https://open.kattis.com/problems/fastestestfunction
     read a b;ruby -e"p $a.0*$[100-b]/$b/$[100-a]"
-https://open.kattis.com/problems/ofinthecoldfoodofouthoteatthefood
-    read a b;ruby -e"p 2*$a>$b?$a+$b.0/2:$[2*a*b]**0.5"
 https://open.kattis.com/problems/ladder
     read a b;ruby -e"p ($a/Math.sin($b/57.29578)).ceil"
 https://open.kattis.com/problems/ordinaryordinals
@@ -743,12 +767,6 @@ https://open.kattis.com/problems/ghostleg
     read a b;ruby -e"x=*1..$a;$<.map{y=_1.to_i;x[y],x[y-1]=x[y-1,2]};p *x"
 https://open.kattis.com/problems/countingclauses
     read a b;ruby -e"puts'un'*$[a<8]+'satisfactory'"
-https://open.kattis.com/problems/bestcompression
-    read a b;ruby -e"puts $a<2<<$b?:yes:'no'"
-https://open.kattis.com/problems/bordspil
-    read a b;ruby -e"puts~-$b*3>2*$a?:Unnar:'Arnar'"
-https://open.kattis.com/problems/blueberrywaffle
-    read a b;ruby -e"puts $[a/2+b]/$a%2<1?:up:'down'"
 https://open.kattis.com/problems/binaryexponentiation
     read a b c;ruby -e"p $a.pow($b,$c)"
 https://open.kattis.com/problems/bladra2
@@ -757,12 +775,8 @@ https://open.kattis.com/problems/climbingstairs
     read a b c;ruby -e"p 2*[$[a-~b]/2,$b,$c].max"
 https://open.kattis.com/problems/generalizedfizzbuzz
     read a b c;ruby -e"x=$a./$b.lcm $c;p $a/$b-x,$a/$c-x,x"
-https://open.kattis.com/problems/expectedearnings
-    read a b c;ruby -e"puts'spela'.+$a*$c<$b?'':' inte!'"
 https://open.kattis.com/problems/dasblinkenlights
     read a b c;ruby -e"puts $a.lcm($b)>$c?:no:'yes'"
-https://open.kattis.com/problems/freecell
-    read a b c;ruby -e"puts~$a*2**$b>-$c?:no:'yes'"
 https://open.kattis.com/problems/bottleflip
     read a b c d;ruby -e"p $a./1+($d.0/$c)**0.5"
 https://open.kattis.com/problems/rectanglearea
@@ -893,12 +907,8 @@ https://open.kattis.com/problems/subtractionplusplus
     ruby -e"$><<[:NO,:YES][(3..).find{`dd`<=$.+=_1/2}&1]"
 https://open.kattis.com/problems/subtractionplusplusplus
     ruby -e"$><<[:NO,:YES][(3..).find{`dd`<=$.+=_1/2}&1]"
-https://open.kattis.com/problems/peachpowderpolygon
-    ruby -e"puts `dd`%4>0?:Yes:'No'"
 https://open.kattis.com/problems/lidaskipting
     ruby -e"puts `dd`%3<1?:Jebb:'Neibb'"
-https://open.kattis.com/problems/marswindow
-    ruby -e"puts `dd`%13%2>0?:yes:'no'"
 https://open.kattis.com/problems/oktalni
     ruby -e"puts'%o'%0b`dd`"
 https://open.kattis.com/problems/xorsist
@@ -981,14 +991,8 @@ https://open.kattis.com/problems/triplejump
     ruby -e"x,y,z,*a,b=[`tr " \n" ,`];p y/3,z-y+y/3,b/3"
 https://open.kattis.com/problems/simplearithmetic
     ruby -e"puts'%f'.%`tr \  \*`**-1"
-https://open.kattis.com/problems/stayingfrosty
-    ruby -e"puts `tr \  \>`*360?:NO:'YES'"
-https://open.kattis.com/problems/squarepeg
-    ruby -e"puts `tr \  \>`*1.414?:nope:'fits'"
 https://open.kattis.com/problems/divvyingup
     ruby -e"puts((`tr \  +`)%3>0?:no:'yes')"
-https://open.kattis.com/problems/addingtrouble
-    ruby -e"puts `tr \  +`*-1==0?'correct!':'wrong!'"
 https://open.kattis.com/problems/drivingdilemma
     ruby -e"puts 6.2/`tr "\n" \*`*-1<9?'MADE IT':'FAILED TEST'"
 https://open.kattis.com/problems/kingarthur
@@ -1017,10 +1021,6 @@ https://open.kattis.com/problems/grading
     ruby -e"x=`tr " \n" ,`0;putc 65+x.count{_1>x[5]}"
 https://open.kattis.com/problems/dicegame
     ruby -e"x,y=`tr " \n" +,`0;$><<%w(Tie Gunnar Emma)[x<=>y]"
-https://open.kattis.com/problems/judgingmoose
-    ruby -e"x,y=[`tr \  ,`].sort;y>0?puts(x<y ?:Odd:'Even',y*2):$><<'Not a moose'"
-https://open.kattis.com/problems/moscowdream
-    ruby -e"*x,y=`tr \  ,`;puts x.min>0&&x.sum>y&&y>2?:YES:'NO'"
 https://open.kattis.com/problems/internationaldates
     ruby -e"x,y=`tr /89 ,7`;puts x>12?:EU:y>12?:US:'either'"
 https://open.kattis.com/problems/netthjonaplass
