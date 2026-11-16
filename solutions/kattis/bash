@@ -50,7 +50,7 @@ https://open.kattis.com/problems/bigfactoring
 https://open.kattis.com/problems/subcommittees
     factor|wc -w
 https://open.kattis.com/problems/crypto
-    factor|fmt -1|uniq -c|sort -k1,1nr -k2n|sed q|cut -c9-
+    factor|fmt -1|uniq -c|sort -k1nr -k2n|sed q|cut -c9-
 https://open.kattis.com/problems/logri
     factor $[`dd`-1]|sed s/.*\ //
 
@@ -399,6 +399,10 @@ https://open.kattis.com/problems/fizzbuzz
     read a b c;seq $c|sed "$b~$b s/.*/Buzz/;$a~$a s/[0-9]*/Fizz/"
 https://open.kattis.com/problems/ekkidaudi
     IFS=\|;read a b;read c d;echo $a$c $b$d
+
+# bash control flow
+https://open.kattis.com/problems/hailstone
+    for((b=a=`dd`;a>1;b+=a=a%2?3*a+1:a/2)){ :;};echo $b
 
 # bash expr
 https://open.kattis.com/problems/edays
@@ -854,7 +858,7 @@ https://open.kattis.com/problems/reversebinary
 https://open.kattis.com/problems/modulo
     ruby -e"p$<.uniq{_1.to_i%42}.size"
 https://open.kattis.com/problems/password
-    ruby -ne'p$<.map{_1.split[1].to_f}.sort.sum{_1*$.-=1}'
+    ruby -ne'p$<.map{_1[/ .*/].to_f}.sort.sum{_1*$.-=1}'
 https://open.kattis.com/problems/maptiles2
     ruby -ne'p~/$/;%w[23 1-3].map{p$_.tr(_1,"01").to_i 2}'
 https://open.kattis.com/problems/hkio
@@ -882,7 +886,7 @@ https://open.kattis.com/problems/ordinaryordinals
 https://open.kattis.com/problems/lamps
     read a b;ruby -e"p (1..).find{$a*~-_1/1000+98e-6*$a*$b*_1>11}"
 https://open.kattis.com/problems/isiteven
-    read a b;ruby -e"p$<.sum{x=_1.to_i;Math.log2(x&-x)}<$b?0:1"
+    read a b;ruby -e"p$<.sum{x=_1.to_i;Math.log2 x&-x}<$b?0:1"
 https://open.kattis.com/problems/diagonalcut
     read a b;ruby -e"x=$a.gcd $b;p x.*$a/x&$b/x&1"
 https://open.kattis.com/problems/ghostleg
@@ -963,8 +967,6 @@ https://open.kattis.com/problems/trailingdigits2
     ruby -e"x=10**10;p (1..`dd`).sum{_1.pow _1,x}%x"
 https://open.kattis.com/problems/bootstrappingnumber
     ruby -e"x=1;$\".map{x=(x*`dd`**x**-1)**0.5};p x"
-https://open.kattis.com/problems/hailstone
-    ruby -e"x=`dd`;p x+(0..999).sum{x=x<2?0:x%2>0?3*x+1:x/2}"
 https://open.kattis.com/problems/hailstone2
     ruby -e"x=`dd`*2;p (1..).find{2>x=x%2>0?3*x+1:x/2}"
 https://open.kattis.com/problems/numberreduction
@@ -984,7 +986,7 @@ https://open.kattis.com/problems/sifferprodukt
 https://open.kattis.com/problems/enjoyableentree
     ruby -e"x,y=1e2,0;[`dd`-1,99].min.times{x,y=y,(x+y)/2};p x,100-x"
 https://open.kattis.com/problems/rootofminusone
-    ruby -e"x=`dd`;(2..).find{y=_1.pow(x/4,x);-y*y%x<2&&p(y)}"
+    ruby -e"x=`dd`;(2..).find{y=_1.pow x/4,x;-y*y%x<2&&p(y)}"
 https://open.kattis.com/problems/threesandfives
     ruby -e"x=-`dd`;p (~(y=x/15)*y*15-~(y=x/3)*y*3-~(y=x/5)*y*5)/2"
 https://open.kattis.com/problems/divisordetective
@@ -1072,7 +1074,7 @@ https://open.kattis.com/problems/cornhusker
 https://open.kattis.com/problems/linesperhour
     ruby -e"x,y,*z=`tr " \n" ,`0;y*=5;p x-z.sort.count{0>y-=_1}"
 https://open.kattis.com/problems/milkmystery
-    ruby -e"x,y,*z=`tr " \n" ,`0;p (0..x).map{z[_1..._1+y].sum}.max"
+    ruby -e"x,y,*z=`tr " \n" ,`0;p z.each_cons(y).map(&:sum).max"
 https://open.kattis.com/problems/oothaderkominnott
     ruby -e"x,y,z,a=[`tr "\n" ,`];p (2-y)*(2-z||=y)*(1-a||=3)+y*z*a"
 https://open.kattis.com/problems/triplejump
@@ -1186,7 +1188,7 @@ https://open.kattis.com/problems/kinahvisl
 https://open.kattis.com/problems/doublepassword
     ruby -ne'p 2**$_.chars.count{_1!=$<.getc}'
 https://open.kattis.com/problems/cprnummer
-    ruby -e"p'FEDIHGGFEDCB'.bytes.sum{_1*$<.getc.ord}%11/10"
+    ruby -e"p'FEDIHGGFEDC'.bytes.sum{_1*$<.getbyte}%11/10"
 https://open.kattis.com/problems/gangur
     ruby -ne'p$_.bytes.sum{_1%7%3*~-$.+=_1/62}'
 https://open.kattis.com/problems/morsenumbers
@@ -1292,7 +1294,7 @@ https://open.kattis.com/problems/engineeringenglish
 https://open.kattis.com/problems/backspace
     ruby -pe'x="";$_.chars{_1!=?<?x<<_1:x.chop!};$_=x'
 https://open.kattis.com/problems/alphabetsoup
-    ruby -pe'x=(?A..?Z).filter{!$_[_1]}*"";$_=x>""?x:"Alphabet Soup!"'
+    ruby -pe'x=([*?A..?Z]-$_.chars)*"";$_=x>""?x:"Alphabet Soup!"'
 https://open.kattis.com/problems/gameparty
     read;ruby -ane'p (1+$F.sum(&:to_i))%3'
 
@@ -1342,7 +1344,7 @@ https://open.kattis.com/problems/epigdanceoff
 https://open.kattis.com/problems/leynitolur
     ruby -ne'p ($_.to_i-68431307)*881051043651%2**64'
 https://open.kattis.com/problems/baddirections
-    ruby -ne'x,y,*z,a=$_.bytes;puts z.map{(x+_1+4)%10}*""'
+    ruby -lne'x,y,*z=$_.bytes;puts z.map{(x+_1+4)%10}*""'
 https://open.kattis.com/problems/zanzibar
     read;ruby -ane'p$F.sum{[-2*$.+$.=_1.to_i,0].max}'
 
@@ -1404,7 +1406,7 @@ https://open.kattis.com/problems/sortofsorting
 https://open.kattis.com/problems/everywhere
     read;ruby -ne'p$<.take(eval$_).uniq.size'
 https://open.kattis.com/problems/irepeatmyself
-    read;ruby -ne'p (1..).find{1>$_.index($_[_1..-2])}'
+    read;ruby -lne'p (1..).find{1>$_.index($_[_1..])}'
 https://open.kattis.com/problems/alliteration
     read;ruby -ane'puts$F.map{_1[0]}.tally.min_by{[-_2,_1]}[0]'
 https://open.kattis.com/problems/detaileddifferences
