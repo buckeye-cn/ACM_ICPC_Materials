@@ -48,7 +48,7 @@ https://open.kattis.com/problems/parentgap
 https://open.kattis.com/problems/latelarry
     date -d"`sed a-`min" +%l:%M\ %p
 https://open.kattis.com/problems/vegabrefadagsetningar
-    sed "s/ .*\// /"|date -I -f-
+    sed "s/ .*\///"|date -I -f-
 https://open.kattis.com/problems/datum
     read a b;date -d$b/$a/9 +%A
 
@@ -81,6 +81,8 @@ https://open.kattis.com/problems/soundex
     tr -s A-Z _123_12__22455_12623_1_2_2|tr -d _
 https://open.kattis.com/problems/qwerty
     read;tr a-z qwertyuiopasdfghjklzxcvbnm
+https://open.kattis.com/problems/sarahssandwichshop
+    read;tr a-z A-Z|tr A-Z 22233344455566677778889999
 https://open.kattis.com/problems/bradspelet
     read a b;tr 01 AB<<<$[(a&-a)==(b&-b)]
 
@@ -117,14 +119,12 @@ https://open.kattis.com/problems/samfelagsmidlasvar
     sed "s/.* //;s/$/slop/"
 https://open.kattis.com/problems/mischievousmath
     sed "s/../1 2 3/;t;c10 21 43"
-https://open.kattis.com/problems/mork
-    sed "2d;s/^[02]$/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/bokstaflega1984
     sed "s/1984/Literally &/;t;cNot 1984... yet"
 https://open.kattis.com/problems/eyeofsauron
     sed "s/^\(|*\)()\1$/correct/;t;cfix"
 https://open.kattis.com/problems/breakingbranches
-    sed "s/.*[13579]$/Bob/;t;cAlice 1"
+    sed $'/.*[13579]$/cBob\ncAlice 1'
 https://open.kattis.com/problems/oddities
     sed "1d;s/[13579]$/& is odd/;t;ais even"
 https://open.kattis.com/problems/desiigner
@@ -159,6 +159,8 @@ https://open.kattis.com/problems/hvertskalmaeta
     sed -e"/[id]\b\|ng/cAkureyri" -ecReykjavik
 https://open.kattis.com/problems/hissingmicrophone
     sed $'/ss/chiss\ncno hiss'
+https://open.kattis.com/problems/mork
+    sed $'2d;/^[02]$/cJebb\ncNeibb'
 https://open.kattis.com/problems/somesum
     sed $'/[026]/cOdd\n/[48]/cEven\ncEither'
 https://open.kattis.com/problems/isithalloween
@@ -184,7 +186,7 @@ https://open.kattis.com/problems/battlesimulation
 https://open.kattis.com/problems/mylla2
     a=..O..;sed -Ez "s/.*O(O|$a|.$a.|..$a..)O.*/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/aaah
-    read a;sed "s/.*a$a/no/;t;cgo"
+    read a;sed -e"/a$a/cno" -ecgo
 https://open.kattis.com/problems/heysata
     read;a=Unnar\ fann\ hana;sed -Ez "s/^(.).*\1.*/$a!/;t;c$a ekki!"
 https://open.kattis.com/problems/forcedchoice
@@ -375,10 +377,8 @@ https://open.kattis.com/problems/lastfactorialdigit
     sed 1d\;/../c0|tr 35-9 60
 https://open.kattis.com/problems/quadrant
     sed 2p|grep -c -|tr 012 124
-https://open.kattis.com/problems/freefood
-    sed "1d;s/^/seq /e"|sort -u|wc -l
 https://open.kattis.com/problems/vaeltetskorsten
-    sed -n s/nej//p|sort -n|tail -1
+    sed -n s/nej//p|sort -rn|sed q
 https://open.kattis.com/problems/spacerace
     sed 1,2d|sort -nk3|sed q|cut -c-2
 https://open.kattis.com/problems/fouledfiles
@@ -420,13 +420,13 @@ https://open.kattis.com/problems/eclips
 https://open.kattis.com/problems/babyshark
     fmt -1|uniq -c|sort -srn|sed q|cut -c9-
 https://open.kattis.com/problems/classfieldtrip
-    fold -w1|sort|tr -d \\n
+    fold -1|sort|tr -d \\n
 https://open.kattis.com/problems/peragrams
     fold -w1|sort|uniq -c|grep [13579]\ |sed 1d|wc -l
 https://open.kattis.com/problems/pokerhand
     fold -w3|sort|uniq -cw1|sort -r|cut -zc7
 https://open.kattis.com/problems/conundrum
-    fold -w1|sed "s/P//;n;s/E//;n;s/R//"|wc -w
+    fold -1|sed "s/P//;n;s/E//;n;s/R//"|wc -w
 https://open.kattis.com/problems/avion
     (nl|grep FBI||echo HE GOT AWAY!)|cut -f1
 https://open.kattis.com/problems/basketballoneonone
@@ -490,7 +490,7 @@ https://open.kattis.com/problems/keywords
 https://open.kattis.com/problems/upsidedown
     read;tr \  \\n|rev|sort -r
 https://open.kattis.com/problems/mumblerap
-    read;tr -c 0-9 \\n|sort -n|tail -1
+    read;tr -c 0-9 \\n|sort -rn|sed q
 https://open.kattis.com/problems/cheaterdetection
     read;tr -d .|awk '$0=$1%3<2?"VALID":"IMPOSSIBLE"'
 https://open.kattis.com/problems/ncis
@@ -505,6 +505,8 @@ https://open.kattis.com/problems/ball
     read;fmt -1|sort -n|uniq -d
 https://open.kattis.com/problems/hitastig
     read;fmt -1|sort -rn|sed "1p;N;D"
+https://open.kattis.com/problems/freefood
+    read;xargs -n2 seq|sort -u|wc -l
 https://open.kattis.com/problems/ullendullendoff2
     read a;sed 1x\;$[1+12%a]G
 https://open.kattis.com/problems/fargrobot
@@ -740,7 +742,7 @@ https://open.kattis.com/problems/jobexpenses
 https://open.kattis.com/problems/kcuddlanod
     echo $[`rev|tr 25\  52\>`?2:1]
 https://open.kattis.com/problems/shandy
-    echo $[`sort -n|sed 2d`*2]
+    echo $[`sort -n|sed q`*2]
 https://open.kattis.com/problems/hangingout
     read a b;echo $[`tr va-t -+|sed "s/.*/a-&<0||(a-=&,b-=1),/"`b]
 https://open.kattis.com/problems/memorygame
@@ -773,10 +775,12 @@ https://open.kattis.com/problems/shopaholic
     read;expr `fmt -1|sort -rn|sed 3~3!d\;i+`
 
 # ruby, math
-https://open.kattis.com/problems/modulo
-    ruby -e"p$<.uniq{_1.to_i%42}.size"
 https://open.kattis.com/problems/jacobinumbers
     ruby -pe'$_+=" 1"*$_.to_i'
+https://open.kattis.com/problems/reversebinary
+    ruby -ne'p ("%b"%$_).reverse.to_i 2'
+https://open.kattis.com/problems/modulo
+    ruby -e"p$<.uniq{_1.to_i%42}.size"
 https://open.kattis.com/problems/password
     ruby -ne'p$<.map{_1.split[1].to_f}.sort.sum{_1*$.-=1}'
 https://open.kattis.com/problems/maptiles2
@@ -818,7 +822,7 @@ https://open.kattis.com/problems/diagonalcut
 https://open.kattis.com/problems/ghostleg
     read a b;ruby -e"x=*1..$a;$<.map{y=_1.to_i;x[y],x[y-1]=x[y-1,2]};p *x"
 https://open.kattis.com/problems/binaryexponentiation
-    read a b c;ruby -e"p $a.pow($b,$c)"
+    read a b c;ruby -e"p $a.pow $b,$c"
 https://open.kattis.com/problems/climbingstairs
     read a b c;ruby -e"p 2*[$[a-~b]/2,$b,$c].max"
 https://open.kattis.com/problems/generalizedfizzbuzz
@@ -855,8 +859,6 @@ https://open.kattis.com/problems/goingnuts
     ruby -e"p `dd`.digits(2).sum"
 https://open.kattis.com/problems/combinatorialstanleycup
     ruby -e"p 2**`dd`.digits(2).sum"
-https://open.kattis.com/problems/reversebinary
-    ruby -e"p ('%b'%`dd`).reverse.to_i 2"
 https://open.kattis.com/problems/egelskahann
     ruby -e"p ('%b1'%`dd`)[1..].to_i 2"
 https://open.kattis.com/problems/egelskahann2
@@ -870,7 +872,7 @@ https://open.kattis.com/problems/einfalt
 https://open.kattis.com/problems/champagneoverflow
     ruby -e"p (1..`dd`).sum{4**~-_1-_1*_1}"
 https://open.kattis.com/problems/weneedtogodeeper
-    ruby -e"p (6..25).sum{(`dd`/2-_1).clamp(0,19)}"
+    ruby -e"p (6..25).sum{(`dd`/2-_1).clamp 0,19}"
 https://open.kattis.com/problems/meowfactor
     ruby -e"p -(-128..).find{`dd`%_1**9==0}"
 https://open.kattis.com/problems/hexaphobicsquare
@@ -904,7 +906,7 @@ https://open.kattis.com/problems/pyramids
 https://open.kattis.com/problems/exactchange
     ruby -e"x=`dd`;[5,3,2,5,9].map{p x%_1;x/=_1}"
 https://open.kattis.com/problems/trailingdigits2
-    ruby -e"x=10**10;p (1..`dd`).sum{_1.pow(_1,x)}%x"
+    ruby -e"x=10**10;p (1..`dd`).sum{_1.pow _1,x}%x"
 https://open.kattis.com/problems/bootstrappingnumber
     ruby -e"x=1;$\".map{x=(x*`dd`**x**-1)**0.5};p x"
 https://open.kattis.com/problems/hailstone
@@ -1369,8 +1371,6 @@ https://open.kattis.com/problems/parsinghex
 # ruby, string, multi cases
 https://open.kattis.com/problems/sortofsorting
     ruby -ne'puts$<.take(eval$_).sort_by{_1[..1]}'
-https://open.kattis.com/problems/sarahssandwichshop
-    ruby -ne'$_.bytes{x=_1%32;putc _1>64?(x+5-x/19-x/26)/3%10+48:10}'
 https://open.kattis.com/problems/everywhere
     read;ruby -ne'p$<.take(eval$_).uniq.size'
 https://open.kattis.com/problems/irepeatmyself
@@ -1413,7 +1413,6 @@ https://open.kattis.com/problems/calculator
 # interactive
 https://open.kattis.com/problems/ninetynine
     echo 2;ruby -ne'x=eval$_;p x%3%2-~x'
-
 https://open.kattis.com/problems/equationextrapolation
     echo \? 10;echo ! `sed q|fold -1|tac`
 https://open.kattis.com/problems/guess
