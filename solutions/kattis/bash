@@ -38,7 +38,7 @@ https://open.kattis.com/problems/klockan2
 https://open.kattis.com/problems/largestfactor
     factor|sed s/.*\ //
 https://open.kattis.com/problems/primality
-    factor|sed -e"/ .* /cNO" -ecYES
+    factor|sed $'/ .* /cNO\ncYES'
 https://open.kattis.com/problems/listgame
     factor|awk \$0=NF-1
 https://open.kattis.com/problems/pascal
@@ -111,8 +111,6 @@ https://open.kattis.com/problems/brentering
     sed s/[^aeiou]*$/ntry/
 https://open.kattis.com/problems/navigationnightmare
     sed "s/B/(ooo)/g"
-https://open.kattis.com/problems/monamonamona
-    sed "s/ .*//;p;p"
 https://open.kattis.com/problems/kemija08
     sed "s/\([aeiou]\)p\1/\1/g"
 https://open.kattis.com/problems/kemija2
@@ -129,8 +127,8 @@ https://open.kattis.com/problems/thelastproblem
     sed "s/$/, and farewell!/;iThank you,"
 https://open.kattis.com/problems/samfelagsmidlasvar
     sed "s/.* //;s/$/slop/"
-https://open.kattis.com/problems/mischievousmath
-    sed "s/../1 2 3/;t;c10 21 43"
+https://open.kattis.com/problems/monamonamona
+    sed "s/ .*//;p;p"
 https://open.kattis.com/problems/bokstaflega1984
     sed "s/1984/Literally &/;t;cNot 1984... yet"
 https://open.kattis.com/problems/eyeofsauron
@@ -149,52 +147,54 @@ https://open.kattis.com/problems/digits
     sed "x;s/[^1]/2/;s/.\{10,\}/4/;/../c3"
 https://open.kattis.com/problems/rimski
     sed "s/LX/XL/;s/XI/IX/;s/VI$/IV/;s/XLX/LXX/"
-https://open.kattis.com/problems/storafmaeli
-    sed -e/0$/cJebb -ecNeibb
-https://open.kattis.com/problems/quiteaproblem
-    sed -e/problem/Icyes -ecno
-https://open.kattis.com/problems/blackthorn
-    sed -e/kth/cyes -ecno
-https://open.kattis.com/problems/canadianseh
-    sed -e/eh?$/cCanadian! -ecImposter!
-https://open.kattis.com/problems/twostones
-    sed -e/[13579]$/cAlice -ecBob
-https://open.kattis.com/problems/knightpacking
-    sed -e/[13579]$/cfirst -ecsecond
-https://open.kattis.com/problems/miraclescreated
-    sed -e/[13579]$/cNO -ecYES
-https://open.kattis.com/problems/hvertskalmaeta
-    sed -e"/[id]\b\|ng/cAkureyri" -ecReykjavik
+https://open.kattis.com/problems/mischievousmath
+    sed $'/../c1 2 3\nc10 21 43'
 https://open.kattis.com/problems/hissingmicrophone
     sed $'/ss/chiss\ncno hiss'
-https://open.kattis.com/problems/mork
-    sed $'2d;/^[02]$/cJebb\ncNeibb'
-https://open.kattis.com/problems/desiigner
-    sed $'/brrr*[aeiouy]$/cJebb\ncNeibb'
-https://open.kattis.com/problems/breakingbranches
-    sed $'/.*[13579]$/cBob\ncAlice 1'
-https://open.kattis.com/problems/somesum
-    sed $'/[026]/cOdd\n/[48]/cEven\ncEither'
+https://open.kattis.com/problems/storafmaeli
+    sed $'/0$/cJebb\ncNeibb'
+https://open.kattis.com/problems/quiteaproblem
+    sed $'/problem/Icyes\ncno'
+https://open.kattis.com/problems/blackthorn
+    sed $'/kth/cyes\ncno'
+https://open.kattis.com/problems/canadianseh
+    sed $'/eh?$/cCanadian!\ncImposter!'
 https://open.kattis.com/problems/isithalloween
     sed $'/OCT 31\|D.*25/cyup\ncnope'
 https://open.kattis.com/problems/mergjadmal
     sed $'/69\|420/cMergjad!\ncLeim!'
 https://open.kattis.com/problems/hradgreining
     sed $'/COV/cVeikur!\ncEkki veikur!'
-https://open.kattis.com/problems/mylla
-    sed $'1d;/A$/cHannes\ncArnar'
+https://open.kattis.com/problems/hvertskalmaeta
+    sed $'/[id]$\|ng/cAkureyri\ncReykjavik'
+https://open.kattis.com/problems/twostones
+    sed $'/[13579]$/cAlice\ncBob'
+https://open.kattis.com/problems/knightpacking
+    sed $'/[13579]$/cfirst\ncsecond'
+https://open.kattis.com/problems/miraclescreated
+    sed $'/[13579]$/cNO\ncYES'
+https://open.kattis.com/problems/breakingbranches
+    sed $'/.*[13579]$/cBob\ncAlice 1'
+https://open.kattis.com/problems/somesum
+    sed $'/[026]/cOdd\n/[48]/cEven\ncEither'
+https://open.kattis.com/problems/desiigner
+    sed $'/brrr*[aeiouy]$/cJebb\ncNeibb'
 https://open.kattis.com/problems/stafur
     sed $'/[AEIOU]/cJebb\n/Y/cKannski\ncNeibb'
+https://open.kattis.com/problems/mylla
+    sed $'1d;/A$/cHannes\ncArnar'
+https://open.kattis.com/problems/mork
+    sed $'2d;/^[02]$/cJebb\ncNeibb'
 https://open.kattis.com/problems/simonsays
     sed -n s/Simon.says.//p
 https://open.kattis.com/problems/simon
     sed -n s/simon.says.//p
 https://open.kattis.com/problems/codespeak
     sed -E "1d;s/[aeiou]+/ib&/g"
-https://open.kattis.com/problems/piglatin
-    sed -E "s/([^aeiouy ]*)(\w*)/\2:\1ay/g;s/:a/ya/g;s/://g"
 https://open.kattis.com/problems/battlesimulation
     sed -E "s/RBL|RLB|BRL|BLR|LRB|LBR/C/g;y/RBL/SKH/"
+https://open.kattis.com/problems/piglatin
+    sed -E "s/([^aeiouy ]*)(\w*)/\2:\1ay/g;s/:a/ya/g;s/://g"
 https://open.kattis.com/problems/mylla2
     a=..O..;sed -Ez "s/.*O(O|$a|.$a.|..$a..)O.*/Jebb/;t;cNeibb"
 https://open.kattis.com/problems/aaah
@@ -735,6 +735,12 @@ https://open.kattis.com/problems/tollbooths
     awk '(x+=/T/?$2:-$2)>y{y=x}END{print+y}'
 https://open.kattis.com/problems/spritt
     awk '{x+=$1-$2}END{print x<NR?"Jebb":"Neibb"}'
+https://open.kattis.com/problems/bottleflip
+    awk '{printf"%f",$1/(1+($4/$3)^.5)}'
+https://open.kattis.com/problems/fastestestfunction
+    awk '{printf"%f",$1*(100-$2)/$2/(100-$1)}'
+https://open.kattis.com/problems/cuttingcorners2
+    awk '{printf"%f",$1+$2-($1^2+$2^2)^.5}'
 https://open.kattis.com/problems/chokladkartongen
     awk '{for(;x<NF;)y+=$x<$++x}END{print y}'
 https://open.kattis.com/problems/toys
@@ -749,12 +755,6 @@ https://open.kattis.com/problems/pyramidbygge
     awk '{while(4*x^3-x<=3*$1)x++}$0=x-1'
 https://open.kattis.com/problems/treirad
     awk '{while(x^3-x<$1)x++}$0=x-2""'
-https://open.kattis.com/problems/bottleflip
-    awk '{printf"%f",$1/(1+($4/$3)^.5)}'
-https://open.kattis.com/problems/fastestestfunction
-    awk '{printf"%f",$1*(100-$2)/$2/(100-$1)}'
-https://open.kattis.com/problems/cuttingcorners2
-    awk '{printf"%f",$1+$2-($1^2+$2^2)^.5}'
 https://open.kattis.com/problems/integerdivision
     awk 'x{for(;y++<NF;)z+=a[$y-$y%x]++;print+z}{x=$2}'
 https://open.kattis.com/problems/facultyforest
@@ -1154,7 +1154,7 @@ https://open.kattis.com/problems/rollingthedice
 https://open.kattis.com/problems/lamppostrace
     sed "s/\w*/+($.-$.=&).abs()/g;1cp~~"|ruby
 https://open.kattis.com/problems/numbertree
-    sed "s/.* /p eval'(2<<&)-0b1/;a'.tr('LR','01')"|ruby
+    sed "s/.* /p eval'(2<<&)-0b1/;a'.tr'LR','01'"|ruby
 https://open.kattis.com/problems/dualdivisibility
     sed "s/.* /p (1..99).count{&%(_1*/;a)<1}"|ruby
 https://open.kattis.com/problems/numbersquistem
