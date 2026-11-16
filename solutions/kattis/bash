@@ -123,8 +123,6 @@ https://open.kattis.com/problems/bokstaflega1984
     sed "s/1984/Literally &/;t;cNot 1984... yet"
 https://open.kattis.com/problems/eyeofsauron
     sed "s/^\(|*\)()\1$/correct/;t;cfix"
-https://open.kattis.com/problems/breakingbranches
-    sed $'/.*[13579]$/cBob\ncAlice 1'
 https://open.kattis.com/problems/oddities
     sed "1d;s/[13579]$/& is odd/;t;ais even"
 https://open.kattis.com/problems/desiigner
@@ -161,6 +159,8 @@ https://open.kattis.com/problems/hissingmicrophone
     sed $'/ss/chiss\ncno hiss'
 https://open.kattis.com/problems/mork
     sed $'2d;/^[02]$/cJebb\ncNeibb'
+https://open.kattis.com/problems/breakingbranches
+    sed $'/.*[13579]$/cBob\ncAlice 1'
 https://open.kattis.com/problems/somesum
     sed $'/[026]/cOdd\n/[48]/cEven\ncEither'
 https://open.kattis.com/problems/isithalloween
@@ -364,7 +364,7 @@ https://open.kattis.com/problems/compression2
 https://open.kattis.com/problems/liquidassets
     tr -sc _|sed "1d;s/\B[aeiou]\B//g"
 https://open.kattis.com/problems/dickensiandictionary
-    tr qwertasdfgzxcvb %|sed "/%%\|\w\w/s/.*/no/;t;cyes"
+    tr qwertasdfgzxcvb %|sed $'/%%\|\w\w/cno\ncyes'
 https://open.kattis.com/problems/isyavowel
     tr -dc aeiouy>_;tr -d y<_|wc -L;wc -L<_
 https://open.kattis.com/problems/attemptedalphabet
@@ -1200,7 +1200,7 @@ https://open.kattis.com/problems/appy
 https://open.kattis.com/problems/pokechat
     ruby -e"x,y=*$<;y.scan(/.../){$><<x[_1.to_i-1]}"
 https://open.kattis.com/problems/keyboardd
-    ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&$><<_1};puts"
+    ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&$><<_1}"
 https://open.kattis.com/problems/midjan
     ruby -ne'x,y=$<.map &:split;puts (x-y)*" ",(y-x)*" "'
 https://open.kattis.com/problems/kikiboba
@@ -1314,7 +1314,7 @@ https://open.kattis.com/problems/leynitolur
 https://open.kattis.com/problems/baddirections
     ruby -ne'x,y,*z,a=$_.bytes;puts z.map{(x+_1+4)%10}*""'
 https://open.kattis.com/problems/zanzibar
-    read;ruby -ne'p$_.split.sum{[-2*$.+$.=_1.to_i,0].max}'
+    read;ruby -ane'p$F.sum{[-2*$.+$.=_1.to_i,0].max}'
 
 # ruby + sed (preprocess), math, multi cases
 https://open.kattis.com/problems/bishops
@@ -1376,7 +1376,7 @@ https://open.kattis.com/problems/everywhere
 https://open.kattis.com/problems/irepeatmyself
     read;ruby -ne'p (1..).find{1>$_.index($_[_1..-2])}'
 https://open.kattis.com/problems/alliteration
-    read;ruby -ne'puts$_.split.map{_1[0]}.tally.min_by{[-_2,_1]}[0]'
+    read;ruby -ane'puts$F.map{_1[0]}.tally.min_by{[-_2,_1]}[0]'
 https://open.kattis.com/problems/detaileddifferences
     read;ruby -ne'puts x=$_,gets,(0..x.size-2).map{x[_1]==$_[_1]??.:?*}*""'
 https://open.kattis.com/problems/intuitiveelements
