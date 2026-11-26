@@ -123,8 +123,6 @@ https://open.kattis.com/problems/afjormun
     sed "1d;s/.*/\L\u&/"
 https://open.kattis.com/problems/thelastproblem
     sed "s/$/, and farewell!/;iThank you,"
-https://open.kattis.com/problems/samfelagsmidlasvar
-    sed "s/.* //;s/$/slop/"
 https://open.kattis.com/problems/monamonamona
     sed "s/ .*//;p;p"
 https://open.kattis.com/problems/bokstaflega1984
@@ -277,8 +275,6 @@ https://open.kattis.com/problems/babyshark
     fmt -1|uniq -c|sort -srn|sed q|cut -c9-
 https://open.kattis.com/problems/classfieldtrip
     fold -1|sort|tr -d \\n
-https://open.kattis.com/problems/pokerhand
-    fold -w3|sort|uniq -cw1|sort -r|cut -zc7
 https://open.kattis.com/problems/conundrum
     fold -1|sed "s/P//;n;s/E//;n;s/R//"|wc -w
 https://open.kattis.com/problems/avion
@@ -665,6 +661,8 @@ https://open.kattis.com/problems/ofinthecoldfoodofouthoteatthefood
     awk '$0=2*$1>$2?$1+$2/2:(2*$1*$2)^.5'
 https://open.kattis.com/problems/howmanysecondsineternity
     awk '{$0*=144e3}1'
+https://open.kattis.com/problems/samfelagsmidlasvar
+    awk '$0=$NF"slop"'
 https://open.kattis.com/problems/batteries
     awk '$1&&$0=int((2*$1-2)^.5+.5)""'
 https://open.kattis.com/problems/mixedfractions
@@ -893,6 +891,8 @@ https://open.kattis.com/problems/pokechat
     perl -pe'$x=$_;$_=<>;s/.../substr$x,$&-1,1/ge'
 https://open.kattis.com/problems/kikiboba
     perl -pe'$_=y/bk//?(boki,boba,kiki)[y/b//<=>y/k//]:none'
+https://open.kattis.com/problems/pokerhand
+    perl -ape'$_=(sort map++$x{+ord},@F)[4]'
 https://open.kattis.com/problems/virus3
     perl -lpe's/./[^$&]*+$&/g;$_=<>=~/$_/?Ja:Nej'
 https://open.kattis.com/problems/tripletexting
