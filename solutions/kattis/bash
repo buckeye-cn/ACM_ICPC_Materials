@@ -397,8 +397,6 @@ https://open.kattis.com/problems/secondopinion
     read a;echo $[a/3600] : $[a/60%60] : $[a%60]
 https://open.kattis.com/problems/arithmeticadaptation
     read a;echo $[b=a^97] $[a-b]
-https://open.kattis.com/problems/ballparkestimate
-    read a;echo $[(a+(b=10**~-${#a})/2)/b*b]
 https://open.kattis.com/problems/shortestcompositesum
     read a;echo 2 $[b=a%2?9:4] $[a-b]
 https://open.kattis.com/problems/thendaysofchristmas
@@ -423,6 +421,8 @@ https://open.kattis.com/problems/aroundthetable
     read a b;echo $[(a+b)*(4-2/((a+~b)**2+1))/2]
 https://open.kattis.com/problems/herbmixing
     read a b;echo $[(a+=a>b?b+b:a+a)/3*5+a*5/3]
+https://open.kattis.com/problems/kingofcans
+    read a b;echo $[b<16*a?(a+b/2*3)/50:a/2]
 https://open.kattis.com/problems/roomba1
     read a b;echo $[c=a*b,a+b>c?2*c-2:c+c%2]
 https://open.kattis.com/problems/countingclauses
@@ -717,6 +717,8 @@ https://open.kattis.com/problems/remotegetaway
     awk '$0=(x=$3^2/$4)*(x+2*$1)>$2^2?"YES":"NO"'
 https://open.kattis.com/problems/sibice
     awk '$0=x?$1^2>x?"NE":"DA":(x=$2^2+$3^2)<0'
+https://open.kattis.com/problems/leapyear
+    awk '$0=$1%($1%25?4:16)?"False":"True"'
 https://open.kattis.com/problems/goombastacks
     awk '$2&&(x+=$1)<$2{y="im"}END{print y"possible"}'
 https://open.kattis.com/problems/fleytitala
@@ -785,6 +787,8 @@ https://open.kattis.com/problems/sequencereduction
     awk 'NR>2{x+=$1>y?$1:y}{y=$1}END{print+x}'
 https://open.kattis.com/problems/vedurheidar
     awk 'NR<2{x=$1}NR>2&&$2=$2<x?"lokud":"opin"'
+https://open.kattis.com/problems/hopavinna
+    awk 'END{for(;x++<NF;z=$x-z)y+=z=$x<z?$x:z;print+y}'
 https://open.kattis.com/problems/dontfalldownstairs
     awk 'END{while(x++<NF)y+=!z[$x]++;print$1-y}'
 https://open.kattis.com/problems/internationaldates
@@ -817,6 +821,8 @@ https://open.kattis.com/problems/streamlag
     awk '$2{print$1-$2}'|sort -nr|sed q
 https://open.kattis.com/problems/triangularnumbers
     seq `dd`|awk \$0=x+=NR
+https://open.kattis.com/problems/sortofsort
+    read;fmt -1|awk 'NR<2||$1>=x{print x=$1}'
 https://open.kattis.com/problems/keppni
     read a b;awk 'a[$1]++<'$b RS=\ |wc -w
 https://open.kattis.com/problems/planetaris
@@ -837,12 +843,16 @@ https://open.kattis.com/problems/skalagerd
     perl -pe'$_*=2**.5'
 https://open.kattis.com/problems/jacobinumbers
     perl -pe'$_.=" 1"x$_'
+https://open.kattis.com/problems/matchstickmen
+    perl -aE'$x+=sqrt($F[1]**2-$_**2/4)for glob<>;say$x'
 https://open.kattis.com/problems/dingdongditch
     perl -anE'$.^2?say"@y[@F]":(@y=map$x+=$_,sort{$a-$b}0,@F)'
 https://open.kattis.com/problems/vittubetur
     perl -lpe'BEGIN{map{for($y=$_;$a[$_]<2&&$y<=1e6;$y*=$_){$a[$_*$y]++for 1..1e6/$y}$x=$a[$_]+=$x}2..1e6}$_=0+$a[$_]'
 https://open.kattis.com/problems/regarde
     read;perl -nE'say sh.h x$_'
+https://open.kattis.com/problems/modifiedgraycode
+    read;perl -lpe'$_=sprintf"%09b",$_;$_.=y/1//%2'
 
 # perl, string
 https://open.kattis.com/problems/everyotherletter
@@ -873,6 +883,8 @@ https://open.kattis.com/problems/doublepassword
     perl -pe'$_^=<>;$_=2**y/\0//c'
 https://open.kattis.com/problems/gettingwood
     perl -nE"say/tree/?@-:'no trees here'"
+https://open.kattis.com/problems/hakkari
+    perl -nE'push@x,$.-1," @+\n"while/\*/g;END{say@x/2,$/,@x}'
 https://open.kattis.com/problems/undeadoralive
     perl -pe'$_=(machine,alive,undead,"double agent")[/:\)/+2*/:\(/]'
 https://open.kattis.com/problems/mircipher
@@ -923,6 +935,8 @@ https://open.kattis.com/problems/egelskahann2
     ruby -ne'p ("%b1"%$_)[1..].to_i 2'
 https://open.kattis.com/problems/reversebinary
     ruby -ne'p ("%b"%$_).reverse.to_i 2'
+https://open.kattis.com/problems/ballparkestimate
+    ruby -ne'p$_.to_i.round 1-~/$/'
 https://open.kattis.com/problems/modulo
     ruby -e"p$<.uniq{_1.to_i%42}.size"
 https://open.kattis.com/problems/computercompute
@@ -931,10 +945,16 @@ https://open.kattis.com/problems/password
     ruby -ne'p$<.map{_1[/ .*/].to_f}.sort.sum{_1*$.-=1}'
 https://open.kattis.com/problems/maptiles2
     ruby -ne'p~/$/;%w[23 1-3].map{p$_.tr(_1,"01").to_i 2}'
-https://open.kattis.com/problems/hkio
-    ruby -ane'END{p x=$F.index($F.max_by &:hex),x}'
 https://open.kattis.com/problems/photoencoding
     ruby -ne'p$<.tally.map{_1.to_i+_2}.max/2+1'
+https://open.kattis.com/problems/conformity
+    ruby -ne'p$<.map{_1.split.sort}.tally.values.tally.max.inject:*'
+https://open.kattis.com/problems/kanelbullar
+    ruby -e"x=$<.map &:to_i;p x[5..].map{_1/x.shift}.min"
+https://open.kattis.com/problems/nothanks
+    ruby -ane'END{p ($F-$F.map(&:succ)).sum &:to_i}'
+https://open.kattis.com/problems/hkio
+    ruby -ane'END{p x=$F.index($F.max_by &:hex),x}'
 https://open.kattis.com/problems/socialrunning
     ruby -e"x,*y=$<.map &:to_i;p (1..x).map{y[-_1]+y[2-_1]}.min"
 https://open.kattis.com/problems/sistapizzan
@@ -957,6 +977,8 @@ https://open.kattis.com/problems/diagonalcut
     read a b;ruby -e"x=$a.gcd $b;p x.*$a/x&$b/x&1"
 https://open.kattis.com/problems/ghostleg
     read a b;ruby -e"x=*1..$a;$<.map{y=_1.to_i;x[y],x[y-1]=x[y-1,2]};p *x"
+https://open.kattis.com/problems/nafnatalning
+    read a b;ruby -ane'x=0;p 0-$F.sum{x-=y=_1.to_i;y*(x+y)}/'$b
 https://open.kattis.com/problems/binaryexponentiation
     read a b c;ruby -e"p $a.pow $b,$c"
 https://open.kattis.com/problems/climbingstairs
@@ -1317,6 +1339,8 @@ https://open.kattis.com/problems/keysphonewallet
 # ruby + tr (postprocess), string
 https://open.kattis.com/problems/cups
     ruby -e"puts$<.sort_by{_1.to_i/2+_1[/ .*/].to_i}"|tr -d 0-9
+https://open.kattis.com/problems/gandalfsspell
+    ruby -ne'x=$_.scan /./;y=gets.split;p x.map{x.index _1}==y.map{y.index _1}'|tr tf TF
 
 # ruby + sed (preprocess), string
 https://open.kattis.com/problems/reduplikation
@@ -1369,6 +1393,10 @@ https://open.kattis.com/problems/testingleds
     ruby<<<"p [`sed -n s/\ 0/,/p`].min||-1"
 https://open.kattis.com/problems/epigdanceoff
     ruby<<<"p ('%b'%(`sed "1d;y/_$/01/;s/.*/0b&|/"`0)).count(?0)+1"
+
+# ruby + string utils, large input
+https://open.kattis.com/problems/gort
+    ruby<<<"x=`paste -sd,`;y=x.pop;p x.max(x.shift/y*y).sum"
 
 # ruby, math, multi cases
 https://open.kattis.com/problems/leynitolur
