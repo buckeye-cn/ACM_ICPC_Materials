@@ -604,7 +604,7 @@ https://open.kattis.com/problems/akcija
 https://open.kattis.com/problems/shopaholic
     read;expr `fmt -1|sort -rn|sed 3~3!d\;i+`
 
-# awk
+# awk, math
 https://open.kattis.com/problems/commonknowledge
     awk '$0=8^$0'
 https://open.kattis.com/problems/13floors
@@ -661,8 +661,6 @@ https://open.kattis.com/problems/ofinthecoldfoodofouthoteatthefood
     awk '$0=2*$1>$2?$1+$2/2:(2*$1*$2)^.5'
 https://open.kattis.com/problems/howmanysecondsineternity
     awk '{$0*=144e3}1'
-https://open.kattis.com/problems/samfelagsmidlasvar
-    awk '$0=$NF"slop"'
 https://open.kattis.com/problems/batteries
     awk '$1&&$0=int((2*$1-2)^.5+.5)""'
 https://open.kattis.com/problems/mixedfractions
@@ -717,16 +715,12 @@ https://open.kattis.com/problems/sibice
     awk '$0=x?$1^2>x?"NE":"DA":(x=$2^2+$3^2)<0'
 https://open.kattis.com/problems/leapyear
     awk '$0=$1%($1%25?4:16)?"False":"True"'
-https://open.kattis.com/problems/goombastacks
-    awk '$2&&(x+=$1)<$2{y="im"}END{print y"possible"}'
-https://open.kattis.com/problems/fleytitala
-    awk '$0=$1*(2-2^-$2)""' RS=
-https://open.kattis.com/problems/grafaholur
-    awk '$0=$1*$2*$5/$3/$4' RS=
-https://open.kattis.com/problems/kingarthur
-    awk '$0=$1/$2/$3>.31831?"YES":"NO"' RS=
-https://open.kattis.com/problems/drivingdilemma
-    awk '$0=$2<1.46*$1*$3?"MADE IT":"FAILED TEST"' RS=
+https://open.kattis.com/problems/bottleflip
+    awk '{printf"%f",$1/(1+($4/$3)^.5)}'
+https://open.kattis.com/problems/fastestestfunction
+    awk '{printf"%f",$1*(100-$2)/$2/(100-$1)}'
+https://open.kattis.com/problems/cuttingcorners2
+    awk '{printf"%f",$1+$2-($1^2+$2^2)^.5}'
 https://open.kattis.com/problems/snowfall
     awk '{x+=$1?-$2:$2;x*=x>0}END{print+x}'
 https://open.kattis.com/problems/ratingproblems
@@ -739,16 +733,10 @@ https://open.kattis.com/problems/breakout2
     awk '{x+=$1<y+=$2}END{print x<NR/2?x:NR-1-x}'
 https://open.kattis.com/problems/trials
     awk 'x+=$0^2{y+=$0^4}END{printf"%.9f",(x*x-2*y)^.5/4}'
+https://open.kattis.com/problems/goombastacks
+    awk '$2&&(x+=$1)<$2{y="im"}END{print y"possible"}'
 https://open.kattis.com/problems/spritt
     awk '{x+=$1-$2}END{print x<NR?"Jebb":"Neibb"}'
-https://open.kattis.com/problems/toktik
-    awk '{x[$1]+=$2}END{for(y in x)if(x[y]>x[z])z=y;print z}'
-https://open.kattis.com/problems/bottleflip
-    awk '{printf"%f",$1/(1+($4/$3)^.5)}'
-https://open.kattis.com/problems/fastestestfunction
-    awk '{printf"%f",$1*(100-$2)/$2/(100-$1)}'
-https://open.kattis.com/problems/cuttingcorners2
-    awk '{printf"%f",$1+$2-($1^2+$2^2)^.5}'
 https://open.kattis.com/problems/chokladkartongen
     awk '{while(x<NF)y+=$x<$++x}END{print y}'
 https://open.kattis.com/problems/toys
@@ -765,12 +753,14 @@ https://open.kattis.com/problems/powerups
     awk '{x=1;while(y++<$2)x*=($1++)/y}$0=x'
 https://open.kattis.com/problems/integerdivision
     awk 'x{while(y++<NF)z+=a[$y-$y%x]++;print+z}{x=$2}'
+https://open.kattis.com/problems/toktik
+    awk '{x[$1]+=$2}END{for(y in x)if(x[y]>x[z])z=y;print z}'
+https://open.kattis.com/problems/hopavinna
+    awk 'END{for(;x++<NF;y=$x-y)z+=y=$x<y?$x:y;print+z}'
+https://open.kattis.com/problems/dontfalldownstairs
+    awk 'END{while(x++<NF)y+=!z[$x]++;print$1-y}'
 https://open.kattis.com/problems/facultyforest
     awk 'NR<2&&$0-=$2'
-https://open.kattis.com/problems/heimilisverk
-    awk 'NR>1&&!x[$0]++'
-https://open.kattis.com/problems/icpcawards
-    awk 'NF>1&&!x[$1]++&&++y<13'
 https://open.kattis.com/problems/revisionskontroll
     awk 'NR>1{while(x++<NF)print!y[$x]++}'
 https://open.kattis.com/problems/bergur
@@ -791,12 +781,14 @@ https://open.kattis.com/problems/vedurheidar
     awk 'NR<2{x=$1}NR>2&&$2=$2<x?"lokud":"opin"'
 https://open.kattis.com/problems/oddgnome
     awk 'NR>1{for(x=3;$x==$(x-1)+1;x++);print x-1}'
-https://open.kattis.com/problems/hopavinna
-    awk 'END{for(;x++<NF;y=$x-y)z+=y=$x<y?$x:y;print+z}'
-https://open.kattis.com/problems/dontfalldownstairs
-    awk 'END{while(x++<NF)y+=!z[$x]++;print$1-y}'
-https://open.kattis.com/problems/internationaldates
-    awk -F/ '$0=$1>12?"EU":$2>12?"US":"either"'
+https://open.kattis.com/problems/fleytitala
+    awk '$0=$1*(2-2^-$2)""' RS=
+https://open.kattis.com/problems/grafaholur
+    awk '$0=$1*$2*$5/$3/$4' RS=
+https://open.kattis.com/problems/kingarthur
+    awk '$0=$1/$2/$3>.31831?"YES":"NO"' RS=
+https://open.kattis.com/problems/drivingdilemma
+    awk '$0=$2<1.46*$1*$3?"MADE IT":"FAILED TEST"' RS=
 https://open.kattis.com/problems/quickestimate
     read;awk \$0=length
 https://open.kattis.com/problems/geneblock
@@ -810,23 +802,19 @@ https://open.kattis.com/problems/busassignment
 https://open.kattis.com/problems/scalingrecipe
     read a b c;awk \$0=\$0*$c/$b
 
-# awk + tr
+# awk + tr, math
 https://open.kattis.com/problems/rectanglearea
     awk '$0=($3-$1)*($4-$2)'|tr -d -
 https://open.kattis.com/problems/cheaterdetection
     read;tr -d .|awk '$0=$1%3<2?"VALID":"IMPOSSIBLE"'
 
-# awk + string utils
+# awk + string utils, math
 https://open.kattis.com/problems/jumbledscoreboards
     awk '$1<x||$2<y{exit 1}NF>1{x=$1;y=$2}'&&echo yes||echo no
 https://open.kattis.com/problems/staerstiferningurinn
     awk '$1==$2'|sort -rn|sed q
-https://open.kattis.com/problems/pubrunda
-    awk '$0=$1" "($2+1)*$3'|sort -nrsk2|sed q
 https://open.kattis.com/problems/streamlag
     awk '$2{print$1-$2}'|sort -nr|sed q
-https://open.kattis.com/problems/ferskastajarmid
-    awk 'NR>1{print -$2*$3,$1}'|sort -n|sed -n '1s/.* //p'
 https://open.kattis.com/problems/suspiciousactivity
     awk 'NR>1&&$1%8&&($2<1||$2>1e4)'|wc -l
 https://open.kattis.com/problems/triangularnumbers
@@ -840,15 +828,25 @@ https://open.kattis.com/problems/keppni
 https://open.kattis.com/problems/planetaris
     read a b;fmt -1|sort -n|awk "$b>=x+=1+\$0"|wc -l
 
+# awk, string
+https://open.kattis.com/problems/samfelagsmidlasvar
+    awk '$0=$NF"slop"'
+https://open.kattis.com/problems/heimilisverk
+    awk 'NR>1&&!x[$0]++'
+https://open.kattis.com/problems/icpcawards
+    awk 'NF>1&&!x[$1]++&&++y<13'
+https://open.kattis.com/problems/internationaldates
+    awk -F/ '$0=$1>12?"EU":$2>12?"US":"either"'
+
+# awk + string utils, string
+https://open.kattis.com/problems/pubrunda
+    awk '$0=$1" "($2+1)*$3'|sort -nrsk2|sed q
+https://open.kattis.com/problems/ferskastajarmid
+    awk 'NR>1{print -$2*$3,$1}'|sort -n|sed -n '1s/.* //p'
+
 # perl, math
 https://open.kattis.com/problems/edays
     perl -E'say<>*2'
-https://open.kattis.com/problems/missedalarm
-    perl -E'say<>lt<>?YES:NO'
-https://open.kattis.com/problems/flatbokuskortur
-    perl -E'say<>><>*sqrt<>?Nei:Je,bb'
-https://open.kattis.com/problems/grading
-    perl -0anE'say chr 65+grep$_>$F[5],@F'
 https://open.kattis.com/problems/abovesealevel
     perl -pe'$_-=.3'
 https://open.kattis.com/problems/areal
@@ -861,14 +859,20 @@ https://open.kattis.com/problems/klosettrod
     perl -naE'@x[@F]=1..@F;END{say"@{[reverse@x]}"}'
 https://open.kattis.com/problems/ghostleg
     perl -E'@x=1..<>;@x[$_-1,$_]=@x[$_,$_-1]for<>;say for@x'
-https://open.kattis.com/problems/sith
-    perl -E'@x=<>;say$x[3]<0?JEDI:$x[1]<$x[2]?SITH:"VEIT EKKI"'
 https://open.kattis.com/problems/matchstickmen
     perl -aE'$x+=sqrt($F[1]**2-$_**2/4)for glob<>;say$x'
-https://open.kattis.com/problems/dingdongditch
-    perl -anE'$.^2?say"@x[@F]":(@x=map$y+=$_,sort{$a-$b}0,@F)'
 https://open.kattis.com/problems/vittubetur
     perl -lpe'BEGIN{map{for($x=$_;$y[$_]<2&$x<1e6;$x*=$_){$y[$x*$_]++for 1..1e6/$x}$z=$y[$_]+=$z}2..1e6}$_=0+$y[$_]'
+https://open.kattis.com/problems/missedalarm
+    perl -E'say<>lt<>?YES:NO'
+https://open.kattis.com/problems/flatbokuskortur
+    perl -E'say<>><>*sqrt<>?Nei:Je,bb'
+https://open.kattis.com/problems/grading
+    perl -0anE'say chr 65+grep$_>$F[5],@F'
+https://open.kattis.com/problems/sith
+    perl -E'@x=<>;say$x[3]<0?JEDI:$x[1]<$x[2]?SITH:"VEIT EKKI"'
+https://open.kattis.com/problems/dingdongditch
+    perl -anE'$.^2?say"@x[@F]":(@x=map$y+=$_,sort{$a-$b}0,@F)'
 https://open.kattis.com/problems/modifiedgraycode
     read;perl -lpe'$_=sprintf"%09b",$_;$_.=y/1//%2'
 https://open.kattis.com/problems/regarde
@@ -877,6 +881,20 @@ https://open.kattis.com/problems/cuchitunnels
     read;perl -anE'$x+=$y<-1,$y+=$_-2for@F;say$y+2|$x?NO:YES'
 
 # perl, string
+https://open.kattis.com/problems/justabit
+    perl -pe'$_=y/0//.$".y/1//'
+https://open.kattis.com/problems/yinyangstones
+    perl -pe'$_=y/B//==y/W//|0'
+https://open.kattis.com/problems/kinahvisl
+    perl -pe'$_^=<>;$_=1+y/\0//c'
+https://open.kattis.com/problems/doublepassword
+    perl -pe'$_^=<>;$_=2**y/\0//c'
+https://open.kattis.com/problems/peragrams
+    perl -lpe's/(.)(.*)\1/$2/&&redo;chop;$_=y///c'
+https://open.kattis.com/problems/exam
+    perl -pe'$x=$_;$_=<>^<>;chop;$_=y///c-abs($x-y/\0//)'
+https://open.kattis.com/problems/pokerhand
+    perl -ape'$_=(sort map++$x{+ord},@F)[4]'
 https://open.kattis.com/problems/everyotherletter
     perl -pes/.\\K.//g
 https://open.kattis.com/problems/snakehiss
@@ -893,16 +911,6 @@ https://open.kattis.com/problems/faraduvidstafrofid
     perl -pe@x=/[aeiou]/gi\;s//pop@x/ge
 https://open.kattis.com/problems/headguard
     perl -pe's/(.)\1*/length($&).$1/ge'
-https://open.kattis.com/problems/justabit
-    perl -pe'$_=y/0//.$".y/1//'
-https://open.kattis.com/problems/exam
-    perl -pe'$x=$_;$_=<>^<>;chop;$_=y///c-abs($x-y/\0//)'
-https://open.kattis.com/problems/yinyangstones
-    perl -pe'$_=y/B//==y/W//|0'
-https://open.kattis.com/problems/kinahvisl
-    perl -pe'$_^=<>;$_=1+y/\0//c'
-https://open.kattis.com/problems/doublepassword
-    perl -pe'$_^=<>;$_=2**y/\0//c'
 https://open.kattis.com/problems/gettingwood
     perl -nE"say/tree/?@-:'no trees here'"
 https://open.kattis.com/problems/hakkari
@@ -915,8 +923,6 @@ https://open.kattis.com/problems/pokechat
     perl -pe'$x=$_;$_=<>;s/.../substr$x,$&-1,1/ge'
 https://open.kattis.com/problems/kikiboba
     perl -pe'$_=y/bk//?(boki,boba,kiki)[y/b//<=>y/k//]:none'
-https://open.kattis.com/problems/pokerhand
-    perl -ape'$_=(sort map++$x{+ord},@F)[4]'
 https://open.kattis.com/problems/virus3
     perl -lpe's/./[^$&]*+$&/g;$_=<>=~/$_/?Ja:Nej'
 https://open.kattis.com/problems/tripletexting
@@ -931,8 +937,6 @@ https://open.kattis.com/problems/battlesimulation
     perl -pe's/(?!(.).?\1|.(.)\2).../C/g;y/RBL/SKH/'
 https://open.kattis.com/problems/piglatin
     perl -pe's/([^aeiouy ]*)(\w+)/$2.($1||"y").ay/ge'
-https://open.kattis.com/problems/peragrams
-    perl -lpe's/(.)(.*)\1/$2/&&redo;chop;$_=y///c'
 https://open.kattis.com/problems/intuitiveelements
     read;perl -nE'say<>=~/[^$_]/?NO:YES'
 https://open.kattis.com/problems/appy
@@ -965,6 +969,8 @@ https://open.kattis.com/problems/modulo
     ruby -e"p$<.uniq{_1.to_i%42}.size"
 https://open.kattis.com/problems/computercompute
     ruby -e"p$<.sum{_1.to_i*1i**$.}.abs"
+https://open.kattis.com/problems/cprnummer
+    ruby -e"p'FEDIHGGFEDC'.bytes.sum{_1*$<.getbyte}%11/10"
 https://open.kattis.com/problems/password
     ruby -ne'p$<.map{_1[/ .*/].to_f}.sort.sum{_1*$.-=1}'
 https://open.kattis.com/problems/maptiles2
@@ -973,18 +979,24 @@ https://open.kattis.com/problems/photoencoding
     ruby -ne'p$<.tally.map{_1.to_i+_2}.max/2+1'
 https://open.kattis.com/problems/conformity
     ruby -ne'p$<.map{_1.split.sort}.tally.values.tally.max.inject:*'
-https://open.kattis.com/problems/kanelbullar
-    ruby -e"x=$<.map &:to_i;p x[5..].map{_1/x.shift}.min"
+https://open.kattis.com/problems/morsenumbers
+    ruby -ne'p gets.bytes.sum{((_1-53).abs*2+12)%50}-51'
 https://open.kattis.com/problems/nothanks
     ruby -ane'END{p ($F-$F.map(&:succ)).sum &:to_i}'
 https://open.kattis.com/problems/hkio
     ruby -ane'END{p x=$F.index($F.max_by &:hex),x}'
+https://open.kattis.com/problems/kanelbullar
+    ruby -e"x=$<.map &:to_i;p x[5..].map{_1/x.shift}.min"
 https://open.kattis.com/problems/socialrunning
     ruby -e"x,*y=$<.map &:to_i;p (1..x).map{y[-_1]+y[2-_1]}.min"
 https://open.kattis.com/problems/sistapizzan
     ruby -e"puts$<.uniq{_1.to_i%2}[1]?:Ja:'Nej'"
 https://open.kattis.com/problems/millifaersla
     ruby -e"$><<%w(Monnei Fjee Dolladollabilljoll).min_by{gets.to_i}"
+https://open.kattis.com/problems/bidrod
+    read;ruby -ane'puts$F|[]'
+https://open.kattis.com/problems/recessrocks
+    read a;ruby -ane"p $a-\$F.uniq.size"
 https://open.kattis.com/problems/treeskiing
     read a;ruby -e"p [*1..$a].combination($<.read.count(?W)).size-1"
 https://open.kattis.com/problems/babypanda
@@ -1269,16 +1281,10 @@ https://open.kattis.com/problems/finalexam2
     ruby -e"p$<.count{$/==$/=_1}"
 https://open.kattis.com/problems/simplicity
     ruby -ne'p$_.bytes.tally.values.sort[1..-3].sum'
-https://open.kattis.com/problems/cprnummer
-    ruby -e"p'FEDIHGGFEDC'.bytes.sum{_1*$<.getbyte}%11/10"
 https://open.kattis.com/problems/gangur
     ruby -ne'p$_.bytes.sum{_1%7%3*~-$.+=_1/62}'
-https://open.kattis.com/problems/morsenumbers
-    ruby -ne'p gets.bytes.sum{((_1-53).abs*2+12)%50}-51'
 https://open.kattis.com/problems/justajoystick
     ruby -ne'p gets.bytes.sum{((_1-$<.getbyte+13)%26-13).abs}'
-https://open.kattis.com/problems/snakeystring
-    ruby -ne'$<.map(&:bytes).transpose.map{putc _1.max}'
 https://open.kattis.com/problems/minesmotorcompany
     ruby -ne'p$<.each_byte.each_cons(4).sum{(_1-_4).abs}'
 https://open.kattis.com/problems/trik
@@ -1291,6 +1297,8 @@ https://open.kattis.com/problems/bela
     ruby -ne'x=$_[-2];p$<.sum{(x==_1[1]?:AAO_D__KUEL:"AAA_D__KCEL")[_1[0].sum%11].sum-65}'
 https://open.kattis.com/problems/dihedralgroup
     ruby -ne'x,y=$<.map &:split;p (x*3*?_+x.reverse*3*?_)[?_+y*?_+?_]?1:0'
+https://open.kattis.com/problems/snakeystring
+    ruby -ne'$<.map(&:bytes).transpose.map{putc _1.max}'
 https://open.kattis.com/problems/averagecharacter
     ruby -ne'putc~(9-$_.sum)/~/$/'
 https://open.kattis.com/problems/architecture
@@ -1311,20 +1319,16 @@ https://open.kattis.com/problems/shoppinglisteasy
     ruby -ne'x=$<.map(&:split).reduce:&;puts x.size,x.sort'
 https://open.kattis.com/problems/keyboardd
     ruby -e"x,y=$<.map{_1.chars.tally};x.map{_2<y[_1]&&$><<_1}"
+https://open.kattis.com/problems/maeting
+    ruby -ne'x,y=$<.map &:split;puts x&y'
 https://open.kattis.com/problems/midjan
     ruby -ne'x,y=$<.map &:split;puts (x-y)*" ",(y-x)*" "'
 https://open.kattis.com/problems/recount
     ruby -e"(x,y),z=$<.tally.sort_by{-_2};puts y>z[1]?x:'Runoff!'"
 https://open.kattis.com/problems/babelfish
     ruby -e"x={};$<.map{y,z=_1.split;x[z]=y;z||y&&puts(x[y]||:eh)}"
-https://open.kattis.com/problems/maeting
-    ruby -ne'x,y=$<.map &:split;puts x&y'
-https://open.kattis.com/problems/bidrod
-    read;ruby -ane'puts$F|[]'
 https://open.kattis.com/problems/nop
     read a;ruby -e"'$a'.bytes{$.+=_1<96?4-$.%4:1};p$.-${#a}-3"
-https://open.kattis.com/problems/recessrocks
-    read a;ruby -ane"p $a-\$F.uniq.size"
 https://open.kattis.com/problems/asciikassi
     read a;ruby -e"puts x=?++?-*$a+?+,[?|+' '*$a+?|]*$a,x"
 https://open.kattis.com/problems/pencilcrayons
