@@ -249,8 +249,6 @@ https://open.kattis.com/problems/lvable
     grep -Eo l?v?|wc -L|tr 02 20
 https://open.kattis.com/problems/keysphonewallet
     grep -vxf <(dd)<<<$'keys\nphone\nwallet'||echo ready
-https://open.kattis.com/problems/heysata
-    grep -Pzq '(.)\n.*\1'||a=\ ekki;echo Unnar fann hana$a!
 https://open.kattis.com/problems/bitteeinbit
     cut -c1
 https://open.kattis.com/problems/lubbilaerir
@@ -333,6 +331,8 @@ https://open.kattis.com/problems/inputscandal
     wc -l;tac|tac
 https://open.kattis.com/problems/compoundwords
     xargs -n1>_;join -j2 _ _|sed "s/\b\(.*\) \1\b//"|sort -u
+https://open.kattis.com/problems/heysata
+    grep -Pzq '(.)\n.*\1'||a=\ ekki;echo Unnar fann hana$a!
 https://open.kattis.com/problems/vefthjonatjon
     a=grep\ -c;($a ^J;tac|$a .J.;tac|$a J$)|sort -n|sed q
 https://open.kattis.com/problems/keywords
@@ -341,12 +341,6 @@ https://open.kattis.com/problems/upsidedown
     read;tr \  \\n|rev|sort -r
 https://open.kattis.com/problems/mumblerap
     read;tr -c 0-9 \\n|sort -rn|sed q
-https://open.kattis.com/problems/ncis
-    read;sort -f
-https://open.kattis.com/problems/aldur
-    read;sort -n|sed q
-https://open.kattis.com/problems/korokphrases
-    read;sort -u|wc -l
 https://open.kattis.com/problems/hamarksstokkun
     read;fmt -1|tac
 https://open.kattis.com/problems/klosettrod
@@ -355,6 +349,12 @@ https://open.kattis.com/problems/ball
     read;fmt -1|sort -n|uniq -d
 https://open.kattis.com/problems/hitastig
     read;fmt -1|sort -rn|sed "1p;N;D"
+https://open.kattis.com/problems/ncis
+    read;sort -f
+https://open.kattis.com/problems/aldur
+    read;sort -n|sed q
+https://open.kattis.com/problems/korokphrases
+    read;sort -u|wc -l
 https://open.kattis.com/problems/freefood
     read;xargs -n2 seq|sort -u|wc -l
 https://open.kattis.com/problems/bocchinorokku
